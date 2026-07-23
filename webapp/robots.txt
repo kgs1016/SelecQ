@@ -1,0 +1,6 @@
+# SelecQ — 크롤러 전체 허용
+User-agent: *
+Allow: /
+
+# Sitemap: 도메인 확정 후 아래 형식으로 추가
+# Sitemap: https://<도메인>/sitemap.xml

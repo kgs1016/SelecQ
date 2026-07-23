@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SelecQ — 평가원 수학 기출, 유형별로 골라 풀기</title>
+<meta name="description" content="평가원·교육청 수학 기출을 단원·유형·난이도로 골라 나만의 모의고사를 만들고, 회차별 실전과 오답·풀이 기록까지 한 곳에서. 태블릿 필기 지원.">
+
+<!-- Open Graph (카톡·SNS 공유 미리보기) · og:url/canonical은 도메인 확정 후 추가 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SelecQ">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="SelecQ — 평가원 수학 기출, 유형별로 골라 풀기">
+<meta property="og:description" content="단원·유형·난이도로 골라 나만의 모의고사를 만들고, 회차별 실전과 오답·풀이 기록까지. 태블릿 필기 지원.">
+<meta property="og:image" content="og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SelecQ — 평가원 수학 기출, 유형별로 골라 풀기">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SelecQ — 평가원 수학 기출, 유형별로 골라 풀기">
+<meta name="twitter:description" content="단원·유형·난이도로 골라 나만의 모의고사를 만들고, 회차별 실전과 오답·풀이 기록까지. 태블릿 필기 지원.">
+<meta name="twitter:image" content="og-image.png">
+
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<meta name="theme-color" content="#2563eb">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="SelecQ">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="styles.css?v=20260723b">
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="#/">Selec<span>Q</span></a>
+  <nav>
+    <a href="#/find" data-nav="filter">문제 찾기</a>
+    <a href="#/custom" data-nav="custom">나만의 모의고사</a>
+    <a href="#/exam" data-nav="exam">회차별 실전</a>
+    <a href="#/wrong" data-nav="wrong">오답</a>
+    <a href="#/stats" data-nav="stats">기록</a>
+  </nav>
+</header>
+
+<main id="view">
+  <!-- 정적 소개 콘텐츠: 앱(app.js)이 로드되면 교체됨. JS를 실행하지 않는 크롤러가 빈 페이지 대신 서비스 소개를 읽도록 함 -->
+  <section>
+    <h1>평가원 수학 기출, 유형별로 골라 푸는 SelecQ</h1>
+    <p>SelecQ는 한국교육과정평가원과 시·도 교육청이 공개한 수학 기출문제를 단원·유형·난이도로 골라 풀 수 있는 학습 도구입니다. 원하는 조건으로 나만의 모의고사를 구성하고, 회차별 실전 모의고사를 100분 타이머와 함께 풀며, 오답과 풀이 기록을 자동으로 관리할 수 있습니다. 태블릿 필기를 지원합니다.</p>
+    <ul>
+      <li>단원·유형·난이도별 문제 선택</li>
+      <li>원하는 문항만 골라 나만의 모의고사 구성</li>
+      <li>학년도·회차별 실전 모의고사(공통 22문항 + 선택 8문항)</li>
+      <li>오답 노트와 풀이 기록 자동 관리</li>
+    </ul>
+    <p>브라우저에서 JavaScript를 켜면 문제 선택·풀이 화면이 나타납니다.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>기출문제 저작권은 한국교육과정평가원(KICE)에 있으며, 본 서비스는 문항 메타데이터와 원본 링크만 제공합니다.</p>
+  <p>풀이 기록은 이 브라우저에만 저장됩니다. · <a href="mailto:1212ntnt@naver.com?subject=[SelecQ] 문의">문의</a></p>
+</footer>
+
+<script src="data.js?v=20260721b"></script>
+<script src="app.js?v=20260723f"></script>
+</body>
+</html>

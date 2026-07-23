@@ -1,0 +1,29 @@
+# === 저작권 민감 원본 자료 (배포 불필요, EBS 허락 대기) ===
+# 원본 기출 PDF
+data/raw/
+# 평가원 해설 PDF
+평가원해설/
+
+# === webapp/q 와 중복되는 원본 이미지 ===
+data/questions/
+
+# === Claude / 로컬 설정 ===
+.claude/
+
+# === 로컬 유틸 / 임시 파일 ===
+scratchpad_save.py
+sync_review.bat
+
+# === OS / 에디터 ===
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# === Python ===
+__pycache__/
+*.pyc
+.venv/
+venv/

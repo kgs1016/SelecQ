@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>유형 태깅 검수</title>
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --ink:#1c2230; --sub:#6b7280; --accent:#2563eb; --ok:#16a34a; --warn:#d97706; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:'Segoe UI', 'Malgun Gothic', sans-serif; background:var(--bg); color:var(--ink); }
+  header { display:flex; gap:12px; align-items:center; padding:10px 16px; background:var(--card); border-bottom:1px solid #e5e7eb; position:sticky; top:0; z-index:5; flex-wrap:wrap; }
+  header h1 { font-size:16px; margin:0 12px 0 0; }
+  select, button { font-size:14px; padding:6px 10px; border:1px solid #d1d5db; border-radius:8px; background:#fff; }
+  button { cursor:pointer; }
+  button.primary { background:var(--accent); color:#fff; border-color:var(--accent); }
+  button.ok { background:var(--ok); color:#fff; border-color:var(--ok); }
+  #progress { font-size:13px; color:var(--sub); margin-left:auto; }
+  main { max-width:960px; margin:16px auto; padding:0 16px; }
+  .card { background:var(--card); border:1px solid #e5e7eb; border-radius:14px; padding:16px; }
+  .meta { display:flex; gap:10px; flex-wrap:wrap; font-size:13px; color:var(--sub); margin-bottom:10px; align-items:center; }
+  .badge { padding:2px 8px; border-radius:99px; font-size:12px; background:#eef2ff; color:#3730a3; }
+  .badge.review { background:#fef3c7; color:#92400e; }
+  .badge.confirmed { background:#dcfce7; color:#166534; }
+  img.q { max-width:100%; border:1px solid #eee; border-radius:8px; }
+  .tagrow { display:flex; gap:10px; margin-top:12px; align-items:center; flex-wrap:wrap; }
+  .tagrow select { min-width:320px; }
+  .note { font-size:12px; color:var(--sub); margin-top:6px; }
+  .keys { font-size:12px; color:var(--sub); margin-top:14px; }
+  kbd { background:#eee; border-radius:4px; padding:1px 6px; font-size:11px; }
+  #done { text-align:center; padding:60px 0; font-size:18px; color:var(--sub); display:none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>유형 태깅 검수</h1>
+  <select id="fStatus">
+    <option value="needs_review">정밀 검수 (needs_review)</option>
+    <option value="auto_high">빠른 훑기 (auto_high)</option>
+    <option value="confirmed">확정분 (confirmed)</option>
+    <option value="all">전체</option>
+  </select>
+  <select id="fSubject">
+    <option value="all">전과목</option>
+    <option value="common">공통</option>
+    <option value="prob_stat">확통</option>
+    <option value="calculus">미적</option>
+    <option value="geometry">기하</option>
+  </select>
+  <button id="btnExport" class="primary">검수 결과 내보내기</button>
+  <span id="progress"></span>
+</header>
+<main>
+  <div class="card" id="card">
+    <div class="meta">
+      <span id="mKey"></span>
+      <span class="badge" id="mStatus"></span>
+      <span id="mAns"></span>
+      <span id="mNote"></span>
+    </div>
+    <img class="q" id="qimg" alt="문항 이미지">
+    <div class="tagrow">
+      <label>유형:</label>
+      <select id="typeSel"></select>
+      <button class="ok" id="btnOk">맞음 (Enter)</button>
+      <button id="btnPrev">← 이전</button>
+      <button id="btnNext">건너뛰기 →</button>
+    </div>
+    <div class="keys">단축키: <kbd>Enter</kbd> 현재 유형 확정 · <kbd>←</kbd>/<kbd>→</kbd> 이동 · 드롭다운 변경 시 자동으로 수정 기록</div>
+  </div>
+  <div id="done">🎉 이 필터의 검수가 끝났습니다. 상단에서 다른 필터를 선택하거나 결과를 내보내세요.</div>
+</main>
+<script src="review_data.js"></script>
+<script>
+const LS_KEY = "tag_review_v1";
+let store = JSON.parse(localStorage.getItem(LS_KEY) || "{}");
+let list = [], pos = 0;
+
+const typeNames = {};
+for (const s in TAXONOMY) for (const u of TAXONOMY[s].units) for (const t of u.types) typeNames[t.code] = t.name;
+
+function saveStore() { localStorage.setItem(LS_KEY, JSON.stringify(store)); }
+
+function buildList() {
+  const st = document.getElementById("fStatus").value;
+  const sub = document.getElementById("fSubject").value;
+  list = TAGS.filter(t =>
+    (st === "all" || t.review_status === st) &&
+    (sub === "all" || t.subject === sub));
+  pos = list.findIndex(t => !store[t.key]);
+  if (pos < 0) pos = 0;
+  render();
+}
+
+function fillTypes(subject, current) {
+  const sel = document.getElementById("typeSel");
+  sel.innerHTML = "";
+  for (const u of TAXONOMY[subject].units) {
+    const og = document.createElement("optgroup");
+    og.label = u.name + " (" + u.book + ")";
+    for (const t of u.types) {
+      const o = document.createElement("option");
+      o.value = t.code; o.textContent = t.name;
+      if (t.code === current) o.selected = true;
+      og.appendChild(o);
+    }
+    sel.appendChild(og);
+  }
+}
+
+function render() {
+  const card = document.getElementById("card"), done = document.getElementById("done");
+  const reviewed = list.filter(t => store[t.key]).length;
+  document.getElementById("progress").textContent = `${reviewed} / ${list.length} 검수됨 (전체 저장: ${Object.keys(store).length})`;
+  if (!list.length || pos >= list.length) { card.style.display = "none"; done.style.display = "block"; return; }
+  card.style.display = "block"; done.style.display = "none";
+  const t = list[pos];
+  const cur = store[t.key] ? store[t.key].type : t.type;
+  document.getElementById("mKey").textContent = t.key + "  [" + (t.points || "?") + "점]";
+  const b = document.getElementById("mStatus");
+  b.textContent = store[t.key] ? "검수완료" : t.review_status;
+  b.className = "badge " + (store[t.key] ? "confirmed" : (t.review_status === "needs_review" ? "review" : ""));
+  document.getElementById("mAns").textContent = "정답: " + t.answer;
+  document.getElementById("mNote").textContent = t.ai_note ? "AI: " + t.ai_note : "";
+  document.getElementById("qimg").src = t.image;
+  fillTypes(t.subject, cur);
+}
+
+function confirmCurrent(typeCode) {
+  const t = list[pos];
+  store[t.key] = { type: typeCode, reviewed_at: new Date().toISOString() };
+  saveStore();
+  pos = Math.min(pos + 1, list.length);
+  // 다음 미검수 항목으로 점프
+  while (pos < list.length && store[list[pos].key]) pos++;
+  render();
+}
+
+document.getElementById("btnOk").onclick = () => confirmCurrent(document.getElementById("typeSel").value);
+document.getElementById("typeSel").onchange = e => confirmCurrent(e.target.value);
+document.getElementById("btnNext").onclick = () => { pos = Math.min(pos + 1, list.length); render(); };
+document.getElementById("btnPrev").onclick = () => { pos = Math.max(pos - 1, 0); render(); };
+document.getElementById("fStatus").onchange = buildList;
+document.getElementById("fSubject").onchange = buildList;
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "SELECT") { if (e.key === "Enter") { e.preventDefault(); } else return; }
+  if (e.key === "Enter") { e.preventDefault(); document.getElementById("btnOk").click(); }
+  if (e.key === "ArrowRight") document.getElementById("btnNext").click();
+  if (e.key === "ArrowLeft") document.getElementById("btnPrev").click();
+});
+document.getElementById("btnExport").onclick = () => {
+  const blob = new Blob([JSON.stringify(store, null, 1)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "review_corrections.json";
+  a.click();
+};
+buildList();
+</script>
+</body>
+</html>

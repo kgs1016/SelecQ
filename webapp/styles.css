@@ -1,0 +1,375 @@
+:root {
+  --bg: #f9fafb; --card: #fff; --ink: #222; --sub: #667085;
+  --accent: #2563eb; --accent-soft: #eff4ff; --line: #e5e8ee;
+  --ok: #16a34a; --bad: #dc2626; --warn: #d97706;
+}
+* { box-sizing: border-box; }
+html, body { overscroll-behavior-y: none; }  /* 당김 튕김(고무줄) 방지 */
+body { margin: 0; font-family: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; background: var(--bg); color: var(--ink); }
+a { color: inherit; text-decoration: none; }
+
+.topbar { display: flex; align-items: center; gap: 20px; padding: 12px 20px; background: var(--card); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+.logo { font-size: 20px; font-weight: 800; }
+.logo span { color: var(--accent); }
+.topbar nav { display: flex; gap: 4px; }
+.topbar nav a { padding: 6px 12px; border-radius: 8px; font-size: 14px; color: var(--sub); }
+.topbar nav a.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+
+main { max-width: 860px; margin: 20px auto; padding: 0 16px; min-height: 60vh; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; margin-bottom: 14px; }
+
+h2 { font-size: 17px; margin: 0 0 12px; }
+.flabel { font-size: 13px; color: var(--sub); margin: 12px 0 6px; font-weight: 600; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { padding: 6px 12px; border: 1px solid var(--line); border-radius: 99px; font-size: 13px; cursor: pointer; background: #fff; user-select: none; }
+.chip.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+.chip.unit { font-weight: 600; }
+.typechips { margin: 6px 0 4px 10px; }
+.typechips .chip { font-size: 12px; padding: 4px 10px; }
+
+/* 난이도 색상 (상=빨강, 중=주황, 하=초록) */
+.lvchip { font-weight: 700; }
+.lvchip.lv-상 { border-color: #ef4444; color: #ef4444; }
+.lvchip.lv-중 { border-color: #f59e0b; color: #d97706; }
+.lvchip.lv-하 { border-color: #10b981; color: #059669; }
+.lvchip.lv-상.on { background: #ef4444; color: #fff; border-color: #ef4444; }
+.lvchip.lv-중.on { background: #f59e0b; color: #fff; border-color: #f59e0b; }
+.lvchip.lv-하.on { background: #10b981; color: #fff; border-color: #10b981; }
+.lvbadge { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 99px; vertical-align: 1px; }
+.lvbadge.lv-상 { background: #fee2e2; color: #dc2626; }
+.lvbadge.lv-중 { background: #fef3c7; color: #d97706; }
+.lvbadge.lv-하 { background: #d1fae5; color: #059669; }
+
+.searchbar { display: flex; align-items: center; gap: 10px; margin-top: 16px; }
+.count { font-size: 14px; color: var(--sub); }
+button.big, a.big { background: var(--accent); color: #fff; border: none; border-radius: 10px; padding: 10px 22px; font-size: 15px; font-weight: 600; cursor: pointer; }
+button.ghost { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 8px 14px; font-size: 13px; cursor: pointer; }
+
+/* 홈: 히어로 */
+.hero { text-align: center; padding: 52px 16px 28px; position: relative; }
+.hero::before { content: ""; position: absolute; inset: 40% -20% -10% -20%; z-index: -1;
+  background: radial-gradient(ellipse at 50% 90%, #dbeafe 0%, rgba(219,234,254,.35) 45%, transparent 75%); }
+
+/* 제품 미리보기 목업 (오르조 스타일) */
+.heromock { max-width: 680px; margin: 40px auto 0; border-radius: 18px; overflow: hidden;
+  background: #fff; border: 1px solid var(--line);
+  box-shadow: 0 24px 60px -18px rgba(37, 99, 235, .25), 0 6px 18px rgba(0,0,0,.06); }
+.mockbar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; background: #f3f4f6; border-bottom: 1px solid var(--line); }
+.mdot { width: 10px; height: 10px; border-radius: 50%; background: #d1d5db; }
+.mdot:nth-child(1) { background: #fca5a5; } .mdot:nth-child(2) { background: #fcd34d; } .mdot:nth-child(3) { background: #86efac; }
+.mtitle { margin-left: 8px; font-size: 12px; color: var(--sub); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mockbody { position: relative; aspect-ratio: 753 / 560; background: #fff; }
+.mockbody img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center top;
+  transition: opacity .22s ease; }
+.mockdots { display: flex; gap: 7px; justify-content: center; padding: 10px 0 12px; background: #fff; }
+.mockdots .dot { width: 8px; height: 8px; border-radius: 50%; background: #d1d5db; cursor: pointer; transition: all .2s; }
+.mockdots .dot.on { background: var(--accent); width: 22px; border-radius: 99px; }
+.hero h1 { font-size: 34px; font-weight: 800; line-height: 1.32; letter-spacing: -0.5px; margin: 0 0 14px; }
+.herosub { font-size: 15px; color: var(--sub); line-height: 1.75; margin: 0 0 24px; }
+.herosub b { color: var(--ink); }
+.benefits { list-style: none; margin: 0 auto 22px; padding: 0; width: fit-content; text-align: left;
+  display: flex; flex-direction: column; gap: 9px; }
+.benefits li { display: flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 600; color: var(--ink); }
+.benefits .bi { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; flex: none;
+  border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-size: 11px; font-weight: 800; }
+.herocta { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.pill { border-radius: 99px; padding: 13px 28px; font-size: 15px; }
+a.pill { display: inline-flex; align-items: center; }
+.pill.outline { background: #fff; color: var(--ink); border: 1px solid var(--line); font-weight: 600; cursor: pointer; }
+.pill.outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/* 과목 바로가기 카드 */
+.subjectcards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 8px 0 26px; }
+.scard { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 8px; text-align: center; cursor: pointer; transition: all .15s; }
+.scard:hover { border-color: var(--accent); transform: translateY(-2px); }
+.scard.on { border-color: var(--accent); background: var(--accent-soft); }
+.scard .sname { font-weight: 700; font-size: 15px; }
+.scard .scount { font-size: 12px; color: var(--sub); margin-top: 4px; }
+@media (max-width: 560px) { .subjectcards { grid-template-columns: repeat(2, 1fr); } .hero h1 { font-size: 26px; } }
+
+
+/* 드롭다운 필터바: 넘치면 잘리지 않고 다음 줄로 감싼다(초기화까지 항상 노출) */
+.filterwrap { position: sticky; top: 52px; z-index: 5; background: var(--bg); padding-top: 8px; }
+.filterbar { display: flex; flex-wrap: wrap; gap: 8px; row-gap: 8px; justify-content: center; padding-bottom: 4px; }
+.fbtn { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; border: 1px solid var(--line);
+  background: #fff; border-radius: 99px; padding: 7px 13px; font-size: 13px; color: var(--sub); cursor: pointer; }
+/* 모바일 축소 규칙은 기본 .fbtn 뒤에 와야 덮어쓰기가 적용됨 (동일 specificity → 소스 순서로 결정) */
+@media (max-width: 640px) {
+  .fbtn { padding: 6px 12px; font-size: 12px; }
+}
+.fbtn b { font-weight: 700; color: var(--ink); }
+.fbtn .caret { font-size: 10px; }
+.fbtn.sel { border-color: var(--accent); }
+.fbtn.sel b { color: var(--accent); }
+.fbtn.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.fbtn.active b { color: var(--accent); }
+.fbtn.resetbtn { color: var(--sub); }
+.filterpanel { display: none; }
+.filterpanel.open { display: block; border: 1px solid var(--line); border-radius: 12px; background: var(--card);
+  padding: 12px; margin-top: 8px; max-height: 48vh; overflow: auto; box-shadow: 0 4px 14px rgba(0,0,0,.06); }
+.unitrow { margin-bottom: 8px; }
+.ulabel { font-size: 12px; color: var(--sub); font-weight: 700; margin: 6px 0 4px; }
+.phint { font-size: 12px; color: var(--sub); margin-top: 8px; }
+.listhead { margin: 14px 2px 8px; }
+.listhead .count { font-size: 14px; color: var(--sub); font-weight: 600; }
+
+/* 검색 실행 영역 */
+.searchpane { text-align: center; padding: 40px 0; }
+.searchbtn { min-width: 240px; font-size: 16px; }
+.searchbtn:disabled { background: #cbd5e1; cursor: not-allowed; }
+.searchpane #btnExportFind { display: block; margin: 14px auto 0; }
+.shint { margin-top: 16px; font-size: 13px; color: var(--sub); line-height: 1.7; }
+.startprompt { font-size: 15px; color: var(--sub); line-height: 1.7; padding: 20px 0; }
+
+/* 실전 모의고사 */
+.examdesc { font-size: 14px; color: var(--sub); line-height: 1.7; margin: 6px 0 14px; }
+.examsetup .flabel { margin-top: 14px; }
+.examstart { text-align: center; margin-top: 22px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.examstart .big { min-width: 200px; }
+.examstart .big:disabled { background: #cbd5e1; cursor: not-allowed; }
+
+/* 나만의 모의고사(문제 조합) */
+/* 메인 하단 자료 이용 안내 */
+.usage-notice { max-width: 660px; margin: 44px auto 0; padding: 22px 20px 4px; border-top: 1px solid var(--line); text-align: center; }
+.usage-notice h3 { font-size: 14px; color: var(--ink); margin-bottom: 12px; }
+.usage-notice p { font-size: 13px; color: var(--sub); line-height: 1.8; margin: 0 0 12px; }
+
+/* 문제 찾기 전용 화면 헤더 */
+.findintro { text-align: center; margin: 4px 0 20px; }
+.findintro h2 { font-size: 22px; margin-bottom: 6px; }
+.findintro p { font-size: 14px; color: var(--sub); line-height: 1.6; margin: 0; }
+
+.candpane { margin-top: 12px; }
+.candhead { display: flex; align-items: center; justify-content: space-between; font-size: 14px; color: var(--sub); margin-bottom: 8px; }
+.candhead b { color: var(--ink); }
+.candactions { display: flex; gap: 6px; flex: none; }
+.canditems { max-height: 46vh; overflow-y: auto; border: 1px solid var(--line); border-radius: 12px; }
+.candrow { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.candrow:last-child { border-bottom: none; }
+.candmeta { display: flex; align-items: center; gap: 8px; min-width: 0; flex-wrap: wrap; }
+.cno { font-weight: 700; font-size: 14px; flex: none; }
+.cinfo { font-size: 12.5px; color: var(--sub); }
+.addbtn { flex: none; border: 1px solid var(--accent); background: #fff; color: var(--accent); border-radius: 99px; padding: 6px 13px; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+.addbtn.added { background: var(--accent); color: #fff; }
+.basketcard { margin-top: 16px; }
+.bhead { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+.bhead h3 { margin: 0; }
+
+/* 나만의 모의고사 탭 (직접 선택 | 조건 랜덤) */
+.tabbar { display: flex; gap: 4px; margin-top: 12px; border-bottom: 1px solid var(--line); }
+.tabbtn { border: none; background: none; padding: 9px 16px; font-size: 14px; font-weight: 700; color: var(--sub); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tabbtn.on { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* 랜덤 출제 */
+.rndpresets { display: flex; flex-wrap: wrap; gap: 8px; }
+.rndpreset { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; border: 1px solid var(--line); background: #fff; border-radius: 12px; padding: 9px 14px; cursor: pointer; text-align: left; }
+.rndpreset:hover { border-color: var(--accent); background: var(--accent-soft); }
+.rp-name { font-size: 14px; font-weight: 700; color: var(--ink); }
+.rp-spec { font-size: 12px; color: var(--sub); }
+.rndcustom { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 4px; }
+.rndcount { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--sub); }
+.rndcount b { font-size: 16px; color: var(--ink); min-width: 20px; text-align: center; }
+.rndtime { font-size: 14px; color: var(--sub); }
+.rndtime b { color: var(--accent); font-size: 16px; }
+.rndcustom .big { min-width: 150px; padding: 10px 18px; }
+.bcount { color: var(--accent); font-weight: 800; }
+.basketlist { display: flex; flex-direction: column; gap: 6px; margin: 6px 0 8px; }
+.brow { display: flex; align-items: center; gap: 10px; padding: 9px 10px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; }
+.bidx { flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.bmeta { flex: 1; font-size: 13px; min-width: 0; }
+.bctrl { display: flex; gap: 4px; flex: none; }
+.ico { width: 30px; height: 30px; border: 1px solid var(--line); background: #fff; border-radius: 8px; cursor: pointer; font-size: 12px; color: var(--sub); }
+.ico:disabled { opacity: .35; cursor: default; }
+.ico.rm { color: var(--bad); }
+.minput { display: inline-flex; align-items: center; gap: 3px; }
+.minput input { width: 50px; border: none; background: transparent; text-align: center; font-size: 13px; color: var(--ink); }
+.startprompt.small { padding: 22px 12px; font-size: 13px; }
+.examtimer { position: sticky; top: 52px; z-index: 7; display: flex; align-items: center; gap: 10px;
+  background: #111827; color: #fff; border-radius: 12px; padding: 8px 14px; margin-bottom: 10px; }
+.examtimer .etlabel { flex: 1; font-size: 13px; opacity: .9; }
+.etq { font-size: 12px; opacity: .85; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.etclock { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: 1px; }
+.etclock.over { color: #fca5a5; }
+.examtimer .ghost { background: rgba(255,255,255,.14); color: #fff; border: none; }
+.resultpanel { max-width: 520px; }
+.resultbody { padding: 16px; overflow: auto; }
+.bigscore { text-align: center; font-size: 44px; font-weight: 800; color: var(--accent); }
+.bigscore span { font-size: 18px; color: var(--sub); font-weight: 600; margin-left: 4px; }
+.resultmeta { text-align: center; font-size: 13px; color: var(--sub); margin: 6px 0 16px; }
+.resultrows { max-height: 40vh; overflow: auto; margin-bottom: 16px; }
+.resultbody .big { width: 100%; }
+
+/* 조건 내 문제 목록 오버레이 */
+.picker { position: fixed; inset: 0; background: rgba(0,0,0,.4); z-index: 20; display: flex; align-items: flex-end; justify-content: center; }
+.picker[hidden] { display: none; }
+.picker-panel { background: var(--card); width: 100%; max-width: 640px; max-height: 82vh; border-radius: 16px 16px 0 0; display: flex; flex-direction: column; }
+.picker-head { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+.picker-head b { flex: 1; font-size: 15px; }
+.phome { color: var(--accent); font-size: 13px; font-weight: 600; }
+.picker-list { overflow: auto; padding: 8px; }
+
+/* 해설 검색 링크 */
+.solbtn { display: block; text-align: center; text-decoration: none; margin: 10px 0 4px;
+  background: #fffbeb; color: #b45309; border: 1px solid #fcd34d; }
+.solbtn:hover { background: #fef3c7; }
+.prow { display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 10px; cursor: pointer; }
+.prow:hover { background: var(--accent-soft); }
+.prow.cur { background: var(--accent-soft); outline: 1px solid var(--accent); }
+.pno { font-weight: 800; min-width: 44px; }
+.pmeta { flex: 1; font-size: 13px; color: var(--sub); }
+.ptime { font-size: 12px; color: var(--sub); min-width: 50px; text-align: right; font-variant-numeric: tabular-nums; }
+
+.qitem { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 8px; background: var(--card); cursor: pointer; transition: border-color .15s; }
+.qitem:hover { border-color: var(--accent); }
+.qitem.sel { border-color: var(--accent); background: var(--accent-soft); }
+.qcheck { flex: none; font-size: 20px; line-height: 1; color: var(--accent); }
+/* 오답 목록 선택 삭제 */
+.wronghead { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+.wronghead h2 { margin: 0; }
+.selbar { position: sticky; bottom: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; box-shadow: 0 4px 14px rgba(0,0,0,.08); }
+.selall { display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--sub); cursor: pointer; }
+.selbar .del { padding: 10px 18px; white-space: nowrap; }
+.selbar .del.danger { background: var(--bad); }
+.selbar .del:disabled { background: #cbd5e1; cursor: not-allowed; }
+.qno { font-weight: 800; font-size: 15px; min-width: 52px; }
+.qmeta { flex: 1; }
+.qmeta .l1 { font-size: 14px; font-weight: 600; }
+.qmeta .l2 { font-size: 12px; color: var(--sub); margin-top: 2px; }
+.status { font-size: 12px; padding: 3px 10px; border-radius: 99px; }
+.status.none { background: #f1f5f9; color: var(--sub); }
+.status.ok { background: #dcfce7; color: var(--ok); }
+.status.bad { background: #fee2e2; color: var(--bad); }
+
+.solve-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.solve-head h2 { font-size: 20px; }
+.pts { color: var(--sub); font-size: 14px; }
+.typeline { margin: 6px 0 14px; font-size: 13px; color: var(--sub); }
+/* 필기 풀이 화면 */
+.draw-toolbar { position: sticky; top: 56px; z-index: 6; display: flex; gap: 6px; align-items: center; flex-wrap: wrap;
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 8px; margin-bottom: 10px; }
+/* 실전 모의고사: 상단에 시험 타이머(sticky, 높이 ~51px)가 함께 있어, 툴바를 그 아래로 내려 겹침 방지.
+   집중 모드에선 타이머가 숨겨지고 툴바 위치를 JS가 관리하므로 제외한다. */
+body:not(.focusmode) .solveview.in-exam .draw-toolbar { top: 104px; }
+.tbtn { border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 6px 10px; font-size: 13px; cursor: pointer; }
+.tbtn.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+.swatches { display: flex; gap: 5px; align-items: center; margin: 0 2px; }
+.sw { width: 22px; height: 22px; border-radius: 50%; cursor: pointer; box-shadow: 0 0 0 1px var(--line); }
+.sw.on { box-shadow: 0 0 0 2px var(--accent); }
+.tsep { width: 1px; height: 20px; background: var(--line); margin: 0 3px; }
+
+.worksheet { position: relative; border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+  background-color: #fff;
+  background-image: linear-gradient(#eef1f6 1px, transparent 1px), linear-gradient(90deg, #eef1f6 1px, transparent 1px);
+  background-size: 28px 28px; }
+.qimg { display: block; width: 100%; background: #fff; user-select: none; -webkit-user-drag: none; }
+.noimg { padding: 24px; font-size: 14px; color: var(--sub); background: #fff; }
+.workspace { min-height: 640px; }
+.drawlayer { position: absolute; top: 0; left: 0; touch-action: pan-y; cursor: crosshair; }
+.wsmore { display: flex; gap: 10px; align-items: center; margin: 10px 0 6px; }
+
+/* 집중 모드 — 페이지 스크롤 잠금, 필기 영역만 내부 스크롤 (굿노트 방식) */
+body.focusmode { overflow: hidden; }
+body.focusmode .topbar, body.focusmode .solve-head, body.focusmode .typeline,
+body.focusmode .srcline, body.focusmode .navrow, body.focusmode .foot,
+body.focusmode .solbtn, body.focusmode .examtimer { display: none; }
+body.focusmode .draw-toolbar { position: fixed; top: 0; left: 0; right: 0; z-index: 40; border-radius: 0; margin: 0; justify-content: center; }
+body.focusmode .wsscroll { position: fixed; top: 52px; bottom: 66px; left: 0; right: 0; z-index: 35;
+  overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; background: var(--bg); padding: 0 8px; }
+body.focusmode .worksheet { max-width: 900px; margin: 0 auto; }
+body.focusmode .wsmore { max-width: 900px; margin: 10px auto; }
+body.focusmode .answer-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 40; border-radius: 0; margin: 0; justify-content: center; }
+body.focusmode .picker, body.focusmode #examResult { z-index: 50; }
+@media (max-width: 520px) {
+  body.focusmode .tbtn { padding: 5px 8px; font-size: 12px; }
+  body.focusmode .sw { width: 18px; height: 18px; }
+  body.focusmode .answer-bar .mc button { width: 40px; height: 40px; font-size: 15px; }
+}
+.pdfmini { font-size: 12px; color: var(--accent); }
+.wsmore .pdfmini:first-of-type { margin-left: auto; }
+
+.answer-bar { position: sticky; bottom: 0; z-index: 6; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px;
+  margin-top: 12px; box-shadow: 0 -3px 12px rgba(0,0,0,.06); }
+.answer-bar .mc { gap: 6px; }
+.answer-bar .mc button { width: 46px; height: 46px; }
+.answer-bar .short { width: 120px; }
+.answer-bar .big { padding: 10px 18px; }
+.answer-bar .result { margin: 0 0 0 auto; }
+.anslabel { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+.mc { display: flex; gap: 8px; }
+.mc button { width: 52px; height: 52px; border-radius: 12px; border: 1px solid var(--line); background: #fff; font-size: 18px; cursor: pointer; }
+.mc button.sel { background: var(--accent); color: #fff; border-color: var(--accent); }
+input.short { width: 140px; padding: 10px 12px; font-size: 18px; border: 1px solid var(--line); border-radius: 10px; }
+.submitrow { margin-top: 14px; display: flex; gap: 10px; align-items: center; }
+.result { font-size: 16px; font-weight: 700; margin-top: 12px; }
+.result.ok { color: var(--ok); }
+.result.bad { color: var(--bad); }
+.result .ans { font-weight: 400; font-size: 14px; color: var(--sub); margin-left: 8px; }
+.navrow { display: flex; justify-content: space-between; margin-top: 18px; }
+.answer-bar .nextbtn { background: var(--accent); color: #fff; border: none; border-radius: 10px; padding: 10px 16px; font-size: 14px; font-weight: 700; white-space: nowrap; cursor: pointer; margin-left: auto; }
+.answer-bar .nextbtn.finish { background: var(--ok); }
+/* 모의고사: 하단바 2단 (윗줄=정답+채점, 아랫줄=이전/목록/다음) */
+.answer-bar.examab { flex-direction: column; align-items: stretch; gap: 8px; }
+.ab-answer { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.ab-nav { display: flex; align-items: center; gap: 8px; }
+.ab-nav .nextbtn { margin-left: auto; }
+.answer-bar .peekbtn { white-space: nowrap; }
+.peekans { font-size: 14px; font-weight: 700; white-space: nowrap; }
+.peekans.ok { color: var(--ok); }
+.peekans.bad { color: var(--bad); }
+.peekans .ans { font-weight: 500; color: var(--sub); }
+.srcline { font-size: 12px; color: var(--sub); margin-top: 16px; }
+.report { font-size: 12px; color: var(--sub); }
+
+.statgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.backuprow { display: flex; flex-wrap: wrap; gap: 10px; }
+.backuprow .btnfile { cursor: pointer; display: inline-flex; align-items: center; }
+.stat { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; text-align: center; }
+.stat .n { font-size: 24px; font-weight: 800; }
+.stat .t { font-size: 12px; color: var(--sub); margin-top: 2px; }
+
+.empty { text-align: center; color: var(--sub); padding: 40px 0; }
+.foot { max-width: 860px; margin: 30px auto 40px; padding: 0 16px; font-size: 12px; color: var(--sub); }
+@media (max-width: 600px) {
+  /* 모바일: 상단바 한 줄 유지 + 글씨 축소(넘치면 가로 스와이프) */
+  .topbar { gap: 8px; padding: 10px 10px; }
+  .logo { font-size: 18px; }
+  .topbar nav { overflow-x: auto; scrollbar-width: none; flex: 1; min-width: 0; }
+  .topbar nav::-webkit-scrollbar { display: none; }
+  .topbar nav a { padding: 5px 7px; font-size: 12px; white-space: nowrap; }
+  /* 가로 스크롤 여백을 부드럽게 페이드 (스크롤 위치에 따라 좌/우) */
+  .topbar nav.fade-r { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 26px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 26px), transparent); }
+  .topbar nav.fade-l:not(.fade-r) { -webkit-mask-image: linear-gradient(to right, transparent, #000 26px); mask-image: linear-gradient(to right, transparent, #000 26px); }
+  .topbar nav.fade-l.fade-r { -webkit-mask-image: linear-gradient(to right, transparent, #000 26px, #000 calc(100% - 26px), transparent); mask-image: linear-gradient(to right, transparent, #000 26px, #000 calc(100% - 26px), transparent); }
+  .mc button { width: 44px; height: 44px; }
+}
+
+/* 나만의 문제지 — 인쇄(PDF 내보내기) 전용 레이아웃 */
+#printArea { display: none; }
+@media print {
+  body.printing > *:not(#printArea) { display: none !important; }
+  body.printing #printArea { display: block; color: #000; }
+  .print-head { text-align: center; margin-bottom: 9mm; padding-bottom: 4mm; border-bottom: 2px solid #000; }
+  .print-head h1 { font-size: 20pt; margin: 0 0 3mm; }
+  .print-head h1 span { font-weight: 400; font-size: 13pt; color: #444; }
+  .print-sub { font-size: 10pt; color: #555; }
+  .print-q { page-break-inside: avoid; break-inside: avoid; margin-bottom: 9mm; }
+  .print-qhead { font-size: 11pt; font-weight: 700; margin-bottom: 3mm; }
+  .print-img { display: block; width: 100%; max-width: 170mm; }
+  .print-noimg { font-size: 10pt; color: #666; padding: 6mm; border: 1px solid #bbb; }
+  .print-src { font-size: 8pt; color: #777; margin-top: 2mm; }
+  .print-answers { page-break-before: always; break-before: page; }
+  .print-answers h2 { font-size: 15pt; margin: 0 0 4mm; border-bottom: 1px solid #000; padding-bottom: 2mm; }
+  .print-anslist { display: flex; flex-wrap: wrap; gap: 3mm 8mm; font-size: 11pt; }
+  .print-ans { white-space: nowrap; }
+  .print-foot { margin-top: 10mm; padding-top: 3mm; border-top: 1px solid #999; font-size: 8pt; color: #777; text-align: center; }
+  @page { margin: 14mm; }
+}
+
+/* 진행 중/제출된 모의고사 이어가기 배너 */
+.exambanner { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 14px; padding: 12px 16px; margin-bottom: 14px; }
+.exambanner .eb-info { font-size: 14px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.exambanner .eb-meta { color: var(--sub); font-size: 13px; }
+.exambanner .eb-actions { display: flex; gap: 8px; }
+.exambanner button.big { padding: 8px 16px; font-size: 13px; }

@@ -1,0 +1,2946 @@
+{
+"2022_csat/common/q01": {
+"rate": 90,
+"level": "하"
+},
+"2022_csat/common/q02": {
+"rate": 94,
+"level": "하"
+},
+"2022_csat/common/q03": {
+"rate": 93,
+"level": "하"
+},
+"2022_csat/common/q04": {
+"rate": 91,
+"level": "하"
+},
+"2022_csat/common/q05": {
+"rate": 90,
+"level": "하"
+},
+"2022_csat/common/q06": {
+"rate": 89,
+"level": "하"
+},
+"2022_csat/common/q07": {
+"rate": 76,
+"level": "중"
+},
+"2022_csat/common/q08": {
+"rate": 78,
+"level": "중"
+},
+"2022_csat/common/q09": {
+"rate": 70,
+"level": "중"
+},
+"2022_csat/common/q10": {
+"rate": 66,
+"level": "중"
+},
+"2022_csat/common/q11": {
+"rate": 67,
+"level": "중"
+},
+"2022_csat/common/q12": {
+"rate": 59,
+"level": "중"
+},
+"2022_csat/common/q13": {
+"rate": 57,
+"level": "중"
+},
+"2022_csat/common/q14": {
+"rate": 33,
+"level": "상"
+},
+"2022_csat/common/q15": {
+"rate": 51,
+"level": "중"
+},
+"2022_csat/common/q16": {
+"rate": 89,
+"level": "하"
+},
+"2022_csat/common/q17": {
+"rate": 91,
+"level": "하"
+},
+"2022_csat/common/q18": {
+"rate": 80,
+"level": "중"
+},
+"2022_csat/common/q19": {
+"rate": 70,
+"level": "중"
+},
+"2022_csat/common/q20": {
+"rate": 26,
+"level": "상"
+},
+"2022_csat/common/q21": {
+"rate": 40,
+"level": "상"
+},
+"2022_csat/common/q22": {
+"rate": 11,
+"level": "상"
+},
+"2022_csat/prob_stat/q23": {
+"rate": 87,
+"level": "하"
+},
+"2022_csat/prob_stat/q24": {
+"rate": 76,
+"level": "중"
+},
+"2022_csat/prob_stat/q25": {
+"rate": 66,
+"level": "중"
+},
+"2022_csat/prob_stat/q26": {
+"rate": 74,
+"level": "중"
+},
+"2022_csat/prob_stat/q27": {
+"rate": 63,
+"level": "중"
+},
+"2022_csat/prob_stat/q28": {
+"rate": 26,
+"level": "상"
+},
+"2022_csat/prob_stat/q29": {
+"rate": 15,
+"level": "상"
+},
+"2022_csat/prob_stat/q30": {
+"rate": 7,
+"level": "상"
+},
+"2022_csat/calculus/q23": {
+"rate": 95,
+"level": "하"
+},
+"2022_csat/calculus/q24": {
+"rate": 91,
+"level": "하"
+},
+"2022_csat/calculus/q25": {
+"rate": 75,
+"level": "중"
+},
+"2022_csat/calculus/q26": {
+"rate": 80,
+"level": "중"
+},
+"2022_csat/calculus/q27": {
+"rate": 55,
+"level": "중"
+},
+"2022_csat/calculus/q28": {
+"rate": 54,
+"level": "중"
+},
+"2022_csat/calculus/q29": {
+"rate": 23,
+"level": "상"
+},
+"2022_csat/calculus/q30": {
+"rate": 11,
+"level": "상"
+},
+"2022_csat/geometry/q23": {
+"rate": 91,
+"level": "하"
+},
+"2022_csat/geometry/q24": {
+"rate": 92,
+"level": "하"
+},
+"2022_csat/geometry/q25": {
+"rate": 77,
+"level": "중"
+},
+"2022_csat/geometry/q26": {
+"rate": 47,
+"level": "상"
+},
+"2022_csat/geometry/q27": {
+"rate": 84,
+"level": "하"
+},
+"2022_csat/geometry/q28": {
+"rate": 42,
+"level": "상"
+},
+"2022_csat/geometry/q29": {
+"rate": 10,
+"level": "상"
+},
+"2022_csat/geometry/q30": {
+"rate": 9,
+"level": "상"
+},
+"2022_mock06/common/q01": {
+"rate": 95,
+"level": "하"
+},
+"2022_mock06/common/q02": {
+"rate": 93,
+"level": "하"
+},
+"2022_mock06/common/q03": {
+"rate": 85,
+"level": "하"
+},
+"2022_mock06/common/q04": {
+"rate": 92,
+"level": "하"
+},
+"2022_mock06/common/q05": {
+"rate": 92,
+"level": "하"
+},
+"2022_mock06/common/q06": {
+"rate": 88,
+"level": "하"
+},
+"2022_mock06/common/q07": {
+"rate": 91,
+"level": "하"
+},
+"2022_mock06/common/q08": {
+"rate": 85,
+"level": "하"
+},
+"2022_mock06/common/q09": {
+"rate": 84,
+"level": "하"
+},
+"2022_mock06/common/q10": {
+"rate": 78,
+"level": "중"
+},
+"2022_mock06/common/q11": {
+"rate": 68,
+"level": "중"
+},
+"2022_mock06/common/q12": {
+"rate": 77,
+"level": "중"
+},
+"2022_mock06/common/q13": {
+"rate": 73,
+"level": "중"
+},
+"2022_mock06/common/q14": {
+"rate": 49,
+"level": "상"
+},
+"2022_mock06/common/q15": {
+"rate": 32,
+"level": "상"
+},
+"2022_mock06/common/q16": {
+"rate": 91,
+"level": "하"
+},
+"2022_mock06/common/q17": {
+"rate": 87,
+"level": "하"
+},
+"2022_mock06/common/q18": {
+"rate": 87,
+"level": "하"
+},
+"2022_mock06/common/q19": {
+"rate": 70,
+"level": "중"
+},
+"2022_mock06/common/q20": {
+"rate": 40,
+"level": "상"
+},
+"2022_mock06/common/q21": {
+"rate": 16,
+"level": "상"
+},
+"2022_mock06/common/q22": {
+"rate": 7,
+"level": "상"
+},
+"2022_mock06/prob_stat/q23": {
+"rate": 88,
+"level": "하"
+},
+"2022_mock06/prob_stat/q24": {
+"rate": 89,
+"level": "하"
+},
+"2022_mock06/prob_stat/q25": {
+"rate": 83,
+"level": "하"
+},
+"2022_mock06/prob_stat/q26": {
+"rate": 69,
+"level": "중"
+},
+"2022_mock06/prob_stat/q27": {
+"rate": 65,
+"level": "중"
+},
+"2022_mock06/prob_stat/q28": {
+"rate": 64,
+"level": "중"
+},
+"2022_mock06/prob_stat/q29": {
+"rate": 37,
+"level": "상"
+},
+"2022_mock06/prob_stat/q30": {
+"rate": 29,
+"level": "상"
+},
+"2022_mock06/calculus/q23": {
+"rate": 95,
+"level": "하"
+},
+"2022_mock06/calculus/q24": {
+"rate": 92,
+"level": "하"
+},
+"2022_mock06/calculus/q25": {
+"rate": 79,
+"level": "중"
+},
+"2022_mock06/calculus/q26": {
+"rate": 80,
+"level": "중"
+},
+"2022_mock06/calculus/q27": {
+"rate": 71,
+"level": "중"
+},
+"2022_mock06/calculus/q28": {
+"rate": 53,
+"level": "중"
+},
+"2022_mock06/calculus/q29": {
+"rate": 34,
+"level": "상"
+},
+"2022_mock06/calculus/q30": {
+"rate": 12,
+"level": "상"
+},
+"2022_mock06/geometry/q23": {
+"rate": 93,
+"level": "하"
+},
+"2022_mock06/geometry/q24": {
+"rate": 88,
+"level": "하"
+},
+"2022_mock06/geometry/q25": {
+"rate": 85,
+"level": "하"
+},
+"2022_mock06/geometry/q26": {
+"rate": 79,
+"level": "중"
+},
+"2022_mock06/geometry/q27": {
+"rate": 59,
+"level": "중"
+},
+"2022_mock06/geometry/q28": {
+"rate": 69,
+"level": "중"
+},
+"2022_mock06/geometry/q29": {
+"rate": 28,
+"level": "상"
+},
+"2022_mock06/geometry/q30": {
+"rate": 11,
+"level": "상"
+},
+"2022_mock09/common/q01": {
+"rate": 95,
+"level": "하"
+},
+"2022_mock09/common/q02": {
+"rate": 95,
+"level": "하"
+},
+"2022_mock09/common/q03": {
+"rate": 92,
+"level": "하"
+},
+"2022_mock09/common/q04": {
+"rate": 93,
+"level": "하"
+},
+"2022_mock09/common/q05": {
+"rate": 93,
+"level": "하"
+},
+"2022_mock09/common/q06": {
+"rate": 84,
+"level": "하"
+},
+"2022_mock09/common/q07": {
+"rate": 81,
+"level": "중"
+},
+"2022_mock09/common/q08": {
+"rate": 85,
+"level": "하"
+},
+"2022_mock09/common/q09": {
+"rate": 90,
+"level": "하"
+},
+"2022_mock09/common/q10": {
+"rate": 82,
+"level": "하"
+},
+"2022_mock09/common/q11": {
+"rate": 78,
+"level": "중"
+},
+"2022_mock09/common/q12": {
+"rate": 77,
+"level": "중"
+},
+"2022_mock09/common/q13": {
+"rate": 61,
+"level": "중"
+},
+"2022_mock09/common/q14": {
+"rate": 64,
+"level": "중"
+},
+"2022_mock09/common/q15": {
+"rate": 42,
+"level": "상"
+},
+"2022_mock09/common/q16": {
+"rate": 92,
+"level": "하"
+},
+"2022_mock09/common/q17": {
+"rate": 92,
+"level": "하"
+},
+"2022_mock09/common/q18": {
+"rate": 80,
+"level": "중"
+},
+"2022_mock09/common/q19": {
+"rate": 76,
+"level": "중"
+},
+"2022_mock09/common/q20": {
+"rate": 37,
+"level": "상"
+},
+"2022_mock09/common/q21": {
+"rate": 22,
+"level": "상"
+},
+"2022_mock09/common/q22": {
+"rate": 7,
+"level": "상"
+},
+"2022_mock09/prob_stat/q23": {
+"rate": 90,
+"level": "하"
+},
+"2022_mock09/prob_stat/q24": {
+"rate": 85,
+"level": "하"
+},
+"2022_mock09/prob_stat/q25": {
+"rate": 83,
+"level": "하"
+},
+"2022_mock09/prob_stat/q26": {
+"rate": 73,
+"level": "중"
+},
+"2022_mock09/prob_stat/q27": {
+"rate": 64,
+"level": "중"
+},
+"2022_mock09/prob_stat/q28": {
+"rate": 69,
+"level": "중"
+},
+"2022_mock09/prob_stat/q29": {
+"rate": 36,
+"level": "상"
+},
+"2022_mock09/prob_stat/q30": {
+"rate": 21,
+"level": "상"
+},
+"2022_mock09/calculus/q23": {
+"rate": 94,
+"level": "하"
+},
+"2022_mock09/calculus/q24": {
+"rate": 91,
+"level": "하"
+},
+"2022_mock09/calculus/q25": {
+"rate": 92,
+"level": "하"
+},
+"2022_mock09/calculus/q26": {
+"rate": 83,
+"level": "하"
+},
+"2022_mock09/calculus/q27": {
+"rate": 54,
+"level": "중"
+},
+"2022_mock09/calculus/q28": {
+"rate": 46,
+"level": "상"
+},
+"2022_mock09/calculus/q29": {
+"rate": 29,
+"level": "상"
+},
+"2022_mock09/calculus/q30": {
+"rate": 8,
+"level": "상"
+},
+"2022_mock09/geometry/q23": {
+"rate": 91,
+"level": "하"
+},
+"2022_mock09/geometry/q24": {
+"rate": 92,
+"level": "하"
+},
+"2022_mock09/geometry/q25": {
+"rate": 71,
+"level": "중"
+},
+"2022_mock09/geometry/q26": {
+"rate": 81,
+"level": "중"
+},
+"2022_mock09/geometry/q27": {
+"rate": 80,
+"level": "중"
+},
+"2022_mock09/geometry/q28": {
+"rate": 64,
+"level": "중"
+},
+"2022_mock09/geometry/q29": {
+"rate": 31,
+"level": "상"
+},
+"2022_mock09/geometry/q30": {
+"rate": 10,
+"level": "상"
+},
+"2023_csat/common/q01": {
+"rate": 90,
+"level": "하"
+},
+"2023_csat/common/q02": {
+"rate": 89,
+"level": "하"
+},
+"2023_csat/common/q03": {
+"rate": 89,
+"level": "하"
+},
+"2023_csat/common/q04": {
+"rate": 89,
+"level": "하"
+},
+"2023_csat/common/q05": {
+"rate": 71,
+"level": "중"
+},
+"2023_csat/common/q06": {
+"rate": 89,
+"level": "하"
+},
+"2023_csat/common/q07": {
+"rate": 73,
+"level": "중"
+},
+"2023_csat/common/q08": {
+"rate": 77,
+"level": "중"
+},
+"2023_csat/common/q09": {
+"rate": 73,
+"level": "중"
+},
+"2023_csat/common/q10": {
+"rate": 76,
+"level": "중"
+},
+"2023_csat/common/q11": {
+"rate": 68,
+"level": "중"
+},
+"2023_csat/common/q12": {
+"rate": 50,
+"level": "중"
+},
+"2023_csat/common/q13": {
+"rate": 63,
+"level": "중"
+},
+"2023_csat/common/q14": {
+"rate": 22,
+"level": "상"
+},
+"2023_csat/common/q15": {
+"rate": 37,
+"level": "상"
+},
+"2023_csat/common/q16": {
+"rate": 85,
+"level": "하"
+},
+"2023_csat/common/q17": {
+"rate": 88,
+"level": "하"
+},
+"2023_csat/common/q18": {
+"rate": 85,
+"level": "하"
+},
+"2023_csat/common/q19": {
+"rate": 68,
+"level": "중"
+},
+"2023_csat/common/q20": {
+"rate": 48,
+"level": "상"
+},
+"2023_csat/common/q21": {
+"rate": 30,
+"level": "상"
+},
+"2023_csat/common/q22": {
+"rate": 7,
+"level": "상"
+},
+"2023_csat/prob_stat/q23": {
+"rate": 85,
+"level": "하"
+},
+"2023_csat/prob_stat/q24": {
+"rate": 82,
+"level": "하"
+},
+"2023_csat/prob_stat/q25": {
+"rate": 77,
+"level": "중"
+},
+"2023_csat/prob_stat/q26": {
+"rate": 64,
+"level": "중"
+},
+"2023_csat/prob_stat/q27": {
+"rate": 51,
+"level": "중"
+},
+"2023_csat/prob_stat/q28": {
+"rate": 58,
+"level": "중"
+},
+"2023_csat/prob_stat/q29": {
+"rate": 7,
+"level": "상"
+},
+"2023_csat/prob_stat/q30": {
+"rate": 7,
+"level": "상"
+},
+"2023_csat/calculus/q23": {
+"rate": 89,
+"level": "하"
+},
+"2023_csat/calculus/q24": {
+"rate": 78,
+"level": "중"
+},
+"2023_csat/calculus/q25": {
+"rate": 87,
+"level": "하"
+},
+"2023_csat/calculus/q26": {
+"rate": 72,
+"level": "중"
+},
+"2023_csat/calculus/q27": {
+"rate": 68,
+"level": "중"
+},
+"2023_csat/calculus/q28": {
+"rate": 44,
+"level": "상"
+},
+"2023_csat/calculus/q29": {
+"rate": 28,
+"level": "상"
+},
+"2023_csat/calculus/q30": {
+"rate": 11,
+"level": "상"
+},
+"2023_csat/geometry/q23": {
+"rate": 89,
+"level": "하"
+},
+"2023_csat/geometry/q24": {
+"rate": 91,
+"level": "하"
+},
+"2023_csat/geometry/q25": {
+"rate": 79,
+"level": "중"
+},
+"2023_csat/geometry/q26": {
+"rate": 74,
+"level": "중"
+},
+"2023_csat/geometry/q27": {
+"rate": 74,
+"level": "중"
+},
+"2023_csat/geometry/q28": {
+"rate": 56,
+"level": "중"
+},
+"2023_csat/geometry/q29": {
+"rate": 31,
+"level": "상"
+},
+"2023_csat/geometry/q30": {
+"rate": 16,
+"level": "상"
+},
+"2023_mock06/common/q01": {
+"rate": 94,
+"level": "하"
+},
+"2023_mock06/common/q02": {
+"rate": 93,
+"level": "하"
+},
+"2023_mock06/common/q03": {
+"rate": 92,
+"level": "하"
+},
+"2023_mock06/common/q04": {
+"rate": 93,
+"level": "하"
+},
+"2023_mock06/common/q05": {
+"rate": 93,
+"level": "하"
+},
+"2023_mock06/common/q06": {
+"rate": 85,
+"level": "하"
+},
+"2023_mock06/common/q07": {
+"rate": 83,
+"level": "하"
+},
+"2023_mock06/common/q08": {
+"rate": 77,
+"level": "중"
+},
+"2023_mock06/common/q09": {
+"rate": 86,
+"level": "하"
+},
+"2023_mock06/common/q10": {
+"rate": 64,
+"level": "중"
+},
+"2023_mock06/common/q11": {
+"rate": 80,
+"level": "중"
+},
+"2023_mock06/common/q12": {
+"rate": 66,
+"level": "중"
+},
+"2023_mock06/common/q13": {
+"rate": 65,
+"level": "중"
+},
+"2023_mock06/common/q14": {
+"rate": 45,
+"level": "상"
+},
+"2023_mock06/common/q15": {
+"rate": 38,
+"level": "상"
+},
+"2023_mock06/common/q16": {
+"rate": 89,
+"level": "하"
+},
+"2023_mock06/common/q17": {
+"rate": 89,
+"level": "하"
+},
+"2023_mock06/common/q18": {
+"rate": 87,
+"level": "하"
+},
+"2023_mock06/common/q19": {
+"rate": 75,
+"level": "중"
+},
+"2023_mock06/common/q20": {
+"rate": 28,
+"level": "상"
+},
+"2023_mock06/common/q21": {
+"rate": 31,
+"level": "상"
+},
+"2023_mock06/common/q22": {
+"rate": 5,
+"level": "상"
+},
+"2023_mock06/prob_stat/q23": {
+"rate": 90,
+"level": "하"
+},
+"2023_mock06/prob_stat/q24": {
+"rate": 81,
+"level": "중"
+},
+"2023_mock06/prob_stat/q25": {
+"rate": 80,
+"level": "중"
+},
+"2023_mock06/prob_stat/q26": {
+"rate": 68,
+"level": "중"
+},
+"2023_mock06/prob_stat/q27": {
+"rate": 76,
+"level": "중"
+},
+"2023_mock06/prob_stat/q28": {
+"rate": 60,
+"level": "중"
+},
+"2023_mock06/prob_stat/q29": {
+"rate": 32,
+"level": "상"
+},
+"2023_mock06/prob_stat/q30": {
+"rate": 16,
+"level": "상"
+},
+"2023_mock06/calculus/q23": {
+"rate": 95,
+"level": "하"
+},
+"2023_mock06/calculus/q24": {
+"rate": 87,
+"level": "하"
+},
+"2023_mock06/calculus/q25": {
+"rate": 84,
+"level": "하"
+},
+"2023_mock06/calculus/q26": {
+"rate": 71,
+"level": "중"
+},
+"2023_mock06/calculus/q27": {
+"rate": 75,
+"level": "중"
+},
+"2023_mock06/calculus/q28": {
+"rate": 47,
+"level": "상"
+},
+"2023_mock06/calculus/q29": {
+"rate": 19,
+"level": "상"
+},
+"2023_mock06/calculus/q30": {
+"rate": 12,
+"level": "상"
+},
+"2023_mock06/geometry/q23": {
+"rate": 93,
+"level": "하"
+},
+"2023_mock06/geometry/q24": {
+"rate": 87,
+"level": "하"
+},
+"2023_mock06/geometry/q25": {
+"rate": 75,
+"level": "중"
+},
+"2023_mock06/geometry/q26": {
+"rate": 64,
+"level": "중"
+},
+"2023_mock06/geometry/q27": {
+"rate": 75,
+"level": "중"
+},
+"2023_mock06/geometry/q28": {
+"rate": 45,
+"level": "상"
+},
+"2023_mock06/geometry/q29": {
+"rate": 22,
+"level": "상"
+},
+"2023_mock06/geometry/q30": {
+"rate": 8,
+"level": "상"
+},
+"2023_mock09/common/q01": {
+"rate": 93,
+"level": "하"
+},
+"2023_mock09/common/q02": {
+"rate": 94,
+"level": "하"
+},
+"2023_mock09/common/q03": {
+"rate": 86,
+"level": "하"
+},
+"2023_mock09/common/q04": {
+"rate": 90,
+"level": "하"
+},
+"2023_mock09/common/q05": {
+"rate": 93,
+"level": "하"
+},
+"2023_mock09/common/q06": {
+"rate": 91,
+"level": "하"
+},
+"2023_mock09/common/q07": {
+"rate": 83,
+"level": "하"
+},
+"2023_mock09/common/q08": {
+"rate": 81,
+"level": "중"
+},
+"2023_mock09/common/q09": {
+"rate": 77,
+"level": "중"
+},
+"2023_mock09/common/q10": {
+"rate": 77,
+"level": "중"
+},
+"2023_mock09/common/q11": {
+"rate": 59,
+"level": "중"
+},
+"2023_mock09/common/q12": {
+"rate": 66,
+"level": "중"
+},
+"2023_mock09/common/q13": {
+"rate": 42,
+"level": "상"
+},
+"2023_mock09/common/q14": {
+"rate": 51,
+"level": "중"
+},
+"2023_mock09/common/q15": {
+"rate": 39,
+"level": "상"
+},
+"2023_mock09/common/q16": {
+"rate": 87,
+"level": "하"
+},
+"2023_mock09/common/q17": {
+"rate": 89,
+"level": "하"
+},
+"2023_mock09/common/q18": {
+"rate": 85,
+"level": "하"
+},
+"2023_mock09/common/q19": {
+"rate": 76,
+"level": "중"
+},
+"2023_mock09/common/q20": {
+"rate": 42,
+"level": "상"
+},
+"2023_mock09/common/q21": {
+"rate": 22,
+"level": "상"
+},
+"2023_mock09/common/q22": {
+"rate": 11,
+"level": "상"
+},
+"2023_mock09/prob_stat/q23": {
+"rate": 86,
+"level": "하"
+},
+"2023_mock09/prob_stat/q24": {
+"rate": 78,
+"level": "중"
+},
+"2023_mock09/prob_stat/q25": {
+"rate": 75,
+"level": "중"
+},
+"2023_mock09/prob_stat/q26": {
+"rate": 72,
+"level": "중"
+},
+"2023_mock09/prob_stat/q27": {
+"rate": 66,
+"level": "중"
+},
+"2023_mock09/prob_stat/q28": {
+"rate": 52,
+"level": "중"
+},
+"2023_mock09/prob_stat/q29": {
+"rate": 22,
+"level": "상"
+},
+"2023_mock09/prob_stat/q30": {
+"rate": 12,
+"level": "상"
+},
+"2023_mock09/calculus/q23": {
+"rate": 87,
+"level": "하"
+},
+"2023_mock09/calculus/q24": {
+"rate": 86,
+"level": "하"
+},
+"2023_mock09/calculus/q25": {
+"rate": 87,
+"level": "하"
+},
+"2023_mock09/calculus/q26": {
+"rate": 83,
+"level": "하"
+},
+"2023_mock09/calculus/q27": {
+"rate": 61,
+"level": "중"
+},
+"2023_mock09/calculus/q28": {
+"rate": 61,
+"level": "중"
+},
+"2023_mock09/calculus/q29": {
+"rate": 22,
+"level": "상"
+},
+"2023_mock09/calculus/q30": {
+"rate": 8,
+"level": "상"
+},
+"2023_mock09/geometry/q23": {
+"rate": 93,
+"level": "하"
+},
+"2023_mock09/geometry/q24": {
+"rate": 86,
+"level": "하"
+},
+"2023_mock09/geometry/q25": {
+"rate": 88,
+"level": "하"
+},
+"2023_mock09/geometry/q26": {
+"rate": 78,
+"level": "중"
+},
+"2023_mock09/geometry/q27": {
+"rate": 64,
+"level": "중"
+},
+"2023_mock09/geometry/q28": {
+"rate": 56,
+"level": "중"
+},
+"2023_mock09/geometry/q29": {
+"rate": 16,
+"level": "상"
+},
+"2023_mock09/geometry/q30": {
+"rate": 14,
+"level": "상"
+},
+"2024_csat/common/q01": {
+"rate": 93,
+"level": "하"
+},
+"2024_csat/common/q02": {
+"rate": 92,
+"level": "하"
+},
+"2024_csat/common/q03": {
+"rate": 81,
+"level": "중"
+},
+"2024_csat/common/q04": {
+"rate": 91,
+"level": "하"
+},
+"2024_csat/common/q05": {
+"rate": 92,
+"level": "하"
+},
+"2024_csat/common/q06": {
+"rate": 88,
+"level": "하"
+},
+"2024_csat/common/q07": {
+"rate": 90,
+"level": "하"
+},
+"2024_csat/common/q08": {
+"rate": 81,
+"level": "중"
+},
+"2024_csat/common/q09": {
+"rate": 74,
+"level": "중"
+},
+"2024_csat/common/q10": {
+"rate": 65,
+"level": "중"
+},
+"2024_csat/common/q11": {
+"rate": 69,
+"level": "중"
+},
+"2024_csat/common/q12": {
+"rate": 67,
+"level": "중"
+},
+"2024_csat/common/q13": {
+"rate": 63,
+"level": "중"
+},
+"2024_csat/common/q14": {
+"rate": 27,
+"level": "상"
+},
+"2024_csat/common/q15": {
+"rate": 65,
+"level": "중"
+},
+"2024_csat/common/q16": {
+"rate": 84,
+"level": "하"
+},
+"2024_csat/common/q17": {
+"rate": 90,
+"level": "하"
+},
+"2024_csat/common/q18": {
+"rate": 85,
+"level": "하"
+},
+"2024_csat/common/q19": {
+"rate": 42,
+"level": "상"
+},
+"2024_csat/common/q20": {
+"rate": 33,
+"level": "상"
+},
+"2024_csat/common/q21": {
+"rate": 41,
+"level": "상"
+},
+"2024_csat/common/q22": {
+"rate": 4,
+"level": "상"
+},
+"2024_csat/prob_stat/q23": {
+"rate": 89,
+"level": "하"
+},
+"2024_csat/prob_stat/q24": {
+"rate": 75,
+"level": "중"
+},
+"2024_csat/prob_stat/q25": {
+"rate": 80,
+"level": "중"
+},
+"2024_csat/prob_stat/q26": {
+"rate": 50,
+"level": "중"
+},
+"2024_csat/prob_stat/q27": {
+"rate": 65,
+"level": "중"
+},
+"2024_csat/prob_stat/q28": {
+"rate": 51,
+"level": "중"
+},
+"2024_csat/prob_stat/q29": {
+"rate": 33,
+"level": "상"
+},
+"2024_csat/prob_stat/q30": {
+"rate": 26,
+"level": "상"
+},
+"2024_csat/calculus/q23": {
+"rate": 95,
+"level": "하"
+},
+"2024_csat/calculus/q24": {
+"rate": 86,
+"level": "하"
+},
+"2024_csat/calculus/q25": {
+"rate": 78,
+"level": "중"
+},
+"2024_csat/calculus/q26": {
+"rate": 75,
+"level": "중"
+},
+"2024_csat/calculus/q27": {
+"rate": 39,
+"level": "상"
+},
+"2024_csat/calculus/q28": {
+"rate": 15,
+"level": "상"
+},
+"2024_csat/calculus/q29": {
+"rate": 16,
+"level": "상"
+},
+"2024_csat/calculus/q30": {
+"rate": 8,
+"level": "상"
+},
+"2024_csat/geometry/q23": {
+"rate": 91,
+"level": "하"
+},
+"2024_csat/geometry/q24": {
+"rate": 86,
+"level": "하"
+},
+"2024_csat/geometry/q25": {
+"rate": 81,
+"level": "중"
+},
+"2024_csat/geometry/q26": {
+"rate": 73,
+"level": "중"
+},
+"2024_csat/geometry/q27": {
+"rate": 49,
+"level": "상"
+},
+"2024_csat/geometry/q28": {
+"rate": 37,
+"level": "상"
+},
+"2024_csat/geometry/q29": {
+"rate": 29,
+"level": "상"
+},
+"2024_csat/geometry/q30": {
+"rate": 21,
+"level": "상"
+},
+"2024_mock06/common/q01": {
+"rate": 94,
+"level": "하"
+},
+"2024_mock06/common/q02": {
+"rate": 92,
+"level": "하"
+},
+"2024_mock06/common/q03": {
+"rate": 91,
+"level": "하"
+},
+"2024_mock06/common/q04": {
+"rate": 88,
+"level": "하"
+},
+"2024_mock06/common/q05": {
+"rate": 89,
+"level": "하"
+},
+"2024_mock06/common/q06": {
+"rate": 78,
+"level": "중"
+},
+"2024_mock06/common/q07": {
+"rate": 84,
+"level": "하"
+},
+"2024_mock06/common/q08": {
+"rate": 81,
+"level": "중"
+},
+"2024_mock06/common/q09": {
+"rate": 62,
+"level": "중"
+},
+"2024_mock06/common/q10": {
+"rate": 76,
+"level": "중"
+},
+"2024_mock06/common/q11": {
+"rate": 67,
+"level": "중"
+},
+"2024_mock06/common/q12": {
+"rate": 56,
+"level": "중"
+},
+"2024_mock06/common/q13": {
+"rate": 32,
+"level": "상"
+},
+"2024_mock06/common/q14": {
+"rate": 55,
+"level": "중"
+},
+"2024_mock06/common/q15": {
+"rate": 29,
+"level": "상"
+},
+"2024_mock06/common/q16": {
+"rate": 89,
+"level": "하"
+},
+"2024_mock06/common/q17": {
+"rate": 90,
+"level": "하"
+},
+"2024_mock06/common/q18": {
+"rate": 82,
+"level": "하"
+},
+"2024_mock06/common/q19": {
+"rate": 64,
+"level": "중"
+},
+"2024_mock06/common/q20": {
+"rate": 26,
+"level": "상"
+},
+"2024_mock06/common/q21": {
+"rate": 19,
+"level": "상"
+},
+"2024_mock06/common/q22": {
+"rate": 6,
+"level": "상"
+},
+"2024_mock06/prob_stat/q23": {
+"rate": 93,
+"level": "하"
+},
+"2024_mock06/prob_stat/q24": {
+"rate": 83,
+"level": "하"
+},
+"2024_mock06/prob_stat/q25": {
+"rate": 81,
+"level": "중"
+},
+"2024_mock06/prob_stat/q26": {
+"rate": 72,
+"level": "중"
+},
+"2024_mock06/prob_stat/q27": {
+"rate": 72,
+"level": "중"
+},
+"2024_mock06/prob_stat/q28": {
+"rate": 54,
+"level": "중"
+},
+"2024_mock06/prob_stat/q29": {
+"rate": 25,
+"level": "상"
+},
+"2024_mock06/prob_stat/q30": {
+"rate": 25,
+"level": "상"
+},
+"2024_mock06/calculus/q23": {
+"rate": 92,
+"level": "하"
+},
+"2024_mock06/calculus/q24": {
+"rate": 85,
+"level": "하"
+},
+"2024_mock06/calculus/q25": {
+"rate": 79,
+"level": "중"
+},
+"2024_mock06/calculus/q26": {
+"rate": 75,
+"level": "중"
+},
+"2024_mock06/calculus/q27": {
+"rate": 68,
+"level": "중"
+},
+"2024_mock06/calculus/q28": {
+"rate": 26,
+"level": "상"
+},
+"2024_mock06/calculus/q29": {
+"rate": 23,
+"level": "상"
+},
+"2024_mock06/calculus/q30": {
+"rate": 11,
+"level": "상"
+},
+"2024_mock06/geometry/q23": {
+"rate": 91,
+"level": "하"
+},
+"2024_mock06/geometry/q24": {
+"rate": 68,
+"level": "중"
+},
+"2024_mock06/geometry/q25": {
+"rate": 68,
+"level": "중"
+},
+"2024_mock06/geometry/q26": {
+"rate": 72,
+"level": "중"
+},
+"2024_mock06/geometry/q27": {
+"rate": 59,
+"level": "중"
+},
+"2024_mock06/geometry/q28": {
+"rate": 49,
+"level": "상"
+},
+"2024_mock06/geometry/q29": {
+"rate": 39,
+"level": "상"
+},
+"2024_mock06/geometry/q30": {
+"rate": 26,
+"level": "상"
+},
+"2024_mock09/common/q01": {
+"rate": 94,
+"level": "하"
+},
+"2024_mock09/common/q02": {
+"rate": 94,
+"level": "하"
+},
+"2024_mock09/common/q03": {
+"rate": 86,
+"level": "하"
+},
+"2024_mock09/common/q04": {
+"rate": 91,
+"level": "하"
+},
+"2024_mock09/common/q05": {
+"rate": 91,
+"level": "하"
+},
+"2024_mock09/common/q06": {
+"rate": 90,
+"level": "하"
+},
+"2024_mock09/common/q07": {
+"rate": 90,
+"level": "하"
+},
+"2024_mock09/common/q08": {
+"rate": 92,
+"level": "하"
+},
+"2024_mock09/common/q09": {
+"rate": 66,
+"level": "중"
+},
+"2024_mock09/common/q10": {
+"rate": 69,
+"level": "중"
+},
+"2024_mock09/common/q11": {
+"rate": 48,
+"level": "상"
+},
+"2024_mock09/common/q12": {
+"rate": 64,
+"level": "중"
+},
+"2024_mock09/common/q13": {
+"rate": 33,
+"level": "상"
+},
+"2024_mock09/common/q14": {
+"rate": 49,
+"level": "상"
+},
+"2024_mock09/common/q15": {
+"rate": 43,
+"level": "상"
+},
+"2024_mock09/common/q16": {
+"rate": 90,
+"level": "하"
+},
+"2024_mock09/common/q17": {
+"rate": 90,
+"level": "하"
+},
+"2024_mock09/common/q18": {
+"rate": 90,
+"level": "하"
+},
+"2024_mock09/common/q19": {
+"rate": 80,
+"level": "중"
+},
+"2024_mock09/common/q20": {
+"rate": 52,
+"level": "중"
+},
+"2024_mock09/common/q21": {
+"rate": 25,
+"level": "상"
+},
+"2024_mock09/common/q22": {
+"rate": 23,
+"level": "상"
+},
+"2024_mock09/prob_stat/q23": {
+"rate": 90,
+"level": "하"
+},
+"2024_mock09/prob_stat/q24": {
+"rate": 89,
+"level": "하"
+},
+"2024_mock09/prob_stat/q25": {
+"rate": 61,
+"level": "중"
+},
+"2024_mock09/prob_stat/q26": {
+"rate": 80,
+"level": "중"
+},
+"2024_mock09/prob_stat/q27": {
+"rate": 63,
+"level": "중"
+},
+"2024_mock09/prob_stat/q28": {
+"rate": 42,
+"level": "상"
+},
+"2024_mock09/prob_stat/q29": {
+"rate": 29,
+"level": "상"
+},
+"2024_mock09/prob_stat/q30": {
+"rate": 14,
+"level": "상"
+},
+"2024_mock09/calculus/q23": {
+"rate": 96,
+"level": "하"
+},
+"2024_mock09/calculus/q24": {
+"rate": 85,
+"level": "하"
+},
+"2024_mock09/calculus/q25": {
+"rate": 81,
+"level": "중"
+},
+"2024_mock09/calculus/q26": {
+"rate": 73,
+"level": "중"
+},
+"2024_mock09/calculus/q27": {
+"rate": 52,
+"level": "중"
+},
+"2024_mock09/calculus/q28": {
+"rate": 21,
+"level": "상"
+},
+"2024_mock09/calculus/q29": {
+"rate": 62,
+"level": "중"
+},
+"2024_mock09/calculus/q30": {
+"rate": 16,
+"level": "상"
+},
+"2024_mock09/geometry/q23": {
+"rate": 90,
+"level": "하"
+},
+"2024_mock09/geometry/q24": {
+"rate": 90,
+"level": "하"
+},
+"2024_mock09/geometry/q25": {
+"rate": 90,
+"level": "하"
+},
+"2024_mock09/geometry/q26": {
+"rate": 75,
+"level": "중"
+},
+"2024_mock09/geometry/q27": {
+"rate": 88,
+"level": "하"
+},
+"2024_mock09/geometry/q28": {
+"rate": 45,
+"level": "상"
+},
+"2024_mock09/geometry/q29": {
+"rate": 20,
+"level": "상"
+},
+"2024_mock09/geometry/q30": {
+"rate": 23,
+"level": "상"
+},
+"2025_csat/common/q01": {
+"rate": 95,
+"level": "하"
+},
+"2025_csat/common/q02": {
+"rate": 94,
+"level": "하"
+},
+"2025_csat/common/q03": {
+"rate": 92,
+"level": "하"
+},
+"2025_csat/common/q04": {
+"rate": 93,
+"level": "하"
+},
+"2025_csat/common/q05": {
+"rate": 91,
+"level": "하"
+},
+"2025_csat/common/q06": {
+"rate": 81,
+"level": "중"
+},
+"2025_csat/common/q07": {
+"rate": 92,
+"level": "하"
+},
+"2025_csat/common/q08": {
+"rate": 85,
+"level": "하"
+},
+"2025_csat/common/q09": {
+"rate": 88,
+"level": "하"
+},
+"2025_csat/common/q10": {
+"rate": 82,
+"level": "하"
+},
+"2025_csat/common/q11": {
+"rate": 86,
+"level": "하"
+},
+"2025_csat/common/q12": {
+"rate": 75,
+"level": "중"
+},
+"2025_csat/common/q13": {
+"rate": 69,
+"level": "중"
+},
+"2025_csat/common/q14": {
+"rate": 48,
+"level": "상"
+},
+"2025_csat/common/q15": {
+"rate": 47,
+"level": "상"
+},
+"2025_csat/common/q16": {
+"rate": 89,
+"level": "하"
+},
+"2025_csat/common/q17": {
+"rate": 89,
+"level": "하"
+},
+"2025_csat/common/q18": {
+"rate": 79,
+"level": "중"
+},
+"2025_csat/common/q19": {
+"rate": 80,
+"level": "중"
+},
+"2025_csat/common/q20": {
+"rate": 19,
+"level": "상"
+},
+"2025_csat/common/q21": {
+"rate": 19,
+"level": "상"
+},
+"2025_csat/common/q22": {
+"rate": 9,
+"level": "상"
+},
+"2025_csat/prob_stat/q23": {
+"rate": 83,
+"level": "하"
+},
+"2025_csat/prob_stat/q24": {
+"rate": 75,
+"level": "중"
+},
+"2025_csat/prob_stat/q25": {
+"rate": 66,
+"level": "중"
+},
+"2025_csat/prob_stat/q26": {
+"rate": 81,
+"level": "중"
+},
+"2025_csat/prob_stat/q27": {
+"rate": 31,
+"level": "상"
+},
+"2025_csat/prob_stat/q28": {
+"rate": 58,
+"level": "중"
+},
+"2025_csat/prob_stat/q29": {
+"rate": 39,
+"level": "상"
+},
+"2025_csat/prob_stat/q30": {
+"rate": 32,
+"level": "상"
+},
+"2025_csat/calculus/q23": {
+"rate": 96,
+"level": "하"
+},
+"2025_csat/calculus/q24": {
+"rate": 91,
+"level": "하"
+},
+"2025_csat/calculus/q25": {
+"rate": 89,
+"level": "하"
+},
+"2025_csat/calculus/q26": {
+"rate": 82,
+"level": "하"
+},
+"2025_csat/calculus/q27": {
+"rate": 48,
+"level": "상"
+},
+"2025_csat/calculus/q28": {
+"rate": 31,
+"level": "상"
+},
+"2025_csat/calculus/q29": {
+"rate": 21,
+"level": "상"
+},
+"2025_csat/calculus/q30": {
+"rate": 18,
+"level": "상"
+},
+"2025_csat/geometry/q23": {
+"rate": 93,
+"level": "하"
+},
+"2025_csat/geometry/q24": {
+"rate": 87,
+"level": "하"
+},
+"2025_csat/geometry/q25": {
+"rate": 83,
+"level": "하"
+},
+"2025_csat/geometry/q26": {
+"rate": 64,
+"level": "중"
+},
+"2025_csat/geometry/q27": {
+"rate": 50,
+"level": "중"
+},
+"2025_csat/geometry/q28": {
+"rate": 35,
+"level": "상"
+},
+"2025_csat/geometry/q29": {
+"rate": 49,
+"level": "상"
+},
+"2025_csat/geometry/q30": {
+"rate": 9,
+"level": "상"
+},
+"2025_mock06/common/q01": {
+"rate": 88,
+"level": "하"
+},
+"2025_mock06/common/q02": {
+"rate": 91,
+"level": "하"
+},
+"2025_mock06/common/q03": {
+"rate": 91,
+"level": "하"
+},
+"2025_mock06/common/q04": {
+"rate": 91,
+"level": "하"
+},
+"2025_mock06/common/q05": {
+"rate": 92,
+"level": "하"
+},
+"2025_mock06/common/q06": {
+"rate": 75,
+"level": "중"
+},
+"2025_mock06/common/q07": {
+"rate": 90,
+"level": "하"
+},
+"2025_mock06/common/q08": {
+"rate": 85,
+"level": "하"
+},
+"2025_mock06/common/q09": {
+"rate": 83,
+"level": "하"
+},
+"2025_mock06/common/q10": {
+"rate": 54,
+"level": "중"
+},
+"2025_mock06/common/q11": {
+"rate": 71,
+"level": "중"
+},
+"2025_mock06/common/q12": {
+"rate": 36,
+"level": "상"
+},
+"2025_mock06/common/q13": {
+"rate": 57,
+"level": "중"
+},
+"2025_mock06/common/q14": {
+"rate": 38,
+"level": "상"
+},
+"2025_mock06/common/q15": {
+"rate": 51,
+"level": "중"
+},
+"2025_mock06/common/q16": {
+"rate": 86,
+"level": "하"
+},
+"2025_mock06/common/q17": {
+"rate": 91,
+"level": "하"
+},
+"2025_mock06/common/q18": {
+"rate": 85,
+"level": "하"
+},
+"2025_mock06/common/q19": {
+"rate": 40,
+"level": "상"
+},
+"2025_mock06/common/q20": {
+"rate": 27,
+"level": "상"
+},
+"2025_mock06/common/q21": {
+"rate": 24,
+"level": "상"
+},
+"2025_mock06/common/q22": {
+"rate": 9,
+"level": "상"
+},
+"2025_mock06/prob_stat/q23": {
+"rate": 93,
+"level": "하"
+},
+"2025_mock06/prob_stat/q24": {
+"rate": 85,
+"level": "하"
+},
+"2025_mock06/prob_stat/q25": {
+"rate": 87,
+"level": "하"
+},
+"2025_mock06/prob_stat/q26": {
+"rate": 64,
+"level": "중"
+},
+"2025_mock06/prob_stat/q27": {
+"rate": 74,
+"level": "중"
+},
+"2025_mock06/prob_stat/q28": {
+"rate": 23,
+"level": "상"
+},
+"2025_mock06/prob_stat/q29": {
+"rate": 50,
+"level": "중"
+},
+"2025_mock06/prob_stat/q30": {
+"rate": 7,
+"level": "상"
+},
+"2025_mock06/calculus/q23": {
+"rate": 94,
+"level": "하"
+},
+"2025_mock06/calculus/q24": {
+"rate": 87,
+"level": "하"
+},
+"2025_mock06/calculus/q25": {
+"rate": 91,
+"level": "하"
+},
+"2025_mock06/calculus/q26": {
+"rate": 76,
+"level": "중"
+},
+"2025_mock06/calculus/q27": {
+"rate": 39,
+"level": "상"
+},
+"2025_mock06/calculus/q28": {
+"rate": 56,
+"level": "중"
+},
+"2025_mock06/calculus/q29": {
+"rate": 16,
+"level": "상"
+},
+"2025_mock06/calculus/q30": {
+"rate": 6,
+"level": "상"
+},
+"2025_mock06/geometry/q23": {
+"rate": 92,
+"level": "하"
+},
+"2025_mock06/geometry/q24": {
+"rate": 86,
+"level": "하"
+},
+"2025_mock06/geometry/q25": {
+"rate": 73,
+"level": "중"
+},
+"2025_mock06/geometry/q26": {
+"rate": 82,
+"level": "하"
+},
+"2025_mock06/geometry/q27": {
+"rate": 71,
+"level": "중"
+},
+"2025_mock06/geometry/q28": {
+"rate": 21,
+"level": "상"
+},
+"2025_mock06/geometry/q29": {
+"rate": 22,
+"level": "상"
+},
+"2025_mock06/geometry/q30": {
+"rate": 17,
+"level": "상"
+},
+"2025_mock09/common/q01": {
+"rate": 93,
+"level": "하"
+},
+"2025_mock09/common/q02": {
+"rate": 94,
+"level": "하"
+},
+"2025_mock09/common/q03": {
+"rate": 95,
+"level": "하"
+},
+"2025_mock09/common/q04": {
+"rate": 95,
+"level": "하"
+},
+"2025_mock09/common/q05": {
+"rate": 93,
+"level": "하"
+},
+"2025_mock09/common/q06": {
+"rate": 86,
+"level": "하"
+},
+"2025_mock09/common/q07": {
+"rate": 95,
+"level": "하"
+},
+"2025_mock09/common/q08": {
+"rate": 92,
+"level": "하"
+},
+"2025_mock09/common/q09": {
+"rate": 91,
+"level": "하"
+},
+"2025_mock09/common/q10": {
+"rate": 63,
+"level": "중"
+},
+"2025_mock09/common/q11": {
+"rate": 82,
+"level": "하"
+},
+"2025_mock09/common/q12": {
+"rate": 72,
+"level": "중"
+},
+"2025_mock09/common/q13": {
+"rate": 72,
+"level": "중"
+},
+"2025_mock09/common/q14": {
+"rate": 46,
+"level": "상"
+},
+"2025_mock09/common/q15": {
+"rate": 55,
+"level": "중"
+},
+"2025_mock09/common/q16": {
+"rate": 93,
+"level": "하"
+},
+"2025_mock09/common/q17": {
+"rate": 94,
+"level": "하"
+},
+"2025_mock09/common/q18": {
+"rate": 85,
+"level": "하"
+},
+"2025_mock09/common/q19": {
+"rate": 86,
+"level": "하"
+},
+"2025_mock09/common/q20": {
+"rate": 51,
+"level": "중"
+},
+"2025_mock09/common/q21": {
+"rate": 17,
+"level": "상"
+},
+"2025_mock09/common/q22": {
+"rate": 26,
+"level": "상"
+},
+"2025_mock09/prob_stat/q23": {
+"rate": 90,
+"level": "하"
+},
+"2025_mock09/prob_stat/q24": {
+"rate": 70,
+"level": "중"
+},
+"2025_mock09/prob_stat/q25": {
+"rate": 78,
+"level": "중"
+},
+"2025_mock09/prob_stat/q26": {
+"rate": 72,
+"level": "중"
+},
+"2025_mock09/prob_stat/q27": {
+"rate": 75,
+"level": "중"
+},
+"2025_mock09/prob_stat/q28": {
+"rate": 42,
+"level": "상"
+},
+"2025_mock09/prob_stat/q29": {
+"rate": 25,
+"level": "상"
+},
+"2025_mock09/prob_stat/q30": {
+"rate": 16,
+"level": "상"
+},
+"2025_mock09/calculus/q23": {
+"rate": 96,
+"level": "하"
+},
+"2025_mock09/calculus/q24": {
+"rate": 91,
+"level": "하"
+},
+"2025_mock09/calculus/q25": {
+"rate": 89,
+"level": "하"
+},
+"2025_mock09/calculus/q26": {
+"rate": 82,
+"level": "하"
+},
+"2025_mock09/calculus/q27": {
+"rate": 79,
+"level": "중"
+},
+"2025_mock09/calculus/q28": {
+"rate": 55,
+"level": "중"
+},
+"2025_mock09/calculus/q29": {
+"rate": 49,
+"level": "상"
+},
+"2025_mock09/calculus/q30": {
+"rate": 16,
+"level": "상"
+},
+"2025_mock09/geometry/q23": {
+"rate": 96,
+"level": "하"
+},
+"2025_mock09/geometry/q24": {
+"rate": 90,
+"level": "하"
+},
+"2025_mock09/geometry/q25": {
+"rate": 85,
+"level": "하"
+},
+"2025_mock09/geometry/q26": {
+"rate": 66,
+"level": "중"
+},
+"2025_mock09/geometry/q27": {
+"rate": 63,
+"level": "중"
+},
+"2025_mock09/geometry/q28": {
+"rate": 48,
+"level": "상"
+},
+"2025_mock09/geometry/q29": {
+"rate": 50,
+"level": "중"
+},
+"2025_mock09/geometry/q30": {
+"rate": 14,
+"level": "상"
+},
+"2026_csat/common/q01": {
+"rate": 93,
+"level": "하"
+},
+"2026_csat/common/q02": {
+"rate": 95,
+"level": "하"
+},
+"2026_csat/common/q03": {
+"rate": 89,
+"level": "하"
+},
+"2026_csat/common/q04": {
+"rate": 94,
+"level": "하"
+},
+"2026_csat/common/q05": {
+"rate": 93,
+"level": "하"
+},
+"2026_csat/common/q06": {
+"rate": 90,
+"level": "하"
+},
+"2026_csat/common/q07": {
+"rate": 89,
+"level": "하"
+},
+"2026_csat/common/q08": {
+"rate": 84,
+"level": "하"
+},
+"2026_csat/common/q09": {
+"rate": 88,
+"level": "하"
+},
+"2026_csat/common/q10": {
+"rate": 84,
+"level": "하"
+},
+"2026_csat/common/q11": {
+"rate": 71,
+"level": "중"
+},
+"2026_csat/common/q12": {
+"rate": 88,
+"level": "하"
+},
+"2026_csat/common/q13": {
+"rate": 80,
+"level": "중"
+},
+"2026_csat/common/q14": {
+"rate": 62,
+"level": "중"
+},
+"2026_csat/common/q15": {
+"rate": 47,
+"level": "상"
+},
+"2026_csat/common/q16": {
+"rate": 92,
+"level": "하"
+},
+"2026_csat/common/q17": {
+"rate": 91,
+"level": "하"
+},
+"2026_csat/common/q18": {
+"rate": 85,
+"level": "하"
+},
+"2026_csat/common/q19": {
+"rate": 72,
+"level": "중"
+},
+"2026_csat/common/q20": {
+"rate": 55,
+"level": "중"
+},
+"2026_csat/common/q21": {
+"rate": 7,
+"level": "상"
+},
+"2026_csat/common/q22": {
+"rate": 8,
+"level": "상"
+},
+"2026_csat/prob_stat/q23": {
+"rate": 90,
+"level": "하"
+},
+"2026_csat/prob_stat/q24": {
+"rate": 74,
+"level": "중"
+},
+"2026_csat/prob_stat/q25": {
+"rate": 80,
+"level": "중"
+},
+"2026_csat/prob_stat/q26": {
+"rate": 73,
+"level": "중"
+},
+"2026_csat/prob_stat/q27": {
+"rate": 77,
+"level": "중"
+},
+"2026_csat/prob_stat/q28": {
+"rate": 43,
+"level": "상"
+},
+"2026_csat/prob_stat/q29": {
+"rate": 38,
+"level": "상"
+},
+"2026_csat/prob_stat/q30": {
+"rate": 4,
+"level": "상"
+},
+"2026_csat/calculus/q23": {
+"rate": 96,
+"level": "하"
+},
+"2026_csat/calculus/q24": {
+"rate": 83,
+"level": "하"
+},
+"2026_csat/calculus/q25": {
+"rate": 91,
+"level": "하"
+},
+"2026_csat/calculus/q26": {
+"rate": 85,
+"level": "하"
+},
+"2026_csat/calculus/q27": {
+"rate": 81,
+"level": "중"
+},
+"2026_csat/calculus/q28": {
+"rate": 39,
+"level": "상"
+},
+"2026_csat/calculus/q29": {
+"rate": 41,
+"level": "상"
+},
+"2026_csat/calculus/q30": {
+"rate": 6,
+"level": "상"
+},
+"2026_csat/geometry/q23": {
+"rate": 95,
+"level": "하"
+},
+"2026_csat/geometry/q24": {
+"rate": 91,
+"level": "하"
+},
+"2026_csat/geometry/q25": {
+"rate": 90,
+"level": "하"
+},
+"2026_csat/geometry/q26": {
+"rate": 87,
+"level": "하"
+},
+"2026_csat/geometry/q27": {
+"rate": 80,
+"level": "중"
+},
+"2026_csat/geometry/q28": {
+"rate": 50,
+"level": "중"
+},
+"2026_csat/geometry/q29": {
+"rate": 20,
+"level": "상"
+},
+"2026_csat/geometry/q30": {
+"rate": 8,
+"level": "상"
+},
+"2026_mock06/common/q01": {
+"rate": 96,
+"level": "하"
+},
+"2026_mock06/common/q02": {
+"rate": 96,
+"level": "하"
+},
+"2026_mock06/common/q03": {
+"rate": 94,
+"level": "하"
+},
+"2026_mock06/common/q04": {
+"rate": 95,
+"level": "하"
+},
+"2026_mock06/common/q05": {
+"rate": 92,
+"level": "하"
+},
+"2026_mock06/common/q06": {
+"rate": 92,
+"level": "하"
+},
+"2026_mock06/common/q07": {
+"rate": 91,
+"level": "하"
+},
+"2026_mock06/common/q08": {
+"rate": 80,
+"level": "중"
+},
+"2026_mock06/common/q09": {
+"rate": 86,
+"level": "하"
+},
+"2026_mock06/common/q10": {
+"rate": 82,
+"level": "하"
+},
+"2026_mock06/common/q11": {
+"rate": 89,
+"level": "하"
+},
+"2026_mock06/common/q12": {
+"rate": 75,
+"level": "중"
+},
+"2026_mock06/common/q13": {
+"rate": 85,
+"level": "하"
+},
+"2026_mock06/common/q14": {
+"rate": 63,
+"level": "중"
+},
+"2026_mock06/common/q15": {
+"rate": 31,
+"level": "상"
+},
+"2026_mock06/common/q16": {
+"rate": 94,
+"level": "하"
+},
+"2026_mock06/common/q17": {
+"rate": 94,
+"level": "하"
+},
+"2026_mock06/common/q18": {
+"rate": 86,
+"level": "하"
+},
+"2026_mock06/common/q19": {
+"rate": 89,
+"level": "하"
+},
+"2026_mock06/common/q20": {
+"rate": 49,
+"level": "상"
+},
+"2026_mock06/common/q21": {
+"rate": 30,
+"level": "상"
+},
+"2026_mock06/common/q22": {
+"rate": 6,
+"level": "상"
+},
+"2026_mock06/prob_stat/q23": {
+"rate": 93,
+"level": "하"
+},
+"2026_mock06/prob_stat/q24": {
+"rate": 86,
+"level": "하"
+},
+"2026_mock06/prob_stat/q25": {
+"rate": 90,
+"level": "하"
+},
+"2026_mock06/prob_stat/q26": {
+"rate": 78,
+"level": "중"
+},
+"2026_mock06/prob_stat/q27": {
+"rate": 80,
+"level": "중"
+},
+"2026_mock06/prob_stat/q28": {
+"rate": 59,
+"level": "중"
+},
+"2026_mock06/prob_stat/q29": {
+"rate": 33,
+"level": "상"
+},
+"2026_mock06/prob_stat/q30": {
+"rate": 19,
+"level": "상"
+},
+"2026_mock06/calculus/q23": {
+"rate": 97,
+"level": "하"
+},
+"2026_mock06/calculus/q24": {
+"rate": 89,
+"level": "하"
+},
+"2026_mock06/calculus/q25": {
+"rate": 87,
+"level": "하"
+},
+"2026_mock06/calculus/q26": {
+"rate": 83,
+"level": "하"
+},
+"2026_mock06/calculus/q27": {
+"rate": 70,
+"level": "중"
+},
+"2026_mock06/calculus/q28": {
+"rate": 12,
+"level": "상"
+},
+"2026_mock06/calculus/q29": {
+"rate": 27,
+"level": "상"
+},
+"2026_mock06/calculus/q30": {
+"rate": 9,
+"level": "상"
+},
+"2026_mock06/geometry/q23": {
+"rate": 94,
+"level": "하"
+},
+"2026_mock06/geometry/q24": {
+"rate": 88,
+"level": "하"
+},
+"2026_mock06/geometry/q25": {
+"rate": 84,
+"level": "하"
+},
+"2026_mock06/geometry/q26": {
+"rate": 74,
+"level": "중"
+},
+"2026_mock06/geometry/q27": {
+"rate": 76,
+"level": "중"
+},
+"2026_mock06/geometry/q28": {
+"rate": 47,
+"level": "상"
+},
+"2026_mock06/geometry/q29": {
+"rate": 51,
+"level": "중"
+},
+"2026_mock06/geometry/q30": {
+"rate": 14,
+"level": "상"
+},
+"2026_mock09/common/q01": {
+"rate": 96,
+"level": "하"
+},
+"2026_mock09/common/q02": {
+"rate": 96,
+"level": "하"
+},
+"2026_mock09/common/q03": {
+"rate": 95,
+"level": "하"
+},
+"2026_mock09/common/q04": {
+"rate": 96,
+"level": "하"
+},
+"2026_mock09/common/q05": {
+"rate": 95,
+"level": "하"
+},
+"2026_mock09/common/q06": {
+"rate": 83,
+"level": "하"
+},
+"2026_mock09/common/q07": {
+"rate": 92,
+"level": "하"
+},
+"2026_mock09/common/q08": {
+"rate": 90,
+"level": "하"
+},
+"2026_mock09/common/q09": {
+"rate": 78,
+"level": "중"
+},
+"2026_mock09/common/q10": {
+"rate": 89,
+"level": "하"
+},
+"2026_mock09/common/q11": {
+"rate": 74,
+"level": "중"
+},
+"2026_mock09/common/q12": {
+"rate": 78,
+"level": "중"
+},
+"2026_mock09/common/q13": {
+"rate": 56,
+"level": "중"
+},
+"2026_mock09/common/q14": {
+"rate": 75,
+"level": "중"
+},
+"2026_mock09/common/q15": {
+"rate": 32,
+"level": "상"
+},
+"2026_mock09/common/q16": {
+"rate": 93,
+"level": "하"
+},
+"2026_mock09/common/q17": {
+"rate": 95,
+"level": "하"
+},
+"2026_mock09/common/q18": {
+"rate": 92,
+"level": "하"
+},
+"2026_mock09/common/q19": {
+"rate": 88,
+"level": "하"
+},
+"2026_mock09/common/q20": {
+"rate": 77,
+"level": "중"
+},
+"2026_mock09/common/q21": {
+"rate": 13,
+"level": "상"
+},
+"2026_mock09/common/q22": {
+"rate": 17,
+"level": "상"
+},
+"2026_mock09/prob_stat/q23": {
+"rate": 92,
+"level": "하"
+},
+"2026_mock09/prob_stat/q24": {
+"rate": 92,
+"level": "하"
+},
+"2026_mock09/prob_stat/q25": {
+"rate": 88,
+"level": "하"
+},
+"2026_mock09/prob_stat/q26": {
+"rate": 79,
+"level": "중"
+},
+"2026_mock09/prob_stat/q27": {
+"rate": 67,
+"level": "중"
+},
+"2026_mock09/prob_stat/q28": {
+"rate": 36,
+"level": "상"
+},
+"2026_mock09/prob_stat/q29": {
+"rate": 32,
+"level": "상"
+},
+"2026_mock09/prob_stat/q30": {
+"rate": 19,
+"level": "상"
+},
+"2026_mock09/calculus/q23": {
+"rate": 96,
+"level": "하"
+},
+"2026_mock09/calculus/q24": {
+"rate": 92,
+"level": "하"
+},
+"2026_mock09/calculus/q25": {
+"rate": 92,
+"level": "하"
+},
+"2026_mock09/calculus/q26": {
+"rate": 89,
+"level": "하"
+},
+"2026_mock09/calculus/q27": {
+"rate": 79,
+"level": "중"
+},
+"2026_mock09/calculus/q28": {
+"rate": 23,
+"level": "상"
+},
+"2026_mock09/calculus/q29": {
+"rate": 34,
+"level": "상"
+},
+"2026_mock09/calculus/q30": {
+"rate": 19,
+"level": "상"
+},
+"2026_mock09/geometry/q23": {
+"rate": 96,
+"level": "하"
+},
+"2026_mock09/geometry/q24": {
+"rate": 96,
+"level": "하"
+},
+"2026_mock09/geometry/q25": {
+"rate": 90,
+"level": "하"
+},
+"2026_mock09/geometry/q26": {
+"rate": 89,
+"level": "하"
+},
+"2026_mock09/geometry/q27": {
+"rate": 74,
+"level": "중"
+},
+"2026_mock09/geometry/q28": {
+"rate": 29,
+"level": "상"
+},
+"2026_mock09/geometry/q29": {
+"rate": 44,
+"level": "상"
+},
+"2026_mock09/geometry/q30": {
+"rate": 13,
+"level": "상"
+},
+"2027_mock06/common/q01": {
+"rate": 97,
+"level": "하"
+},
+"2027_mock06/common/q02": {
+"rate": 96,
+"level": "하"
+},
+"2027_mock06/common/q03": {
+"rate": 97,
+"level": "하"
+},
+"2027_mock06/common/q04": {
+"rate": 96,
+"level": "하"
+},
+"2027_mock06/common/q05": {
+"rate": 96,
+"level": "하"
+},
+"2027_mock06/common/q06": {
+"rate": 89,
+"level": "하"
+},
+"2027_mock06/common/q07": {
+"rate": 93,
+"level": "하"
+},
+"2027_mock06/common/q08": {
+"rate": 93,
+"level": "하"
+},
+"2027_mock06/common/q09": {
+"rate": 90,
+"level": "하"
+},
+"2027_mock06/common/q10": {
+"rate": 91,
+"level": "하"
+},
+"2027_mock06/common/q11": {
+"rate": 88,
+"level": "하"
+},
+"2027_mock06/common/q12": {
+"rate": 88,
+"level": "하"
+},
+"2027_mock06/common/q13": {
+"rate": 73,
+"level": "중"
+},
+"2027_mock06/common/q14": {
+"rate": 71,
+"level": "중"
+},
+"2027_mock06/common/q15": {
+"rate": 55,
+"level": "중"
+},
+"2027_mock06/common/q16": {
+"rate": 95,
+"level": "하"
+},
+"2027_mock06/common/q17": {
+"rate": 95,
+"level": "하"
+},
+"2027_mock06/common/q18": {
+"rate": 93,
+"level": "하"
+},
+"2027_mock06/common/q19": {
+"rate": 89,
+"level": "하"
+},
+"2027_mock06/common/q20": {
+"rate": 76,
+"level": "중"
+},
+"2027_mock06/common/q21": {
+"rate": 26,
+"level": "상"
+},
+"2027_mock06/common/q22": {
+"rate": 10,
+"level": "상"
+},
+"2027_mock06/prob_stat/q23": {
+"rate": 96,
+"level": "하"
+},
+"2027_mock06/prob_stat/q24": {
+"rate": 92,
+"level": "하"
+},
+"2027_mock06/prob_stat/q25": {
+"rate": 89,
+"level": "하"
+},
+"2027_mock06/prob_stat/q26": {
+"rate": 78,
+"level": "중"
+},
+"2027_mock06/prob_stat/q27": {
+"rate": 88,
+"level": "하"
+},
+"2027_mock06/prob_stat/q28": {
+"rate": 30,
+"level": "상"
+},
+"2027_mock06/prob_stat/q29": {
+"rate": 40,
+"level": "상"
+},
+"2027_mock06/prob_stat/q30": {
+"rate": 10,
+"level": "상"
+},
+"2027_mock06/calculus/q23": {
+"rate": 97,
+"level": "하"
+},
+"2027_mock06/calculus/q24": {
+"rate": 94,
+"level": "하"
+},
+"2027_mock06/calculus/q25": {
+"rate": 95,
+"level": "하"
+},
+"2027_mock06/calculus/q26": {
+"rate": 91,
+"level": "하"
+},
+"2027_mock06/calculus/q27": {
+"rate": 79,
+"level": "중"
+},
+"2027_mock06/calculus/q28": {
+"rate": 37,
+"level": "상"
+},
+"2027_mock06/calculus/q29": {
+"rate": 23,
+"level": "상"
+},
+"2027_mock06/calculus/q30": {
+"rate": 23,
+"level": "상"
+},
+"2027_mock06/geometry/q23": {
+"rate": 93,
+"level": "하"
+},
+"2027_mock06/geometry/q24": {
+"rate": 95,
+"level": "하"
+},
+"2027_mock06/geometry/q25": {
+"rate": 84,
+"level": "하"
+},
+"2027_mock06/geometry/q26": {
+"rate": 91,
+"level": "하"
+},
+"2027_mock06/geometry/q27": {
+"rate": 79,
+"level": "중"
+},
+"2027_mock06/geometry/q28": {
+"rate": 71,
+"level": "중"
+},
+"2027_mock06/geometry/q29": {
+"rate": 44,
+"level": "상"
+},
+"2027_mock06/geometry/q30": {
+"rate": 21,
+"level": "상"
+}
+}
