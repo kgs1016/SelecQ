@@ -5,6 +5,11 @@
   const TAX = D.taxonomy;
   const $ = sel => document.querySelector(sel);
 
+  // key로 문항을 O(1) 조회. 데이터 갱신으로 사라진 key는 undefined를 반환하므로
+  // 기존 Q.find(...)의 null 가드 의미(사라진 문항은 건너뜀)가 그대로 유지된다.
+  const qByKey = new Map(Q.map(q => [q.key, q]));
+  const getQ = k => qByKey.get(k);
+
   // ---------- 저장소 ----------
   // 저장소가 손상되거나 구버전 구조여도 첫 화면이 죽지 않도록, 모든 로드는 safeParse + 형태 검증을 거친다
   const safeParse = (raw, fallback) => { try { const v = raw ? JSON.parse(raw) : null; return v == null ? fallback : v; } catch (e) { return fallback; } };
@@ -341,7 +346,7 @@
     if (r) r.onclick = () => {
       if (examSession.submittedAt) pendingShowResult = true;
       const k = examSession.list.find(k => examSession.answers[k] == null) || examSession.list[0];
-      location.hash = "#/q/" + encodeURIComponent(k);
+      navigate("/q/" + encodeURIComponent(k));
     };
     if (d) d.onclick = () => {
       if (examSession.submittedAt || confirm("진행 중인 모의고사를 포기할까요? 지금까지 입력한 답안이 사라져요.")) { clearExam(); route(); }
@@ -353,7 +358,7 @@
     if (!currentList.length) return;
     if (!confirmDropExam()) return;   // 진행 중 모의고사를 경고 없이 지우지 않는다
     clearExam();  // 유형별 풀기 시작 시 진행 중이던 모의고사 종료
-    location.hash = "#/q/" + encodeURIComponent(currentList[0].key);
+    navigate("/q/" + encodeURIComponent(currentList[0].key));
   }
 
   // ---------- 실전 모의고사 ----------
@@ -393,7 +398,7 @@
       answers: {}, times: {}, label: `${list[0].examLabel} · ${SUBJECTS[elective]}`,
     };
     saveExam();
-    location.hash = "#/q/" + encodeURIComponent(list[0].key);
+    navigate("/q/" + encodeURIComponent(list[0].key));
   }
 
   function viewExam() {
@@ -450,7 +455,7 @@
   function examScore() {
     let score = 0, correct = 0, answered = 0;
     for (const k of examSession.list) {
-      const qq = Q.find(x => x.key === k); if (!qq) continue;
+      const qq = getQ(k); if (!qq) continue;
       const my = examSession.answers[k];
       if (my != null) answered++;
       if (my === qq.answer) { correct++; score += qq.points; }
@@ -499,7 +504,7 @@
       box.innerHTML = `<div class="startprompt small">아직 담은 문제가 없어요.<br>위에서 문제를 골라 담아보세요.</div>`;
     } else {
       box.innerHTML = basket.map((k, i) => {
-        const q = Q.find(x => x.key === k); if (!q) return "";
+        const q = getQ(k); if (!q) return "";
         return `<div class="brow">
           <span class="bidx">${i + 1}</span>
           <span class="bmeta">${q.qno}번 · ${q.examLabel}${q.difficulty ? ` <span class="lvbadge lv-${q.difficulty}">${q.difficulty}</span>` : ""}</span>
@@ -517,7 +522,7 @@
   }
 
   function startCustomMock() {
-    const list = basket.map(k => Q.find(x => x.key === k)).filter(Boolean);
+    const list = basket.map(k => getQ(k)).filter(Boolean);
     if (!list.length) return;
     if (!confirmDropExam()) return;
     const now = Date.now();
@@ -527,7 +532,7 @@
       answers: {}, times: {}, label: `나만의 모의고사 · ${list.length}문항${customMin > 0 ? ` · ${customMin}분` : ""}`,
     };
     currentList = list; saveExam();
-    location.hash = "#/q/" + encodeURIComponent(list[0].key);
+    navigate("/q/" + encodeURIComponent(list[0].key));
   }
 
   // 난이도 스펙대로 현재 과목에서 무작위 문항 선택 (부족하면 있는 만큼)
@@ -553,7 +558,7 @@
       answers: {}, times: {}, label: `랜덤 출제 · ${name} · ${list.length}문항${min > 0 ? ` · ${min}분` : ""}`,
     };
     currentList = list; saveExam();
-    location.hash = "#/q/" + encodeURIComponent(list[0].key);
+    navigate("/q/" + encodeURIComponent(list[0].key));
   }
 
   // 선택한 문항 목록 → 인쇄용 레이아웃 렌더 후 브라우저 인쇄(PDF로 저장). 각 문항·정답에 KICE 출처 표기.
@@ -686,7 +691,7 @@
     };
     $("#btnCustomStart").onclick = startCustomMock;
     $("#clearBasket2").onclick = emptyBasket;
-    $("#btnExportPdf").onclick = () => exportPDF(basket.map(k => Q.find(x => x.key === k)).filter(Boolean), "나만의 문제지");
+    $("#btnExportPdf").onclick = () => exportPDF(basket.map(k => getQ(k)).filter(Boolean), "나만의 문제지");
   }
 
   function renderRandomTab() {
@@ -805,8 +810,8 @@
           <li><span class="bi">✓</span> 오답·풀이 기록 자동 관리</li>
         </ul>
         <div class="herocta">
-          <a class="big pill" href="#/custom">나만의 모의고사 만들기 →</a>
-          <a class="big pill outline" href="#/exam">회차별 실전 →</a>
+          <a class="big pill" href="/custom">나만의 모의고사 만들기 →</a>
+          <a class="big pill outline" href="/exam">회차별 실전 →</a>
         </div>
         <div class="heromock">
           <div class="mockbar">
@@ -865,10 +870,10 @@
   // ---------- 풀이 화면 ----------
   function viewSolve(key) {
     setNav("filter");
-    const q = Q.find(x => x.key === key);
+    const q = getQ(key);
     if (!q) { $("#view").innerHTML = `<div class="empty">문항을 찾을 수 없습니다.</div>`; return; }
     const inExam = !!(examSession && examSession.list.includes(key));
-    if (inExam) currentList = examSession.list.map(k => Q.find(x => x.key === k)).filter(Boolean);
+    if (inExam) currentList = examSession.list.map(k => getQ(k)).filter(Boolean);
     else if (!currentList.length) currentList = applyFilter();
     const pos = currentList.findIndex(x => x.key === key);
     const r = recOf(q);
@@ -954,7 +959,7 @@
         <div class="picker-panel">
           <div class="picker-head">
             <b>${inExam ? `모의고사 문항 ${examSession.list.length}개` : `이 조건의 문제 ${currentList.length}개`}</b>
-            ${inExam ? "" : `<a class="phome" href="#/">필터 수정</a>`}
+            ${inExam ? "" : `<a class="phome" href="/">필터 수정</a>`}
             <button class="ghost small" id="pClose">닫기</button>
           </div>
           <div class="picker-list" id="pList"></div>
@@ -995,7 +1000,7 @@
     $("#picker").onclick = e => { if (e.target.id === "picker") $("#picker").hidden = true; };
     $("#pList").onclick = e => {
       const el = e.target.closest("[data-k]");
-      if (el) { $("#picker").hidden = true; location.hash = "#/q/" + encodeURIComponent(el.dataset.k); }
+      if (el) { $("#picker").hidden = true; navigate("/q/" + encodeURIComponent(el.dataset.k)); }
     };
 
     setupDrawer(q.key);
@@ -1041,7 +1046,7 @@
     };
     const go = d => {
       const np = pos + d;
-      if (np >= 0 && np < currentList.length) location.hash = "#/q/" + encodeURIComponent(currentList[np].key);
+      if (np >= 0 && np < currentList.length) navigate("/q/" + encodeURIComponent(currentList[np].key));
     };
     $("#btnPrevQ").onclick = () => go(-1);
     const bn = $("#btnNextQ"); if (bn) bn.onclick = () => go(1);
@@ -1099,7 +1104,7 @@
           examSession.submittedAt = Date.now();
           saveExam();
           for (const k of examSession.list) {
-            const qq2 = Q.find(x => x.key === k); if (!qq2) continue;
+            const qq2 = getQ(k); if (!qq2) continue;
             const my = examSession.answers[k]; if (my == null) continue;
             const prev = records[k];
             records[k] = { r: my === qq2.answer ? "ok" : "bad", my, ts: Date.now(), tries: (prev?.tries || 0) + 1 };
@@ -1112,7 +1117,7 @@
         const timedKeys = examSession.list.filter(k => times[k]);
         const avg = timedKeys.length ? timedKeys.reduce((s, k) => s + times[k], 0) / timedKeys.length : 0;
         const slowest = timedKeys.slice().sort((a, b) => times[b] - times[a])[0];
-        const slowestQ = slowest && Q.find(x => x.key === slowest);   // 데이터 갱신으로 사라진 문항일 수 있어 null 가드
+        const slowestQ = slowest && getQ(slowest);   // 데이터 갱신으로 사라진 문항일 수 있어 null 가드
         $("#erBody").innerHTML = `
           ${examSession.custom
             ? `<div class="bigscore">${correct}<span>/${total}문제 정답</span></div>`
@@ -1120,7 +1125,7 @@
           <div class="resultmeta">정답 ${correct} · 제출 ${answered}/${total} · 사용 시간 ${fmtClock(Math.max(0, used))}
             · 문항 평균 ${fmtClock(avg)}${slowestQ ? ` · 최장 ${slowestQ.qno}번(${fmtClock(times[slowest])})` : ""}</div>
           <div class="resultrows">${examSession.list.map(k => {
-            const qq = Q.find(x => x.key === k); if (!qq) return "";   // 사라진 문항은 결과 행에서 건너뜀 (examScore와 동일 처리)
+            const qq = getQ(k); if (!qq) return "";   // 사라진 문항은 결과 행에서 건너뜀 (examScore와 동일 처리)
             const my = examSession.answers[k];
             const okk = my === qq.answer;
             return `<div class="prow">
@@ -1131,7 +1136,7 @@
           }).join("")}</div>
           <button class="big" id="erHome">홈으로</button>`;
         $("#examResult").hidden = false;
-        $("#erHome").onclick = () => { clearExam(); location.hash = "#/"; };
+        $("#erHome").onclick = () => { clearExam(); navigate("/"); };
       };
       const finish = () => {
         if (examSession.submittedAt) { showResult(); return; }   // 이미 제출됨 → 확정된 결과만 다시 표시
@@ -1450,7 +1455,7 @@
         const el = e.target.closest(".qitem"); if (!el) return;
         const k = el.dataset.k;
         if (selectMode) { selected.has(k) ? selected.delete(k) : selected.add(k); render(); }
-        else location.hash = "#/q/" + encodeURIComponent(k);
+        else navigate("/q/" + encodeURIComponent(k));
       };
       const wa = $("#wAll");
       if (wa) wa.onclick = () => { selected.clear(); if (wa.checked) wrong.forEach(q => selected.add(q.key)); render(); };
@@ -1479,14 +1484,14 @@
       const ok = keys.filter(k => records[k].r === "ok").length;
       const byType = {};
       for (const k of keys) {
-        const q = Q.find(x => x.key === k); if (!q) continue;
+        const q = getQ(k); if (!q) continue;
         byType[q.type] = byType[q.type] || { ok: 0, bad: 0 };
         byType[q.type][records[k].r === "ok" ? "ok" : "bad"]++;
       }
       const weak = Object.entries(byType)
         .filter(([, v]) => v.bad > 0)
         .sort((a, b) => b[1].bad - a[1].bad).slice(0, 8);
-      const solvedList = keys.map(k => Q.find(x => x.key === k)).filter(Boolean)
+      const solvedList = keys.map(k => getQ(k)).filter(Boolean)
         .sort((a, b) => records[b.key].ts - records[a.key].ts);
       $("#view").innerHTML = `
         <div class="statgrid">
@@ -1533,7 +1538,7 @@
         const el = e.target.closest(".qitem"); if (!el) return;
         const k = el.dataset.k;
         if (selectMode) { selected.has(k) ? selected.delete(k) : selected.add(k); render(); }
-        else location.hash = "#/q/" + encodeURIComponent(k);
+        else navigate("/q/" + encodeURIComponent(k));
       };
       const sa = $("#sAll");
       if (sa) sa.onclick = () => { selected.clear(); if (sa.checked) solvedList.forEach(q => selected.add(q.key)); render(); };
@@ -1557,24 +1562,46 @@
     render();
   }
 
-  // ---------- 라우터 ----------
+  // ---------- 라우터 (History API · 클린 URL) ----------
+  function navigate(path) {
+    if (path === location.pathname) { window.scrollTo(0, 0); route(); return; }
+    history.pushState(null, "", path);
+    route();
+  }
+
   function route() {
-    const h = location.hash || "#/";
+    const p = location.pathname || "/";
+    const isSolve = p.startsWith("/q/");
     if (heroTimer) { clearInterval(heroTimer); heroTimer = null; }
-    if (!h.startsWith("#/q/")) document.body.classList.remove("focusmode");  // 풀이 밖에선 집중 모드 해제
+    if (!isSolve) document.body.classList.remove("focusmode");  // 풀이 밖에선 집중 모드 해제
     flushQTime();  // 이전 문항 체류 시간 확정 (문항 이동/화면 전환 시)
-    if (examInterval && !h.startsWith("#/q/")) { clearInterval(examInterval); examInterval = null; }  // 풀이 화면 벗어나면 타이머 정지
-    if (h.startsWith("#/q/")) viewSolve(decodeURIComponent(h.slice(4)));
-    else if (h === "#/find") viewFind();
-    else if (h === "#/exam") viewExam();
-    else if (h === "#/custom") viewCustom();
-    else if (h === "#/random") { customTab = "random"; viewCustom(); }   // 구 링크 호환: 조건 랜덤 탭으로
-    else if (h === "#/wrong") viewWrong();
-    else if (h === "#/stats") viewStats();
-    else viewHome();  // '#/' 및 구 '#/list' 링크 모두 홈으로
+    if (examInterval && !isSolve) { clearInterval(examInterval); examInterval = null; }  // 풀이 화면 벗어나면 타이머 정지
+    if (isSolve) viewSolve(decodeURIComponent(p.slice(3)));
+    else if (p === "/find") viewFind();
+    else if (p === "/exam") viewExam();
+    else if (p === "/custom") viewCustom();
+    else if (p === "/random") { customTab = "random"; viewCustom(); }   // 구 링크 호환: 조건 랜덤 탭으로
+    else if (p === "/wrong") viewWrong();
+    else if (p === "/stats") viewStats();
+    else viewHome();  // '/' 및 미매칭 경로는 홈으로
     window.scrollTo(0, 0);
   }
-  window.addEventListener("hashchange", route);
+
+  // 내부 링크(/로 시작) 클릭 → 새로고침 없이 SPA 이동
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href^="/"]');
+    if (!a) return;
+    const href = a.getAttribute("href");
+    if (!href || href.startsWith("//")) return;                 // 프로토콜상대(외부)
+    if (a.target === "_blank" || a.hasAttribute("download")) return;
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    navigate(href);
+  });
+  window.addEventListener("popstate", route);
+
+  // 옛 해시 링크 호환: #/find 등으로 들어오면 클린 URL로 1회 정규화
+  if (location.hash.startsWith("#/")) history.replaceState(null, "", location.hash.slice(1));
   route();
 
   // 모바일 상단바: 가로 스크롤 시 좌/우 페이드로 "더 있음" 표시 (끝에 닿으면 사라짐)
