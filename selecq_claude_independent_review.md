@@ -1,7 +1,7 @@
 # SelecQ 독립 평가 (Claude) — GPT 피드백 확인 전 작성
 
 > 작성일: 2026-07-23. GPT 피드백을 보기 전에 작성한 독립 평가.
-> 방법: 배포 사이트(gichul-select.pages.dev)를 실제 브라우저로 조작(필터 선택 → 풀이 → 채점 → 오답/기록 확인, 모바일 뷰포트 검사) + 소스 코드(index.html, app.js 1,457줄, styles.css) 검토.
+> 방법: 배포 사이트(selecq.com)를 실제 브라우저로 조작(필터 선택 → 풀이 → 채점 → 오답/기록 확인, 모바일 뷰포트 검사) + 소스 코드(index.html, app.js 1,457줄, styles.css) 검토.
 
 ---
 
