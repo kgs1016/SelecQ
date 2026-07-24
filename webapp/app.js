@@ -1636,11 +1636,13 @@
   // config.js가 placeholder(미설정)면 전부 no-op → 앱은 비로그인으로 지금과 똑같이 동작한다.
   // 이 단계에선 인증(로그인/로그아웃·세션·UI)만. 실제 데이터 동기화 훅은 다음 단계에서 붙인다.
   const SB_ESM = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-  let sb = null;         // supabase 클라이언트 (설정+로드 성공 시)
-  let session = null;    // 현재 세션 (비로그인이면 null)
+  // var 필수: /account 딥링크 직접 진입 시 route()(위쪽)가 이 선언들보다 먼저 실행되는데,
+  // let이면 TDZ ReferenceError로 IIFE 전체가 죽는다. var는 hoisting되어 undefined로 안전.
+  var sb = null;         // supabase 클라이언트 (설정+로드 성공 시)
+  var session = null;    // 현재 세션 (비로그인이면 null)
 
-  const userName = u => (u && ((u.user_metadata && (u.user_metadata.name || u.user_metadata.full_name)) || u.email)) || "내 계정";
-  const shorten = s => { s = String(s || ""); return s.length > 12 ? s.slice(0, 11) + "…" : s; };
+  function userName(u) { return (u && ((u.user_metadata && (u.user_metadata.name || u.user_metadata.full_name)) || u.email)) || "내 계정"; }
+  function shorten(s) { s = String(s || ""); return s.length > 12 ? s.slice(0, 11) + "…" : s; }
 
   function renderAuthUI() {
     const el = document.getElementById("authslot");
