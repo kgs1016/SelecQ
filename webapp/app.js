@@ -1588,6 +1588,14 @@
     window.scrollTo(0, 0);
   }
 
+  // 문제찾기 풀이(모의고사 세션에 속하지 않은 /q/ 화면) 진행 중인지 — 이땐 나갈 때 확인
+  function isBrowseSolving() {
+    const p = location.pathname;
+    if (!p.startsWith("/q/")) return false;
+    const key = decodeURIComponent(p.slice(3));
+    return !(examSession && examSession.list.includes(key));   // 모의고사면 자동저장돼서 확인 불필요
+  }
+
   // 내부 링크(/로 시작) 클릭 → 새로고침 없이 SPA 이동
   document.addEventListener("click", (e) => {
     const a = e.target.closest('a[href^="/"]');
@@ -1597,6 +1605,9 @@
     if (a.target === "_blank" || a.hasAttribute("download")) return;
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     e.preventDefault();
+    // 문제찾기 풀이 중 다른 섹션으로 나가면 확인 (채점 안 한 진행분은 저장 안 됨)
+    if (isBrowseSolving() && !href.startsWith("/q/") && href !== location.pathname
+        && !confirm("지금 풀던 문제에서 나갈까요?\n채점하지 않은 답안은 저장되지 않아요.")) return;
     navigate(href);
   });
   window.addEventListener("popstate", route);
