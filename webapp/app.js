@@ -1381,12 +1381,13 @@
   function saveWork(key, strokes) {
     const k = "ksw_" + key;
     try {
-      if (!strokes || !strokes.length) { localStorage.removeItem(k); setIdx(getIdx().filter(x => x !== key)); return; }
+      if (!strokes || !strokes.length) { localStorage.removeItem(k); setIdx(getIdx().filter(x => x !== key)); markDrawDirty(key); return; }
       localStorage.setItem(k, JSON.stringify(strokes)); touchIdx(key);
     } catch (e) {
       const a = getIdx(); a.splice(0, 6).forEach(x => localStorage.removeItem("ksw_" + x)); setIdx(a);
       try { localStorage.setItem(k, JSON.stringify(strokes)); touchIdx(key); } catch (e2) { }
     }
+    markDrawDirty(key);
   }
 
   // ---------- 백업 / 복원 (필기·오답·기록 전체를 파일로) ----------
@@ -1684,11 +1685,9 @@
 
   async function signIn(provider) {
     if (!sb) return;
-    const opts = { redirectTo: location.origin + "/account" };
-    // 카카오 개인 개발자 앱은 이메일 동의항목 사용 불가(비즈니스 인증 필요).
-    // 콘솔에 켜진 항목만 요청해야 KOE205가 안 난다. (이메일 없는 계정도 Supabase가 수용)
-    if (provider === "kakao") opts.scopes = "profile_nickname profile_image";
-    const { error } = await sb.auth.signInWithOAuth({ provider, options: opts });
+    // 주의: Supabase가 카카오에 account_email을 항상 요청함 → 카카오 콘솔에서
+    // 이메일 동의항목이 켜져 있어야 함(비즈 앱 전용). 꺼지면 KOE205.
+    const { error } = await sb.auth.signInWithOAuth({ provider, options: { redirectTo: location.origin + "/account" } });
     if (error) alert("로그인을 시작할 수 없어요: " + error.message);
   }
   async function signOut() {
@@ -1829,6 +1828,8 @@
       if (confirm("이 기기의 기존 기록은 다른 계정에서 쓰던 것이에요.\n\n확인 = 이 계정의 클라우드 기록으로 교체 (기기의 기존 기록은 지워짐)\n취소 = 기기의 기록을 이 계정에 합치기")) {
         for (const k in records) delete records[k];
         localStorage.removeItem("ks_exam"); localStorage.removeItem("ks_basket");
+        getIdx().forEach(k => localStorage.removeItem("ksw_" + k)); setIdx([]);   // 필기도 전 계정 것이므로 정리
+        setSyncMeta({ drawTs: {}, pendingDraws: {} });
         mergeRecords(cloud[LS_REC]); applyCloudState(cloud);
         localStorage.setItem(LS_REC, JSON.stringify(records));
         setSyncMeta({ userId: uid, stateUpdatedAt: row.updated_at, pendingState: false, lastSyncAt: new Date().toISOString() });
@@ -1870,22 +1871,109 @@
     else { setSyncMeta({ userId: uid, lastSyncAt: new Date().toISOString() }); setSyncStatus("ok"); }
   }
 
+  // ---------- 클라우드 동기화: 필기(ksw_*, 문항별 행) ----------
+  // 필기는 용량이 커서(문항당 수~수십 KB) user_drawings에 문항별 행으로 저장하고,
+  // 변경된 문항만 upsert한다. 타임스탬프는 ks_sync.drawTs[qkey](ms 숫자)로 관리.
+  var drawPushTimer = null;
+  var pendingDraws = {};   // { qkey: true } — 아직 클라우드에 안 올라간 변경분
+
+  function markDrawDirty(qkey) {
+    if (!sb || !session) return;   // 비로그인: 동기화 없음 (로컬 저장은 이미 끝난 상태)
+    const m = getSyncMeta(); const d = isObj(m.drawTs) ? m.drawTs : {};
+    d[qkey] = Date.now();
+    pendingDraws[qkey] = true;
+    setSyncMeta({ drawTs: d, pendingDraws: Object.assign({}, m.pendingDraws, pendingDraws) });
+    clearTimeout(drawPushTimer);
+    drawPushTimer = setTimeout(pushDrawings, 2000);
+  }
+
+  async function pushDrawings() {
+    if (!sb || !session) return;
+    clearTimeout(drawPushTimer); drawPushTimer = null;
+    const keys = Object.keys(pendingDraws);
+    if (!keys.length) return;
+    setSyncStatus("sync");
+    const drawTs = getSyncMeta().drawTs || {};
+    const ups = [], dels = [];
+    for (const k of keys) {
+      const strokes = loadWork(k);
+      if (strokes && strokes.length) ups.push({ user_id: session.user.id, qkey: k, strokes, updated_at: new Date(drawTs[k] || Date.now()).toISOString() });
+      else dels.push(k);
+    }
+    let ok = true;
+    for (let i = 0; i < ups.length && ok; i += 20) {   // 대량 첫 업로드 대비 20행씩 분할
+      const { error } = await sb.from("user_drawings").upsert(ups.slice(i, i + 20));
+      if (error) ok = false;
+    }
+    if (ok && dels.length) {
+      const { error } = await sb.from("user_drawings").delete().eq("user_id", session.user.id).in("qkey", dels);
+      if (error) ok = false;
+    }
+    if (!ok) { setSyncMeta({ pendingDraws: Object.assign({}, getSyncMeta().pendingDraws, pendingDraws) }); setSyncStatus("err"); return; }
+    keys.forEach(k => delete pendingDraws[k]);
+    setSyncMeta({ pendingDraws: {}, lastSyncAt: new Date().toISOString() });
+    setSyncStatus("ok");
+  }
+
+  async function pullDrawings() {
+    if (!sb || !session) return;
+    // 1) 목록만 먼저 (strokes 제외 — 전체 다운로드 방지)
+    const { data: rows, error } = await sb.from("user_drawings")
+      .select("qkey,updated_at").eq("user_id", session.user.id);
+    if (error) { setSyncStatus("err"); return; }
+    const m = getSyncMeta(); const drawTs = isObj(m.drawTs) ? m.drawTs : {};
+    // 첫 동기화 마이그레이션: 기존 로컬 필기에 타임스탬프 부여 (필기 자체엔 ts가 없음)
+    for (const k of getIdx()) if (!drawTs[k]) drawTs[k] = Date.now();
+    const cloudTs = {};
+    const toGet = [];
+    for (const r of (rows || [])) {
+      cloudTs[r.qkey] = Date.parse(r.updated_at);
+      if (!drawTs[r.qkey] || cloudTs[r.qkey] > drawTs[r.qkey]) toGet.push(r.qkey);
+    }
+    // 2) 클라우드가 최신인 문항만 내려받기 (20개씩)
+    for (let i = 0; i < toGet.length; i += 20) {
+      const part = toGet.slice(i, i + 20);
+      const { data: full, error: e2 } = await sb.from("user_drawings")
+        .select("qkey,strokes,updated_at").eq("user_id", session.user.id).in("qkey", part);
+      if (e2 || !full) { setSyncStatus("err"); break; }
+      for (const r of full) {
+        try { localStorage.setItem("ksw_" + r.qkey, JSON.stringify(r.strokes)); touchIdx(r.qkey); } catch (e) { }
+        drawTs[r.qkey] = Date.parse(r.updated_at);
+      }
+    }
+    setSyncMeta({ drawTs });
+    // 3) 로컬이 최신(또는 클라우드에 없음)인 문항은 업로드 예약
+    getIdx().filter(k => !cloudTs[k] || drawTs[k] > cloudTs[k]).forEach(k => { pendingDraws[k] = true; });
+    if (Object.keys(pendingDraws).length) { clearTimeout(drawPushTimer); drawPushTimer = setTimeout(pushDrawings, 1500); }
+    setSyncStatus("ok");
+  }
+
   function startSync() {
     if (!sb || !session) return;
     if (syncUserId === session.user.id) return;
     syncUserId = session.user.id;
-    pullAndMerge();
+    // 지난 세션에서 못 올라간 필기 변경분 복원
+    const pd = getSyncMeta().pendingDraws;
+    if (isObj(pd)) Object.assign(pendingDraws, pd);
+    pullAndMerge().then(() => pullDrawings());
   }
   function stopSync() {
     syncUserId = null;
     clearTimeout(pushTimer); pushTimer = null;
+    clearTimeout(drawPushTimer); drawPushTimer = null;
     // 로컬 데이터는 그대로 둔다 (비로그인으로 계속 사용 가능)
   }
 
   // 재접속·탭 전환 시 밀린 push 처리
-  window.addEventListener("online", () => { if (getSyncMeta().pendingState) schedulePush(); });
+  window.addEventListener("online", () => {
+    const m = getSyncMeta();
+    if (m.pendingState) schedulePush();
+    if (isObj(m.pendingDraws) && Object.keys(m.pendingDraws).length) { Object.assign(pendingDraws, m.pendingDraws); clearTimeout(drawPushTimer); drawPushTimer = setTimeout(pushDrawings, 1000); }
+  });
   document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "hidden" && pushTimer) pushState();   // 디바운스 대기 중 이탈 → 즉시 flush
+    if (document.visibilityState !== "hidden") return;
+    if (pushTimer) pushState();          // 디바운스 대기 중 이탈 → 즉시 flush
+    if (drawPushTimer) pushDrawings();
   });
 
   initAuth();
