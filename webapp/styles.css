@@ -20,6 +20,9 @@ a { color: inherit; text-decoration: none; }
 .authbtn:hover { background: var(--accent-soft); }
 .authbtn.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
 .syncdot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; display: inline-block; }
+.syncdot.sync { background: #f59e0b; animation: syncpulse 1s ease-in-out infinite; }
+.syncdot.err { background: #9ca3af; }
+@keyframes syncpulse { 50% { opacity: .35; } }
 /* 계정(/account) 화면 */
 .account { max-width: 520px; margin: 26px auto; padding: 0 16px; }
 .account h2 { font-size: 22px; font-weight: 800; margin: 0 0 12px; }

@@ -20,7 +20,7 @@
   let records = safeParse(localStorage.getItem(LS_REC), {});
   if (!isObj(records)) records = {};
   for (const k in records) if (!isObj(records[k])) delete records[k];   // 항목 단위 손상은 해당 기록만 버림
-  const saveRec = () => localStorage.setItem(LS_REC, JSON.stringify(records));
+  const saveRec = () => { localStorage.setItem(LS_REC, JSON.stringify(records)); schedulePush(); };
 
   // 필기 좌표 포맷 v2(0~1 비율) 전환 — 구버전(절대 픽셀) 필기는 새 렌더러와 호환되지 않아 일회성 정리.
   // (필기는 로컬 전용 풀이용 낙서라 서버·타 데이터에 영향 없음)
@@ -52,7 +52,7 @@
   CTX.custom.touched = computeTouched(CTX.custom.fil);
   let ctxName = "browse";
   let filter = CTX.browse.fil;
-  const saveFil = () => localStorage.setItem(FIL_KEY[ctxName], JSON.stringify(filter));
+  const saveFil = () => { localStorage.setItem(FIL_KEY[ctxName], JSON.stringify(filter)); schedulePush(); };
   function useFilterCtx(name) {
     if (name === ctxName) return;
     CTX[ctxName].fil = filter; CTX[ctxName].touched = filterTouched;   // 현재 작업본을 이전 컨텍스트에 보관
@@ -103,8 +103,8 @@
     if (!isObj(s.times)) s.times = {};
     return s;
   }
-  function saveExam() { try { localStorage.setItem("ks_exam", JSON.stringify(examSession)); } catch (e) { } }
-  function clearExam() { examSession = null; localStorage.removeItem("ks_exam"); if (examInterval) { clearInterval(examInterval); examInterval = null; } }
+  function saveExam() { try { localStorage.setItem("ks_exam", JSON.stringify(examSession)); schedulePush(); } catch (e) { } }
+  function clearExam() { examSession = null; localStorage.removeItem("ks_exam"); if (examInterval) { clearInterval(examInterval); examInterval = null; } schedulePush(); }
   let examSession = loadExam();     // {list:[key], endTime, answers:{key:val}, times:{key:ms}, label} 또는 null
   let examInterval = null;
   let examPick = { year: null, exam: null, elective: null };
@@ -114,7 +114,7 @@
   const QKEYS = new Set(Q.map(q => q.key));
   let rawBasket = safeParse(localStorage.getItem("ks_basket"), []);
   let basket = (Array.isArray(rawBasket) ? rawBasket : []).filter(k => QKEYS.has(k));
-  const saveBasket = () => localStorage.setItem("ks_basket", JSON.stringify(basket));
+  const saveBasket = () => { localStorage.setItem("ks_basket", JSON.stringify(basket)); schedulePush(); };
   let customMin = 50;                // 타이머 분 (0 = 타이머 없음)
   let activeFilterRefresh = () => {};   // 현재 화면의 필터 결과 갱신 함수 (홈=updateResults / 나만의모의=updateCandidates)
 
@@ -1668,11 +1668,13 @@
       session = (data && data.session) || null;
       renderAuthUI();
       if (location.pathname === "/account") viewAccount();
-      sb.auth.onAuthStateChange((_evt, s) => {
+      if (session) startSync();
+      sb.auth.onAuthStateChange((evt, s) => {
         session = s || null;
         renderAuthUI();
         if (location.pathname === "/account") viewAccount();
-        // TODO(다음 단계): 로그인 전환 시 pull·병합, 로그아웃 시 동기화 중단
+        if (evt === "SIGNED_OUT") stopSync();
+        else if (session) startSync();   // SIGNED_IN / INITIAL_SESSION / TOKEN_REFRESHED
       });
     } catch (e) {
       console.warn("[SelecQ] Supabase 초기화 실패(네트워크/설정 확인)", e);
@@ -1702,10 +1704,12 @@
     }
     if (session && session.user) {
       const u = session.user;
+      const last = getSyncMeta().lastSyncAt;
       el.innerHTML = `<section class="account">
         <h2>내 계정</h2>
         <p class="acc-email">${esc(u.email || userName(u))}</p>
-        <p class="muted">로그인된 기기끼리 기록·오답·모의고사·필기가 자동으로 동기화됩니다.</p>
+        <p class="muted">로그인된 기기끼리 기록·오답·모의고사가 자동으로 동기화됩니다.</p>
+        ${last ? `<p class="muted">마지막 동기화: ${esc(new Date(last).toLocaleString("ko-KR"))}</p>` : ""}
         <div class="acc-actions"><button class="ghost" id="btnSignout">로그아웃</button></div>
       </section>`;
       $("#btnSignout").onclick = signOut;
@@ -1722,6 +1726,163 @@
       $("#btnGoogle").onclick = () => signIn("google");
     }
   }
+
+  // ---------- 클라우드 동기화: 상태(ks_*, 필기 제외) ----------
+  // 오프라인 우선: localStorage가 항상 소스, 클라우드는 복제본. 로컬 저장 훅(saveRec 등)이
+  // schedulePush()로 디바운스 push하고, 로그인/앱로드 시 pullAndMerge()가 한 번 병합한다.
+  // var 필수(호이스팅): 저장 훅은 이 선언들보다 위에서 정의된 함수 안에서 호출된다.
+  var SYNC_META = "ks_sync";
+  var pushTimer = null;
+  var syncUserId = null;   // startSync 중복 실행 방지 (세션 갱신 이벤트마다 재-pull 하지 않도록)
+
+  function getSyncMeta() { const m = safeParse(localStorage.getItem(SYNC_META), {}); return isObj(m) ? m : {}; }
+  function setSyncMeta(patch) { const m = Object.assign(getSyncMeta(), patch); localStorage.setItem(SYNC_META, JSON.stringify(m)); return m; }
+
+  function setSyncStatus(state, title) {
+    const dot = document.getElementById("syncDot");
+    if (!dot) return;
+    dot.className = "syncdot" + (state === "ok" ? "" : " " + state);
+    dot.title = title || (state === "ok" ? "동기화됨" : state === "sync" ? "동기화 중…" : "오프라인 — 다시 연결되면 저장돼요");
+  }
+
+  // 동기화 대상 상태 수집: ks_* 전부(동기화 메타 제외). 필기(ksw_*)는 문항별 테이블로 별도 동기화.
+  function collectState() {
+    const data = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && k.startsWith("ks_") && k !== SYNC_META) data[k] = localStorage.getItem(k);
+    }
+    return data;
+  }
+
+  function schedulePush() {
+    if (!sb || !session) return;
+    clearTimeout(pushTimer);
+    pushTimer = setTimeout(pushState, 2500);
+  }
+
+  async function pushState() {
+    if (!sb || !session) return;
+    clearTimeout(pushTimer); pushTimer = null;
+    setSyncStatus("sync");
+    const now = new Date().toISOString();
+    const { error } = await sb.from("user_state")
+      .upsert({ user_id: session.user.id, data: collectState(), updated_at: now });
+    if (error) { setSyncMeta({ pendingState: true }); setSyncStatus("err"); return; }
+    setSyncMeta({ userId: session.user.id, stateUpdatedAt: now, pendingState: false, lastSyncAt: now });
+    setSyncStatus("ok");
+  }
+
+  // 클라우드 → 로컬 반영 (LWW 키 일괄 교체). records는 applyCloud 밖에서 항상 union 병합.
+  function applyCloudState(cloud) {
+    for (const k in cloud) {
+      if (!k.startsWith("ks_") || k === SYNC_META || k === LS_REC) continue;
+      if (typeof cloud[k] === "string") try { localStorage.setItem(k, cloud[k]); } catch (e) { }
+    }
+    // 메모리 상태 리로드 (localStorage 재독)
+    examSession = loadExam();
+    const rb = safeParse(localStorage.getItem("ks_basket"), []);
+    basket = (Array.isArray(rb) ? rb : []).filter(k => QKEYS.has(k));
+    CTX.browse.fil = loadFil(FIL_KEY.browse); CTX.custom.fil = loadFil(FIL_KEY.custom);
+    CTX.browse.touched = computeTouched(CTX.browse.fil); CTX.custom.touched = computeTouched(CTX.custom.fil);
+    filter = CTX[ctxName].fil; filterTouched = CTX[ctxName].touched;
+  }
+
+  // 풀이 기록 병합: 문항별로 ts 큰 쪽 채택 (양쪽 기기의 진도를 모두 보존)
+  function mergeRecords(cloudRecRaw) {
+    const cloudRec = safeParse(cloudRecRaw, {});
+    if (!isObj(cloudRec)) return false;
+    let changed = false;
+    for (const k in cloudRec) {
+      const c = cloudRec[k];
+      if (!isObj(c)) continue;
+      if (!records[k] || (c.ts || 0) > (records[k].ts || 0)) { records[k] = c; changed = true; }
+    }
+    return changed;
+  }
+
+  async function pullAndMerge() {
+    if (!sb || !session) return;
+    const uid = session.user.id;
+    setSyncStatus("sync");
+    const { data: row, error } = await sb.from("user_state")
+      .select("data,updated_at").eq("user_id", uid).maybeSingle();
+    if (error) { setSyncStatus("err"); return; }
+
+    const meta = getSyncMeta();
+    const localHasData = Object.keys(records).length > 0 || basket.length > 0 || !!examSession;
+
+    if (!row) {
+      // 계정에 아직 데이터 없음 → 이 기기 데이터를 계정으로 (익명 데이터 입양)
+      if (localHasData && !confirm("이 기기의 풀이 기록을 방금 로그인한 계정에 올릴까요?")) return;
+      pushState();
+      return;
+    }
+
+    const cloud = row.data || {};
+    // 다른 계정이 쓰던 기기: 섞임 방지를 위해 명시적으로 선택받는다
+    if (meta.userId && meta.userId !== uid && localHasData) {
+      if (confirm("이 기기의 기존 기록은 다른 계정에서 쓰던 것이에요.\n\n확인 = 이 계정의 클라우드 기록으로 교체 (기기의 기존 기록은 지워짐)\n취소 = 기기의 기록을 이 계정에 합치기")) {
+        for (const k in records) delete records[k];
+        localStorage.removeItem("ks_exam"); localStorage.removeItem("ks_basket");
+        mergeRecords(cloud[LS_REC]); applyCloudState(cloud);
+        localStorage.setItem(LS_REC, JSON.stringify(records));
+        setSyncMeta({ userId: uid, stateUpdatedAt: row.updated_at, pendingState: false, lastSyncAt: new Date().toISOString() });
+        setSyncStatus("ok"); route();
+        return;
+      }
+      // 취소: 아래 일반 병합 경로로 (records union + 로컬 유지 push)
+    }
+
+    const recChanged = mergeRecords(cloud[LS_REC]);
+    if (recChanged) localStorage.setItem(LS_REC, JSON.stringify(records));   // saveRec 대신 직접 (push는 아래서 결정)
+
+    // 주의: Postgres는 "+00:00", JS toISOString은 "Z" 포맷이라 문자열 비교 불가 → 숫자 비교
+    const cloudNewer = !meta.stateUpdatedAt || (row.updated_at && Date.parse(row.updated_at) > Date.parse(meta.stateUpdatedAt));
+    const localChanged = meta.pendingState === true || (!meta.stateUpdatedAt && localHasData);
+
+    if (cloudNewer && localChanged) {
+      // 진짜 충돌: 양쪽 다 마지막 동기화 이후 변경됨 → 사용자 선택 (기록은 이미 병합됨)
+      if (confirm("클라우드에 다른 기기의 최신 상태가 있어요.\n\n확인 = 클라우드 상태 불러오기\n취소 = 이 기기 상태 유지 (클라우드에 덮어씀)")) {
+        applyCloudState(cloud);
+        setSyncMeta({ userId: uid, stateUpdatedAt: row.updated_at, pendingState: false, lastSyncAt: new Date().toISOString() });
+        if (recChanged) schedulePush();   // 병합된 기록은 올려둔다
+        setSyncStatus("ok"); route();
+      } else {
+        pushState();   // 로컬 전체(병합된 기록 포함)로 클라우드 덮어쓰기
+        route();
+      }
+      return;
+    }
+    if (cloudNewer) {
+      applyCloudState(cloud);
+      setSyncMeta({ userId: uid, stateUpdatedAt: row.updated_at, pendingState: false, lastSyncAt: new Date().toISOString() });
+      if (recChanged) schedulePush();
+      setSyncStatus("ok"); route();
+      return;
+    }
+    // 로컬이 같거나 앞섬 → 필요 시 push만
+    if (localChanged || recChanged) pushState();
+    else { setSyncMeta({ userId: uid, lastSyncAt: new Date().toISOString() }); setSyncStatus("ok"); }
+  }
+
+  function startSync() {
+    if (!sb || !session) return;
+    if (syncUserId === session.user.id) return;
+    syncUserId = session.user.id;
+    pullAndMerge();
+  }
+  function stopSync() {
+    syncUserId = null;
+    clearTimeout(pushTimer); pushTimer = null;
+    // 로컬 데이터는 그대로 둔다 (비로그인으로 계속 사용 가능)
+  }
+
+  // 재접속·탭 전환 시 밀린 push 처리
+  window.addEventListener("online", () => { if (getSyncMeta().pendingState) schedulePush(); });
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden" && pushTimer) pushState();   // 디바운스 대기 중 이탈 → 즉시 flush
+  });
 
   initAuth();
 })();
