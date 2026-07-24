@@ -886,6 +886,7 @@
         <span class="etlabel">${esc(examSession.label)}</span>
         <span class="etq" id="etQ" title="이 문항 경과 시간">이 문항 00:00</span>
         <span class="etclock" id="etClock">--:--</span>
+        ${examSession.custom && !examSession.submittedAt ? `<button class="ghost small" id="btnExamPause">⏸ 일시정지</button>` : ""}
         <button class="ghost small" id="btnExamEnd">종료·채점</button>
       </div>` : ""}
       <div class="solve-head">
@@ -1070,11 +1071,13 @@
       examQEnter = { key: q.key, t: Date.now() };  // 이 문항 진입 시각 기록
       const tick = () => {
         const clk = $("#etClock");
+        // 일시정지 중이면 pausedAt 시점으로 시계를 얼린다 (재개 시 기준 시각을 밀어 보정)
+        const nowRef = examSession.pausedAt || Date.now();
         if (clk) {
           if (!examSession.endTime) {   // 타이머 없음(나만의 모의고사) → 경과 시간 카운트업
-            clk.textContent = "경과 " + fmtClock(Date.now() - (examSession.startAt || Date.now()));
+            clk.textContent = "경과 " + fmtClock(nowRef - (examSession.startAt || nowRef));
           } else {
-            const remain = examSession.endTime - Date.now();
+            const remain = examSession.endTime - nowRef;
             clk.textContent = remain <= 0 ? "00:00 시간종료" : fmtClock(remain);
             clk.classList.toggle("over", remain <= 0);
             // 회차별 실전: 시간 종료 시 1회 자동 제출 (나만의 모의고사는 계속 진행 가능)
@@ -1148,6 +1151,35 @@
         if (examSession.submittedAt) { showResult(); return; }
         if (confirm("시험을 종료하고 채점할까요?")) showResult();
       };
+      // 일시정지 (나만의·랜덤 모의고사 전용 — 실전은 연속 응시 유지)
+      const renderPause = () => {
+        if (document.getElementById("pauseOverlay")) return;
+        const ov = document.createElement("div");
+        ov.id = "pauseOverlay"; ov.className = "pause-overlay";
+        ov.innerHTML = `<div class="pause-card">
+          <div class="pause-emoji">⏸</div>
+          <p class="pause-title">일시정지 중</p>
+          <p class="pause-sub">타이머가 멈춰 있어요. 문제는 재개하면 다시 보여요.</p>
+          <button class="big" id="btnResume">▶ 이어서 풀기</button>
+        </div>`;
+        $("#view").appendChild(ov);   // #view 안에 두면 화면 전환 시 자동 정리됨
+        ov.querySelector("#btnResume").onclick = () => {
+          const shift = Date.now() - (examSession.pausedAt || Date.now());
+          if (examSession.endTime) examSession.endTime += shift;         // 남은 시간 보존
+          else examSession.startAt = (examSession.startAt || Date.now()) + shift;   // 경과 시간 보존
+          examSession.pausedAt = null;
+          examQEnter = { key: q.key, t: Date.now() };   // 이 문항 시간 다시 측정 시작
+          saveExam(); ov.remove(); tick();
+        };
+      };
+      const bp = $("#btnExamPause");
+      if (bp) bp.onclick = () => {
+        if (examSession.pausedAt) return;
+        flushQTime();                          // 현재 문항 체류 시간 확정 (examQEnter=null)
+        examSession.pausedAt = Date.now(); saveExam();
+        renderPause(); tick();
+      };
+      if (examSession.custom && examSession.pausedAt) renderPause();   // 일시정지 상태로 재진입(새로고침·기기 전환)
       const bf = $("#btnFinishAB"); if (bf) bf.onclick = finish;   // 마지막 문항의 제출·채점
       $("#erClose").onclick = () => { $("#examResult").hidden = true; };
       if (pendingShowResult) { pendingShowResult = false; setTimeout(() => showResult(), 0); }   // 배너 "결과 보기" 경유 진입
@@ -1585,6 +1617,7 @@
     else if (p === "/wrong") viewWrong();
     else if (p === "/stats") viewStats();
     else if (p === "/account") viewAccount();
+    else if (p === "/privacy") viewPrivacy();
     else viewHome();  // '/' 및 미매칭 경로는 홈으로
     window.scrollTo(0, 0);
   }
@@ -1724,10 +1757,42 @@
           <button class="loginbtn kakao" id="btnKakao">카카오로 로그인</button>
           <button class="loginbtn google" id="btnGoogle">구글로 로그인</button>
         </div>
+        <p class="muted consent">로그인하면 <a href="/privacy">개인정보처리방침</a>에 동의하고, 만 14세 이상임을 확인한 것으로 봅니다.</p>
       </section>`;
       $("#btnKakao").onclick = () => signIn("kakao");
       $("#btnGoogle").onclick = () => signIn("google");
     }
+  }
+
+  function viewPrivacy() {
+    setNav("");
+    $("#view").innerHTML = `<section class="account privacy">
+      <h2>개인정보처리방침</h2>
+      <p class="muted">시행일 2026-07-24 · SelecQ (운영: 개인)</p>
+
+      <h3>1. 수집하는 개인정보와 목적</h3>
+      <p class="muted">SelecQ는 <b>로그인하지 않으면 개인정보를 수집하지 않습니다.</b> 이 경우 풀이 기록·필기는 사용자의 브라우저(localStorage)에만 저장됩니다.</p>
+      <p class="muted">소셜 로그인(카카오·구글) 시 아래 정보를 수집합니다.</p>
+      <ul class="muted">
+        <li><b>계정 정보</b>: 이메일, 닉네임, 프로필 사진(동의 시), 소셜 제공자의 회원 식별자 — 회원 식별·로그인·문의 대응 목적</li>
+        <li><b>학습 기록</b>: 문제 풀이·오답·모의고사 기록, 필기 데이터 — 기기 간 학습 기록 동기화 목적</li>
+      </ul>
+
+      <h3>2. 보관 기간과 파기</h3>
+      <p class="muted">회원 탈퇴(삭제 요청) 시 지체 없이 파기합니다. 계정·데이터 삭제는 아래 문의처로 요청하시면 처리해 드립니다.</p>
+
+      <h3>3. 처리 위탁</h3>
+      <p class="muted">데이터 보관을 위해 Supabase(미국 Supabase Inc., 데이터베이스 호스팅)에 처리를 위탁하며, 데이터는 국내(서울) 리전에 저장됩니다.</p>
+
+      <h3>4. 만 14세 미만 아동</h3>
+      <p class="muted">만 14세 미만은 법정대리인의 동의 없이 로그인(가입)할 수 없습니다. SelecQ 로그인은 만 14세 이상만 이용해 주세요.</p>
+
+      <h3>5. 이용자의 권리</h3>
+      <p class="muted">언제든 개인정보의 열람·정정·삭제를 요청할 수 있고, 로그아웃하면 이후 기록은 계정에 수집되지 않습니다.</p>
+
+      <h3>6. 문의처</h3>
+      <p class="muted">이메일: <a href="mailto:1212ntnt@naver.com?subject=[SelecQ] 개인정보 문의">1212ntnt@naver.com</a></p>
+    </section>`;
   }
 
   // ---------- 클라우드 동기화: 상태(ks_*, 필기 제외) ----------
