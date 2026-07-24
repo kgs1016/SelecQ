@@ -1684,7 +1684,11 @@
 
   async function signIn(provider) {
     if (!sb) return;
-    const { error } = await sb.auth.signInWithOAuth({ provider, options: { redirectTo: location.origin + "/account" } });
+    const opts = { redirectTo: location.origin + "/account" };
+    // 카카오 개인 개발자 앱은 이메일 동의항목 사용 불가(비즈니스 인증 필요).
+    // 콘솔에 켜진 항목만 요청해야 KOE205가 안 난다. (이메일 없는 계정도 Supabase가 수용)
+    if (provider === "kakao") opts.scopes = "profile_nickname profile_image";
+    const { error } = await sb.auth.signInWithOAuth({ provider, options: opts });
     if (error) alert("로그인을 시작할 수 없어요: " + error.message);
   }
   async function signOut() {
