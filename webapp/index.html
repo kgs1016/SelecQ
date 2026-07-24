@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/"><!-- 클린 URL(/q/…) 딥링크에서도 상대경로 자산·문제이미지가 항상 루트 기준으로 풀리도록 -->
 <title>SelecQ — 평가원 수학 기출, 유형별로 골라 풀기</title>
 <meta name="description" content="평가원·교육청 수학 기출을 단원·유형·난이도로 골라 나만의 모의고사를 만들고, 회차별 실전과 오답·풀이 기록까지 한 곳에서. 태블릿 필기 지원.">
 <link rel="canonical" href="https://selecq.com/">
@@ -33,7 +34,7 @@
 <meta name="apple-mobile-web-app-title" content="SelecQ">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="styles.css?v=20260723b">
+<link rel="stylesheet" href="styles.css?v=20260723c">
 </head>
 <body>
 <header class="topbar">
@@ -45,6 +46,7 @@
     <a href="/wrong" data-nav="wrong">오답</a>
     <a href="/stats" data-nav="stats">기록</a>
   </nav>
+  <div class="authslot" id="authslot"></div>
 </header>
 
 <main id="view">
@@ -67,7 +69,8 @@
   <p>풀이 기록은 이 브라우저에만 저장됩니다. · <a href="mailto:1212ntnt@naver.com?subject=[SelecQ] 문의">문의</a></p>
 </footer>
 
+<script src="config.js?v=20260723a"></script>
 <script src="data.js?v=20260721b"></script>
-<script src="app.js?v=20260723g"></script>
+<script src="app.js?v=20260723h"></script>
 </body>
 </html>

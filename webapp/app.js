@@ -1583,6 +1583,7 @@
     else if (p === "/random") { customTab = "random"; viewCustom(); }   // 구 링크 호환: 조건 랜덤 탭으로
     else if (p === "/wrong") viewWrong();
     else if (p === "/stats") viewStats();
+    else if (p === "/account") viewAccount();
     else viewHome();  // '/' 및 미매칭 경로는 홈으로
     window.scrollTo(0, 0);
   }
@@ -1619,4 +1620,95 @@
     window.addEventListener("load", updateNavFade);
     updateNavFade();
   }
+
+  // ---------- 로그인 / 클라우드 동기화 (Supabase) ----------
+  // config.js가 placeholder(미설정)면 전부 no-op → 앱은 비로그인으로 지금과 똑같이 동작한다.
+  // 이 단계에선 인증(로그인/로그아웃·세션·UI)만. 실제 데이터 동기화 훅은 다음 단계에서 붙인다.
+  const SB_ESM = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+  let sb = null;         // supabase 클라이언트 (설정+로드 성공 시)
+  let session = null;    // 현재 세션 (비로그인이면 null)
+
+  const userName = u => (u && ((u.user_metadata && (u.user_metadata.name || u.user_metadata.full_name)) || u.email)) || "내 계정";
+  const shorten = s => { s = String(s || ""); return s.length > 12 ? s.slice(0, 11) + "…" : s; };
+
+  function renderAuthUI() {
+    const el = document.getElementById("authslot");
+    if (!el) return;
+    if (!window.SB_CONFIGURED) { el.innerHTML = ""; return; }   // 미설정: 헤더에 아무것도 안 띄움
+    const onAcc = location.pathname === "/account";
+    if (session && session.user) {
+      const nm = userName(session.user);
+      el.innerHTML = `<a class="authbtn in ${onAcc ? "active" : ""}" href="/account" title="${esc(nm)}"><span class="syncdot" id="syncDot"></span>${esc(shorten(nm))}</a>`;
+    } else {
+      el.innerHTML = `<a class="authbtn ${onAcc ? "active" : ""}" href="/account">로그인</a>`;
+    }
+  }
+
+  async function initAuth() {
+    if (!window.SB_CONFIGURED) { renderAuthUI(); return; }
+    try {
+      const mod = await import(SB_ESM);
+      sb = mod.createClient(window.SB_CONFIG.url, window.SB_CONFIG.anonKey, {
+        auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, flowType: "pkce" }
+      });
+      const { data } = await sb.auth.getSession();
+      session = (data && data.session) || null;
+      renderAuthUI();
+      if (location.pathname === "/account") viewAccount();
+      sb.auth.onAuthStateChange((_evt, s) => {
+        session = s || null;
+        renderAuthUI();
+        if (location.pathname === "/account") viewAccount();
+        // TODO(다음 단계): 로그인 전환 시 pull·병합, 로그아웃 시 동기화 중단
+      });
+    } catch (e) {
+      console.warn("[SelecQ] Supabase 초기화 실패(네트워크/설정 확인)", e);
+      renderAuthUI();
+    }
+  }
+
+  async function signIn(provider) {
+    if (!sb) return;
+    const { error } = await sb.auth.signInWithOAuth({ provider, options: { redirectTo: location.origin + "/account" } });
+    if (error) alert("로그인을 시작할 수 없어요: " + error.message);
+  }
+  async function signOut() {
+    if (!sb) return;
+    await sb.auth.signOut();
+    session = null;
+    renderAuthUI();
+    if (location.pathname === "/account") viewAccount();
+  }
+
+  function viewAccount() {
+    setNav("account");
+    const el = $("#view");
+    if (!window.SB_CONFIGURED) {
+      el.innerHTML = `<section class="account"><h2>로그인</h2><p class="muted">클라우드 동기화 기능을 준비 중이에요. 곧 로그인으로 어느 기기에서든 기록·필기를 이어서 쓸 수 있게 됩니다.</p></section>`;
+      return;
+    }
+    if (session && session.user) {
+      const u = session.user;
+      el.innerHTML = `<section class="account">
+        <h2>내 계정</h2>
+        <p class="acc-email">${esc(u.email || userName(u))}</p>
+        <p class="muted">로그인된 기기끼리 기록·오답·모의고사·필기가 자동으로 동기화됩니다.</p>
+        <div class="acc-actions"><button class="ghost" id="btnSignout">로그아웃</button></div>
+      </section>`;
+      $("#btnSignout").onclick = signOut;
+    } else {
+      el.innerHTML = `<section class="account">
+        <h2>로그인</h2>
+        <p class="muted">로그인하면 기록·오답·필기가 <b>모든 기기에서 이어집니다.</b> 로그인하지 않아도 이 기기에서는 지금처럼 그대로 사용할 수 있어요.</p>
+        <div class="acc-actions">
+          <button class="loginbtn kakao" id="btnKakao">카카오로 로그인</button>
+          <button class="loginbtn google" id="btnGoogle">구글로 로그인</button>
+        </div>
+      </section>`;
+      $("#btnKakao").onclick = () => signIn("kakao");
+      $("#btnGoogle").onclick = () => signIn("google");
+    }
+  }
+
+  initAuth();
 })();
