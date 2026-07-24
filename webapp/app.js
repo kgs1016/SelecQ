@@ -1554,14 +1554,18 @@
                 <button class="big del danger" id="sDel" ${selected.size ? "" : "disabled"}>${selected.size}개 삭제</button>
               </div>` : ""}`
           : ""}
-        <div class="card">
+        ${session ? `<div class="card">
+          <h2>클라우드 동기화</h2>
+          <p style="font-size:13px;color:var(--sub);margin:0 0 10px">로그인 중 — 기록·오답·모의고사·필기가 계정에 자동 저장되고, 다른 기기에서 로그인하면 이어집니다.</p>
+          <p style="font-size:12px;color:var(--sub);margin:0">파일로도 보관하고 싶다면: <button class="linklike" id="btnExport">백업 내보내기</button> · <label class="linklike">복원 가져오기<input type="file" id="fileImport" accept="application/json,.json" hidden></label></p>
+        </div>` : `<div class="card">
           <h2>백업 · 복원</h2>
-          <p style="font-size:13px;color:var(--sub);margin:0 0 10px">필기·오답·기록을 파일로 저장해 두면 브라우저 데이터를 지우거나 기기를 바꿔도 복원할 수 있어요.</p>
+          <p style="font-size:13px;color:var(--sub);margin:0 0 10px">필기·오답·기록을 파일로 저장해 두면 브라우저 데이터를 지우거나 기기를 바꿔도 복원할 수 있어요.<br>더 편한 방법: <a href="/account">로그인</a>하면 자동으로 계정에 저장돼요.</p>
           <div class="backuprow">
             <button class="ghost" id="btnExport">⬇ 백업 내보내기</button>
             <label class="ghost btnfile">⬆ 복원 가져오기<input type="file" id="fileImport" accept="application/json,.json" hidden></label>
           </div>
-        </div>
+        </div>`}
         <div class="card"><button class="ghost" id="btnClear">풀이 기록 전체 삭제</button></div>`;
 
       const ssel = $("#sSelect");
