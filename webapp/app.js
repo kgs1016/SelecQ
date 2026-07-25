@@ -914,6 +914,7 @@
       <div class="probpane" id="probPane">
         ${q.img ? `<img class="qimg" id="qimg" src="${q.img}" alt="${q.qno}번 문제" draggable="false">`
                 : `<div class="noimg">이 문항은 이미지가 없습니다. 아래 원본 PDF로 확인하세요.</div>`}
+        <span class="srcmini">출처 · KICE</span>
       </div>
       <div class="splitbar" id="splitBar" title="드래그로 문제·필기 비율 조절"></div>
       <div class="wsscroll" id="wsScroll">
@@ -931,13 +932,7 @@
 
       <div class="srcline">출처: 한국교육과정평가원 ${q.examLabel} 수학영역 ${q.qno}번 · 문제 저작권은 KICE에 있습니다.</div>
       ${inExam ? "" : `<a class="big solbtn" id="btnSol" href="https://www.google.com/search?q=${encodeURIComponent(q.examLabel + " 수학 " + q.qno + "번 해설")}" target="_blank" rel="noopener">🔍 이 문제 해설 검색 ↗</a>`}
-      ${inExam ? "" : `<div class="navrow">
-        <button class="ghost" id="btnPrevQ" ${pos <= 0 ? "disabled" : ""}>← 이전</button>
-        <button class="ghost" id="btnPicker">☰ 목록 ${pos >= 0 ? `<b>${pos + 1}/${currentList.length}</b>` : ""}</button>
-        <button class="ghost" id="btnNextQ" ${pos < 0 || pos >= currentList.length - 1 ? "disabled" : ""}>다음 →</button>
-      </div>`}
-
-      <div class="answer-bar ${inExam ? "examab" : ""}">
+      <div class="answer-bar examab">
         ${inExam
           ? `<div class="ab-answer">
                ${mc
@@ -953,10 +948,17 @@
                   ? `<button class="nextbtn finish" id="btnFinishAB">제출 →</button>`
                   : `<button class="nextbtn" id="btnNextAB">다음 →</button>`}
              </div>`
-          : `${mc
-                ? `<div class="mc" id="mcRow">${[1, 2, 3, 4, 5].map(n => `<button data-n="${n}" class="${picked === n ? "sel" : ""}">${CIRCLED[n]}</button>`).join("")}</div>`
-                : `<input class="short" id="shortIn" type="number" min="0" max="999" placeholder="정답 입력">`}
-             <button class="big" id="btnSubmit">채점</button><span class="result" id="result">${r ? (r.r === "ok" ? "이전: 정답" : "이전: 오답") : ""}</span>`}
+          : `<div class="ab-answer">
+               ${mc
+                 ? `<div class="mc" id="mcRow">${[1, 2, 3, 4, 5].map(n => `<button data-n="${n}" class="${picked === n ? "sel" : ""}">${CIRCLED[n]}</button>`).join("")}</div>`
+                 : `<input class="short" id="shortIn" type="number" min="0" max="999" placeholder="정답 입력">`}
+               <button class="big" id="btnSubmit">채점</button><span class="result" id="result">${r ? (r.r === "ok" ? "이전: 정답" : "이전: 오답") : ""}</span>
+             </div>
+             <div class="ab-nav ab-nav-browse">
+               <button class="ghost" id="btnPrevQ" ${pos <= 0 ? "disabled" : ""}>← 이전</button>
+               <button class="ghost" id="btnPicker">☰ 목록 ${pos >= 0 ? `<b>${pos + 1}/${currentList.length}</b>` : ""}</button>
+               <button class="ghost" id="btnNextQ" ${pos < 0 || pos >= currentList.length - 1 ? "disabled" : ""}>다음 →</button>
+             </div>`}
       </div>
 
       <div class="picker" id="picker" hidden>
@@ -1388,14 +1390,16 @@
     const layoutFocus = () => {
       if (!document.body.classList.contains("focusmode")) return;
       const sc = $("#wsScroll"), tb = $("#tools"), ab = document.querySelector(".answer-bar");
-      const pp = $("#probPane"), bar = $("#splitBar");
+      const pp = $("#probPane"), bar = $("#splitBar"), tm = document.querySelector(".examtimer");
       const tbH = tb ? tb.offsetHeight : 52, abH = ab ? ab.offsetHeight : 66;
-      const avail = window.innerHeight - tbH - abH - SPLIT_BAR;
+      if (tm) tm.style.top = tbH + "px";                      // 실전 타이머: 툴바 바로 아래 고정
+      const topH = tbH + (tm ? tm.offsetHeight : 0);
+      const avail = window.innerHeight - topH - abH - SPLIT_BAR;
       let probH = Math.round(avail * getSplit());
       probH = Math.max(120, Math.min(avail - 160, probH));   // 문제/필기 각각 최소 확보
-      if (pp) { pp.style.top = tbH + "px"; pp.style.height = probH + "px"; }
-      if (bar) { bar.style.top = (tbH + probH) + "px"; bar.style.height = SPLIT_BAR + "px"; }
-      if (sc) { sc.style.top = (tbH + probH + SPLIT_BAR) + "px"; sc.style.bottom = abH + "px"; }
+      if (pp) { pp.style.top = topH + "px"; pp.style.height = probH + "px"; }
+      if (bar) { bar.style.top = (topH + probH) + "px"; bar.style.height = SPLIT_BAR + "px"; }
+      if (sc) { sc.style.top = (topH + probH + SPLIT_BAR) + "px"; sc.style.bottom = abH + "px"; }
     };
     const setFocus = on => {
       document.body.classList.toggle("focusmode", on);
@@ -1424,11 +1428,12 @@
       let dragging = false;
       const onMove = e => {
         if (!dragging) return;
-        const tb = $("#tools"), ab = document.querySelector(".answer-bar");
+        const tb = $("#tools"), ab = document.querySelector(".answer-bar"), tm = document.querySelector(".examtimer");
         const tbH = tb ? tb.offsetHeight : 52, abH = ab ? ab.offsetHeight : 66;
-        const avail = window.innerHeight - tbH - abH - SPLIT_BAR;
+        const topH = tbH + (tm ? tm.offsetHeight : 0);
+        const avail = window.innerHeight - topH - abH - SPLIT_BAR;
         const y = e.touches ? e.touches[0].clientY : e.clientY;
-        let frac = (y - tbH) / avail;
+        let frac = (y - topH) / avail;
         frac = Math.max(0.2, Math.min(0.75, frac));
         try { localStorage.setItem(SPLIT_KEY, frac.toFixed(3)); } catch (err) { }
         layoutFocus(); d.resize();
@@ -1444,7 +1449,8 @@
     }
 
     focusBtn.onclick = () => setFocus(!document.body.classList.contains("focusmode"));
-    if (localStorage.getItem("ks_focus") === "1") setFocus(true);
+    // 집중(분할)이 기본 풀이 화면 — 사용자가 명시적으로 해제("0")하지 않는 한 켠다.
+    if (localStorage.getItem("ks_focus") !== "0") setFocus(true);
   }
 
   // 필기 저장 (문항별, localStorage LRU 한도 — 용량 초과 시 saveWork에서 추가로 자동 정리)

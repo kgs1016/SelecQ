@@ -305,11 +305,12 @@ body:not(.focusmode) .solveview.in-exam .draw-toolbar { top: 104px; }
 .probpane { margin: 0 0 8px; }
 .splitbar { display: none; }
 /* 집중모드에서만 고정 분할 — 위치·높이는 layoutFocus(JS)가 픽셀로 지정 */
-/* 문제 pane: 전체 문제를 pane 안에 딱 맞게(축소) 표시 → 스크롤 없이 한 눈에. 글씨 작아도 전체 보임. */
-body.focusmode .probpane { position: fixed; left: 0; right: 0; z-index: 36; overflow: hidden;
-  background: #fff; border-bottom: 1px solid var(--line); padding: 4px 8px; margin: 0;
-  display: flex; align-items: center; justify-content: center; }
-body.focusmode .probpane .qimg { width: auto; max-width: 100%; max-height: 100%; margin: 0; }
+/* 문제 pane: 문제를 '읽을 수 있는 크기'(원본 해상도)로 두고, 길면 이 pane 안에서만 세로 스크롤.
+   필기 pane과 독립 스크롤이라 문제를 스크롤해 읽어도 필기 위치는 유지됨. 짧은 문제는 스크롤 없이 다 보임. */
+body.focusmode .probpane { position: fixed; left: 0; right: 0; z-index: 36; overflow-y: auto; overflow-x: hidden;
+  background: #fff; border-bottom: 1px solid var(--line); padding: 4px 8px; margin: 0; text-align: center;
+  -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+body.focusmode .probpane .qimg { width: auto; max-width: 100%; max-height: none; margin: 0 auto; }
 body.focusmode .splitbar { display: block; position: fixed; left: 0; right: 0; z-index: 37;
   background: var(--bg); cursor: row-resize; touch-action: none; }
 body.focusmode .splitbar::before { content: ""; display: block; width: 44px; height: 4px;
@@ -318,9 +319,10 @@ body.focusmode .splitbar::before { content: ""; display: block; width: 44px; hei
 /* 집중 모드 — 페이지 스크롤 잠금, 필기 영역만 내부 스크롤 (굿노트 방식) */
 body.focusmode { overflow: hidden; }
 body.focusmode .topbar, body.focusmode .solve-head, body.focusmode .typeline,
-body.focusmode .srcline, body.focusmode .navrow, body.focusmode .foot,
-body.focusmode .solbtn, body.focusmode .examtimer { display: none; }
+body.focusmode .srcline, body.focusmode .foot, body.focusmode .solbtn { display: none; }
 body.focusmode .draw-toolbar { position: fixed; top: 0; left: 0; right: 0; z-index: 40; border-radius: 0; margin: 0; justify-content: center; }
+/* 실전 타이머: 집중모드에서도 툴바 아래 고정 바로 표시(위치·높이는 layoutFocus가 top 지정) */
+body.focusmode .examtimer { position: fixed; left: 0; right: 0; z-index: 39; border-radius: 0; margin: 0; }
 body.focusmode .wsscroll { position: fixed; top: 52px; bottom: 66px; left: 0; right: 0; z-index: 35;
   overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; background: var(--bg); padding: 0 8px; }
 body.focusmode .worksheet { max-width: 900px; margin: 0 auto; }
@@ -361,6 +363,10 @@ input.short { width: 140px; padding: 10px 12px; font-size: 18px; border: 1px sol
 .ab-answer { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .ab-nav { display: flex; align-items: center; gap: 8px; }
 .ab-nav .nextbtn { margin-left: auto; }
+.ab-nav-browse { justify-content: space-between; }   /* 브라우즈: 이전·목록·다음 고르게 배치 */
+/* 집중모드 문제 pane 우하단 출처 표기(저작권) — 일반 모드는 하단 .srcline이 담당 */
+.srcmini { display: none; }
+body.focusmode .srcmini { display: block; text-align: center; font-size: 10px; color: #97a1b0; padding: 2px 0 4px; }
 .answer-bar .peekbtn { white-space: nowrap; }
 .peekans { font-size: 14px; font-weight: 700; white-space: nowrap; }
 .peekans.ok { color: var(--ok); }
