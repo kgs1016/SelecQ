@@ -299,6 +299,16 @@ body:not(.focusmode) .solveview.in-exam .draw-toolbar { top: 104px; }
 .noimg { padding: 24px; font-size: 14px; color: var(--sub); background: #fff; }
 .workspace { min-height: 1200px; }
 .drawlayer { position: absolute; top: 0; left: 0; touch-action: pan-y; cursor: crosshair; }
+/* 문제 이미지 위 필기 캔버스 — 이미지에 딱 맞춰 겹침 */
+.probwrap { position: relative; display: inline-block; max-width: 100%; }
+.probink { position: absolute; top: 0; left: 0; touch-action: pan-y; cursor: crosshair; }
+/* 문제 전체화면 확대(핀치/더블탭/이동) */
+.probzoom { position: fixed; inset: 0; z-index: 60; background: rgba(15,18,25,.93); display: flex; flex-direction: column; }
+.probzoom[hidden] { display: none; }
+.pz-bar { display: flex; align-items: center; gap: 10px; padding: 8px 12px; }
+.pz-hint { flex: 1; color: #cbd3e0; font-size: 12px; }
+.pz-stage { flex: 1; overflow: hidden; display: flex; align-items: center; justify-content: center; touch-action: none; }
+.pz-stage img { max-width: 100%; max-height: 100%; transform-origin: center center; will-change: transform; user-select: none; -webkit-user-drag: none; }
 .wsmore { display: flex; gap: 10px; align-items: center; margin: 10px 0 6px; }
 
 /* 위–아래 분할: 문제 pane / 분할바. 일반 모드에선 그냥 문서 흐름(문제 위, 필기 아래). */

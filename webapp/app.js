@@ -912,9 +912,9 @@
       </div>
 
       <div class="probpane" id="probPane">
-        ${q.img ? `<img class="qimg" id="qimg" src="${q.img}" alt="${q.qno}번 문제" draggable="false">`
+        ${q.img ? `<div class="probwrap" id="probWrap"><img class="qimg" id="qimg" src="${q.img}" alt="${q.qno}번 문제" draggable="false"><canvas class="probink" id="drawProb"></canvas></div>`
                 : `<div class="noimg">이 문항은 이미지가 없습니다. 아래 원본 PDF로 확인하세요.</div>`}
-        <span class="srcmini">출처 · KICE</span>
+        <span class="srcmini">출처 · KICE · 문제를 탭하면 크게 볼 수 있어요</span>
       </div>
       <div class="splitbar" id="splitBar" title="드래그로 문제·필기 비율 조절"></div>
       <div class="wsscroll" id="wsScroll">
@@ -960,6 +960,11 @@
                <button class="ghost" id="btnNextQ" ${pos < 0 || pos >= currentList.length - 1 ? "disabled" : ""}>다음 →</button>
              </div>`}
       </div>
+
+      ${q.img ? `<div class="probzoom" id="probZoom" hidden>
+        <div class="pz-bar"><span class="pz-hint">두 손가락으로 확대 · 더블탭 · 한 손가락으로 이동</span><button class="ghost small" id="pzClose">✕ 닫기</button></div>
+        <div class="pz-stage" id="pzStage"><img id="pzImg" src="${q.img}" alt="${q.qno}번 문제 확대" draggable="false"></div>
+      </div>` : ""}
 
       <div class="picker" id="picker" hidden>
         <div class="picker-panel">
@@ -1217,9 +1222,12 @@
       this.undo_ = [];
       this.tool = "pen"; this.color = "#111827"; this.width = 2.2;
       this.fingerMode = false; this.drawing = false; this.erasing = false; this.cur = null;
-      this.scrollEl = null;           // 집중 모드: 내부 스크롤 컨테이너 (두 손가락 팬)
+      this.scrollEl = null;           // 집중 모드: 내부 스크롤 컨테이너 (한 손가락 팬)
       this.touches = new Map();       // 활성 터치 포인터
       this.pan = null;                // {y0, top0}
+      this.onTap = null;              // 손가락 탭(드래그 아님) 콜백 — 문제 캔버스=전체화면 확대
+      this.onStroke = null;           // 획 커밋 시 콜백 — 마지막 필기 캔버스 추적(undo 대상)
+      this.tStart = null; this.tMoved = false;  // 탭/드래그 판별
       this.dpr = Math.min(window.devicePixelRatio || 1, 2.5);
       this.resize();
       const opt = { passive: false };
@@ -1270,8 +1278,9 @@
     }
     down(e) {
       if (e.pointerType === "touch" && !this.fingerMode) {
-        // 손가락 = 스크롤(한 손가락으로 필기 pane을 내리며 풀이). 필기는 펜(스타일러스)만.
+        // 손가락 = 스크롤(드래그) 또는 탭(onTap). 필기는 펜(스타일러스)만.
         this.touches.set(e.pointerId, { y: e.clientY });
+        if (this.touches.size === 1) { this.tStart = { x: e.clientX, y: e.clientY }; this.tMoved = false; }
         if (this.scrollEl) {
           this.pan = { y0: this.avgTouchY(), top0: this.scrollEl.scrollTop };
           if (this.drawing) { this.drawing = false; this.cur = null; this.render(); }  // 스크롤 시작 시 그리던 획 취소
@@ -1289,6 +1298,7 @@
       if (e.pointerType === "touch" && !this.fingerMode) {
         if (!this.touches.has(e.pointerId)) return;
         this.touches.set(e.pointerId, { y: e.clientY });
+        if (this.tStart && (Math.abs(e.clientX - this.tStart.x) > 8 || Math.abs(e.clientY - this.tStart.y) > 8)) this.tMoved = true;
         if (this.pan && this.scrollEl) {
           this.scrollEl.scrollTop = this.pan.top0 - (this.avgTouchY() - this.pan.y0);
           e.preventDefault();
@@ -1307,14 +1317,17 @@
     up(e) {
       if (e && e.pointerType === "touch" && !this.fingerMode) {
         this.touches.delete(e.pointerId);
-        if (this.touches.size === 0) this.pan = null;
-        else if (this.scrollEl) this.pan = { y0: this.avgTouchY(), top0: this.scrollEl.scrollTop };  // 손가락 수 바뀌어도 기준 재설정(점프 방지)
+        if (this.touches.size === 0) {
+          this.pan = null;
+          if (this.tStart && !this.tMoved && this.onTap) this.onTap();   // 움직임 없는 손가락 = 탭
+          this.tStart = null;
+        } else if (this.scrollEl) this.pan = { y0: this.avgTouchY(), top0: this.scrollEl.scrollTop };  // 손가락 수 바뀌어도 기준 재설정(점프 방지)
         return;
       }
-      if (this.erasing) { this.erasing = false; saveWork(this.key, this.strokes); return; }
+      if (this.erasing) { this.erasing = false; saveWork(this.key, this.strokes); if (this.onStroke) this.onStroke(); return; }
       if (!this.drawing) return;
       this.drawing = false;
-      if (this.cur && this.cur.points.length) { this.pushUndo(); this.strokes.push(this.cur); saveWork(this.key, this.strokes); }
+      if (this.cur && this.cur.points.length) { this.pushUndo(); this.strokes.push(this.cur); saveWork(this.key, this.strokes); if (this.onStroke) this.onStroke(); }
       this.cur = null; this.render();
     }
     eraseAt(pt) {
@@ -1340,9 +1353,10 @@
   }
 
   let currentDrawer = null;
+  let currentProbDrawer = null;    // 문제 이미지 위 필기 캔버스
   let currentLayoutFocus = null;   // 현재 풀이 화면의 집중모드 레이아웃 함수 (문항 이동 시 갱신)
   // resize 리스너는 여기 한 번만 등록 — setupDrawer마다 새로 붙이면 리스너가 누적됨
-  window.addEventListener("resize", () => { if (currentDrawer) currentDrawer.resize(); if (currentLayoutFocus) currentLayoutFocus(); });
+  window.addEventListener("resize", () => { if (currentDrawer) currentDrawer.resize(); if (currentProbDrawer) currentProbDrawer.resize(); if (currentLayoutFocus) currentLayoutFocus(); });
 
   function setupDrawer(key) {
     const canvas = $("#draw"), ws = $("#ws"), img = $("#qimg");
@@ -1350,33 +1364,88 @@
     const d = new Drawer(canvas, ws, key);
     currentDrawer = d;
 
+    // 문제 이미지 위 필기 캔버스(별도) — 펜/색/지우개는 아래 필기와 공유, 저장키만 분리("prob_").
+    const probCanvas = $("#drawProb"), probWrap = $("#probWrap");
+    const dProb = (probCanvas && probWrap) ? new Drawer(probCanvas, probWrap, "prob_" + key) : null;
+    currentProbDrawer = dProb;
+    const drawers = dProb ? [d, dProb] : [d];
+    let lastInk = d;                        // 마지막으로 그린 캔버스(undo 대상)
+    drawers.forEach(dr => { dr.onStroke = () => { lastInk = dr; }; });
+
+    // ---------- 문제 전체화면 확대(핀치/더블탭/이동) ----------
+    const pz = $("#probZoom"), pzStage = $("#pzStage"), pzImg = $("#pzImg");
+    let pscale = 1, ptx = 0, pty = 0;
+    const pzApply = () => { if (pzImg) pzImg.style.transform = `translate(${ptx}px,${pty}px) scale(${pscale})`; };
+    function pzOpen() { if (!pz) return; pscale = 1; ptx = 0; pty = 0; pzApply(); pz.hidden = false; }
+    function pzClose() { if (pz) pz.hidden = true; }
+    if (pz && pzStage) {
+      const pzpts = new Map();
+      let d0 = 0, s0 = 1, panS = null, lastTap = 0;
+      const pdist = () => { const a = [...pzpts.values()]; return Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y); };
+      pzStage.addEventListener("pointerdown", e => {
+        pzpts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+        if (pzpts.size === 2) { d0 = pdist(); s0 = pscale; }
+        else if (pzpts.size === 1) { panS = { x: e.clientX - ptx, y: e.clientY - pty }; }
+        try { pzStage.setPointerCapture(e.pointerId); } catch (er) { }
+        e.preventDefault();
+      }, { passive: false });
+      pzStage.addEventListener("pointermove", e => {
+        if (!pzpts.has(e.pointerId)) return;
+        pzpts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+        if (pzpts.size >= 2 && d0) { pscale = Math.max(1, Math.min(6, s0 * pdist() / d0)); pzApply(); }
+        else if (pzpts.size === 1 && panS && pscale > 1) { ptx = e.clientX - panS.x; pty = e.clientY - panS.y; pzApply(); }
+        e.preventDefault();
+      }, { passive: false });
+      const pzEnd = e => {
+        pzpts.delete(e.pointerId);
+        if (pscale <= 1.01) { pscale = 1; ptx = 0; pty = 0; pzApply(); }
+        if (e.type === "pointerup" && pzpts.size === 0) {
+          const now = Date.now();
+          if (now - lastTap < 300) { pscale = pscale > 1 ? 1 : 2.5; ptx = 0; pty = 0; pzApply(); }  // 더블탭 토글
+          lastTap = now;
+        }
+      };
+      pzStage.addEventListener("pointerup", pzEnd);
+      pzStage.addEventListener("pointercancel", pzEnd);
+    }
+    const pzCloseBtn = $("#pzClose"); if (pzCloseBtn) pzCloseBtn.onclick = pzClose;
+    if (dProb) dProb.onTap = pzOpen;        // 문제를 손가락으로 탭 → 전체화면 확대
+
     // iOS 사파리: Apple Pencil(스타일러스)은 touch-action:none 만으론 스크롤이 안 막히는 기기가 있음.
     // 필기는 포인터 이벤트로 처리되므로, 스타일러스 터치(또는 집중 모드)일 때 네이티브 스크롤만 직접 차단한다.
     // (집중 모드 스크롤은 두 손가락 JS 팬으로, 일반 모드의 손가락 스크롤은 네이티브 유지)
-    const scEl = $("#wsScroll");
-    if (scEl) scEl.addEventListener("touchmove", e => {
+    const blockNative = e => {
       let stylus = false;
       for (const t of e.touches) if (t.touchType === "stylus") { stylus = true; break; }
       if (stylus || document.body.classList.contains("focusmode")) e.preventDefault();
-    }, { passive: false });
+    };
+    const scEl = $("#wsScroll"); if (scEl) scEl.addEventListener("touchmove", blockNative, { passive: false });
+    const ppEl = $("#probPane"); if (ppEl) ppEl.addEventListener("touchmove", blockNative, { passive: false });
     // 필기 영역(#ws)은 문제 이미지와 분리됨(문제는 위 고정 pane). 여백은 넉넉한 고정값(.workspace CSS)
     // + ＋넓히기/－줄이기로 조절. 이미지는 별도 pane이라 여기 높이에 영향 없음.
     d.resize();
+    // 문제 위 필기 캔버스는 이미지 크기에 맞춰야 함 — 이미지 로드/리사이즈 시 재설정
+    if (img && dProb) {
+      const onProbImg = () => dProb.resize();
+      if (img.complete && img.clientHeight) onProbImg();
+      img.addEventListener("load", onProbImg);
+    }
     const tools = $("#tools");
     const setToolBtn = name => tools.querySelectorAll("[data-tool]").forEach(x => x.classList.toggle("on", x.dataset.tool === name));
-    tools.querySelectorAll("[data-tool]").forEach(b => b.onclick = () => { d.tool = b.dataset.tool; setToolBtn(b.dataset.tool); });
+    tools.querySelectorAll("[data-tool]").forEach(b => b.onclick = () => { drawers.forEach(dr => { dr.tool = b.dataset.tool; }); setToolBtn(b.dataset.tool); });
     tools.querySelectorAll(".sw").forEach(s => s.onclick = () => {
       tools.querySelectorAll(".sw").forEach(x => x.classList.remove("on"));
-      s.classList.add("on"); d.color = s.dataset.color; d.tool = "pen"; setToolBtn("pen");
+      s.classList.add("on"); drawers.forEach(dr => { dr.color = s.dataset.color; dr.tool = "pen"; }); setToolBtn("pen");
     });
-    $("#tUndo").onclick = () => d.undo();
-    $("#tClear").onclick = () => { if (confirm("이 문제의 풀이를 모두 지울까요?")) d.clear(); };
+    $("#tUndo").onclick = () => lastInk.undo();                          // 마지막으로 그린 캔버스(문제/필기) 되돌리기
+    $("#tClear").onclick = () => { if (confirm("이 문제의 풀이(문제 위 필기 포함)를 모두 지울까요?")) drawers.forEach(dr => dr.clear()); };
     // 손가락 필기 ON 또는 집중 모드면 네이티브 스크롤 차단(none), 아니면 세로 스크롤 허용(pan-y)
     const syncTouchAction = () => {
-      canvas.style.touchAction = (d.fingerMode || document.body.classList.contains("focusmode")) ? "none" : "pan-y";
+      const ta = (d.fingerMode || document.body.classList.contains("focusmode")) ? "none" : "pan-y";
+      drawers.forEach(dr => { dr.canvas.style.touchAction = ta; });
     };
     const fb = $("#tFinger");
-    fb.onclick = () => { d.fingerMode = !d.fingerMode; fb.textContent = d.fingerMode ? "✋ 손가락 ON" : "✋ 손가락 OFF"; fb.classList.toggle("on", d.fingerMode); syncTouchAction(); };
+    fb.onclick = () => { const on = !d.fingerMode; drawers.forEach(dr => { dr.fingerMode = on; }); fb.textContent = on ? "✋ 손가락 ON" : "✋ 손가락 OFF"; fb.classList.toggle("on", on); syncTouchAction(); };
     const markUserSet = () => { const wsp = $("#workspace"); if (wsp) wsp.dataset.userSet = "1"; };
     $("#tMore").onclick = () => { markUserSet(); d.addSpace(500); };
     $("#tLess").onclick = () => { markUserSet(); d.addSpace(-500); };
@@ -1403,8 +1472,9 @@
     };
     const setFocus = on => {
       document.body.classList.toggle("focusmode", on);
-      const sc = $("#wsScroll");
+      const sc = $("#wsScroll"), pp2 = $("#probPane");
       d.scrollEl = on ? sc : null;
+      if (dProb) dProb.scrollEl = on ? pp2 : null;   // 집중모드: 문제 pane을 손가락으로 스크롤
       syncTouchAction();
       focusBtn.textContent = on ? "⛶ 집중 해제" : "⛶ 집중";
       focusBtn.classList.toggle("on", on);
