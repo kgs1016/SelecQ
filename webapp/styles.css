@@ -292,7 +292,10 @@ body:not(.focusmode) .solveview.in-exam .draw-toolbar { top: 104px; }
   background-color: #fff;
   background-image: linear-gradient(#eef1f6 1px, transparent 1px), linear-gradient(90deg, #eef1f6 1px, transparent 1px);
   background-size: 28px 28px; }
-.qimg { display: block; width: 100%; background: #fff; user-select: none; -webkit-user-drag: none; }
+/* 문제 이미지: 큰 화면(아이패드 등)에선 시험지 문서 크기로 상한을 둬 화면을 다 잡아먹지 않게 →
+   위/아래·양옆에 필기 여백 확보. 좁은 화면(폰)은 max-width 미도달로 그대로 풀폭. */
+.qimg { display: block; width: 100%; max-width: var(--qimg-max, 640px); margin: 0 auto;
+  background: #fff; user-select: none; -webkit-user-drag: none; }
 .noimg { padding: 24px; font-size: 14px; color: var(--sub); background: #fff; }
 .workspace { min-height: 760px; }
 .drawlayer { position: absolute; top: 0; left: 0; touch-action: pan-y; cursor: crosshair; }
