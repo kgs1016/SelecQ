@@ -1359,7 +1359,8 @@
       const wsp = $("#workspace");
       if (!wsp || wsp.dataset.userSet) return;
       const imgH = img ? img.clientHeight : 0;
-      wsp.style.minHeight = Math.max(760, Math.round(imgH * 1.2)) + "px";
+      // 아래 필기 여백을 넉넉하게 — 어떤 문항이든 최소 1200px(≈한 화면), 큰 문항은 이미지 높이의 1.8배.
+      wsp.style.minHeight = Math.max(1200, Math.round(imgH * 1.8)) + "px";
     };
     if (img) {
       const onImg = () => { fitSpace(); d.resize(); };
