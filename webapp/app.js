@@ -1353,7 +1353,19 @@
       for (const t of e.touches) if (t.touchType === "stylus") { stylus = true; break; }
       if (stylus || document.body.classList.contains("focusmode")) e.preventDefault();
     }, { passive: false });
-    if (img) { if (img.complete) d.resize(); img.addEventListener("load", () => d.resize()); }
+    // 필기 여백 기본값을 이미지 높이에 비례시킴 — 큰 문항(킬러·그래프)일수록 아래 필기공간을 넉넉하게.
+    // 사용자가 ＋넓히기/－줄이기로 직접 조정하면(userSet) 그 값을 존중하고 자동조정 안 함.
+    const fitSpace = () => {
+      const wsp = $("#workspace");
+      if (!wsp || wsp.dataset.userSet) return;
+      const imgH = img ? img.clientHeight : 0;
+      wsp.style.minHeight = Math.max(760, Math.round(imgH * 1.2)) + "px";
+    };
+    if (img) {
+      const onImg = () => { fitSpace(); d.resize(); };
+      if (img.complete && img.clientHeight) onImg();
+      img.addEventListener("load", onImg);
+    } else { fitSpace(); d.resize(); }
     const tools = $("#tools");
     const setToolBtn = name => tools.querySelectorAll("[data-tool]").forEach(x => x.classList.toggle("on", x.dataset.tool === name));
     tools.querySelectorAll("[data-tool]").forEach(b => b.onclick = () => { d.tool = b.dataset.tool; setToolBtn(b.dataset.tool); });
@@ -1369,8 +1381,9 @@
     };
     const fb = $("#tFinger");
     fb.onclick = () => { d.fingerMode = !d.fingerMode; fb.textContent = d.fingerMode ? "✋ 손가락 ON" : "✋ 손가락 OFF"; fb.classList.toggle("on", d.fingerMode); syncTouchAction(); };
-    $("#tMore").onclick = () => d.addSpace(500);
-    $("#tLess").onclick = () => d.addSpace(-500);
+    const markUserSet = () => { const wsp = $("#workspace"); if (wsp) wsp.dataset.userSet = "1"; };
+    $("#tMore").onclick = () => { markUserSet(); d.addSpace(500); };
+    $("#tLess").onclick = () => { markUserSet(); d.addSpace(-500); };
 
     // 집중 모드: 페이지 스크롤 잠금 + 내부 스크롤(두 손가락) — 필기 시 화면 흔들림 방지
     const focusBtn = $("#tFocus");

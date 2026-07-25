@@ -294,7 +294,7 @@ body:not(.focusmode) .solveview.in-exam .draw-toolbar { top: 104px; }
   background-size: 28px 28px; }
 .qimg { display: block; width: 100%; background: #fff; user-select: none; -webkit-user-drag: none; }
 .noimg { padding: 24px; font-size: 14px; color: var(--sub); background: #fff; }
-.workspace { min-height: 640px; }
+.workspace { min-height: 760px; }
 .drawlayer { position: absolute; top: 0; left: 0; touch-action: pan-y; cursor: crosshair; }
 .wsmore { display: flex; gap: 10px; align-items: center; margin: 10px 0 6px; }
 
