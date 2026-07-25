@@ -305,9 +305,11 @@ body:not(.focusmode) .solveview.in-exam .draw-toolbar { top: 104px; }
 .probpane { margin: 0 0 8px; }
 .splitbar { display: none; }
 /* 집중모드에서만 고정 분할 — 위치·높이는 layoutFocus(JS)가 픽셀로 지정 */
-body.focusmode .probpane { position: fixed; left: 0; right: 0; z-index: 36; overflow: auto;
-  background: #fff; border-bottom: 1px solid var(--line); padding: 4px 8px 8px; margin: 0;
-  -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+/* 문제 pane: 전체 문제를 pane 안에 딱 맞게(축소) 표시 → 스크롤 없이 한 눈에. 글씨 작아도 전체 보임. */
+body.focusmode .probpane { position: fixed; left: 0; right: 0; z-index: 36; overflow: hidden;
+  background: #fff; border-bottom: 1px solid var(--line); padding: 4px 8px; margin: 0;
+  display: flex; align-items: center; justify-content: center; }
+body.focusmode .probpane .qimg { width: auto; max-width: 100%; max-height: 100%; margin: 0; }
 body.focusmode .splitbar { display: block; position: fixed; left: 0; right: 0; z-index: 37;
   background: var(--bg); cursor: row-resize; touch-action: none; }
 body.focusmode .splitbar::before { content: ""; display: block; width: 44px; height: 4px;

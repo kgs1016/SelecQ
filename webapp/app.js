@@ -1268,11 +1268,11 @@
     }
     down(e) {
       if (e.pointerType === "touch" && !this.fingerMode) {
-        // 손가락: 집중 모드에선 두 손가락 = 스크롤, 한 손가락 = 무시(팜 리젝션)
+        // 손가락 = 스크롤(한 손가락으로 필기 pane을 내리며 풀이). 필기는 펜(스타일러스)만.
         this.touches.set(e.pointerId, { y: e.clientY });
-        if (this.scrollEl && this.touches.size === 2) {
+        if (this.scrollEl) {
           this.pan = { y0: this.avgTouchY(), top0: this.scrollEl.scrollTop };
-          if (this.drawing) { this.drawing = false; this.cur = null; this.render(); }  // 팬 시작 시 그리던 획 취소
+          if (this.drawing) { this.drawing = false; this.cur = null; this.render(); }  // 스크롤 시작 시 그리던 획 취소
           e.preventDefault();
         }
         return;
@@ -1287,7 +1287,7 @@
       if (e.pointerType === "touch" && !this.fingerMode) {
         if (!this.touches.has(e.pointerId)) return;
         this.touches.set(e.pointerId, { y: e.clientY });
-        if (this.pan && this.scrollEl && this.touches.size >= 2) {
+        if (this.pan && this.scrollEl) {
           this.scrollEl.scrollTop = this.pan.top0 - (this.avgTouchY() - this.pan.y0);
           e.preventDefault();
         }
@@ -1305,7 +1305,8 @@
     up(e) {
       if (e && e.pointerType === "touch" && !this.fingerMode) {
         this.touches.delete(e.pointerId);
-        if (this.touches.size < 2) this.pan = null;
+        if (this.touches.size === 0) this.pan = null;
+        else if (this.scrollEl) this.pan = { y0: this.avgTouchY(), top0: this.scrollEl.scrollTop };  // 손가락 수 바뀌어도 기준 재설정(점프 방지)
         return;
       }
       if (this.erasing) { this.erasing = false; saveWork(this.key, this.strokes); return; }
@@ -1383,7 +1384,7 @@
     // 집중모드 위–아래 분할: 위=문제 pane(고정, 항상 보임) / 아래=필기 pane(독립 스크롤).
     // 분할 비율(문제 pane이 차지하는 몫)은 localStorage에 저장, 분할바 드래그로 조절.
     const SPLIT_KEY = "ks_split", SPLIT_BAR = 14;
-    const getSplit = () => { const v = parseFloat(localStorage.getItem(SPLIT_KEY)); return (v >= 0.2 && v <= 0.75) ? v : 0.44; };
+    const getSplit = () => { const v = parseFloat(localStorage.getItem(SPLIT_KEY)); return (v >= 0.2 && v <= 0.75) ? v : 0.5; };
     const layoutFocus = () => {
       if (!document.body.classList.contains("focusmode")) return;
       const sc = $("#wsScroll"), tb = $("#tools"), ab = document.querySelector(".answer-bar");
