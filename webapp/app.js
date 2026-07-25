@@ -911,10 +911,13 @@
         <button class="tbtn" id="tFocus">⛶ 집중</button>
       </div>
 
+      <div class="probpane" id="probPane">
+        ${q.img ? `<img class="qimg" id="qimg" src="${q.img}" alt="${q.qno}번 문제" draggable="false">`
+                : `<div class="noimg">이 문항은 이미지가 없습니다. 아래 원본 PDF로 확인하세요.</div>`}
+      </div>
+      <div class="splitbar" id="splitBar" title="드래그로 문제·필기 비율 조절"></div>
       <div class="wsscroll" id="wsScroll">
         <div class="worksheet" id="ws">
-          ${q.img ? `<img class="qimg" id="qimg" src="${q.img}" alt="${q.qno}번 문제" draggable="false">`
-                  : `<div class="noimg">이 문항은 이미지가 없습니다. 아래 원본 PDF로 확인하세요.</div>`}
           <div class="workspace" id="workspace"></div>
           <canvas class="drawlayer" id="draw"></canvas>
         </div>
@@ -1353,20 +1356,9 @@
       for (const t of e.touches) if (t.touchType === "stylus") { stylus = true; break; }
       if (stylus || document.body.classList.contains("focusmode")) e.preventDefault();
     }, { passive: false });
-    // 필기 여백 기본값을 이미지 높이에 비례시킴 — 큰 문항(킬러·그래프)일수록 아래 필기공간을 넉넉하게.
-    // 사용자가 ＋넓히기/－줄이기로 직접 조정하면(userSet) 그 값을 존중하고 자동조정 안 함.
-    const fitSpace = () => {
-      const wsp = $("#workspace");
-      if (!wsp || wsp.dataset.userSet) return;
-      const imgH = img ? img.clientHeight : 0;
-      // 아래 필기 여백을 넉넉하게 — 어떤 문항이든 최소 1200px(≈한 화면), 큰 문항은 이미지 높이의 1.8배.
-      wsp.style.minHeight = Math.max(1200, Math.round(imgH * 1.8)) + "px";
-    };
-    if (img) {
-      const onImg = () => { fitSpace(); d.resize(); };
-      if (img.complete && img.clientHeight) onImg();
-      img.addEventListener("load", onImg);
-    } else { fitSpace(); d.resize(); }
+    // 필기 영역(#ws)은 문제 이미지와 분리됨(문제는 위 고정 pane). 여백은 넉넉한 고정값(.workspace CSS)
+    // + ＋넓히기/－줄이기로 조절. 이미지는 별도 pane이라 여기 높이에 영향 없음.
+    d.resize();
     const tools = $("#tools");
     const setToolBtn = name => tools.querySelectorAll("[data-tool]").forEach(x => x.classList.toggle("on", x.dataset.tool === name));
     tools.querySelectorAll("[data-tool]").forEach(b => b.onclick = () => { d.tool = b.dataset.tool; setToolBtn(b.dataset.tool); });
@@ -1388,12 +1380,21 @@
 
     // 집중 모드: 페이지 스크롤 잠금 + 내부 스크롤(두 손가락) — 필기 시 화면 흔들림 방지
     const focusBtn = $("#tFocus");
+    // 집중모드 위–아래 분할: 위=문제 pane(고정, 항상 보임) / 아래=필기 pane(독립 스크롤).
+    // 분할 비율(문제 pane이 차지하는 몫)은 localStorage에 저장, 분할바 드래그로 조절.
+    const SPLIT_KEY = "ks_split", SPLIT_BAR = 14;
+    const getSplit = () => { const v = parseFloat(localStorage.getItem(SPLIT_KEY)); return (v >= 0.2 && v <= 0.75) ? v : 0.44; };
     const layoutFocus = () => {
-      // 좁은 화면에서 툴바/정답바가 여러 줄로 접혀도 필기 영역이 가려지지 않게 실제 높이로 배치
       if (!document.body.classList.contains("focusmode")) return;
       const sc = $("#wsScroll"), tb = $("#tools"), ab = document.querySelector(".answer-bar");
-      if (sc && tb) sc.style.top = tb.offsetHeight + "px";
-      if (sc && ab) sc.style.bottom = ab.offsetHeight + "px";
+      const pp = $("#probPane"), bar = $("#splitBar");
+      const tbH = tb ? tb.offsetHeight : 52, abH = ab ? ab.offsetHeight : 66;
+      const avail = window.innerHeight - tbH - abH - SPLIT_BAR;
+      let probH = Math.round(avail * getSplit());
+      probH = Math.max(120, Math.min(avail - 160, probH));   // 문제/필기 각각 최소 확보
+      if (pp) { pp.style.top = tbH + "px"; pp.style.height = probH + "px"; }
+      if (bar) { bar.style.top = (tbH + probH) + "px"; bar.style.height = SPLIT_BAR + "px"; }
+      if (sc) { sc.style.top = (tbH + probH + SPLIT_BAR) + "px"; sc.style.bottom = abH + "px"; }
     };
     const setFocus = on => {
       document.body.classList.toggle("focusmode", on);
@@ -1406,10 +1407,41 @@
       if (on) {
         layoutFocus(); sc.scrollTop = 0; d.resize();
         setTimeout(() => { layoutFocus(); d.resize(); }, 60);  // 레이아웃 안정화 후 재보정
-      } else { if (sc) { sc.style.top = ""; sc.style.bottom = ""; } d.resize(); }
+      } else {
+        if (sc) { sc.style.top = ""; sc.style.bottom = ""; }
+        const pp = $("#probPane"), bar = $("#splitBar");
+        if (pp) { pp.style.top = ""; pp.style.height = ""; }
+        if (bar) { bar.style.top = ""; bar.style.height = ""; }
+        d.resize();
+      }
     };
     currentLayoutFocus = layoutFocus;   // 전역 resize 리스너가 참조 (리스너 재등록 없이 최신 함수만 교체)
-    if (img) img.addEventListener("load", layoutFocus);
+
+    // 분할바 드래그 → 문제/필기 비율 조절 (포인터: 마우스·터치·펜 공통)
+    const splitBar = $("#splitBar");
+    if (splitBar) {
+      let dragging = false;
+      const onMove = e => {
+        if (!dragging) return;
+        const tb = $("#tools"), ab = document.querySelector(".answer-bar");
+        const tbH = tb ? tb.offsetHeight : 52, abH = ab ? ab.offsetHeight : 66;
+        const avail = window.innerHeight - tbH - abH - SPLIT_BAR;
+        const y = e.touches ? e.touches[0].clientY : e.clientY;
+        let frac = (y - tbH) / avail;
+        frac = Math.max(0.2, Math.min(0.75, frac));
+        try { localStorage.setItem(SPLIT_KEY, frac.toFixed(3)); } catch (err) { }
+        layoutFocus(); d.resize();
+        e.preventDefault();
+      };
+      const stop = () => { dragging = false; document.removeEventListener("pointermove", onMove); document.removeEventListener("pointerup", stop); };
+      splitBar.addEventListener("pointerdown", e => {
+        dragging = true;
+        document.addEventListener("pointermove", onMove, { passive: false });
+        document.addEventListener("pointerup", stop);
+        e.preventDefault();
+      });
+    }
+
     focusBtn.onclick = () => setFocus(!document.body.classList.contains("focusmode"));
     if (localStorage.getItem("ks_focus") === "1") setFocus(true);
   }

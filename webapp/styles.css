@@ -301,6 +301,18 @@ body:not(.focusmode) .solveview.in-exam .draw-toolbar { top: 104px; }
 .drawlayer { position: absolute; top: 0; left: 0; touch-action: pan-y; cursor: crosshair; }
 .wsmore { display: flex; gap: 10px; align-items: center; margin: 10px 0 6px; }
 
+/* 위–아래 분할: 문제 pane / 분할바. 일반 모드에선 그냥 문서 흐름(문제 위, 필기 아래). */
+.probpane { margin: 0 0 8px; }
+.splitbar { display: none; }
+/* 집중모드에서만 고정 분할 — 위치·높이는 layoutFocus(JS)가 픽셀로 지정 */
+body.focusmode .probpane { position: fixed; left: 0; right: 0; z-index: 36; overflow: auto;
+  background: #fff; border-bottom: 1px solid var(--line); padding: 4px 8px 8px; margin: 0;
+  -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+body.focusmode .splitbar { display: block; position: fixed; left: 0; right: 0; z-index: 37;
+  background: var(--bg); cursor: row-resize; touch-action: none; }
+body.focusmode .splitbar::before { content: ""; display: block; width: 44px; height: 4px;
+  border-radius: 2px; background: #c4ccd8; margin: 5px auto; }
+
 /* 집중 모드 — 페이지 스크롤 잠금, 필기 영역만 내부 스크롤 (굿노트 방식) */
 body.focusmode { overflow: hidden; }
 body.focusmode .topbar, body.focusmode .solve-head, body.focusmode .typeline,
