@@ -878,6 +878,7 @@
     const pos = currentList.findIndex(x => x.key === key);
     const r = recOf(q);
     const mc = isMC(q);
+    const hasSol = !inExam && window.SOLUTIONS && SOLUTIONS[q.key];   // 우리 자체 해설 보유 여부
     let picked = inExam && examSession.answers[key] != null ? examSession.answers[key] : null;
     const mailto = "mailto:1212ntnt@naver.com?subject=" + encodeURIComponent("[SelecQ] 유형 오류 신고: " + q.key);
     $("#view").innerHTML = `
@@ -909,6 +910,7 @@
         <button class="tbtn" id="tClear">🗑 전체</button>
         <button class="tbtn" id="tFinger">✋ 손가락 OFF</button>
         <button class="tbtn" id="tFocus">⛶ 집중</button>
+        ${hasSol ? `<button class="tbtn soltbtn" id="btnSolTool">📖 해설</button>` : ""}
       </div>
 
       <div class="probpane" id="probPane">
@@ -931,7 +933,9 @@
       </div>
 
       <div class="srcline">출처: 한국교육과정평가원 ${q.examLabel} 수학영역 ${q.qno}번 · 문제 저작권은 KICE에 있습니다.</div>
-      ${inExam ? "" : `<a class="big solbtn" id="btnSol" href="https://www.google.com/search?q=${encodeURIComponent(q.examLabel + " 수학 " + q.qno + "번 해설")}" target="_blank" rel="noopener">🔍 이 문제 해설 검색 ↗</a>`}
+      ${inExam ? "" : (hasSol
+        ? `<button class="big solbtn ours" id="btnSol">📖 해설 보기</button>`
+        : `<a class="big solbtn" id="btnSol" href="https://www.google.com/search?q=${encodeURIComponent(q.examLabel + " 수학 " + q.qno + "번 해설")}" target="_blank" rel="noopener">🔍 이 문제 해설 검색 ↗</a>`)}
       <div class="answer-bar examab">
         ${inExam
           ? `<div class="ab-answer">
@@ -964,6 +968,18 @@
       ${q.img ? `<div class="probzoom" id="probZoom" hidden>
         <div class="pz-bar"><span class="pz-hint">두 손가락으로 확대 · 더블탭 · 한 손가락으로 이동</span><button class="ghost small" id="pzClose">✕ 닫기</button></div>
         <div class="pz-stage" id="pzStage"><img id="pzImg" src="${q.img}" alt="${q.qno}번 문제 확대" draggable="false"></div>
+      </div>` : ""}
+
+      ${hasSol ? `<div class="picker" id="solPanel" hidden>
+        <div class="picker-panel solpanel">
+          <div class="picker-head">
+            <b>${q.examLabel} ${SUBJECTS[q.subject]} ${q.qno}번 해설</b>
+            <span class="soltag">SelecQ 자체 해설</span>
+            <button class="ghost small" id="solClose">닫기</button>
+          </div>
+          <div class="solbody" id="solBody"></div>
+          <div class="solfoot">풀이 서술·그래프는 SelecQ 자체 제작물입니다. 문제 저작권은 KICE에 있습니다.</div>
+        </div>
       </div>` : ""}
 
       <div class="picker" id="picker" hidden>
@@ -1009,6 +1025,29 @@
     $("#btnPicker").onclick = () => { fillPicker(); $("#picker").hidden = false; };
     $("#pClose").onclick = () => { $("#picker").hidden = true; };
     $("#picker").onclick = e => { if (e.target.id === "picker") $("#picker").hidden = true; };
+
+    // 자체 해설 패널 — 열 때 KaTeX 로 수식 렌더 (한 번만)
+    if (hasSol) {
+      const openSol = () => {
+        const sb = $("#solBody");
+        if (sb && !sb.dataset.filled) {
+          sb.innerHTML = SOLUTIONS[q.key].html;
+          if (window.renderMathInElement) {
+            renderMathInElement(sb, {
+              delimiters: [{ left: "$$", right: "$$", display: true },
+                           { left: "\\(", right: "\\)", display: false }],
+              throwOnError: false
+            });
+          }
+          sb.dataset.filled = "1";
+        }
+        $("#solPanel").hidden = false;
+      };
+      const bs = $("#btnSol"); if (bs) bs.onclick = openSol;
+      const bst = $("#btnSolTool"); if (bst) bst.onclick = openSol;
+      $("#solClose").onclick = () => { $("#solPanel").hidden = true; };
+      $("#solPanel").onclick = e => { if (e.target.id === "solPanel") $("#solPanel").hidden = true; };
+    }
     $("#pList").onclick = e => {
       const el = e.target.closest("[data-k]");
       if (el) { $("#picker").hidden = true; navigate("/q/" + encodeURIComponent(el.dataset.k)); }
