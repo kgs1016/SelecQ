@@ -164,8 +164,8 @@ window.SOLUTIONS = {
   <div class="sol-step">
     <div class="sol-h"><span class="sol-num">6</span> 답</div>
     <div class="sol-final">
-      \(f(0)=-\dfrac1{16}\,(3)^2(-5)=\dfrac{45}{16}=\dfrac{q}{p}\ (\gcd(45,16)=1)\)
-      &nbsp;→&nbsp; \(p+q=16+45=\mathbf{61}\)
+      \(f(0)=-\dfrac1{16}\,(3)^2(-5)=\dfrac{45}{16}=\dfrac{q}{p}\)<br>
+      \(45\)와 \(16\)은 서로소이므로 \(p=16,\ q=45\) &nbsp;→&nbsp; \(p+q=\mathbf{61}\)
     </div>
   </div>
 ` }
