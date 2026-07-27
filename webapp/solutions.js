@@ -1915,6 +1915,129 @@ window.SOLUTIONS = {
     </table>
   </div>
   <div class="sol-final">\(9+27+36+27+9=\mathbf{108}\)</div>
+` },
+
+/* ── 2025 9월 모평 킬러 (GPT 이투스 참조 → 자체 재작성) ── */
+
+"2025_mock09/common/q21": { answer: 31, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 양 끝이 같아지는 \(k\) 찾기</div>
+    <p>\(2k-8=4k^2+14k\)에서 \(4k^2+12k+8=0\Rightarrow(k+1)(k+2)=0\), 즉 \(k=-1,\ -2\).</p>
+    <p>이때는 부등식이 <b>등식</b>이 되므로</p>
+    $$\frac{f(0)-f(-2)}{2}=-12,\qquad \frac{f(1)-f(-1)}{2}=-10$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 계수 결정</div>
+    <p>\(f(x)=x^3+ax^2+bx+c\)라 하면</p>
+    <ul>
+      <li>\(f(0)-f(-2)=8-4a+2b=-24\ \Rightarrow\ 2a-b=16\)</li>
+      <li>\(f(1)-f(-1)=2+2b=-20\ \Rightarrow\ b=-11\)</li>
+    </ul>
+    <p>\(\therefore a=\dfrac52,\ b=-11\)</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 모든 정수 \(k\)에서 성립하는지 검토</div>
+    $$\frac{f(k+2)-f(k)}{2}=3k^2+11k-2$$
+    <p>양쪽 여유를 계산하면</p>
+    $$(3k^2+11k-2)-(2k-8)=3(k+1)(k+2),\qquad (4k^2+14k)-(3k^2+11k-2)=(k+1)(k+2)$$
+    <p>\((k+1)(k+2)\)는 <b>연속한 두 정수의 곱</b>이라 항상 \(\ge0\) ✓</p>
+  </div>
+  <div class="sol-final">\(f'(x)=3x^2+5x-11\) → \(f'(3)=27+15-11=\mathbf{31}\)</div>
+` },
+
+"2025_mock09/common/q22": { answer: 8, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 두 가지 점화 규칙</div>
+    <p>조건 (나)에서 매 단계마다 \(\ a_{n+1}=a_n-\dfrac23k\ \)(규칙 A) 또는 \(\ a_{n+1}=-ka_n\ \)(규칙 B).</p>
+    <p>\(a_1=k&gt;0\)이므로 \(a_2=\dfrac k3\) 또는 \(-k^2\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 조건 (가) \(a_2a_3&lt;0\)로 걸러내기</div>
+    <ul>
+      <li>\(a_2=\dfrac k3&gt;0\) : \(a_3=-\dfrac k3\) 또는 \(-\dfrac{k^2}{3}\) — 둘 다 음수라 <b>모두 가능</b></li>
+      <li>\(a_2=-k^2&lt;0\) : \(a_3=-k^2-\dfrac23k&lt;0\)(✗) 또는 \(k^3&gt;0\)(✓) → <b>\(a_3=k^3\)만</b></li>
+    </ul>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 각 경우에서 \(a_5=0\)인 양수 \(k\)</div>
+    <table class="sol-table">
+      <tr><th>\((a_2,\ a_3)\)</th><th>\(a_5=0\)이 되는 식</th><th>\(k\)</th><th>\(k^2\)</th></tr>
+      <tr><td>\(\left(\frac k3,\ -\frac k3\right)\)</td><td>\(\frac{k^2}{3}-\frac23k=0\)</td><td>\(2\)</td><td>\(4\)</td></tr>
+      <tr><td>\(\left(\frac k3,\ -\frac{k^2}{3}\right)\)</td><td>\(\frac{k^3}{3}-\frac23k=0\)</td><td>\(\sqrt2\)</td><td>\(2\)</td></tr>
+      <tr><td>\((-k^2,\ k^3)\)</td><td>\(k^3-\frac43k=0\)</td><td>\(\frac{2}{\sqrt3}\)</td><td>\(\frac43\)</td></tr>
+      <tr><td>\((-k^2,\ k^3)\)</td><td>\(-k\left(k^3-\frac23k\right)=0\)</td><td>\(\sqrt{\frac23}\)</td><td>\(\frac23\)</td></tr>
+    </table>
+    <p>(나머지 갈래는 \(k=0\) 또는 음수만 나와 제외)</p>
+  </div>
+  <div class="sol-final">\(4+2+\dfrac43+\dfrac23=\mathbf{8}\)</div>
+` },
+
+"2025_mock09/calculus/q30": { answer: 25, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(F(x)\) 구하기</div>
+    <p>\(f(x)=(k+x)e^{-x}\ (x&lt;0)\), \((k-x)e^{-x}\ (x\ge0)\)이므로</p>
+    $$F(x)=\begin{cases}-(k+x+1)e^{-x}+C&(x&lt;0)\\ -(k-x-1)e^{-x}+C-2&(x\ge0)\end{cases}$$
+    <p>(\(x=0\)에서 연속이 되도록 두 상수를 맞춘 것)</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(G=F-f\)의 개형</div>
+    $$G(x)=\begin{cases}-(2k+2x+1)e^{-x}+C&(x&lt;0)\\ -(2k-2x-1)e^{-x}+C-2&(x\ge0)\end{cases}$$
+    $$G'(x)=\begin{cases}(2k+2x-1)e^{-x}&(x&lt;0)\\ (2k-2x+1)e^{-x}&(x&gt;0)\end{cases}$$
+    <p>\(x&lt;0\)에서는 \(x=\dfrac12-k\), \(x&gt;0\)에서는 \(x=k+\dfrac12\)이 임계점.
+       또 \(x\to\infty\)에서 \(G\to C-2\), \(x\to-\infty\)에서 \(G\to\infty\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(k=\dfrac14\)</div>
+    <p>\(\dfrac12-k=\dfrac14&gt;0\)이라 \(x&lt;0\)에서는 임계점이 없어 감소. \(x=0\)에서 극소이고 \(G(0)=C-\dfrac32&gt;C-2\).</p>
+    <p>따라서 하한은 \(x\to\infty\)의 \(C-2\) → \(C\ge2\), \(\ F(0)=C-\dfrac54\ge\dfrac34\)</p>
+    $$g\!\left(\tfrac14\right)=\tfrac34$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> \(k=\dfrac32\)</div>
+    <p>\(\dfrac12-k=-1&lt;0\)이라 \(x=-1\)에서 극소. \(G(-1)=C-2e&lt;C-2\)이므로 이것이 최솟값.</p>
+    <p>\(C\ge2e\), \(\ F(0)=C-\dfrac52\ge2e-\dfrac52\)</p>
+    $$g\!\left(\tfrac32\right)=2e-\tfrac52$$
+  </div>
+  <div class="sol-final">\(g\!\left(\tfrac14\right)+g\!\left(\tfrac32\right)=2e-\dfrac74\) → \(p+q=2-\dfrac74=\dfrac14\) → \(100(p+q)=\mathbf{25}\)</div>
+` },
+
+"2025_mock09/prob_stat/q29": { answer: 994, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 이항분포 세우기</div>
+    <p>\(4\) 이하가 나올 확률은 \(\dfrac23\). \(16200\)번 중 \(4\) 이하가 나온 횟수를 \(X\)라 하면 \(X\sim\mathrm B\!\left(16200,\dfrac23\right)\).</p>
+    $$\mathrm E(X)=10800,\qquad \mathrm V(X)=16200\cdot\tfrac23\cdot\tfrac13=3600,\qquad \sigma(X)=60$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 위치를 \(X\)로 표현</div>
+    <p>\(+1\)이 \(X\)번, \(-1\)이 \((16200-X)\)번이므로 위치는 \(2X-16200\).</p>
+    $$2X-16200\le5700\ \iff\ X\le10950$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 정규근사</div>
+    $$k=\mathrm P\!\left(Z\le\frac{10950-10800}{60}\right)=\mathrm P(Z\le2.5)=0.5+0.494=0.994$$
+  </div>
+  <div class="sol-final">\(1000k=\mathbf{994}\)</div>
+` },
+
+"2025_mock09/prob_stat/q30": { answer: 93, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(A\)가 받는 개수를 먼저 고정</div>
+    <p>\(A\)가 흰 \(w\)개·검은 \(b\)개를 받는다고 하면 (가)에서 \(w+b\le2\).
+       남은 공을 \(B,C\)에게 나누는 방법은 \((5-w)(5-b)\)가지.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 조건 (나) 위반 제외</div>
+    <p>\(B\)가 \(1\)개 이하로 받는 경우는 \((w_B,b_B)=(0,0),(1,0),(0,1)\)의 <b>3가지</b>이고,
+       \(w\le2\)라 남은 공이 충분하므로 항상 3가지가 존재한다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 표로 합산</div>
+    <table class="sol-table">
+      <tr><th>\((w,b)\)</th><th>\((0,0)\)</th><th>\((1,0)\)</th><th>\((0,1)\)</th><th>\((2,0)\)</th><th>\((1,1)\)</th><th>\((0,2)\)</th></tr>
+      <tr><th>\((5-w)(5-b)-3\)</th><td>22</td><td>17</td><td>17</td><td>12</td><td>13</td><td>12</td></tr>
+    </table>
+  </div>
+  <div class="sol-final">\(22+17+17+12+13+12=\mathbf{93}\)</div>
 ` }
 
 };
