@@ -1419,6 +1419,162 @@ window.SOLUTIONS = {
     <p>→ \(4\times5,\ 4\times6\)의 \(2\)가지</p>
   </div>
   <div class="sol-final">\(\dfrac{16+5+2}{28}=\dfrac{23}{28}\) → \(p+q=28+23=\mathbf{51}\)</div>
+` },
+
+/* ── 2024 9월 모평 킬러 (GPT 이투스 참조 → 자체 재작성) ── */
+
+"2024_mock09/common/q13": { answer: 3, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(f'(x)\)와 \(b=2a-1\)</div>
+    $$f'(x)=\begin{cases}-x^2-2ax-b&(x&lt;0)\\ x^2+2ax-b&(x&gt;0)\end{cases}$$
+    <p>\(x=0\)에서 좌·우 미분계수가 모두 \(-b\)로 같다. \(x=-1\)을 경계로 감소→증가이므로 \(f'(-1)=0\):</p>
+    $$-1+2a-b=0\ \Rightarrow\ b=2a-1$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(x&lt;0\) 조각 (위로 볼록)</div>
+    <p>\(b=2a-1\)을 넣으면 \(f'(x)=-(x+1)(x-1+2a)\)로 두 근은 \(-1\)과 \(1-2a\).</p>
+    <p>\((-1,0)\)에서 \(f'\ge0\)이려면 \(1-2a\ge0\), 즉 \(a\le\dfrac12\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(x&gt;0\) 조각 (아래로 볼록, 꼭짓점 \(x=-a\))</div>
+    <ul>
+      <li>\(a\ge0\) : 꼭짓점이 \(x\le0\)이라 \(x&gt;0\)에서 증가. \(f'(0^+)=1-2a\ge0\Rightarrow a\le\dfrac12\)</li>
+      <li>\(a&lt;0\) : 꼭짓점이 \(x&gt;0\) 안에 있으므로 최솟값 \(-a^2-b=-a^2-2a+1\ge0\)
+          \(\Rightarrow a^2+2a-1\le0\Rightarrow -1-\sqrt2\le a\)</li>
+    </ul>
+    $$\therefore\ -1-\sqrt2\le a\le\frac12$$
+  </div>
+  <figure class="sol-fig"><img src="sol/2024_mock09_common_q13.png" alt="f'(x) 두 경계 경우">
+    <figcaption>양 끝 경우의 \(y=f'(x)\) — 어느 쪽도 \(x=-1\)에서만 부호가 바뀐다</figcaption></figure>
+  <div class="sol-final">\(a+b=3a-1\) → \(M=\dfrac12,\ m=-4-3\sqrt2\) → \(M-m=\dfrac92+3\sqrt2\) &nbsp;→&nbsp; 답 &nbsp;③</div>
+` },
+
+"2024_mock09/common/q21": { answer: 19, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(\sum S_k=644\) 정리</div>
+    <p>첫째항 \(a\), 공차 \(d\)라 하면 \(S_n=\dfrac d2n^2+\left(a-\dfrac d2\right)n\). \(\sum_{k=1}^{7}k^2=140,\ \sum_{k=1}^{7}k=28\)이므로</p>
+    $$\frac d2(140)+\left(a-\frac d2\right)(28)=28a+56d=644\ \Rightarrow\ a+2d=23$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(a_7\)을 \(d\)로 표현</div>
+    <p>모든 항이 자연수이므로 \(d\)는 \(0\) 이상의 정수이고 \(a=23-2d\ge1\Rightarrow d\le11\).</p>
+    $$a_7=a+6d=(23-2d)+6d=23+4d$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(13\)의 배수 찾기</div>
+    <p>\(d=0,1,\dots,11\)일 때 \(a_7=23,27,31,35,\mathbf{39},43,47,51,55,59,63,67\).</p>
+    <p>\(13\)의 배수는 \(39=13\times3\) 하나뿐 → \(d=4,\ a=15\).</p>
+  </div>
+  <div class="sol-final">\(a_2=a+d=15+4=\mathbf{19}\)</div>
+` },
+
+"2024_mock09/common/q22": { answer: 10, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 조건 (가)로 \(f(x)\) 구하기</div>
+    <p>\(x=1\) 대입 : \(0=f(1)-2-1\Rightarrow f(1)=3\).</p>
+    <p>양변을 미분 : \(f(x)=f(x)+xf'(x)-4x\Rightarrow f'(x)=4\). \(f(1)=3\)이므로</p>
+    $$f(x)=4x-1,\qquad F(x)=2x^2-x+D$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 조건 (나)는 곱의 미분</div>
+    <p>\(f(x)G(x)+F(x)g(x)=\{F(x)G(x)\}'=8x^3+3x^2+1\)이므로</p>
+    $$F(x)G(x)=2x^4+x^3+x+C$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 계수 비교</div>
+    <p>\((2x^2-x+D)G(x)=2x^4+x^3+x+C\)에서 \(G\)는 이차함수. \(G(x)=px^2+qx+r\)로 놓으면</p>
+    <ul>
+      <li>\(x^4\) : \(2p=2\Rightarrow p=1\)</li>
+      <li>\(x^3\) : \(2q-p=1\Rightarrow q=1\)</li>
+    </ul>
+    <p>\(\therefore G(x)=x^2+x+r\) (상수항 \(r\)는 정적분에서 소거된다)</p>
+  </div>
+  <div class="sol-final">\(\displaystyle\int_1^3 g\,dx=G(3)-G(1)=(12+r)-(2+r)=\mathbf{10}\)</div>
+` },
+
+"2024_mock09/calculus/q28": { answer: 2, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 미분가능 조건</div>
+    <p>\(F(x)=\displaystyle\int_{-a\pi}^{x}f(t)\,dt\)라 하면 \(F'=f\), \(g=|F|\).</p>
+    <div class="sol-box">\(g=|F|\)가 미분가능 \(\iff\) <b>\(F(x)=0\)인 모든 점에서 \(f(x)=0\)</b></div>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(x&lt;0\) 구간</div>
+    <p>\(f=2|\sin4x|\ge0\)이라 \(F\)는 증가하므로 \(F(x)=0\)인 곳은 \(x=-a\pi\)뿐.
+       여기서 \(f(-a\pi)=2|\sin4a\pi|=0\Rightarrow a=\dfrac n4\) (\(n\)은 자연수).</p>
+    <p>\(\displaystyle\int_{-\frac{\pi}{4}}^{0}2|\sin4t|\,dt=1\)이고 주기가 \(\dfrac{\pi}{4}\)이므로 \(\ F(0)=n\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(x\ge0\) 구간 — \(F\)가 \(0\)이 되면 안 된다</div>
+    $$F(x)=n+\int_0^x(-\sin ax)\,dt=n+\frac4n\left(\cos\frac n4x-1\right)$$
+    <p>\(F(x)=0\)이면 \(\cos ax=1-\dfrac{n^2}{4}\)인데, 동시에 \(f(x)=0\)(즉 \(\cos ax=\pm1\))이려면
+       \(n=0\) 또는 \(n^2=8\)이라 자연수 \(n\)에서 불가능하다.</p>
+    <p>따라서 \(x\ge0\)에서 \(F&gt;0\)이어야 하고, \(\cos\)의 최솟값 \(-1\)을 넣으면</p>
+    $$n-\frac8n&gt;0\ \Rightarrow\ n^2&gt;8\ \Rightarrow\ n\ge3$$
+  </div>
+  <div class="sol-final">\(0&lt;a&lt;2\)에서 최소는 \(n=3\) → \(a=\dfrac34\) &nbsp;→&nbsp; 답 &nbsp;②</div>
+` },
+
+"2024_mock09/calculus/q30": { answer: 32, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 대칭성으로 넓이 세우기</div>
+    <p>\(\overline{PQ}\perp\overline{AB}\)이고 \(\overline{AB}\)는 지름이므로 \(P,\ Q\)는 \(\overline{AB}\)에 대칭.
+       따라서 \(\overline{CP}=\overline{CQ}=a\), \(\angle PCQ=2\theta\)이고</p>
+    $$S(\theta)=\frac12a^2\sin2\theta$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(a\)와 \(\theta\)의 관계 (코사인법칙)</div>
+    <p>중심 \(O\)에 대해 \(\overline{OP}=5,\ \overline{OC}=5-4=1\), \(\angle PCO=\theta\)이므로</p>
+    $$25=a^2+1-2a\cos\theta\ \Longrightarrow\ a^2-2a\cos\theta-24=0$$
+    <p>\(\theta=\dfrac{\pi}{4}\) : \(a^2-\sqrt2\,a-24=0\Rightarrow a=4\sqrt2\ (a&gt;0)\)</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 음함수 미분으로 \(\dfrac{da}{d\theta}\)</div>
+    $$2a\frac{da}{d\theta}-2\cos\theta\frac{da}{d\theta}+2a\sin\theta=0
+      \ \Rightarrow\ \frac{da}{d\theta}=\frac{a\sin\theta}{\cos\theta-a}$$
+    $$\theta=\frac{\pi}{4}:\quad \frac{da}{d\theta}=\frac{4\sqrt2\cdot\frac{\sqrt2}{2}}{\frac{\sqrt2}{2}-4\sqrt2}
+      =\frac{4}{-\frac{7\sqrt2}{2}}=-\frac{8}{7\sqrt2}$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> \(S'\!\left(\dfrac{\pi}{4}\right)\)</div>
+    <p>\(S'(\theta)=a\dfrac{da}{d\theta}\sin2\theta+a^2\cos2\theta\)이고 \(\theta=\dfrac{\pi}{4}\)에서 \(\sin2\theta=1,\ \cos2\theta=0\)이므로</p>
+    $$S'\!\left(\frac{\pi}{4}\right)=4\sqrt2\cdot\left(-\frac{8}{7\sqrt2}\right)=-\frac{32}{7}$$
+  </div>
+  <div class="sol-final">\(-7\times\left(-\dfrac{32}{7}\right)=\mathbf{32}\)</div>
+` },
+
+"2024_mock09/prob_stat/q29": { answer: 62, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 한 번의 시행에서 뒤집을 확률</div>
+    <p>동전 두 번 중 앞면이 2회 나올 확률 \(=\dfrac14\), 그대로 둘 확률 \(=\dfrac34\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(B\)가 보이려면 <b>홀수 번</b> 뒤집혀야</div>
+    $$p={}_5\mathrm C_1\left(\tfrac14\right)\left(\tfrac34\right)^4+{}_5\mathrm C_3\left(\tfrac14\right)^3\left(\tfrac34\right)^2+{}_5\mathrm C_5\left(\tfrac14\right)^5$$
+    $$=\frac{405+90+1}{4^5}=\frac{496}{1024}=\frac{31}{64}$$
+    <p>(간단한 확인 : \(p=\dfrac{1-\left(\frac34-\frac14\right)^5}{2}=\dfrac{1-\frac1{32}}{2}=\dfrac{31}{64}\))</p>
+  </div>
+  <div class="sol-final">\(128p=128\times\dfrac{31}{64}=\mathbf{62}\)</div>
+` },
+
+"2024_mock09/prob_stat/q30": { answer: 336, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 조건 (나) 해석</div>
+    <p>\(a\times d\)가 홀수 \(\Rightarrow\) \(a,\ d\) 모두 홀수. \(b+c\)가 짝수 \(\Rightarrow\) \(b,\ c\)의 홀짝이 같다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> (ⅰ) \(b,\ c\)도 홀수</div>
+    <p>네 수 모두 홀수 \(\{1,3,\dots,13\}\)(7개)에서 중복을 허락해 뽑아 크지 않은 순으로 배정:</p>
+    $$_{7}\mathrm H_4={}_{10}\mathrm C_4=210$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> (ⅱ) \(b,\ c\)는 짝수</div>
+    <p>\(a\)는 홀수·\(b\)는 짝수라 \(a\ne b\), 마찬가지로 \(c\ne d\). 따라서 \(a&lt;b\le c&lt;d\).</p>
+    <p>\(a+1,\ b,\ c,\ d-1\)은 모두 <b>짝수</b>이고 \(a+1\le b\le c\le d-1\)로 크지 않은 순.
+       범위는 \(\{2,4,\dots,12\}\)(6개)이며, 거꾸로 이런 네 짝수를 뽑으면 원래 조건이 복원된다.</p>
+    $$_{6}\mathrm H_4={}_{9}\mathrm C_4=126$$
+  </div>
+  <div class="sol-final">\(210+126=\mathbf{336}\)</div>
 ` }
 
 };
