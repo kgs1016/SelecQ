@@ -2038,6 +2038,180 @@ window.SOLUTIONS = {
     </table>
   </div>
   <div class="sol-final">\(22+17+17+12+13+12=\mathbf{93}\)</div>
+` },
+
+/* ── 2025 수능 킬러 (GPT EBS 참조 → 자체 재작성) ── */
+
+"2025_csat/common/q20": { answer: 36, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(k\)가 만족하는 식</div>
+    <p>\(\left(\dfrac15\right)^{k-3}=k\ \Rightarrow\ 5^{3-k}=k\ \Rightarrow\ k\cdot5^{k}=125\)</p>
+    <p>따라서 \(\ k^3\cdot5^{3k}=(k\cdot5^{k})^3=125^3=5^9\), 즉 구하는 값은 \(f(5^{-9})\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(5^{-9}\)을 \(f\)의 값으로 나타내기</div>
+    <p>\(k\cdot5^k=125&lt;375=3\cdot5^3\)이므로 \(k&lt;3\). 즉 \(12&gt;k\)이고, \(x&gt;k\)에서 \(f(x)=5^{3-x}\)이므로</p>
+    $$f(12)=5^{3-12}=5^{-9}$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 조건 \(f(f(x))=3x\) 적용</div>
+    $$f\!\left(\frac1{k^3\cdot5^{3k}}\right)=f\!\left(5^{-9}\right)=f(f(12))=3\times12=\mathbf{36}$$
+  </div>
+  <div class="sol-final">\(\mathbf{36}\)</div>
+` },
+
+"2025_csat/common/q21": { answer: 16, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 근이 근을 낳는다</div>
+    <p>\(f(\beta)=0\)이면 \(\displaystyle\lim_{x\to\beta}\frac{f(2x+1)}{f(x)}\)이 존재해야 하므로 분자도 \(0\), 즉 \(f(2\beta+1)=0\).</p>
+    <p>같은 논리를 반복하면 \(\beta,\ 2\beta+1,\ 4\beta+3,\ 8\beta+7,\ \dots\)이 모두 근이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 실근은 \(-1\)뿐</div>
+    <p>\(2\beta+1=\beta\iff\beta=-1\). \(\beta\ne-1\)이면 위 수들이 모두 달라 근이 무한히 많아져 삼차함수에 모순.</p>
+    <p>\(f(-1)=0\) : \(-1+a-b+4=0\Rightarrow b=a+3\), 따라서</p>
+    $$f(x)=(x+1)\left\{x^2+(a-1)x+4\right\}$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 판별식</div>
+    <p>이차식이 실근을 가지면 \(-1\)이 아닌 다른 실근이 생겨 모순이므로</p>
+    $$(a-1)^2-16&lt;0\ \Rightarrow\ -3&lt;a&lt;5$$
+    <p>\(f(1)=1+a+(a+3)+4=2a+8\)이고 \(a\)는 정수이므로 \(a=4\)에서 최대.</p>
+  </div>
+  <div class="sol-final">\(f(1)=2\cdot4+8=\mathbf{16}\)</div>
+` },
+
+"2025_csat/common/q22": { answer: 64, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(|a_3|=|a_5|\)인 \(a_3\) 찾기</div>
+    <ul>
+      <li>\(|a_3|\) 홀수 : \(a_4=a_3-3\)(짝수), \(a_5=\dfrac{a_3-3}{2}\) →
+          \(2|a_3|=|a_3-3|\Rightarrow a_3=1\) 또는 \(-3\)</li>
+      <li>\(|a_3|\) 짝수(또는 \(0\)) : \(a_4=\dfrac{a_3}{2}\) →
+          \(a_5=\dfrac{a_3}{4}\)에서 \(a_3=0\), \(a_5=\dfrac{a_3}{2}-3\)에서 \(a_3=2\) 또는 \(-6\)</li>
+    </ul>
+    <p>\(\therefore a_3\in\{1,\ -3,\ 0,\ 2,\ -6\}\)</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(m=3\)이 <b>최소</b>여야 함 (\(|a_2|\ne|a_4|\)) — 두 경우 탈락</div>
+    <ul>
+      <li>\(a_3=1\) : \(a_4=-2\), \(a_2=2\) → \(|a_2|=|a_4|=2\) ✗</li>
+      <li>\(a_3=-3\) : \(a_4=-6\), \(a_2=-6\) → \(|a_2|=|a_4|=6\) ✗</li>
+    </ul>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 남은 세 경우에서 \(a_1\) 역추적</div>
+    <table class="sol-table">
+      <tr><th>\(a_3\)</th><th>\(a_4\)</th><th>\(a_2\)</th><th>\(a_1\)</th></tr>
+      <tr><td>\(0\)</td><td>\(0\)</td><td>\(3\) (\(a_2=0\)은 ✗)</td><td>\(6\)</td></tr>
+      <tr><td>\(2\)</td><td>\(1\)</td><td>\(5\) / \(4\)</td><td>\(10\) / \(7,\ 8\)</td></tr>
+      <tr><td>\(-6\)</td><td>\(-3\)</td><td>\(-12\) (\(a_2=-3\)은 ✗)</td><td>\(-9,\ -24\)</td></tr>
+    </table>
+  </div>
+  <div class="sol-final">\(6+10+7+8+9+24=\mathbf{64}\)</div>
+` },
+
+"2025_csat/calculus/q28": { answer: 2, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 접선이 곡선 위쪽</div>
+    <p>\(f''(x)=-1-2xe^{1-x^2}&lt;0\ (x&gt;0)\)이라 곡선은 위로 볼록 → 접선이 곡선보다 위에 있다.</p>
+    $$g(t)=\int_0^t\left\{f'(t)(x-t)+f(t)-f(x)\right\}dx$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(\int f\,dx\)를 부분적분 뒤집기로 구하기</div>
+    <p>\(xf'(x)=-x^2+xe^{1-x^2}\)를 적분하면 \(\ xf(x)-\displaystyle\int f\,dx=-\frac{x^3}{3}-\frac12e^{1-x^2}\), 즉</p>
+    $$\int f(x)\,dx=xf(x)+\frac{x^3}{3}+\frac12e^{1-x^2}$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(g(t)\)와 \(g'(t)\)</div>
+    $$g(t)=\frac{t^3}{6}-\frac12(t^2+1)e^{1-t^2}+\frac12e,\qquad
+      g'(t)=\frac{t^2}{2}+t^3e^{1-t^2}$$
+    <p>\(g(1)=\dfrac16-1+\dfrac e2=-\dfrac56+\dfrac e2\), \(\ g'(1)=\dfrac12+1=\dfrac32\)</p>
+  </div>
+  <div class="sol-final">\(g(1)+g'(1)=\dfrac12e+\dfrac23\) &nbsp;→&nbsp; 답 &nbsp;②</div>
+` },
+
+"2025_csat/calculus/q29": { answer: 25, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 두 급수로 \(a,\ r\) 결정</div>
+    <p>\(|a_n|+a_n\)은 양수 항에서만, \(|a_n|-a_n\)은 음수 항에서만 살아남는다. 둘 다 양수이므로 \(r&lt;0\).</p>
+    <p>\(a&gt;0\)이면 \(\dfrac{2a}{1-r^2}=\dfrac{40}{3}\), \(\dfrac{-2ar}{1-r^2}=\dfrac{20}{3}\) → 나누면 \(-r=\dfrac12\), 즉 \(r=-\dfrac12,\ a=5\).</p>
+    <p>(\(a&lt;0\)이면 \(r=-2\)로 발산하여 부적합) \(\ \therefore a_n=5\left(-\dfrac12\right)^{n-1}\)</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 부호의 주기</div>
+    <p>\((-1)^{\frac{k(k+1)}2}\left(-\dfrac12\right)^k=(-1)^{\frac{k(k+3)}2}\left(\dfrac12\right)^k\)이고
+       부호는 \(+,-,-,+\)가 <b>주기 4</b>로 반복된다.</p>
+    $$\sum_{k=1}^{\infty}(\cdots)=\frac{\frac12-\frac14-\frac18+\frac1{16}}{1-\frac1{16}}
+      =\frac{3/16}{15/16}=\frac15$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 부등식 풀기</div>
+    <p>\(a_{m+k}=5\left(-\frac12\right)^{m-1}\left(-\frac12\right)^{k}\)이므로 주어진 극한은
+       \(5\left(-\dfrac12\right)^{m-1}\cdot\dfrac15=\left(-\dfrac12\right)^{m-1}\).</p>
+    <p>\(\left(-\dfrac12\right)^{m-1}&gt;\dfrac1{700}\)이려면 \(m\)이 <b>홀수</b>이고 \(2^{m-1}&lt;700\), 즉 \(m-1\le9\).</p>
+  </div>
+  <div class="sol-final">\(m=1,3,5,7,9\) → 합 \(=\mathbf{25}\)</div>
+` },
+
+"2025_csat/calculus/q30": { answer: 17, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 조건 (가)로 \(a,\ b\)의 후보</div>
+    <p>\(f(0)=\sin b=0\Rightarrow b=k\pi\). 또 \(\sin(2\pi a+b)=2\pi a+b\)인데 \(\sin X=X\)는 \(X=0\)뿐이므로 \(b=-2\pi a\).</p>
+    <p>두 식에서 \(a=-\dfrac k2\)이고 \(1\le a\le2\)이므로 \(a\in\left\{1,\ \dfrac32,\ 2\right\}\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 조건 (나)로 \(a=\dfrac32\)</div>
+    <p>\(f'(x)=\left(a+\cos x\right)\cos(ax+b+\sin x)\)에서
+       \(f'(0)=(a+1)\cos2\pi a\), \(f'(2\pi)=a+1\).</p>
+    <p>\(a=1\) 또는 \(2\)면 \(\cos2\pi a=1\)이라 \(f'(0)=f'(2\pi)\) → 최솟값이 \(2\pi\)가 되어 모순.</p>
+    $$\therefore a=\frac32,\quad b=-3\pi$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 극대점 세기</div>
+    <p>\(g(x)=\dfrac32x-3\pi+\sin x\)라 하면 \(g'(x)=\dfrac32+\cos x&gt;0\)이라 <b>증가</b>하고
+       \(g(0)=-3\pi,\ g(4\pi)=3\pi\).</p>
+    <p>\(f=\sin g\)이므로 극대 \(\iff g=\dfrac{\pi}{2}+2j\pi\). \((-3\pi,3\pi)\) 안의 값은
+       \(-\dfrac{3\pi}{2},\ \dfrac{\pi}{2},\ \dfrac{5\pi}{2}\) → <b>\(n=3\)</b>.</p>
+    <p>가장 작은 것은 \(g(x)=-\dfrac{3\pi}{2}\), 즉 \(\dfrac32x+\sin x=\dfrac{3\pi}{2}\) → \(x=\pi\) (\(g\)가 증가라 유일).</p>
+  </div>
+  <div class="sol-final">\(n\alpha_1-ab=3\pi-\dfrac32(-3\pi)=\dfrac{15}{2}\pi\) → \(p+q=2+15=\mathbf{17}\)</div>
+` },
+
+"2025_csat/prob_stat/q27": { answer: 3, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 모평균·모분산</div>
+    $$\mathrm E(X)=\frac{1+3+5+7+9}{5}=5,\qquad
+      \mathrm V(X)=\frac{16+4+0+4+16}{5}=8$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 표본평균의 분산</div>
+    $$\mathrm V(\overline X)=\frac{\mathrm V(X)}{3}=\frac83,\qquad
+      \mathrm V(a\overline X+6)=a^2\cdot\frac83=24$$
+  </div>
+  <div class="sol-final">\(a^2=9,\ a&gt;0\) → \(a=3\) &nbsp;→&nbsp; 답 &nbsp;③</div>
+` },
+
+"2025_csat/prob_stat/q30": { answer: 19, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 뒤집힌 횟수의 홀짝으로 판정</div>
+    <p>눈 \(6\)이 나온 횟수를 \(j\), 눈 \(i\,(i\le5)\)가 나온 횟수를 \(c_i\)라 하면
+       자리 \(i\)가 뒤집힌 횟수는 \(c_i+j\)이고 \(\sum c_i+j=3\).</p>
+    <div class="sol-box">
+      자리 1,2(처음 앞면) : \(c_i+j\)가 <b>짝수</b> &nbsp;/&nbsp; 자리 3,4,5(처음 뒷면) : \(c_i+j\)가 <b>홀수</b>
+    </div>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(j\)로 경우 나누기</div>
+    <ul>
+      <li>\(j=0\) : \(c_3,c_4,c_5\)가 홀수라 각각 \(\ge1\), 합이 \(3\) → \(c_3=c_4=c_5=1\) → 눈 \(3,4,5\)가 한 번씩</li>
+      <li>\(j=1\) : \(c_1,c_2\)가 홀수라 각각 \(\ge1\), 합이 \(2\) → \(c_1=c_2=1\) → 눈 \(1,2,6\)이 한 번씩</li>
+      <li>\(j=2\) : \(c_3,c_4,c_5\) 홀수여야 하는데 합이 \(1\)뿐이라 불가능</li>
+      <li>\(j=3\) : 자리 1이 3번(홀수) 뒤집혀 뒷면 → 불가능</li>
+    </ul>
+    <p>각 경우 \(3!\)가지이므로 확률은 각각 \(\dfrac{3!}{6^3}=\dfrac1{36}\).</p>
+  </div>
+  <div class="sol-final">\(\dfrac1{36}+\dfrac1{36}=\dfrac1{18}\) → \(p+q=18+1=\mathbf{19}\)</div>
 ` }
 
 };
