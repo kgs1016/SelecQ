@@ -1575,6 +1575,185 @@ window.SOLUTIONS = {
     $$_{6}\mathrm H_4={}_{9}\mathrm C_4=126$$
   </div>
   <div class="sol-final">\(210+126=\mathbf{336}\)</div>
+` },
+
+/* ── 2024 수능 킬러 (GPT EBS 참조 → 자체 재작성) ── */
+
+"2024_csat/common/q14": { answer: 1, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 그래프 파악</div>
+    <p>\(x\le2\) : \(f'(x)=6(x-1)(x+1)\)이라 극대 \(f(-1)=5\), 극소 \(f(1)=-3\), 끝값 \(f(2)=5\).</p>
+    <p>\(x&gt;2\) : \(x\to2^+\)에서 \(f\to9\)(열림)인 아래로 볼록한 포물선. \(b\ge3\)이면 꼭짓점 \(x=1+\dfrac b2\)에서 최솟값 \(m\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 합이 \(9\)가 되는 \(k\)</div>
+    <p>\(g(k)=\lim\limits_{t\to k-}g=\lim\limits_{t\to k+}g=3\)인 \(k\)에서는 합이 \(9\)가 된다. 그런 \(k\)가 <b>구간</b>을 이루면 개수가 1이 아니다.</p>
+    <ul>
+      <li>\(b\le2\) (오른쪽이 증가) 또는 \(m&gt;-3\) : \(-3&lt;k&lt;\min(m,5)\) 전체에서 \(g=3\) → 무수히 많음 ✗</li>
+      <li>\(m&lt;-3\) : \(m&lt;k&lt;-3\) 전체에서 \(g=3\) → 무수히 많음 ✗</li>
+      <li><b>\(m=-3\)</b> : \(g(-3)=3,\ \lim_{t\to-3^-}g=1,\ \lim_{t\to-3^+}g=5\) → 합 \(=9\) ✓ 이때 \(k=-3\) 하나뿐</li>
+    </ul>
+  </div>
+  <figure class="sol-fig"><img src="sol/2024_csat_common_q14.png" alt="f(x) 그래프">
+    <figcaption>\((a,b)=(3,6)\) 예시 — 오른쪽 포물선의 최솟값이 왼쪽 극솟값 \(-3\)과 같아야 한다</figcaption></figure>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(a(b-2)^2=48\)</div>
+    $$f\!\left(1+\frac b2\right)=-\frac{a(b-2)^2}{4}+9=-3\ \Rightarrow\ a(b-2)^2=48$$
+    <p>\((b-2)^2\)이 \(48\)의 약수인 제곱수 : \(1,\ 4,\ 16\) → \((a,b)=(48,3),\ (12,4),\ (3,6)\)</p>
+  </div>
+  <div class="sol-final">\(a+b\)의 최댓값 \(=48+3=51\) &nbsp;→&nbsp; 답 &nbsp;①</div>
+` },
+
+"2024_csat/common/q20": { answer: 25, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 점 \(A\) 구하기</div>
+    <p>\(f'(0)=2\)이므로 \(O\)에서의 접선은 \(y=2x\). 교점은</p>
+    $$-x^3+ax^2+2x=2x\ \Rightarrow\ x^2(a-x)=0\ \Rightarrow\ A(a,\ 2a)$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 수직 조건으로 \(a\)</div>
+    <p>\(A\)가 \(\overline{OB}\)를 지름으로 하는 원 위에 있으므로 \(\angle OAB=\dfrac{\pi}{2}\) (반원의 원주각).</p>
+    <p>\(\overline{OA}\)의 기울기 \(=2\), \(\overline{AB}\)(접선)의 기울기 \(=f'(a)=-a^2+2\)이므로</p>
+    $$2(-a^2+2)=-1\ \Rightarrow\ a^2=\frac52\ \Rightarrow\ a=\frac{\sqrt{10}}{2}\quad(a&gt;\sqrt2)$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 점 \(B\)와 답</div>
+    <p>\(A\left(\dfrac{\sqrt{10}}{2},\sqrt{10}\right)\), 접선 기울기 \(-\dfrac12\)이므로 \(y=0\)에서 \(B\left(\dfrac{5\sqrt{10}}{2},0\right)\).</p>
+    <p>\(\angle A=90^\circ\)이므로 \(\ \dfrac12\overline{OA}\cdot\overline{AB}=\triangle OAB=\dfrac12\cdot\overline{OB}\cdot(\text{A의 }y\text{좌표})\), 즉</p>
+    $$\overline{OA}\times\overline{AB}=\overline{OB}\times\sqrt{10}=\frac{5\sqrt{10}}{2}\cdot\sqrt{10}=\mathbf{25}$$
+  </div>
+  <div class="sol-final">\(\overline{OA}\times\overline{AB}=\mathbf{25}\)</div>
+` },
+
+"2024_csat/common/q22": { answer: 483, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 조건 정리</div>
+    <p>모든 정수 \(k\)에 대해 \(f(k-1)f(k+1)\ge0\). 즉 <b>두 칸 떨어진 정수에서 부호가 반대가 되면 안 된다.</b></p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 실근이 1개이거나 중근이 있는 경우 배제</div>
+    <ul>
+      <li>실근 1개 : \(a\)보다 작은 최대 정수를 \(m\)이라 하면 \(f(m)&lt;0&lt;f(m+2)\) → 위배</li>
+      <li>중근 포함 : 같은 방법으로 근이 \(0,\ 1\)로 정해져 \(f(x)=x(x-1)^2\) 또는 \(x^2(x-1)\)인데,
+          둘 다 \(f'\left(-\tfrac14\right)&gt;0\)이라 \(f'\left(-\tfrac14\right)=-\tfrac14\)에 모순</li>
+    </ul>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 서로 다른 세 실근</div>
+    <p>\(f(x)=(x-a)(x-b)(x-c)\ (a&lt;b&lt;c)\). 부호가 바뀌는 구간 사이에 정수가 끼면 위배되므로
+       \(b=0,\ c=1\)로 정해지고 \(a&lt;0\).</p>
+    $$f(x)=(x-a)x(x-1),\qquad f'\!\left(-\tfrac14\right)=\tfrac{11}{16}+\tfrac32a=-\tfrac14\ \Rightarrow\ a=-\tfrac58$$
+    <p>검토 : \(f'\left(\tfrac14\right)=-\tfrac58&lt;0\) ✓, 정수에서 \(f(-1)&lt;0,\ f(0)=f(1)=0,\ f(2)&gt;0\)이라 조건 만족 ✓</p>
+  </div>
+  <div class="sol-final">\(f(8)=\left(8+\dfrac58\right)\cdot8\cdot7=\dfrac{69}{8}\times56=\mathbf{483}\)</div>
+` },
+
+"2024_csat/calculus/q28": { answer: 2, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(x&lt;0\)에서의 모양</div>
+    <p>\(f(x)=-4xe^{4x^2}\)의 도함수는 \(-4e^{4x^2}(1+8x^2)&lt;0\)이라 <b>감소</b>하며,
+       \(x\to-\infty\)에서 \(\infty\), \(x\to0^-\)에서 \(0\). 따라서 \(f(0)=0\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(2g+h=k\)로 \(x&gt;0\) 부분 결정</div>
+    <p>\(g(t)=u\ (&lt;0)\)라 하면 \(h(t)=k-2u\)이고 \(f(k-2u)=f(u)\). \(x=k-2u\)로 바꾸면 \(u=\dfrac{k-x}{2}\)이므로</p>
+    $$f(x)=2(x-k)e^{(x-k)^2}\quad(x&gt;k)$$
+    <p>또 \(0\le x\le k\)에서 \(f(x)&gt;0\)이면 실근이 3개가 되므로 \(f(x)=0\)이어야 한다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 적분으로 \(k\) 구하기</div>
+    $$\int_0^7 f\,dx=\int_k^7 2(x-k)e^{(x-k)^2}dx=\Big[e^{(x-k)^2}\Big]_k^7=e^{(7-k)^2}-1=e^4-1$$
+    $$\Rightarrow (7-k)^2=4\ \Rightarrow\ k=5$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 답</div>
+    <p>\(h=8\Rightarrow g=\dfrac{5-8}{2}=-\dfrac32\), \(h=9\Rightarrow g=-2\)이므로</p>
+    $$\frac{f(9)}{f(8)}=\frac{f(-2)}{f\left(-\frac32\right)}=\frac{8e^{16}}{6e^{9}}=\frac43e^{7}$$
+  </div>
+  <div class="sol-final">답 &nbsp;② &nbsp;\(\dfrac43e^{7}\)</div>
+` },
+
+"2024_csat/calculus/q29": { answer: 162, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 첫 번째 조건 → \(r+s=2rs\)</div>
+    <p>\(a_n=ar^{n-1},\ b_n=bs^{n-1}\), 수렴하므로 \(|r|&lt;1,\ |s|&lt;1\).</p>
+    $$\frac{ab}{1-rs}=\frac{a}{1-r}\cdot\frac{b}{1-s}\ \Rightarrow\ 1-rs=(1-r)(1-s)\ \Rightarrow\ r+s=2rs$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 두 번째 조건 → \(r=-\dfrac12\)</div>
+    <p>\(r&gt;0\)이면 \(4r^3-7r+3=0\)에서 \(r=\dfrac12\)인데, \(r+s=2rs\)를 만족하는 \(s\)가 없다(모순).</p>
+    <p>\(r&lt;0\)이면 \(\{|a_{3n}|\}\)의 공비가 \(-r^3\)이므로</p>
+    $$\frac{-3a_2}{1-r^2}=\frac{7a_3}{1+r^3}\ \Rightarrow\ 4r^3-7r-3=0\ \Rightarrow\ (r+1)(2r-3)(2r+1)=0$$
+    <p>\(-1&lt;r&lt;0\)이므로 \(r=-\dfrac12\), 그러면 \(s=\dfrac14\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 급수 계산</div>
+    <p>\(b_n=b\left(\tfrac14\right)^{n-1}\)이므로</p>
+    $$\frac{b_{2n-1}+b_{3n+1}}{b_n}=\left(\frac14\right)^{n-1}+\left(\frac14\right)^{2n+1}$$
+    $$S=\frac{1}{1-\frac14}+\frac{\frac1{64}}{1-\frac1{16}}=\frac43+\frac1{60}=\frac{27}{20}$$
+  </div>
+  <div class="sol-final">\(120S=120\times\dfrac{27}{20}=\mathbf{162}\)</div>
+` },
+
+"2024_csat/calculus/q30": { answer: 125, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 극값 조건을 \(f'\)의 극값으로 바꾸기 &nbsp;<b>(핵심)</b></div>
+    <p>\(g\)는 \(x=a\)에서의 접선이므로 \(h'(x)=f(x)-g(x)=\displaystyle\int_a^x\{f'(t)-f'(a)\}\,dt\).</p>
+    <ul>
+      <li>\(f'-f'(a)\)가 \(a\) 좌우에서 <b>같은 부호</b>이면 적분값의 부호가 반대가 되어 \(h'\)의 부호가 바뀐다 → 극값 ✓</li>
+      <li>\(f'-f'(a)\)의 부호가 바뀌면 \(h'\)는 양쪽에서 같은 부호 → 극값 아님 ✗</li>
+    </ul>
+    <div class="sol-box">즉 \(h\)가 \(x=a\)에서 극값 \(\iff\) <b>\(f'\)이 \(x=a\)에서 극값</b></div>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(f'(x)=|\sin x|\cos x\)의 극값점</div>
+    <p>\(\sin x\ge0\)이면 \(f'=\tfrac12\sin2x\), \(\sin x&lt;0\)이면 \(f'=-\tfrac12\sin2x\).</p>
+    <p>\(x=k\pi\)에서는 양쪽 모두 \(f'\)의 부호가 같고 \(f'(k\pi)=0\)이므로 그 자체가 극값점이다.</p>
+  </div>
+  <figure class="sol-fig"><img src="sol/2024_csat_calculus_q30.png" alt="f'(x) 그래프">
+    <figcaption>\(y=f'(x)\)의 극값점 : \(\frac{\pi}{4},\ \frac{3\pi}{4},\ \pi,\ \frac{5\pi}{4},\ \frac{7\pi}{4},\ 2\pi,\ \cdots\)</figcaption></figure>
+  <div class="sol-final">\(a_6=2\pi,\ a_2=\dfrac{3\pi}{4}\) → \(\dfrac{100}{\pi}\left(2\pi-\dfrac{3\pi}{4}\right)=\mathbf{125}\)</div>
+` },
+
+"2024_csat/prob_stat/q29": { answer: 196, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(c\)를 기준으로 세기</div>
+    <p>조건은 \(a\le c,\ b\le c,\ c\le d\)이다. \(c\)를 고정하면</p>
+    <ul>
+      <li>\(a\) : \(1\sim c\) → \(c\)가지, &nbsp;\(b\) : \(1\sim c\) → \(c\)가지</li>
+      <li>\(d\) : \(c\sim6\) → \((7-c)\)가지</li>
+    </ul>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 합 계산</div>
+    <table class="sol-table">
+      <tr><th>\(c\)</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>
+      <tr><th>\(c^2(7-c)\)</th><td>6</td><td>20</td><td>36</td><td>48</td><td>50</td><td>36</td></tr>
+    </table>
+    $$\sum_{c=1}^{6}c^2(7-c)=6+20+36+48+50+36=196$$
+    <p>(다른 풀이 : \(\{a\le b\le c\le d\}\)와 \(\{b\le a\le c\le d\}\)의 합집합 →
+       \({}_6\mathrm H_4+{}_6\mathrm H_4-{}_6\mathrm H_3=126+126-56=196\))</p>
+  </div>
+  <div class="sol-final">순서쌍의 개수 \(=\mathbf{196}\)</div>
+` },
+
+"2024_csat/prob_stat/q30": { answer: 673, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(t\)의 범위</div>
+    <p>\(X\sim\mathrm N(1,t^2)\)에서 \(\mathrm P(X\le5t)\ge\dfrac12\)이려면 \(5t\ge1\), 즉 \(t\ge\dfrac15\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 표준화</div>
+    $$\mathrm P(t^2-t+1\le X\le t^2+t+1)
+      =\mathrm P\!\left(\frac{t^2-t}{t}\le Z\le\frac{t^2+t}{t}\right)=\mathrm P(t-1\le Z\le t+1)$$
+    <p>구간의 길이가 \(2\)로 <b>일정</b>하고 중점이 \(t\)이므로, \(t\)가 \(0\)에 가까울수록 확률이 커진다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 최댓값</div>
+    <p>\(t\ge\dfrac15\)이므로 \(t=\dfrac15\)일 때 최대:</p>
+    $$k=\mathrm P(-0.8\le Z\le1.2)=\mathrm P(0\le Z\le0.8)+\mathrm P(0\le Z\le1.2)=0.288+0.385=0.673$$
+  </div>
+  <div class="sol-final">\(1000k=\mathbf{673}\)</div>
 ` }
 
 };
