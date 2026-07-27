@@ -2212,6 +2212,189 @@ window.SOLUTIONS = {
     <p>각 경우 \(3!\)가지이므로 확률은 각각 \(\dfrac{3!}{6^3}=\dfrac1{36}\).</p>
   </div>
   <div class="sol-final">\(\dfrac1{36}+\dfrac1{36}=\dfrac1{18}\) → \(p+q=18+1=\mathbf{19}\)</div>
+` },
+
+/* ── 2026 6월 모평 킬러 (GPT 이투스 참조 → 자체 재작성) ── */
+
+"2026_mock06/common/q15": { answer: 1, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(x=1\)에서 우미분계수 → \(k=-2f(1)\)</div>
+    <p>\(g(1)=-f(1)\)이고 \(x&gt;1\)에서 \(g=f+k\)이므로 극한이 존재하려면 분자가 \(0\)으로 가야 한다.</p>
+    $$f(1)+k+f(1)=0\ \Rightarrow\ k=-2f(1),\qquad \text{그때 극한}=f'(1)\le0$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(f'\)의 부호 결정</div>
+    <ul>
+      <li>\(x=-1\) : 우극한은 \(-f'(-1)\le0\Rightarrow f'(-1)\ge0\)</li>
+      <li>\(|a|&gt;1\) : \(g'=f'(a)\le0\) &nbsp;/&nbsp; \(|a|&lt;1\) : \(g'=-f'(a)\le0\Rightarrow f'(a)\ge0\)</li>
+    </ul>
+    <p>즉 \(f'\ge0\)인 구간이 \((-1,1)\)이고 밖에서는 \(f'\le0\) → 최고차항 계수가 음수이고 \(f'(\pm1)=0\).</p>
+    <p>\(f'(x)=m(x-1)(x+1)\), \(f'(0)=-m=6\Rightarrow m=-6\) → \(f(x)=-2x^3+6x+C\)</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 조건 (나)</div>
+    <p>\(g\)는 \(x=-1\)에서 위로 점프한 뒤 계속 감소하므로, \(g(x)=t\)의 실근이 2개인 \(t\)의 최댓값은
+       점프 위쪽 값 \(g(-1)=-f(-1)\).</p>
+    $$-f(-1)=13\ \Rightarrow\ f(-1)=-13\ \Rightarrow\ 2-6+C=-13\ \Rightarrow\ C=-9$$
+    <p>\(\therefore f(x)=-2x^3+6x-9,\quad f(1)=-5,\quad k=10\)</p>
+  </div>
+  <div class="sol-final">\(k+f\!\left(\tfrac12\right)=10-\dfrac{25}{4}=\dfrac{15}{4}\) &nbsp;→&nbsp; 답 &nbsp;①</div>
+` },
+
+"2026_mock06/common/q21": { answer: 42, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 첫 번째 극한 → \(g(1)=g(2)=0\)</div>
+    <p>\(a=1\)에서 좌·우극한이 \(g(1)\)과 \(-g(1)\)이므로 같아지려면 \(g(1)=0\). 같은 방법으로 \(g(2)=0\).</p>
+    <p>\(g\)는 최고차항 계수 \(1\)인 사차함수이므로 \(\ g(x)=f(x)h(x)\) (\(h\)는 최고차항 계수 \(1\)인 이차함수).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 두 번째 극한 → \(h(1)=h(2)=1\)</div>
+    $$\frac{|g-f|}{g}=\frac{|f|\,|h-1|}{f\,h}$$
+    <p>\(a=1\)에서 좌·우극한이 \(\pm\dfrac{|h(1)-1|}{h(1)}\)이므로 같아지려면 \(|h(1)-1|=0\), 즉 \(h(1)=1\).
+       같은 방법으로 \(h(2)=1\).</p>
+    <p>\(h(x)-1\)이 \(1,2\)를 근으로 갖는 최고차항 계수 \(1\)인 이차식이므로</p>
+    $$h(x)=(x-1)(x-2)+1=x^2-3x+3$$
+  </div>
+  <div class="sol-final">\(g(-1)=(-2)(-3)\cdot(1+3+3)=6\times7=\mathbf{42}\)</div>
+` },
+
+"2026_mock06/common/q22": { answer: 38, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 점 \(A\)</div>
+    <p>\(u=2^x\)로 놓고 정리하면 \(\ 2u^2+(4-k)u-2k=0\Rightarrow(2u-k)(u+2)=0\).
+       \(u&gt;0\)이므로 \(2^x=\dfrac k2\).</p>
+    $$A\left(\log_2k-1,\ k\right)$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 점 \(B\) — 이동량은 \(3\)</div>
+    <p>\(B=A+(m,-m)\)이 \(y=2^{x-2}-3\) 위에 있으므로</p>
+    $$k-m=k\cdot2^{m-3}-3\ \Longrightarrow\ k\left(1-2^{m-3}\right)=m-3$$
+    <p>\(m&gt;3\)이면 좌변\(&lt;0&lt;\)우변, \(m&lt;3\)이면 좌변\(&gt;0&gt;\)우변이라 모순 → \(m=3\).</p>
+    <p>\(\therefore \overline{AB}=\sqrt2\,m=3\sqrt2\)</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 넓이 조건</div>
+    <p>직선 \(l:\ x+y+(1-k-\log_2k)=0\)이고 원점까지의 거리는 \(\dfrac{k+\log_2k-1}{\sqrt2}\) (\(k&gt;1\)).</p>
+    $$\frac12\cdot3\sqrt2\cdot\frac{k+\log_2k-1}{\sqrt2}=16\ \Rightarrow\ k+\log_2k-1=\frac{32}{3}$$
+  </div>
+  <div class="sol-final">\(k+\log_2k=\dfrac{35}{3}\) → \(p+q=3+35=\mathbf{38}\)</div>
+` },
+
+"2026_mock06/calculus/q28": { answer: 1, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 영점의 존재와 \(a\)의 범위</div>
+    <p>(나)의 \(f(-3)f(3)&lt;0\)과 사잇값 정리로 \(f(c)=0\)인 \(c\in(-3,3)\)이 존재한다.</p>
+    <p>(가)를 미분하면 \(\ \{5f^4+3f^2\}f'+a=\dfrac{2x+1}{x^2+x+\frac52}\). \(x=2\)를 넣으면</p>
+    $$\{5f(2)^4+3f(2)^2\}f'(2)+a=\frac{10}{17},\qquad f'(2)&gt;0\ \Rightarrow\ a\le\frac{10}{17}$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 한 번 더 미분 → \(c=1\) 또는 \(-2\)</div>
+    <p>다시 미분한 식에 \(x=c\)(\(f(c)=0\))를 넣으면 좌변이 모두 \(0\)이 되어</p>
+    $$-\frac{2(c-1)(c+2)}{\left(c^2+c+\frac52\right)^2}=0\ \Rightarrow\ c=1\ \text{또는}\ -2$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 판별</div>
+    <ul>
+      <li>\(c=1\) : 첫 미분식에 \(x=1\) → \(a=\dfrac{3}{9/2}=\dfrac23&gt;\dfrac{10}{17}\) ✗</li>
+      <li>\(c=-2\) : \(a=\dfrac{-3}{9/2}=-\dfrac23\le\dfrac{10}{17}\) ✓</li>
+    </ul>
+    <p>(가)에 \(x=-2,\ f(-2)=0\)을 넣으면 \(\ \dfrac43+b=\ln\dfrac92\Rightarrow b=\ln\dfrac92-\dfrac43\)</p>
+  </div>
+  <div class="sol-final">\(a\,e^{b}=-\dfrac23\cdot\dfrac92\,e^{-\frac43}=-3e^{-\frac43}\) &nbsp;→&nbsp; 답 &nbsp;①</div>
+` },
+
+"2026_mock06/calculus/q29": { answer: 109, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(\{a_n\}\)은 주기 4</div>
+    <p>\(a_1=\alpha,\ a_2=-\beta,\ a_3=-\alpha,\ a_4=\beta\)가 반복. \(a_1a_2a_3a_4=(\alpha\beta)^2=4\Rightarrow\alpha\beta=\pm2\).</p>
+    <p>\(\alpha&gt;\beta\)인 정수쌍 : \((2,1),\ (-1,-2),\ (2,-1),\ (1,-2)\)</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 급수 조건</div>
+    <p>\(a_{4n-2}=-\beta,\ a_{4n-3}=\alpha\)이므로 \(b_n=br^{n-1}\ (b&gt;0,\ |r|&lt;1)\)에 대해</p>
+    $$-\beta\cdot\frac{b}{1-r}=6,\qquad \alpha\cdot\frac{br}{1-r^2}=6
+      \ \Longrightarrow\ -\frac{\beta}{\alpha}=\frac{r}{1+r}$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 네 경우 판별</div>
+    <table class="sol-table">
+      <tr><th>\((\alpha,\beta)\)</th><th>\(r\)</th><th>판정</th></tr>
+      <tr><td>\((2,1)\)</td><td>\(-\frac13\)</td><td class="sol-no">\(b=-8&lt;0\) ✗</td></tr>
+      <tr><td>\((2,-1)\)</td><td>\(1\)</td><td class="sol-no">발산 ✗</td></tr>
+      <tr><td>\((1,-2)\)</td><td>\(-2\)</td><td class="sol-no">발산 ✗</td></tr>
+      <tr><td>\((-1,-2)\)</td><td>\(-\frac23\)</td><td class="sol-ok">\(b=5\) ✓</td></tr>
+    </table>
+  </div>
+  <div class="sol-final">\(b_1b_3=b^2r^2=25\cdot\dfrac49=\dfrac{100}{9}\) → \(p+q=9+100=\mathbf{109}\)</div>
+` },
+
+"2026_mock06/calculus/q30": { answer: 25, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(h(x)=\dfrac{2}{1+e^{-x}}\)의 성질</div>
+    <p>\(h'&gt;0\)이고 치역은 \((0,2)\). \(h(0)=1,\ h(\ln3)=\dfrac32,\ h(-\ln3)=\dfrac12\)이며
+       \(h'(\pm\ln3)=\dfrac38\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(f(1)&lt;0\) (극대)</div>
+    <p>\(f(1)&gt;0\)이면 \(x=0\)에서 극소라는 조건에서 \(f\)가 \(x=1\)에서 극소가 되고,
+       그러면 \(f'\!\left(\tfrac32\right)&gt;0\)이라 \(g'(\ln3)&gt;0\)이 되어 (나)에 모순.</p>
+    <p>따라서 \(f(1)&lt;0\)이고 \(f\)는 \(x=1\)에서 <b>극대</b>. 극댓값이 음수라 실근은 하나뿐이고,
+       \(g\)가 미분가능하려면 그 근이 \((0,2)\) 밖이어야 하므로 \(f(2)\le0\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 조건 (나)를 식으로</div>
+    <p>\(g'(\ln3)=-f'\!\left(\tfrac32\right)\cdot\tfrac38&lt;0\Rightarrow f'\!\left(\tfrac32\right)&gt;0\)
+       → 극소점 \(k\)에 대해 \(1&lt;k&lt;\dfrac32\).</p>
+    <p>\(|g'(-\ln3)|=\tfrac38f'\!\left(\tfrac12\right)\), \(g(-\ln3)=-f\!\left(\tfrac12\right)\)이므로</p>
+    $$f'\!\left(\tfrac12\right)+f\!\left(\tfrac12\right)=0$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 계수 정리</div>
+    <p>\(f'(x)=3(x-1)(x-k)\)에서 \(f(x)=x^3-\tfrac32(1+k)x^2+3kx+C\)이고, 위 식에서 \(C=1-\tfrac{21}{8}k\).</p>
+    <p>\(f(2)=3-\tfrac{21}{8}k\le0\Rightarrow k\ge\dfrac87\). 따라서 \(\dfrac87\le k&lt;\dfrac32\).</p>
+    $$g(0)=-f(1)=\frac98k-\frac12$$
+  </div>
+  <div class="sol-final">\(k=\dfrac87\)에서 최소 \(g(0)=\dfrac97-\dfrac12=\dfrac{11}{14}\) → \(p+q=14+11=\mathbf{25}\)</div>
+` },
+
+"2026_mock06/prob_stat/q29": { answer: 44, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 사건 정의</div>
+    <p>\(A:\ a+b=8\), \(B:\ b\ge c\). 전체 경우의 수는 \(6^3=216\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 각 확률</div>
+    <ul>
+      <li>\(n(A)\) : \((a,b)=(2,6),(3,5),(4,4),(5,3),(6,2)\)의 5가지, \(c\)는 6가지 → \(30\)</li>
+      <li>\(n(B)\) : \(b\ge c\)인 \((b,c)\)는 \({}_6\mathrm H_2={}_7\mathrm C_2=21\), \(a\)는 6가지 → \(126\)</li>
+      <li>\(n(A\cap B)\) : 위 5가지 각각에 \(c\le b\)이므로 \(6+5+4+3+2=20\)</li>
+    </ul>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 덧셈정리</div>
+    $$\mathrm P(A\cup B)=\frac{30+126-20}{216}=\frac{136}{216}=\frac{17}{27}$$
+  </div>
+  <div class="sol-final">\(p+q=27+17=\mathbf{44}\)</div>
+` },
+
+"2026_mock06/prob_stat/q30": { answer: 115, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 조건 (가) 정리</div>
+    <p>\(f(x+1)\ge f(x)+x-3\)에 \(x=1,2,3,4\)를 넣으면</p>
+    <div class="sol-box">
+      \(f(1)\le f(2)+2\), &nbsp;\(f(2)-1\le f(3)\le f(4)\le f(5)-1\)
+    </div>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(f(2)\)가 홀수인 세 경우</div>
+    <table class="sol-table">
+      <tr><th>\(f(2)\)</th><th>\(f(1)\)</th><th>\((f(3),f(4),f(5)-1)\)</th><th>곱</th></tr>
+      <tr><td>\(1\)</td><td>\(\le3\) → 3가지</td><td>\(1\!\sim\!4\)에서 \({}_4\mathrm H_3=20\)</td><td>\(60\)</td></tr>
+      <tr><td>\(3\)</td><td>5가지</td><td>\(2\!\sim\!4\)에서 \({}_3\mathrm H_3=10\)</td><td>\(50\)</td></tr>
+      <tr><td>\(5\)</td><td>5가지</td><td>모두 \(4\) → \(1\)</td><td>\(5\)</td></tr>
+    </table>
+  </div>
+  <div class="sol-final">\(60+50+5=\mathbf{115}\)</div>
 ` }
 
 };
