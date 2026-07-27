@@ -2395,6 +2395,185 @@ window.SOLUTIONS = {
     </table>
   </div>
   <div class="sol-final">\(60+50+5=\mathbf{115}\)</div>
+` },
+
+/* ── 2026 9월 모평 킬러 (GPT EBS 참조 → 자체 재작성) ── */
+
+"2026_mock09/common/q15": { answer: 5, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(g'(x)=|f(x)|-|x|\)</div>
+    <p>\(g'(x)=0\iff|f(x)|=|x|\)이고, \(f(0)=0\)이라 \(x=0\)은 근. 조건 (나)에서 \(x=2,\ 6\)도 근이며
+       (가)에서 근은 \(0,\ 2,\ 6,\ \alpha\)의 4개.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(f(6)=6,\ f(2)=-2\)</div>
+    <p>\(f(6)=-6\)이면 \(f\)의 최고차항 계수가 양수라 \(x&gt;6\)에서 \(f(x)=x\)인 점이 또 생겨
+       근의 개수·극값 조건과 어긋난다. \(\therefore f(6)=6\).</p>
+    <p>\(f(2)=2\)이면 \([0,2]\)에서 \(g'\ge0\)이 되어 \(g(2)&gt;0\), 즉 \(f(6)g(2)&gt;0\)이라 모순.
+       \(\therefore f(2)=-2\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(f'(0)=1\)</div>
+    <p>\(0&lt;f'(0)&lt;1\)이면 \(x&lt;0\)에서, \(f'(0)&gt;1\)이면 \(0&lt;x&lt;2\)에서 교점이 하나 더 생겨 (가)에 모순.</p>
+    <p>\(f(0)=0,\ f'(0)=1,\ f(6)=6\)이므로 \(\ f(x)-x=kx^2(x-6)\).
+       \(f(2)=-2\)에서 \(-4=-16k\Rightarrow k=\dfrac14\).</p>
+    $$f(x)=x+\frac14x^2(x-6)$$
+    <p>(검토 : \(|f|=|x|\)의 근은 \(0,2,4,6\)의 4개 ✓, \(g(2)&lt;0\) ✓)</p>
+  </div>
+  <div class="sol-final">\(f(8)=8+\dfrac14\cdot64\cdot2=\mathbf{40}\) &nbsp;→&nbsp; 답 &nbsp;⑤</div>
+` },
+
+"2026_mock09/common/q21": { answer: 296, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 부등식을 직선으로 정리</div>
+    <p>\(f(x)=x^3+ax^2+bx+c\)라 하면 \(\dfrac{f(2x)-f(0)}{2x}=4x^2+2ax+b\).</p>
+    <p>왼쪽 부등식 : \(\dfrac{3x^2+2ax+b}{2}+x^2-2\le4x^2+2ax+b\Rightarrow 2ax+b\ge-3x^2-4\)</p>
+    <p>오른쪽 부등식 : \(4x^2+2ax+b\le x^4\Rightarrow 2ax+b\le x^4-4x^2\)</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 두 곡선 사이의 직선</div>
+    <div class="sol-box">
+      \(-3x^2-4\ \le\ 2ax+b\ \le\ x^4-4x^2\) &nbsp;(모든 실수 \(x\))
+    </div>
+    <p>왼쪽 곡선의 <b>최댓값</b>은 \(x=0\)에서 \(-4\), 오른쪽 곡선의 <b>최솟값</b>은 \(x=\pm\sqrt2\)에서 \(-4\).</p>
+    <ul>
+      <li>\(x=0\) : \(b\ge-4\)</li>
+      <li>\(x=\pm\sqrt2\) : \(\pm2\sqrt2\,a+b\le-4\) → 두 식을 더하면 \(b\le-4\)</li>
+    </ul>
+    <p>\(\therefore b=-4\), 그러면 \(\pm2\sqrt2\,a\le0\)에서 \(a=0\). 즉 직선은 \(y=-4\).</p>
+  </div>
+  <div class="sol-final">\(f'(x)=3x^2-4\) → \(f'(10)=300-4=\mathbf{296}\)</div>
+` },
+
+"2026_mock09/common/q22": { answer: 73, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 두 점 설정</div>
+    <p>\(B(\alpha,\log_2\alpha),\ A(\beta,\log_2\beta)\ (0&lt;\alpha&lt;\beta)\)라 하자.
+       \(y=x\)에 수직인 두 직선의 기울기는 \(-1\)이고 \(y\)절편은 각각 \(\alpha+\log_2\alpha,\ \beta+\log_2\beta\).</p>
+    $$(\beta-\alpha)+\left(\log_2\beta-\log_2\alpha\right)=\frac{13}{2},\qquad
+      \frac{\log_2\beta-\log_2\alpha}{\beta-\alpha}=\frac67$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(\alpha,\ \beta\) 구하기</div>
+    <p>두 식에서 \(\beta-\alpha=\dfrac72,\ \log_2\dfrac{\beta}{\alpha}=3\), 즉 \(\beta=8\alpha\).</p>
+    $$7\alpha=\frac72\Rightarrow\alpha=\frac12,\ \beta=4
+      \quad\Rightarrow\quad A(4,2),\ B\!\left(\tfrac12,-1\right)$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 사다리꼴의 넓이</div>
+    <p>\(P\)는 \(A\)에서 \(y=x\)에 내린 수선의 발 \((3,3)\), \(Q\)는 \(B\)의 \(y=x\)에 대한 대칭점 \(\left(-1,\tfrac12\right)\).</p>
+    $$\overline{AP}=\sqrt2,\qquad \overline{BQ}=\frac32\sqrt2,\qquad
+      \overline{PM}=\frac{13}{4}\sqrt2\ \ (M:\overline{BQ}\text{의 중점})$$
+    $$S=\frac12\left(\sqrt2+\frac32\sqrt2\right)\cdot\frac{13}{4}\sqrt2=\frac{65}{8}$$
+  </div>
+  <div class="sol-final">\(p+q=8+65=\mathbf{73}\)</div>
+` },
+
+"2026_mock09/calculus/q28": { answer: 2, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(f=h\circ g\)로 보기</div>
+    <p>\(h(x)=x-\tan x\)라 하면 \(f(x)=h(g(x))\)이고 \(h'(x)=-\tan^2x\le0\)이라 각 구간에서 <b>감소</b>.</p>
+    <p>\(f'(x)=g'(x)\{1-\sec^2 g(x)\}=-g'(x)\tan^2 g(x)\)</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(f\)의 꼴</div>
+    <p>\(\sin g(\pi)=0\Rightarrow\tan g(\pi)=0\Rightarrow f'(\pi)=0\). 여기에 \(f''(\pi)=0,\ f(0)=0\)을 더하면</p>
+    $$f(x)=k(x-\pi)^3+k\pi^3$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(g\)의 치역 판별</div>
+    <p>\(g\)가 증가해 치역이 \(\left(\frac{\pi}{2},\frac{3\pi}{2}\right)\)이면 \(f=h\circ g\)는 감소 → \(k&lt;0\)이라 \(f(\pi)=k\pi^3&lt;0\).
+       그러나 \(g(\pi)=\pi\)에서 \(f(\pi)=\pi&gt;0\)이라 모순.</p>
+    <p>따라서 \(g\)는 감소하고 치역은 \(\left(\frac{3\pi}{2},\frac{5\pi}{2}\right)\), \(\ g(\pi)=2\pi\).</p>
+    $$f(\pi)=2\pi=k\pi^3\ \Rightarrow\ k=\frac{2}{\pi^2}$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 답</div>
+    <p>\(f(0)=0\)에서 \(g(0)=\tan g(0)\)이므로 \(f'(0)=-g'(0)\{g(0)\}^2\).
+       한편 \(f'(0)=3k\pi^2=6\).</p>
+  </div>
+  <div class="sol-final">\(g'(0)\{g(0)\}^2=-6\) &nbsp;→&nbsp; 답 &nbsp;②</div>
+` },
+
+"2026_mock09/calculus/q29": { answer: 91, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 가운데 정수항은 \(6\)</div>
+    <p>정수인 세 항은 연속하므로 \(a_m,a_{m+1},a_{m+2}\)라 하면 등비수열에서
+       \(a_ma_{m+1}a_{m+2}=\left(a_{m+1}\right)^3=216\Rightarrow a_{m+1}=6\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 가능한 공비</div>
+    <p>\(r=\dfrac{q}{p}\)(기약, \(|r|&lt;1\))라 하면 \(a_{m+2}=\dfrac{6q}{p}\), \(a_m=\dfrac{6p}{q}\)가 모두 정수이므로
+       \(p\mid6,\ |q|\mid6\). \(|q|&lt;p\)에서</p>
+    $$|r|\in\left\{\frac12,\ \frac13,\ \frac23,\ \frac16\right\}$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(a_1&gt;0\), \(a_1+a_2&lt;10\), 정수항 <b>정확히 3개</b></div>
+    <ul>
+      <li>\(r&gt;0\) : \(a_1=a_m\)이고 \(a_1+a_2\)는 각각 \(18,\ 24,\ 15,\ 42\)로 모두 \(10\) 이상 ✗</li>
+      <li>\(r&lt;0\) : \(a_m&lt;0\)이라 \(a_1=\dfrac{6}{r^2}\)이고, 이 값이 정수면 정수항이 4개가 되어 ✗.
+          \(\dfrac{6}{r^2}=24,\ 54,\ \boxed{\dfrac{27}{2}},\ 216\) 중 정수가 아닌 것은 \(r=-\dfrac23\)뿐</li>
+    </ul>
+    <p>\(\therefore a_1=\dfrac{27}{2},\ r=-\dfrac23\) &nbsp;(\(a_1+a_2=\dfrac92&lt;10\) ✓)</p>
+  </div>
+  <div class="sol-final">\(\displaystyle\sum a_n=\frac{27/2}{1+\frac23}=\frac{81}{10}\) → \(p+q=10+81=\mathbf{91}\)</div>
+` },
+
+"2026_mock09/calculus/q30": { answer: 31, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(g\)가 곱의 미분 꼴임을 알아채기</div>
+    <p>주어진 식에서 \(e^{f(x)}=\dfrac{g(x)}{1+xf'(x)}\), 즉 \(g(x)=\{1+xf'(x)\}e^{f(x)}\). 그런데</p>
+    $$\frac{d}{dx}\left(xe^{f(x)}\right)=\{1+xf'(x)\}e^{f(x)}=g(x)$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 첫 번째 적분으로 \(e^{f(2)}\)</div>
+    $$\int_1^2 g\,dx=\Big[xe^{f(x)}\Big]_1^2=2e^{f(2)}-e^{f(1)}=2e^{f(2)}-16=34
+      \ \Rightarrow\ e^{f(2)}=25$$
+    <p>(\(f(1)=4\ln2\Rightarrow e^{f(1)}=2^4=16\))</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 두 번째 적분에 부분적분</div>
+    <p>\(xg(x)=xe^{f}+x^2f'e^{f}\)이고 \(\displaystyle\int_1^2x^2f'e^{f}dx=\Big[x^2e^{f}\Big]_1^2-2\int_1^2xe^{f}dx\)이므로</p>
+    $$\int_1^2xg\,dx=\Big[x^2e^{f}\Big]_1^2-\int_1^2xe^{f}dx=(100-16)-\int_1^2xe^{f}dx=53$$
+  </div>
+  <div class="sol-final">\(\displaystyle\int_1^2xe^{f(x)}dx=84-53=\mathbf{31}\)</div>
+` },
+
+"2026_mock09/prob_stat/q29": { answer: 23, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 한 번의 시행에서 기록한 수가 \(1\)일 확률</div>
+    <p>두 부분집합을 고르는 전체 경우의 수는 \(8\times4=32\).</p>
+    <p>교집합의 원소가 하나이려면 \(2,\ 3\) 중 <b>정확히 하나</b>만 공통이어야 한다.
+       각각 \(8-2=6\)가지이므로</p>
+    $$\frac{6+6}{32}=\frac38$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 이항분포 → 정규근사</div>
+    <p>\(X\sim\mathrm B\!\left(15360,\dfrac38\right)\)에서
+       \(\mathrm E(X)=5760\), \(\mathrm V(X)=15360\cdot\dfrac38\cdot\dfrac58=3600\), \(\sigma=60\).</p>
+    $$k=\mathrm P(X\ge5880)=\mathrm P\!\left(Z\ge\frac{5880-5760}{60}\right)=\mathrm P(Z\ge2)=0.5-0.477=0.023$$
+  </div>
+  <div class="sol-final">\(1000k=\mathbf{23}\)</div>
+` },
+
+"2026_mock09/prob_stat/q30": { answer: 80, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 변수 설정</div>
+    <p>학생 \(B\)의 카드 중 \(n\) 이하인 것의 개수를 \(k\)라 하면 \(B\)가 카드를 내려놓을 확률은 \(\dfrac k6\),
+       \(A\)가 내려놓을 확률은 \(\dfrac12\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 두 확률</div>
+    <p>둘 다 내려놓으면 \(A\)의 카드(\(8\))가 더 크므로 \(A\)가 받고, \(B\)만 내려놓아도 \(A\)가 받는다.</p>
+    $$p=\frac12\cdot\frac k6+\frac12\cdot\frac k6=\frac k6,
+      \qquad q=\frac12\cdot\frac{6-k}{6}=\frac{6-k}{12}$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(p=q\)</div>
+    $$\frac k6=\frac{6-k}{12}\ \Rightarrow\ 2k=6-k\ \Rightarrow\ k=2$$
+    <p>\(B\)의 카드 중 \(n\) 이하인 것이 \(2\)장(즉 \(2,3\))이므로 \(n=3\), 그리고 \(p=\dfrac13\).</p>
+  </div>
+  <div class="sol-final">\(24(n+p)=24\left(3+\dfrac13\right)=\mathbf{80}\)</div>
 ` }
 
 };
