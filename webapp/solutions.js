@@ -1169,6 +1169,256 @@ window.SOLUTIONS = {
        \(f(5)=3\)이면 \(f(2)\le2\) 제약을 빼서 \({}_3\mathrm H_3-1=9\))</p>
   </div>
   <div class="sol-final">\(14+36+36+14=\mathbf{100}\)</div>
+` },
+
+/* ── 2024 6월 모평 킬러 (GPT 이투스 참조 → 자체 재작성) ── */
+
+"2024_mock06/common/q13": { answer: 1, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 원의 지름을 이용한 사인법칙</div>
+    <p>\(\overline{AE}\)가 지름인 원에서 현 \(\overline{P_1P_2}\)에 대한 원주각이 \(\angle BAD=\theta\)이므로</p>
+    $$\overline{P_1P_2}=\overline{AE}\sin\theta,\qquad \overline{Q_1Q_2}=\overline{EC}\sin(\angle BCD)$$
+    <p>\(\overline{AE}:\overline{EC}=1:2\)이고 \(\cos(\angle BCD)=-\dfrac13\Rightarrow\sin(\angle BCD)=\dfrac{2\sqrt2}{3}\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(\sin\theta\) 구하기</div>
+    $$\frac{\overline{P_1P_2}}{\overline{Q_1Q_2}}=\frac{\overline{AE}\sin\theta}{\overline{EC}\sin(\angle BCD)}
+      =\frac12\cdot\frac{\sin\theta}{\frac{2\sqrt2}{3}}=\frac{3}{5\sqrt2}$$
+    $$\Rightarrow\ \sin\theta=\frac45,\qquad \angle DAB&gt;\frac{\pi}{2}\ \Rightarrow\ \cos\theta=-\frac35$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 넓이와 코사인법칙</div>
+    <p>\(\overline{AB}=x,\ \overline{AD}=y\)라 하면 \(\triangle ABD=\dfrac12xy\sin\theta=2\Rightarrow xy=5\).</p>
+    <p>\(\triangle BCD\)에서 \(\overline{BD}^2=3^2+2^2-2\cdot3\cdot2\cdot\left(-\tfrac13\right)=17\).</p>
+    <p>\(\triangle ABD\)에서 \(x^2+y^2-2xy\cos\theta=17\Rightarrow x^2+y^2+6=17\Rightarrow x^2+y^2=11\).</p>
+  </div>
+  <div class="sol-final">\((x+y)^2=11+2\cdot5=21\) → \(\overline{AB}+\overline{AD}=\sqrt{21}\) &nbsp;→&nbsp; 답 &nbsp;①</div>
+` },
+
+"2024_mock06/common/q15": { answer: 2, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(a_2\)는 항상 \(-2\)</div>
+    <p>\(a_1=k&gt;0\)이므로 \(a_2=a_1-2\cdot1-k=k-2-k=-2\). 이어서 \(a_3=a_2+2\cdot2-k=2-k\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(k=1\sim6\) 직접 계산</div>
+    <table class="sol-table">
+      <tr><th>\(k\)</th><th>\(a_3\)</th><th>\(a_4\)</th><th>\(a_5\)</th><th>\(a_6\)</th><th>곱</th></tr>
+      <tr><td>1</td><td>1</td><td>\(-6\)</td><td>1</td><td>\(-10\)</td><td class="sol-no">\(+\)</td></tr>
+      <tr><td>2</td><td>0</td><td>4</td><td>\(-6\)</td><td>2</td><td class="sol-no">0</td></tr>
+      <tr><td>3</td><td>\(-1\)</td><td>2</td><td>\(-9\)</td><td>\(-2\)</td><td class="sol-ok">\(-\) ✓</td></tr>
+      <tr><td>4</td><td>\(-2\)</td><td>0</td><td>4</td><td>\(-10\)</td><td class="sol-no">0</td></tr>
+      <tr><td>5</td><td>\(-3\)</td><td>\(-2\)</td><td>1</td><td>\(-14\)</td><td class="sol-ok">\(-\) ✓</td></tr>
+      <tr><td>6</td><td>\(-4\)</td><td>\(-4\)</td><td>\(-2\)</td><td>2</td><td class="sol-ok">\(-\) ✓</td></tr>
+    </table>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(k\ge7\)은 모두 불가</div>
+    <p>\(a_3=2-k,\ a_4=8-2k,\ a_5=16-3k,\ a_6=26-4k\)가 모두 음수(\(k\ge7\))이므로 곱이 양수.</p>
+  </div>
+  <div class="sol-final">\(k=3,\ 5,\ 6\) → 합 \(=14\) &nbsp;→&nbsp; 답 &nbsp;②</div>
+` },
+
+"2024_mock06/common/q20": { answer: 39, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(g\)의 성질</div>
+    <p>\(g(0)=0,\ g'(x)=f(x)\)이고 \(g\)는 최고차항 계수 \(\dfrac13\)인 삼차함수.</p>
+    <p>\(x\ge1\)에서 \(g(x)\ge g(4)\) → \(x=4\)에서 최소, 즉 <b>\(f(4)=g'(4)=0\)</b>.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(g(3)=0\)임을 보이기</div>
+    <p>\(x\ge1\)에서 \(|g(x)|\)는 \(x=3\)에서 최소이다. 만약 \(g(3)\ne0\)이면 \(g\)는 \([1,\infty)\)에서 부호가 일정한데,</p>
+    <ul>
+      <li>\(g&gt;0\)이면 \(|g|\)의 최소 \(=\) \(g\)의 최소이므로 최소점이 \(3\)과 \(4\)로 달라 모순</li>
+      <li>\(g&lt;0\)이면 \(x\to\infty\)에서 \(g\to\infty\)라 모순</li>
+    </ul>
+    <p>\(\therefore g(3)=0\)</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(g\) 결정</div>
+    <p>\(g(0)=g(3)=0\)이므로 \(g(x)=\dfrac13x(x-3)(x-\alpha)\). \(g'(4)=0\)에서</p>
+    $$48-8(3+\alpha)+3\alpha=0\ \Rightarrow\ \alpha=\frac{24}{5}$$
+    $$f(x)=g'(x)=(x-4)\left(x-\frac65\right)$$
+  </div>
+  <figure class="sol-fig"><img src="sol/2024_mock06_common_q20.png" alt="g(x) 그래프">
+    <figcaption>\(x\ge1\)에서 \(g\)의 최소는 \(x=4\), \(|g|\)의 최소는 \(g(3)=0\)</figcaption></figure>
+  <div class="sol-final">\(f(9)=5\cdot\dfrac{39}{5}=\mathbf{39}\)</div>
+` },
+
+"2024_mock06/common/q21": { answer: 110, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 교점 방정식 정리</div>
+    <p>\(t-\log_2x=2^{x-t}\ \iff\ \log_2x=-2^{x-t}+t\).
+       왼쪽은 <b>증가</b>, 오른쪽은 <b>감소</b>하므로 교점은 항상 하나 → \(f(t)\)가 잘 정의된다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> ㄱ &nbsp;<span class="sol-ok">참</span></div>
+    <p>\(t=1,x=1\) : \(\log_21=0,\ -2^{0}+1=0\) ✓ → \(f(1)=1\)</p>
+    <p>\(t=2,x=2\) : \(\log_22=1,\ -2^{0}+2=1\) ✓ → \(f(2)=2\)</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> ㄴ &nbsp;<span class="sol-ok">참</span></div>
+    <p>\(y=-2^{x-t}+t\)는 \(y=-2^{x}\)를 \(x\)축·\(y\)축 방향으로 각각 \(t\)만큼, 즉 <b>직선 \(y=x\) 방향</b>으로 평행이동한 것이다.</p>
+    <p>\(t\)가 커지면 이 감소곡선이 위·오른쪽으로 이동하므로 증가곡선 \(y=\log_2x\)와의 교점도 오른쪽으로 이동 → \(f(t)\) 증가.</p>
+  </div>
+  <figure class="sol-fig"><img src="sol/2024_mock06_common_q21.png" alt="교점 그래프">
+    <figcaption>\(t=1,\ 1.5,\ 2\)일 때의 교점 — \(t=1.5\)에서는 \(f(t)&lt;t\)</figcaption></figure>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> ㄷ &nbsp;<span class="sol-no">거짓</span></div>
+    <p>\(t=\dfrac32,\ x=\dfrac32\)를 넣으면 \(\log_2\dfrac32\approx0.585\)이고 \(-2^{0}+\dfrac32=0.5\)이므로
+       \(\log_2x&gt;-2^{x-t}+t\).</p>
+    <p>왼쪽은 증가·오른쪽은 감소이므로 교점은 \(x=\dfrac32\)보다 <b>왼쪽</b>에 있다.
+       즉 \(f\!\left(\tfrac32\right)&lt;\tfrac32\) (실제 \(\approx1.45\)). 반례 존재.</p>
+  </div>
+  <div class="sol-final">\(A=100,\ B=10,\ C=0\) → \(A+B+C=\mathbf{110}\)</div>
+` },
+
+"2024_mock06/common/q22": { answer: 380, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 조건을 \(f'\)의 부호변화로 바꾸기</div>
+    <p>평균값정리에 의해 두 평균변화율은 각각 \(f'(c_1),\ f'(c_2)\)와 같다.
+       곱이 음수 \(\iff\) 구간 안에서 \(f'\)의 <b>부호가 바뀐다</b>.</p>
+    <p>\(f'(x)=3x^2-4ax=x\left(3x-4a\right)\)의 두 근은 \(0\)과 \(\dfrac{4a}{3}\) (모두 단순근).</p>
+    <div class="sol-box">조건을 만족하는 \(k\) \(\iff\) 구간 \(\left(k,\ k+\dfrac32\right)\)이 \(0\) 또는 \(\dfrac{4a}{3}\)를 포함</div>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(0\)에서 오는 \(k\)</div>
+    <p>\(k&lt;0&lt;k+\dfrac32\Rightarrow-\dfrac32&lt;k&lt;0\) → 정수 \(k=-1\) (항상 포함).</p>
+    <p>모든 \(k\)의 곱이 \(-12\)이므로 나머지 \(k\)들의 곱은 \(12\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(a\)의 부호로 나누기</div>
+    <p>길이 \(\dfrac32\)인 구간이 \(r=\dfrac{4a}{3}\)를 포함하는 정수 \(k\)는 <b>1개 또는 2개</b>이고, 2개면 연속한 정수이다.</p>
+    <ul>
+      <li>\(a&gt;0\) : \(r&gt;0\). 곱이 \(12\)가 되려면 \(\{12\}\) 또는 \(\{3,4\}\).
+          각각 \(\dfrac{25}{2}\le r&lt;13\), \(4&lt;r&lt;\dfrac92\)이어야 하는데 정수 \(a\)가 없다.</li>
+      <li>\(a&lt;0\) : \(r&lt;0\)이라 음의 정수 두 개 \(\{-4,-3\}\) (곱 \(12\)).
+          이때 \(-3&lt;r&lt;-\dfrac52\), 즉 \(-\dfrac94&lt;a&lt;-\dfrac{15}{8}\) → <b>\(a=-2\)</b></li>
+    </ul>
+    <p>검토: \(a=-2\)면 \(r=-\dfrac83\), 구간이 \(r\)을 포함하는 \(k=-4,-3\). 곱 \((-1)(-4)(-3)=-12\) ✓</p>
+  </div>
+  <div class="sol-final">\(f'(x)=3x^2+8x\) → \(f'(10)=300+80=\mathbf{380}\)</div>
+` },
+
+"2024_mock06/calculus/q28": { answer: 2, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(x=0,\ 2\) 대입</div>
+    <p>\(\cos0=\cos2\pi=1,\ \sin0=\sin2\pi=0\)이므로 우변은 두 경우 모두 \(a+b\). 따라서</p>
+    $$\{f(0)-f(2)\}\{f(0)+f(2)+2\}=0$$
+    <p>(나)에서 \(f(0)\ne f(2)\)이므로 \(f(0)+f(2)+2=0\). (나)와 연립하면</p>
+    $$f(0)=-\frac12,\qquad f(2)=-\frac32$$
+    <p>\(\therefore a+b=\{f(0)\}^2+2f(0)=-\dfrac34\) &nbsp;⋯㉠</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 중간값정리 — \(f(c)=-1\)인 \(c\)가 있다</div>
+    <p>\(f(0)+1=\dfrac12&gt;0\), \(f(2)+1=-\dfrac12&lt;0\)이고 \(f\)가 연속이므로
+       \(f(c)+1=0\)인 \(c\in(0,2)\)가 존재한다.</p>
+    <p>좌변 \(=\{f(x)+1\}^2-1\ge-1\)이므로 <b>우변의 최솟값은 \(-1\)</b>이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 우변의 최솟값</div>
+    <p>\(u=\cos\pi x\in[-1,1]\)로 놓으면 \(\sin^2\pi x=1-u^2\)이므로 우변 \(=a\,u^3e^{1-u^2}+b\).</p>
+    <p>\(\varphi(u)=u^3e^{1-u^2}\)에 대해 \(\varphi'(u)=u^2e^{1-u^2}(3-2u^2)\ge0\)이라 \([-1,1]\)에서 증가.
+       따라서 최솟값은 \(\varphi(-1)=-1\), 즉 우변의 최솟값은 \(-a+b\) (\(a&gt;0\)).</p>
+    $$-a+b=-1\ \ ⋯㉡$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 연립</div>
+    <p>㉠, ㉡에서 \(a=\dfrac18,\ b=-\dfrac78\)</p>
+  </div>
+  <div class="sol-final">\(a\times b=\dfrac18\cdot\left(-\dfrac78\right)=-\dfrac{7}{64}\) &nbsp;→&nbsp; 답 &nbsp;②</div>
+` },
+
+"2024_mock06/calculus/q29": { answer: 5, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 음함수 미분</div>
+    $$2x-2y-2x\frac{dy}{dx}+4y\frac{dy}{dx}=0\ \Rightarrow\ \frac{dy}{dx}=\frac{x-y}{x-2y}$$
+    <p>\(A(a,a+k)\)에서 \(x-y=-k,\ x-2y=-a-2k\)이므로 기울기는 \(\dfrac{k}{a+2k}\), 같은 방법으로 \(B\)에서는 \(\dfrac{k}{b+2k}\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 수직 조건</div>
+    $$\frac{k}{a+2k}\cdot\frac{k}{b+2k}=-1\ \Rightarrow\ 5k^2+2k(a+b)+ab=0\ \ ⋯㉠$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 두 점이 곡선 위에 있음</div>
+    <p>\(a^2-2a(a+k)+2(a+k)^2=15\)를 정리하면 \(a^2+2ak+2k^2=15\) ⋯㉡, 같은 식이 \(b\)에 대해서도 성립 ⋯㉢.</p>
+    <p>㉡\(-\)㉢ : \((a-b)(a+b+2k)=0\), \(a\ne b\)이므로 \(\ a+b=-2k\).</p>
+    <p>㉠에 대입하면 \(5k^2-4k^2+ab=0\Rightarrow ab=-k^2\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 답</div>
+    <p>\(a^2+b^2=(a+b)^2-2ab=4k^2+2k^2=6k^2\). ㉡\(+\)㉢ :</p>
+    $$a^2+b^2+2k(a+b)+4k^2=30\ \Rightarrow\ 6k^2-4k^2+4k^2=30\ \Rightarrow\ 6k^2=30$$
+  </div>
+  <div class="sol-final">\(k^2=\mathbf{5}\)</div>
+` },
+
+"2024_mock06/calculus/q30": { answer: 24, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 공비의 부호</div>
+    <p>급수가 수렴하므로 \(|r|&lt;1\)이고 \(a_n\to0\). \(b_3=-1\Rightarrow a_3=a_1r^2\le-1\Rightarrow a_1&lt;0\)이라
+       <b>홀수 번째 항은 모두 음수</b>.</p>
+    <p>만약 \(r&gt;0\)이면 짝수 번째 항도 음수라 \(\sum b_{2n}=8&gt;0\)에 모순. \(\therefore -1&lt;r&lt;0\)이고
+       짝수 번째 항은 모두 양수 → \(b_{2n}=a_{2n}\).</p>
+    $$\sum_{n=1}^{\infty}a_{2n}=\frac{a_2}{1-r^2}=8$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(a_{2n-1}\le-1\)인 항의 개수 \(k\)</div>
+    <p>\(\sum a_{2n-1}=\dfrac1r\sum a_{2n}=\dfrac8r\)이므로</p>
+    $$-3=\sum b_{2n-1}=-k+\left(\frac8r-\sum_{n=1}^{k}a_{2n-1}\right)
+      \ \Rightarrow\ 8-\sum_{n=1}^{k}a_{2n}=(k-3)r\ \ ⋯㉠$$
+    <p>\(\sum_{n=1}^{k}a_{2n}&lt;8\)이라 좌변\(&gt;0\), 그런데 \(r&lt;0\)이므로 \(k&lt;3\). \(b_3=-1\)에서 \(k\ge2\) → <b>\(k=2\)</b>.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(r,\ a_1\) 구하기</div>
+    <p>\(a_2=8(1-r^2),\ a_4=8r^2(1-r^2)\)를 ㉠(\(k=2\), 우변 \(-r\))에 대입하면</p>
+    $$8-8(1-r^2)-8r^2(1-r^2)=-r\ \Rightarrow\ 8r^4+r=0\ \Rightarrow\ r^3=-\frac18\ \Rightarrow\ r=-\frac12$$
+    <p>\(a_2=8\left(1-\tfrac14\right)=6=a_1r\Rightarrow a_1=-12\)</p>
+    <p>검토: \(a_1=-12,\ a_3=-3\ (\le-1)\), \(a_5=-\tfrac34\ (&gt;-1)\) → \(k=2\) ✓</p>
+  </div>
+  <div class="sol-final">\(\{|a_n|\}\)은 첫째항 \(12\), 공비 \(\dfrac12\) → \(\displaystyle\sum|a_n|=\dfrac{12}{1-\tfrac12}=\mathbf{24}\)</div>
+` },
+
+"2024_mock06/prob_stat/q29": { answer: 25, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 변수로 바꾸기</div>
+    <p>(가)에서 흰 카드의 순서는 고정되므로, 배열은 <b>검은 카드 두 장의 위치</b>만으로 정해진다.
+       왼쪽·사이·오른쪽의 흰 카드 수를 \(a,b,c\)라 하면 \(a+b+c=8\).</p>
+    <p>(나) \(b\ge2\) → \(b=b'+2\)로 놓으면 \(a+b'+c=6\).</p>
+    $$\text{전체}={}_3\mathrm H_6={}_8\mathrm C_2=28$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 조건 (다) 위반 제외</div>
+    <p>사이에 놓이는 카드는 \(a+1,\ a+2,\ \dots,\ a+b\)로 <b>연속한 수</b>이다.
+       \(3\)의 배수(\(3\) 또는 \(6\))를 하나도 포함하지 않으면서 2장 이상인 연속 구간은</p>
+    <div class="sol-box">\(\{1,2\}\ (a=0,c=6)\), &nbsp;\(\{4,5\}\ (a=3,c=3)\), &nbsp;\(\{7,8\}\ (a=6,c=0)\) — 3가지</div>
+  </div>
+  <div class="sol-final">\(28-3=\mathbf{25}\)</div>
+` },
+
+"2024_mock06/prob_stat/q30": { answer: 51, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 전체 경우</div>
+    <p>\({}_8\mathrm C_2=28\). 점수가 <b>24 이하의 짝수</b>인 경우를 색깔로 나눈다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 서로 다른 색 — 점수 12</div>
+    <p>\(12\)는 24 이하의 짝수이므로 모두 성공. \({}_4\mathrm C_1\times{}_4\mathrm C_1=16\)가지</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 흰 공 2개 (1,2,3,4) — 곱</div>
+    <p>\({}_4\mathrm C_2=6\)가지 중 곱이 홀수인 것은 \(1\times3=3\) 하나뿐이고, 나머지는 모두 짝수이며 최대 \(3\times4=12\le24\).</p>
+    <p>→ \(6-1=5\)가지</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 검은 공 2개 (4,5,6,7) — 곱</div>
+    <table class="sol-table">
+      <tr><th>곱</th><th>20</th><th>24</th><th>28</th><th>30</th><th>35</th><th>42</th></tr>
+      <tr><td>판정</td><td class="sol-ok">✓</td><td class="sol-ok">✓</td><td class="sol-no">✗</td><td class="sol-no">✗</td><td class="sol-no">✗</td><td class="sol-no">✗</td></tr>
+    </table>
+    <p>→ \(4\times5,\ 4\times6\)의 \(2\)가지</p>
+  </div>
+  <div class="sol-final">\(\dfrac{16+5+2}{28}=\dfrac{23}{28}\) → \(p+q=28+23=\mathbf{51}\)</div>
 ` }
 
 };
