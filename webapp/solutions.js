@@ -1754,6 +1754,167 @@ window.SOLUTIONS = {
     $$k=\mathrm P(-0.8\le Z\le1.2)=\mathrm P(0\le Z\le0.8)+\mathrm P(0\le Z\le1.2)=0.288+0.385=0.673$$
   </div>
   <div class="sol-final">\(1000k=\mathbf{673}\)</div>
+` },
+
+/* ── 2025 6월 모평 킬러 (GPT 종로 참조 → 자체 재작성) ── */
+
+"2025_mock06/common/q20": { answer: 24, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 각 집합의 원소 개수</div>
+    <p>\(A\)는 항상 점 \((\pi,\ b)\) 하나. \(B,\ C\)는 각각 \(\sin x=\dfrac{1-b}{a},\ \dfrac{3-b}{a}\)의 해에 대응한다.</p>
+    <p>\((0,2\pi)\)에서 \(\sin x=t\)의 해의 개수 : \(|t|&gt;1\)이면 \(0\), \(t=\pm1\)이면 \(1\),
+       \(t=0\)이면 \(1\)(\(x=\pi\), <b>\(A\)의 점과 겹침</b>), 그 밖이면 \(2\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(b\)별로 \(n(A\cup B\cup C)=3\) 찾기</div>
+    <table class="sol-table">
+      <tr><th>\(b\)</th><th>조건</th><th>\(a\)</th><th>\(a+b\)</th></tr>
+      <tr><td>1</td><td>\(y=1\)은 \(A\)와 겹침, \(y=3\)이 2점 → \(\frac2a&lt;1\)</td><td>3,4,5</td><td>4,5,6</td></tr>
+      <tr><td>2</td><td>\(y=1,3\)이 각각 1점 → \(\frac1a=1\)</td><td>1</td><td>3</td></tr>
+      <tr><td>3</td><td>\(y=3\)은 \(A\)와 겹침, \(y=1\)이 2점 → \(\frac2a&lt;1\)</td><td>3,4,5</td><td>6,7,8</td></tr>
+      <tr><td>4</td><td>\(y=1\)은 0점, \(y=3\)이 2점 → \(1&lt;-a+4&lt;3\)</td><td>2</td><td>6</td></tr>
+      <tr><td>5</td><td>\(y=1\)은 0점, \(y=3\)이 2점 → \(1&lt;-a+5&lt;3\)</td><td>3</td><td>8</td></tr>
+    </table>
+  </div>
+  <div class="sol-final">\(m=3,\ M=8\) → \(M\times m=\mathbf{24}\)</div>
+` },
+
+"2025_mock06/common/q21": { answer: 15, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 조건 해석</div>
+    <p>(가) \(f'(x)\le0\)인 \(x\)의 최댓값이 \(2\) → \(x=2\)가 \(f'\)의 가장 큰 근이고 \(x&gt;2\)에서 \(f'&gt;0\), 즉 \(x=2\)는 <b>극소점</b>.</p>
+    <p>(나) \(f(x)=k\)의 해가 3개 이상인 최소의 \(k\)가 \(\dfrac83\) → \(f(x)=\dfrac83\)이 \(x=2\)에서 <b>접하고</b> 다른 두 점에서 만난다.</p>
+    $$f(x)=(x-2)^2(x-\alpha)(x-\beta)+\frac83$$
+  </div>
+  <figure class="sol-fig"><img src="sol/2025_mock06_common_q21.png" alt="f(x) 그래프">
+    <figcaption>\(y=\frac83\)이 \(x=2\)에서 접하고 \(\alpha,\ \beta\)에서 만난다</figcaption></figure>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(\alpha\beta,\ \alpha+\beta\) 구하기</div>
+    <p>\(f(0)=0\) : \(\ 4\alpha\beta+\dfrac83=0\Rightarrow \alpha\beta=-\dfrac23\)</p>
+    <p>\(f'(1)=0\) : \(\ -2(1-\alpha)(1-\beta)+(1-\alpha)+(1-\beta)=0\Rightarrow \alpha+\beta-2\alpha\beta=0\)</p>
+    $$\therefore\ \alpha+\beta=2\alpha\beta=-\frac43$$
+    <p>(검토 : 이때 \(f'(x)=4(x+1)(x-1)(x-2)\)로 \(f'\)의 최대 근이 \(2\) ✓)</p>
+  </div>
+  <div class="sol-final">\(f(3)=(3-\alpha)(3-\beta)+\dfrac83=9-3\left(-\dfrac43\right)-\dfrac23+\dfrac83=\mathbf{15}\)</div>
+` },
+
+"2025_mock06/common/q22": { answer: 231, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 특수 규칙이 쓰이는 곳</div>
+    <p>\(\sqrt n\)이 자연수인 \(n\)은 \(2\le n\le14\)에서 <b>\(n=4,\ 9\)뿐</b>. 나머지는 모두 \(a_{n+1}=a_n+1\).</p>
+    <p>\(a_1=a\)라 하면 \(a_2=-a,\ a_3=-a+1,\ a_4=-a+2\)이고, \(a_9=a_5+4,\ a_{15}=a_{10}+5\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(a_4&gt;0\) 여부 (\(\iff a&lt;2\))로 분기</div>
+    <ul>
+      <li>\(a&lt;2\) : \(a_5=a_4-2a_2=a+2\), \(a_9=a+6\)</li>
+      <li>\(a\ge2\) : \(a_5=a_4+1=-a+3\), \(a_9=-a+7\)</li>
+    </ul>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(a_9&gt;0\) 여부로 다시 분기 (\(a_{10}=a_9-3a_3\) 또는 \(a_9+1\))</div>
+    <table class="sol-table">
+      <tr><th>경우</th><th>\(a_{15}\)</th><th>\(=1\)의 해</th><th>판정</th></tr>
+      <tr><td>\(-6&lt;a&lt;2\)</td><td>\(4a+8\)</td><td>\(a=-\frac74\)</td><td class="sol-ok">✓</td></tr>
+      <tr><td>\(a\le-6\)</td><td>\(a+12\)</td><td>\(a=-11\)</td><td class="sol-ok">✓</td></tr>
+      <tr><td>\(2\le a&lt;7\)</td><td>\(2a+9\)</td><td>\(a=-4\)</td><td class="sol-no">범위 밖 ✗</td></tr>
+      <tr><td>\(a\ge7\)</td><td>\(-a+13\)</td><td>\(a=12\)</td><td class="sol-ok">✓</td></tr>
+    </table>
+  </div>
+  <div class="sol-final">\(\left(-\dfrac74\right)\times(-11)\times12=\mathbf{231}\)</div>
+` },
+
+"2025_mock06/calculus/q29": { answer: 55, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(f'(x)\ge0\)</div>
+    $$f'(x)=x^2-2x+\frac{2x}{x^2+1}=\frac{x^4-2x^3+x^2}{x^2+1}=\frac{x^2(x-1)^2}{x^2+1}\ge0$$
+    <p>\(f\)는 증가하고 \(f'(x)=0\)인 곳은 \(x=0,\ 1\)뿐.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(x=b\)에서 미분가능</div>
+    <p>미분계수 조건 : \(f'(b)=-f'(b-c)\). 좌변·우변 모두 \(f'\ge0\)에서 나오므로</p>
+    $$f'(b)=f'(b-c)=0$$
+    <p>\(b&gt;0\)이므로 \(b=1\), \(c&gt;0\)이라 \(b-c&lt;1\)이므로 \(b-c=0\Rightarrow c=1\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 연속 조건으로 \(a\)</div>
+    <p>\(f(1)=-f(0)\) : \(\ \dfrac13-1+\ln2+a=-a\)</p>
+    $$2a=\frac23-\ln2\ \Rightarrow\ a=\frac13-\frac12\ln2$$
+  </div>
+  <div class="sol-final">\(a+b+c=\dfrac73-\dfrac12\ln2\) → \(p+q=\dfrac73-\dfrac12=\dfrac{11}{6}\) → \(30(p+q)=\mathbf{55}\)</div>
+` },
+
+"2025_mock06/calculus/q30": { answer: 25, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 교점 조건과 간격</div>
+    <p>\(\tan a_n=\dfrac{\sqrt{a_n}}{10}\). \(a_n\to\infty\)이고 \(\tan\)의 주기가 \(\pi\)이므로 \(a_{n+1}-a_n\to\pi\), \(\dfrac{a_{n+1}}{a_n}\to1\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 탄젠트의 차 공식</div>
+    $$\tan(a_{n+1}-a_n)=\frac{\tan a_{n+1}-\tan a_n}{1+\tan a_{n+1}\tan a_n}
+      =\frac{10\left(\sqrt{a_{n+1}}-\sqrt{a_n}\right)}{100+\sqrt{a_{n+1}a_n}}$$
+    <p>분자를 \(\sqrt{a_{n+1}}-\sqrt{a_n}=\dfrac{a_{n+1}-a_n}{\sqrt{a_{n+1}}+\sqrt{a_n}}\)로 바꾸면</p>
+    $$a_n^3\tan^2(a_{n+1}-a_n)=\frac{100\,a_n^3\,(a_{n+1}-a_n)^2}
+      {\left(100+\sqrt{a_{n+1}a_n}\right)^2\left(\sqrt{a_{n+1}}+\sqrt{a_n}\right)^2}$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(a_n^3\)으로 약분</div>
+    <p>\(\dfrac{\left(100+\sqrt{a_{n+1}a_n}\right)^2}{a_n^2}\to1\), \(\dfrac{\left(\sqrt{a_{n+1}}+\sqrt{a_n}\right)^2}{a_n}\to4\)이므로</p>
+    $$\lim_{n\to\infty}a_n^3\tan^2(a_{n+1}-a_n)=\frac{100\,\pi^2}{1\cdot4}=25\pi^2$$
+  </div>
+  <div class="sol-final">\(\dfrac1{\pi^2}\times25\pi^2=\mathbf{25}\)</div>
+` },
+
+"2025_mock06/prob_stat/q28": { answer: 1, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 뒤집힌 횟수의 홀짝으로 판정</div>
+    <p>동전 \(i\)가 뒤집힌 횟수를 \(n_i\)라 하면 \(n_1+n_2+n_3+n_4=5\).
+       처음 앞면인 세 동전(1,2,3)은 \(n_i\)가 <b>짝수</b>일 때 앞면, 뒷면인 동전 4는 \(n_4\)가 <b>홀수</b>일 때 앞면.</p>
+    <p>순서까지 고려한 경우의 수는 \(\dfrac{5!}{n_1!\,n_2!\,n_3!\,n_4!}\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 모두 앞면 : \(n_1,n_2,n_3\) 짝수, \(n_4\) 홀수</div>
+    <ul>
+      <li>\(\{4,0,0\},n_4=1\) : \(\frac{5!}{4!}=5\), 3가지 → \(15\)</li>
+      <li>\(\{2,2,0\},n_4=1\) : \(\frac{5!}{2!2!}=30\), 3가지 → \(90\)</li>
+      <li>\(\{2,0,0\},n_4=3\) : \(\frac{5!}{2!3!}=10\), 3가지 → \(30\)</li>
+      <li>\(\{0,0,0\},n_4=5\) : \(1\)</li>
+    </ul>
+    <p>합 \(=15+90+30+1=136\)</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 모두 뒷면 : \(n_1,n_2,n_3\) 홀수, \(n_4\) 짝수</div>
+    <ul>
+      <li>\(\{3,1,1\},n_4=0\) : \(\frac{5!}{3!}=20\), 3가지 → \(60\)</li>
+      <li>\(\{1,1,1\},n_4=2\) : \(\frac{5!}{2!}=60\) → \(60\)</li>
+    </ul>
+    <p>합 \(=120\)</p>
+  </div>
+  <div class="sol-final">\(\dfrac{136}{136+120}=\dfrac{136}{256}=\dfrac{17}{32}\) &nbsp;→&nbsp; 답 &nbsp;①</div>
+` },
+
+"2025_mock06/prob_stat/q30": { answer: 108, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 조건 (가)로 값의 범위</div>
+    <p>\(-2\le x+f(x)\le2\)이므로</p>
+    <div class="sol-box">
+      \(f(-2)\in\{0,1,2\}\), \(f(-1)\in\{-1,0,1,2\}\), \(f(0)\in X\),
+      \(f(1)\in\{-2,-1,0,1\}\), \(f(2)\in\{-2,-1,0\}\)
+    </div>
+    <p>(나)는 \(f(-2)\ge f(-1)\ge f(0)\ge f(1)\ge f(2)\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(f(0)\) 기준으로 좌·우 개수 세기</div>
+    <table class="sol-table">
+      <tr><th>\(f(0)\)</th><th>\((f(-2),f(-1))\)</th><th>\((f(1),f(2))\)</th><th>곱</th></tr>
+      <tr><td>\(2\)</td><td>\(1\)</td><td>\(9\)</td><td>\(9\)</td></tr>
+      <tr><td>\(1\)</td><td>\(3\)</td><td>\(9\)</td><td>\(27\)</td></tr>
+      <tr><td>\(0\)</td><td>\(6\)</td><td>\(6\)</td><td>\(36\)</td></tr>
+      <tr><td>\(-1\)</td><td>\(9\)</td><td>\(3\)</td><td>\(27\)</td></tr>
+      <tr><td>\(-2\)</td><td>\(9\)</td><td>\(1\)</td><td>\(9\)</td></tr>
+    </table>
+  </div>
+  <div class="sol-final">\(9+27+36+27+9=\mathbf{108}\)</div>
 ` }
 
 };
