@@ -878,7 +878,9 @@
     const pos = currentList.findIndex(x => x.key === key);
     const r = recOf(q);
     const mc = isMC(q);
-    const hasSol = !inExam && window.SOLUTIONS && SOLUTIONS[q.key];   // 우리 자체 해설 보유 여부
+    // 자체 해설 노출: 회차별 실전 '풀이 중'에만 숨김(스포일러 방지). 나만의 모의고사·제출 후·일반 풀이에선 노출.
+    const examActive = inExam && !examSession.custom && !examSession.submittedAt;
+    const hasSol = !examActive && window.SOLUTIONS && SOLUTIONS[q.key];   // 우리 자체 해설 보유 여부
     let picked = inExam && examSession.answers[key] != null ? examSession.answers[key] : null;
     const mailto = "mailto:1212ntnt@naver.com?subject=" + encodeURIComponent("[SelecQ] 유형 오류 신고: " + q.key);
     $("#view").innerHTML = `
