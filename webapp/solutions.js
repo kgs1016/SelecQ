@@ -2574,6 +2574,114 @@ window.SOLUTIONS = {
     <p>\(B\)의 카드 중 \(n\) 이하인 것이 \(2\)장(즉 \(2,3\))이므로 \(n=3\), 그리고 \(p=\dfrac13\).</p>
   </div>
   <div class="sol-final">\(24(n+p)=24\left(3+\dfrac13\right)=\mathbf{80}\)</div>
+` },
+
+/* ── 2026 수능 킬러 (GPT EBS 참조 → 자체 재작성) ── */
+
+"2026_csat/common/q21": { answer: 65, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(f\)의 세 근</div>
+    <p>\(g\)가 \(x=t\)에서 연속이려면 \(-f(t)=f(t)\), 즉 \(f(t)=0\).</p>
+    <p>(가)에서 \(a=0,\ 2\)일 때도 극한이 존재해야 하므로 분자가 \(0\)으로 가야 한다:
+       \(g(0)=g(2)=0\Rightarrow f(0)=f(2)=0\).</p>
+    $$f(x)=\alpha x(x-2)(x-k)\quad(\alpha&gt;0)$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 조건을 만족하는 \(m\)은 \(2,\ 3\)</div>
+    <ul>
+      <li>\(m=1\) : \(1\cdot(1-2)&lt;0\)이라 \(g(1)&gt;0\)이어야 하는데,
+          \(-\frac72g(1)\)이 자연수라 \(g(1)&lt;0\) → ✗</li>
+      <li>\(m=2\) : 극한이 \(\frac12f'(2)=\frac12\cdot2\alpha(2-k)&lt;0\) (\(k&gt;2\)) → ✓</li>
+      <li>\(m\ge3\) : \(m(m-2)&gt;0\)이라 \(g(m)=\alpha m(m-2)(m-k)&lt;0\iff k&gt;m\)</li>
+    </ul>
+    <p>자연수가 정확히 2개(\(2,3\))이려면 \(\ 3&lt;k\le4\). 또 \(g(-1)&gt;0,\ g(1)&lt;0\)에서 경계는 \(t=2\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(\alpha,\ k\) 결정</div>
+    <p>\(g(-1)=-f(-1)=3\alpha(k+1)\), \(g(1)=-f(1)=-\alpha(k-1)\)이고
+       \(\{g(-1),\ -\tfrac72g(1)\}=\{2,3\}\).</p>
+    <ul>
+      <li>\(g(-1)=2,\ -\tfrac72g(1)=3\) → \(k=-8\) ✗</li>
+      <li>\(g(-1)=3,\ -\tfrac72g(1)=2\) → \(\dfrac1{k+1}=\dfrac{4}{7(k-1)}\Rightarrow k=\dfrac{11}{3}\) ✓ (\(3&lt;\tfrac{11}{3}\le4\))</li>
+    </ul>
+    <p>\(\alpha=\dfrac{1}{k+1}=\dfrac{3}{14}\)</p>
+  </div>
+  <div class="sol-final">\(g(-5)=-f(-5)=-\dfrac{3}{14}(-5)(-7)\left(-\dfrac{26}{3}\right)=\mathbf{65}\)</div>
+` },
+
+"2026_csat/common/q22": { answer: 457, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 두 곡선을 지수형으로</div>
+    $$b=\log_{16}(8a+2)\iff 16^{b}=8a+2,\qquad d=4^{c-1}-\tfrac12\iff 4^{c}=4d+2$$
+    <p>여기서 \(16^b=4^{2b}\)이므로, \(A(a,b)\)가 첫 곡선 위에 있으면
+       \(4^{2b}=8a+2=4(2a)+2\), 즉 <b>\((2b,\ 2a)\)가 둘째 곡선 위</b>에 있다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(B=(2b,\ 2a)\)</div>
+    <p>\(A\)를 \(y=x\)에 대칭이동한 \((b,a)\)가 직선 \(OB\) 위 \(\iff ac=bd\).
+       \(B=(2b,2a)\)이면 \(a(2b)=b(2a)\)로 만족한다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 중점 조건</div>
+    $$a+c=a+2b=\frac{77}{4},\qquad b+d=b+2a=\frac{133}{4}$$
+    <p>두 식을 더하면 \(a+b=\dfrac{35}{2}\), 빼면 \(a-b=14\) → \(a=\dfrac{63}{4},\ b=\dfrac74\).</p>
+    <p>검토 : \(16^{7/4}=2^7=128=8\cdot\tfrac{63}{4}+2\) ✓, \(B\left(\tfrac72,\tfrac{63}{2}\right)\)도 제1사분면 ✓</p>
+  </div>
+  <div class="sol-final">\(ab=\dfrac{63}{4}\cdot\dfrac74=\dfrac{441}{16}\) → \(p+q=16+441=\mathbf{457}\)</div>
+` },
+
+"2026_csat/calculus/q30": { answer: 11, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(f^{-1}\) 구하기</div>
+    <p>(가)에서 \(\left(2f^{-1}\right)^2=\left\{x(x^2-5)\right\}^2\)이고 \(f^{-1}\)은 증가하므로</p>
+    $$f^{-1}(x)=-\frac12x^3+\frac52x\quad(|x|\le1)$$
+    <p>(나)와 연속성에서 \(x&gt;1\)이면 \(f^{-1}=e^{x-1}+1\), \(x&lt;-1\)이면 \(f^{-1}=-\left(e^{-x-1}+1\right)\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 대칭으로 옮기기</div>
+    <p>\((1,0)\)을 지나는 기울기 \(m\)인 직선과 \(y=f(x)\)의 교점 개수는,
+       \(y=x\)에 대칭시켜 <b>\((0,1)\)을 지나는 기울기 \(\frac1m\)인 직선과 \(y=f^{-1}(x)\)</b>의 교점 개수와 같다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 두 접선</div>
+    <p>삼차 부분에 그은 접선 : 접점 \(\alpha\)에서 \(\dfrac{-\frac12\alpha^3+\frac52\alpha-1}{\alpha}=-\dfrac32\alpha^2+\dfrac52\Rightarrow\alpha=1\), 기울기 \(1\).</p>
+    <p>\(x&lt;-1\) 부분에 그은 접선 : 접점 \(\beta\)에서</p>
+    $$\frac{-e^{-\beta-1}-2}{\beta}=e^{-\beta-1}\ \Longrightarrow\ (\beta+1)e^{-(\beta+1)}=-2$$
+    <p>대칭시키면 \(y=f(x)\)에 대한 임계 기울기는 \(1\)과 \(e^{\beta+1}\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> \(g(m)\)의 불연속점</div>
+    $$g(m)=\begin{cases}1&(m\le0)\\ 3&(0&lt;m&lt;e^{\beta+1})\\ 2&(m=e^{\beta+1})\\ 1&(m&gt;e^{\beta+1})\end{cases}$$
+    <p>\(\therefore a=0,\ b=e^{\beta+1}\). 이때 \(\ln b=\beta+1\)이므로</p>
+    $$\frac{\ln b}{b}=\frac{\beta+1}{e^{\beta+1}}=(\beta+1)e^{-(\beta+1)}=-2$$
+  </div>
+  <div class="sol-final">\(g(a)\cdot\lim\limits_{m\to a+}g(m)+g(b)\left(\dfrac{\ln b}{b}\right)^2=1\cdot3+2\cdot4=\mathbf{11}\)</div>
+` },
+
+"2026_csat/prob_stat/q30": { answer: 262, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 구성 파악</div>
+    <p>주머니 \(10\)개, 공 \(8\)개, 각 주머니에 \(2\)개 이하. (가)에서 1개짜리는 \(4\)개 또는 \(6\)개.</p>
+    <ul>
+      <li>1개짜리 \(4\)개 → 남은 공 \(4\)개는 2개짜리 \(2\)개 → 빈 주머니 \(4\)개</li>
+      <li>1개짜리 \(6\)개 → 남은 공 \(2\)개는 2개짜리 \(1\)개 → 빈 주머니 \(3\)개</li>
+    </ul>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 빈 주머니를 먼저 배열</div>
+    <p>(나)에서 2개짜리 주머니의 양옆은 반드시 빈 주머니여야 하므로,
+       빈 주머니를 먼저 놓고 생긴 <b>사이·양끝의 자리</b> 중 하나를 <b>2개짜리가 독점</b>해야 한다.</p>
+    <p>1개짜리 주머니끼리는 이웃해도 되므로 남은 자리에 자유롭게 분배한다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 경우의 수</div>
+    <table class="sol-table">
+      <tr><th>경우</th><th>빈 주머니(자리)</th><th>2개짜리 배치</th><th>1개짜리 분배</th><th>곱</th></tr>
+      <tr><td>1개짜리 4개</td><td>\(4\)개 → \(5\)자리</td><td>\({}_5\mathrm C_2=10\)</td><td>남은 \(3\)자리에 \(4\)개 : \({}_3\mathrm H_4=15\)</td><td>\(150\)</td></tr>
+      <tr><td>1개짜리 6개</td><td>\(3\)개 → \(4\)자리</td><td>\({}_4\mathrm C_1=4\)</td><td>남은 \(3\)자리에 \(6\)개 : \({}_3\mathrm H_6=28\)</td><td>\(112\)</td></tr>
+    </table>
+  </div>
+  <div class="sol-final">\(150+112=\mathbf{262}\)</div>
 ` }
 
 };
