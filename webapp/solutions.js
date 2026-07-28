@@ -2682,6 +2682,150 @@ window.SOLUTIONS = {
     </table>
   </div>
   <div class="sol-final">\(150+112=\mathbf{262}\)</div>
+` },
+
+/* ── 2027 6월 모평 킬러 (GPT EBS 참조 → 자체 재작성) ── */
+
+"2027_mock06/common/q21": { answer: 11, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 우변을 \(h(t)\)로</div>
+    <p>\(f(x)=x^3+ax^2+bx+c\)라 하면</p>
+    $$h(t)=f'(t)-4t^2+4=-t^2+2at+(b+4)$$
+    <p>이는 직선 \(t=a\)에 대칭인 <b>위로 볼록한 포물선</b>이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 불연속이 생기는 지점</div>
+    <p>\(f\)가 증가함수면 \(g\)는 연속이므로, \(f\)는 극댓값·극솟값을 가져야 한다.
+       \(g(t)\)(가장 큰 실근)는 \(h(t)\)가 <b>\(f\)의 극솟값</b>과 같아지는 곳에서 불연속이 된다.</p>
+    <p>\(h\)가 \(t=a\)에 대칭이므로 그런 \(t\)는 \(a\)를 사이에 두고 <b>쌍으로</b> 생긴다.
+       불연속점이 \(t=3\) 하나뿐이려면 그 점이 대칭축이어야 하므로 \(\ a=3\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 계수 결정</div>
+    <p>\(g(3)=1\)이므로 \(f\)는 \(x=1\)에서 극소 → \(f'(1)=3+2a+b=0\Rightarrow b=-9\).</p>
+    <p>\(f(1)=h(3)\) : \(\ (1+3-9+c)=(-9+18-9+4)\Rightarrow c-5=4\Rightarrow c=9\)</p>
+    $$f(x)=x^3+3x^2-9x+9\quad(f'(x)=3(x+3)(x-1)\ ✓)$$
+  </div>
+  <div class="sol-final">\(f(2)=8+12-18+9=\mathbf{11}\)</div>
+` },
+
+"2027_mock06/common/q22": { answer: 32, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 항 계산</div>
+    <p>\(a_{2n}=a_n+1\), \(a_{4n+1}=a_{4n+3}=a_n+4\), \(a_1=1,\ a_3=4\).</p>
+    <table class="sol-table">
+      <tr><th>\(n\)</th><th>1~4</th><th>5~8</th><th>9~12</th><th>13~16</th><th>17~20</th><th>21~24</th><th>25~28</th></tr>
+      <tr><th>\(a_n\)</th><td>1,2,4,3</td><td>5,5,5,4</td><td>6,6,6,6</td><td>8,6,8,5</td><td>7,7,7,7</td><td>9,7,9,7</td><td>9,9,9,7</td></tr>
+    </table>
+    <p>\(a_{32}=a_{16}+1=6\)이고, \(n\ge17\ (n\ne32)\)에서는 \(a_n&gt;6\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 홀수 \(k\)</div>
+    <p>\(k=4n+1\) 또는 \(4n+3\)이면 \(a_k=a_n+4=10\iff a_n=6\).</p>
+    <p>\(a_n=6\)인 \(n\) : \(9,10,11,12,14,32\)의 <b>6개</b> → 각각 \(k\)가 2개씩 → \(12\)개</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 짝수 \(k\)</div>
+    <ul>
+      <li>\(k=4m\) : \(a_k=a_m+2=10\iff a_m=8\).
+        <br>\(a_m=8\)인 \(m\) : (홀수 \(m\), \(a_n=4\)인 \(n=3,8\)) \(2\times2=4\) +
+        (\(m=4n\), \(a_n=6\)) \(6\) + (\(m\equiv2\ \mathrm{mod}\ 4\), \(a_n=3\)인 \(n=4\)) \(2\) = <b>12</b></li>
+      <li>\(k=8n+2\) 또는 \(8n+6\) : \(a_k=a_n+5=10\iff a_n=5\).
+        <br>\(a_n=5\)인 \(n\) : \(5,6,7,16\)의 4개 → \(4\times2=\)<b>8</b></li>
+    </ul>
+    <p>짝수 \(k\) : \(12+8=20\)개</p>
+  </div>
+  <div class="sol-final">\(12+20=\mathbf{32}\)</div>
+` },
+
+"2027_mock06/calculus/q29": { answer: 54, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(k=3r+4\)</div>
+    <p>\(a_1=b_1=a\), 공차 \(d\), 공비 \(r\ (0&lt;r&lt;1)\)이라 하면</p>
+    $$a_4=b_2:\ 3d=a(r-1),\qquad a_k=b_3:\ (k-1)d=a(r^2-1)=3d(r+1)$$
+    <p>\(d\ne0\)이므로 \(k-1=3(r+1)\), 즉 \(k=3r+4\). \(0&lt;r&lt;1\)에서 \(4&lt;k&lt;7\) → \(k=5\) 또는 \(6\).</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(k=5\ (r=\frac13)\)</div>
+    <p>\(d=-\frac29a\)가 음의 정수이려면 \(a=9t\) → \(a_n=t(11-2n)\)이라
+       \(\cos(a_n\pi)=(-1)^{11t-2tn}=(-1)^t\)로 <b>부호가 일정</b>.</p>
+    $$\left|\sum b_n\cos(a_n\pi)\right|=9t\cdot\frac{1}{1-\frac13}=\frac{27}{2}t\ \ (\ge\tfrac{27}{2})$$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(k=6\ (r=\frac23)\)</div>
+    <p>\(d=-\frac19a\)에서 \(a=9t\) → \(a_n=t(10-n)\), \(\cos(a_n\pi)=(-1)^{t(10-n)}\).</p>
+    <ul>
+      <li>\(t\) 짝수 : 부호가 모두 \(+\) → \(9t\cdot3=27t\ (\ge54)\)</li>
+      <li>\(t\) 홀수 : \((-1)^{10-n}=(-1)^n\)로 <b>부호가 교대</b> →
+          \(\left|-9t\cdot\dfrac{1}{1+\frac23}\right|=\dfrac{27}{5}t\)</li>
+    </ul>
+    <p>\(t=1\)에서 최소 \(\dfrac{27}{5}\) (\(&lt;\dfrac{27}{2}&lt;54\))</p>
+  </div>
+  <div class="sol-final">\(m=\dfrac{27}{5}\) → \(10m=\mathbf{54}\)</div>
+` },
+
+"2027_mock06/calculus/q30": { answer: 20, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(f(0)=0\)</div>
+    <p>\(g(x)=\sqrt[3]{x\{f(x)\}^2}\)가 \(x=0\)에서 미분가능하려면
+       \(\dfrac{g(x)}{x}=\dfrac{\sqrt[3]{\{f(x)\}^2}}{x^{2/3}}\)의 극한이 존재해야 하므로 \(f(0)=0\).</p>
+    <p>\(\therefore f(x)=x\,p(x)\) (\(p\)는 최고차항 계수 \(1\)인 이차함수)</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(p(x)=0\)은 실근이 없다</div>
+    <ul>
+      <li>서로 다른 두 실근 \(\alpha,\beta\) : \(g(x)=x\sqrt[3]{(x-\alpha)^2(x-\beta)^2}\)이 \(x=\alpha\)에서 미분불가능 ✗</li>
+      <li>중근 \(\alpha\) : \(g(x)=x(x-\alpha)^{4/3}\), \(g'=(x-\alpha)^{1/3}\left(\frac73x-\alpha\right)\)이라
+          극값이 \(\alpha,\ \frac37\alpha\)인데 \(\left\{\frac{19}{7},3\right\}\)와 맞출 수 없다 ✗</li>
+    </ul>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 계수 결정</div>
+    <p>\(p(x)=x^2+ax+b&gt;0\)이므로 \(g(x)=x(x^2+ax+b)^{2/3}\)이고</p>
+    $$g'(x)=\frac{7x^2+5ax+3b}{3\left(x^2+ax+b\right)^{1/3}}$$
+    <p>\(\dfrac{19}{7},\ 3\)이 \(7x^2+5ax+3b=0\)의 두 근이므로 근과 계수의 관계에서</p>
+    $$-\frac{5a}{7}=\frac{40}{7}\Rightarrow a=-8,\qquad \frac{3b}{7}=\frac{57}{7}\Rightarrow b=19$$
+    <p>검토 : \(x^2-8x+19\)의 판별식 \(\frac D4=16-19=-3&lt;0\) ✓ (실근 없음)</p>
+  </div>
+  <div class="sol-final">\(f(x)=x(x^2-8x+19)\) → \(f(5)=5(25-40+19)=\mathbf{20}\)</div>
+` },
+
+"2027_mock06/prob_stat/q28": { answer: 3, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 조건 정리</div>
+    <p>전체 경우의 수는 \(6^4\). 모든 동전이 앞면이 되려면 두 동전이 각각 <b>홀수 번</b> 뒤집혀야 하고,
+       그러려면 홀수 눈이 나온 횟수와 짝수 눈이 나온 횟수가 각각 홀수여야 한다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 경우 나누기</div>
+    <table class="sol-table">
+      <tr><th>구성</th><th>가짓수</th><th>배열</th><th>합</th></tr>
+      <tr><td>\((1,1,1,6),(1,6,6,6),(2,2,2,5),(2,5,5,5)\)</td><td>4</td><td>\(\frac{4!}{3!}=4\)</td><td>16</td></tr>
+      <tr><td>\((1,6)\)+같은 눈 2개, \((2,5)\)+같은 눈 2개</td><td>8</td><td>\(\frac{4!}{2!}=12\)</td><td>96</td></tr>
+      <tr><td>\((1,3,5,4)\), \((2,4,6,3)\) — 네 눈 모두 다름</td><td>2</td><td>\(4!=24\)</td><td>48</td></tr>
+    </table>
+  </div>
+  <div class="sol-final">\(\dfrac{16+96+48}{1296}=\dfrac{160}{1296}=\dfrac{10}{81}\) &nbsp;→&nbsp; 답 &nbsp;③</div>
+` },
+
+"2027_mock06/prob_stat/q30": { answer: 780, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 검은 공을 먼저 배열</div>
+    <p>검은 공 \(4\)개를 놓으면 사이와 양끝에 <b>\(5\)개의 자리</b>가 생기고,
+       각 자리에는 노란 공만 또는 보라 공만 들어간다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 노란 공이 차지하는 자리 수로 분류</div>
+    <table class="sol-table">
+      <tr><th>노란 자리</th><th>자리 선택</th><th>노란 배분</th><th>보라 배분</th><th>곱</th></tr>
+      <tr><td>1</td><td>\({}_5\mathrm C_1=5\)</td><td>1</td><td>\({}_4\mathrm H_4=35\)</td><td>175</td></tr>
+      <tr><td>2</td><td>\({}_5\mathrm C_2=10\)</td><td>\({}_2\mathrm H_2=3\)</td><td>\({}_3\mathrm H_4=15\)</td><td>450</td></tr>
+      <tr><td>3</td><td>\({}_5\mathrm C_3=10\)</td><td>\({}_3\mathrm H_1=3\)</td><td>\({}_2\mathrm H_4=5\)</td><td>150</td></tr>
+      <tr><td>4</td><td>\({}_5\mathrm C_4=5\)</td><td>1</td><td>1</td><td>5</td></tr>
+    </table>
+    <p>(선택한 자리마다 최소 1개씩 놓은 뒤 남은 공을 그 자리들에 중복조합으로 분배)</p>
+  </div>
+  <div class="sol-final">\(175+450+150+5=\mathbf{780}\)</div>
 ` }
 
 };
