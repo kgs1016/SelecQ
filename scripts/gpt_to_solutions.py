@@ -40,9 +40,22 @@ def load_answers():
     return {q["key"]: q for q in d["questions"]}
 
 
+def normalize(text):
+    """GPT가 마크다운으로 줘도(**문항:**, '## 공통 3', '1. ') 파싱되도록 평탄화."""
+    text = text.replace("\r\n", "\n")
+    text = text.replace("**", "")                      # 굵게 표기 제거
+    text = re.sub(r"^#{1,6}\s.*$", "", text, flags=re.M)   # ## 제목 줄 제거
+    text = re.sub(r"^-{3,}\s*$", "", text, flags=re.M)     # --- 구분선 제거
+    # '1. ' → '1) ' 는 수식 블록 밖에서만. (수식 안의 '48.' 같은 줄이 단계 번호로 오인되는 것 방지)
+    parts = re.split(r"(\\\[.*?\\\])", text, flags=re.S)
+    for i in range(0, len(parts), 2):
+        parts[i] = re.sub(r"^(\d{1,2})\.[ \t]", r"\1) ", parts[i], flags=re.M)
+    return "".join(parts)
+
+
 def split_items(text):
     """GPT 출력을 문항 단위로 쪼갠다."""
-    parts = re.split(r"\n(?=문항\s*:)", text)
+    parts = re.split(r"\n(?=문항\s*:)", normalize(text))
     return [p for p in parts if p.strip().startswith("문항")]
 
 
@@ -60,6 +73,13 @@ def to_katex(s):
     # 수식 밖/안 구분 없이 부등호는 전부 이스케이프 (HTML은 우리가 생성하므로 안전)
     s = s.replace("<", "&lt;").replace(">", "&gt;")
     return s.strip()
+
+
+def plain_len(s):
+    """수식·태그를 뺀 실제 글자 수(제목 승격 판단용)."""
+    s = re.sub(r"\\\(.*?\\\)", "", s, flags=re.S)
+    s = re.sub(r"<[^>]+>", "", s)
+    return len(s.strip())
 
 
 def steps_html(body):
@@ -82,9 +102,21 @@ def steps_html(body):
                 buf.append(seg.strip().replace("\n", " "))
         if buf:
             chunks.append("<p>" + " ".join(buf).strip() + "</p>")
-        out.append(f'  <div class="sol-step">\n    <div class="sol-h">'
-                   f'<span class="sol-num">{i}</span></div>\n    '
-                   + "\n    ".join(chunks) + "\n  </div>")
+        if not chunks:
+            continue
+        num = f'<span class="sol-num">{i}</span>'
+        # 첫 문단이 짧은 도입구면 단계 제목으로 승격, 아니면 번호를 본문 앞에 인라인으로
+        first = chunks[0]
+        if first.startswith("<p>") and plain_len(first) <= 26 and len(chunks) > 1:
+            head = f'<div class="sol-h">{num} {first[3:-4].strip()}</div>'
+            rest = chunks[1:]
+        else:
+            head = ""
+            rest = chunks[:]
+            rest[0] = (f"<p>{num} {first[3:]}" if first.startswith("<p>")
+                       else f'<p>{num}</p>\n    {first}')
+        body_html = "\n    ".join([head] + rest) if head else "\n    ".join(rest)
+        out.append(f'  <div class="sol-step">\n    {body_html}\n  </div>')
     return "\n".join(out)
 
 
@@ -93,7 +125,8 @@ def main():
         print(__doc__); sys.exit(1)
     exam, src = sys.argv[1], Path(sys.argv[2])
     answers = load_answers()
-    NEXT = ["핵심접근", "풀이단계", "사용개념", "그래프", "최종답", "페이지", "문제"]
+    NEXT = ["핵심접근", "풀이단계", "사용개념", "그래프", "최종답", "페이지",
+            "문제원문", "문제", "문항"]
 
     entries, warns, todo = [], [], []
     for block in split_items(src.read_text(encoding="utf-8")):
@@ -129,9 +162,12 @@ def main():
             todo.append(f"{key}  ← 그래프: {graph[:60]}")
 
         head = f'  <div class="sol-box">{approach}</div>\n' if approach else ""
-        # 최종답은 인라인으로 (블록 $$ 는 과해서)
+        # 최종답 표기 통일: 객관식은 '답 ③', 단답형은 '답 8'
         fin = to_katex(final).replace("$$", "").strip()
-        fin = f"\\({fin}\\)" if fin and "\\(" not in fin else fin
+        if re.search(r"[①②③④⑤]", fin):
+            fin = f"답 &nbsp;{'①②③④⑤'[want - 1]}"
+        else:
+            fin = f"답 &nbsp;\\(\\mathbf{{{want}}}\\)"
         entries.append(
             f'"{key}": {{ answer: {want}, html: String.raw`\n'
             f'{head}{body}\n'
