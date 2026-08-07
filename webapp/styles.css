@@ -329,8 +329,11 @@ body:not(.focusmode) .solveview.in-exam .draw-toolbar { top: 104px; }
 .noimg { padding: 24px; font-size: 14px; color: var(--sub); background: #fff; }
 .workspace { min-height: 1200px; }
 .drawlayer { position: absolute; top: 0; left: 0; touch-action: pan-y; cursor: crosshair; }
-/* 문제 이미지 위 필기 캔버스 — 이미지에 딱 맞춰 겹침 */
-.probwrap { position: relative; display: inline-block; max-width: 100%; }
+/* 문제 영역 필기 캔버스 — 이미지뿐 아니라 문제 pane의 빈 여백(위·아래·양옆)까지 전부 덮는다.
+   (좌표 기준은 JS가 이미지로 고정하므로, 캔버스를 넓혀도 기존 필기 위치는 그대로) */
+.probwrap { position: relative; display: block; width: 100%;
+  background-image: linear-gradient(#eef1f6 1px, transparent 1px), linear-gradient(90deg, #eef1f6 1px, transparent 1px);
+  background-size: 28px 28px; }
 .probink { position: absolute; top: 0; left: 0; touch-action: pan-y; cursor: crosshair; }
 /* 문제 전체화면 확대(핀치/더블탭/이동) */
 .probzoom { position: fixed; inset: 0; z-index: 60; background: rgba(15,18,25,.93); display: flex; flex-direction: column; }
@@ -351,6 +354,9 @@ body.focusmode .probpane { position: fixed; left: 0; right: 0; z-index: 36; over
   background: #fff; border-bottom: 1px solid var(--line); padding: 4px 8px; margin: 0; text-align: center;
   -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
 body.focusmode .probpane .qimg { width: auto; max-width: 100%; max-height: none; margin: 0 auto; }
+/* 이미지가 pane보다 짧아도 남는 아래 공간까지 필기 캔버스가 채우도록(넘치면 자연히 늘어남) */
+body.focusmode .probpane { display: flex; flex-direction: column; }
+body.focusmode .probwrap { flex: 1 0 auto; }
 body.focusmode .splitbar { display: block; position: fixed; left: 0; right: 0; z-index: 37;
   background: var(--bg); cursor: row-resize; touch-action: none; }
 body.focusmode .splitbar::before { content: ""; display: block; width: 44px; height: 4px;

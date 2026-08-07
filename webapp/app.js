@@ -1256,8 +1256,10 @@
   }
 
   class Drawer {
-    constructor(canvas, ws, key) {
-      this.canvas = canvas; this.ws = ws; this.key = key;
+    // refEl: 좌표 기준 요소(선택). 지정하면 획 좌표가 캔버스가 아니라 이 요소를 기준으로 저장·복원된다.
+    // 문제 캔버스는 이미지를 기준으로 삼는다 → 캔버스를 이미지 밖(여백)까지 넓혀도 기존 필기가 그대로 유지됨.
+    constructor(canvas, ws, key, refEl) {
+      this.canvas = canvas; this.ws = ws; this.key = key; this.refEl = refEl || null;
       this.ctx = canvas.getContext("2d");
       this.strokes = loadWork(key) || [];
       this.undo_ = [];
@@ -1286,12 +1288,19 @@
       this.canvas.style.width = w + "px";
       this.canvas.style.height = h + "px";
       this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+      // 좌표 기준 프레임 갱신. refEl 없으면 캔버스 자신이 기준(기존 동작 그대로: refW=cssW, 원점 0,0).
+      this.refW = w; this.refX = 0; this.refY = 0; this.refReady = true;
+      if (this.refEl) {
+        const cr = this.canvas.getBoundingClientRect(), rr = this.refEl.getBoundingClientRect();
+        if (rr.width) { this.refW = rr.width; this.refX = rr.left - cr.left; this.refY = rr.top - cr.top; }
+        else this.refReady = false;   // 이미지 미로드 — 잘못된 기준으로 그리지 않도록 렌더 보류(load 후 재호출됨)
+      }
       this.render();
     }
     lowestInk() {
       let y = 0;
       for (const s of this.strokes) for (const p of s.points) if (p.y > y) y = p.y;
-      return y * this.cssW;   // 비율 → 픽셀 (addSpace가 픽셀 단위로 사용)
+      return y * this.refW;   // 비율 → 픽셀 (addSpace가 픽셀 단위로 사용)
     }
     addSpace(px) {
       const el = this.ws.querySelector("#workspace");
@@ -1307,9 +1316,10 @@
       el.style.minHeight = next + "px";
       this.resize();
     }
-    // 좌표는 캔버스 너비 기준 0~1 비율로 저장 → 회전/리사이즈 시 이미지와 함께 균일하게 스케일되어 어긋나지 않음.
+    // 좌표는 기준 프레임(refEl 또는 캔버스)의 너비 기준 0~1 비율로 저장 → 회전/리사이즈 시 함께 균일하게 스케일되어 어긋나지 않음.
     // (x·y 모두 너비로 나눔: 종횡비 보존 + 높이 변경(넓히기)에 영향 없음. y 비율은 세로로 긴 캔버스에서 1을 넘을 수 있음)
-    pt(e) { const r = this.canvas.getBoundingClientRect(); const S = this.cssW || 1; return { x: (e.clientX - r.left) / S, y: (e.clientY - r.top) / S, p: e.pressure || 0.5 }; }
+    // 기준 요소 바깥(문제 이미지 옆·위 여백)에 그린 획은 음수이거나 1을 넘는 비율이 된다 — 정상.
+    pt(e) { const r = this.canvas.getBoundingClientRect(); const S = this.refW || 1; return { x: (e.clientX - r.left - this.refX) / S, y: (e.clientY - r.top - this.refY) / S, p: e.pressure || 0.5 }; }
     pushUndo() { this.undo_.push(JSON.stringify(this.strokes)); if (this.undo_.length > 25) this.undo_.shift(); }
     undo() { if (!this.undo_.length) return; this.strokes = JSON.parse(this.undo_.pop()); saveWork(this.key, this.strokes); this.render(); }
     clear() { if (!this.strokes.length) return; this.pushUndo(); this.strokes = []; saveWork(this.key, this.strokes); this.render(); }
@@ -1360,7 +1370,7 @@
         this.touches.delete(e.pointerId);
         if (this.touches.size === 0) {
           this.pan = null;
-          if (this.tStart && !this.tMoved && this.onTap) this.onTap();   // 움직임 없는 손가락 = 탭
+          if (this.tStart && !this.tMoved && this.onTap) this.onTap(this.tStart);   // 움직임 없는 손가락 = 탭(클라이언트 좌표 전달)
           this.tStart = null;
         } else if (this.scrollEl) this.pan = { y0: this.avgTouchY(), top0: this.scrollEl.scrollTop };  // 손가락 수 바뀌어도 기준 재설정(점프 방지)
         return;
@@ -1373,21 +1383,22 @@
     }
     eraseAt(pt) {
       const before = this.strokes.length;
-      this.strokes = this.strokes.filter(s => !strokeHit(s, pt, (14 + s.width) / this.cssW));   // 지우개 반경도 비율로
+      this.strokes = this.strokes.filter(s => !strokeHit(s, pt, (14 + s.width) / this.refW));   // 지우개 반경도 비율로
       if (this.strokes.length !== before) this.render();
     }
     seg(a, b, color, width, pressure) {
-      const c = this.ctx, S = this.cssW;   // 비율 → 픽셀
+      const c = this.ctx, S = this.refW, ox = this.refX, oy = this.refY;   // 비율 → 픽셀(기준 프레임 원점 보정)
       c.strokeStyle = color; c.lineCap = "round"; c.lineJoin = "round";
       c.lineWidth = width * (0.6 + (pressure || 0.5));
-      c.beginPath(); c.moveTo(a.x * S, a.y * S); c.lineTo(b.x * S, b.y * S); c.stroke();
+      c.beginPath(); c.moveTo(a.x * S + ox, a.y * S + oy); c.lineTo(b.x * S + ox, b.y * S + oy); c.stroke();
     }
     render() {
       const c = this.ctx;
       c.clearRect(0, 0, this.cssW, this.cssH);
+      if (!this.refReady) return;   // 기준(이미지) 미측정 — 어긋난 위치로 그리느니 다음 resize까지 보류
       for (const s of this.strokes) {
         const p = s.points;
-        if (p.length === 1) { c.fillStyle = s.color; c.beginPath(); c.arc(p[0].x * this.cssW, p[0].y * this.cssW, s.width * 0.6, 0, 7); c.fill(); continue; }
+        if (p.length === 1) { c.fillStyle = s.color; c.beginPath(); c.arc(p[0].x * this.refW + this.refX, p[0].y * this.refW + this.refY, s.width * 0.6, 0, 7); c.fill(); continue; }
         for (let i = 1; i < p.length; i++) this.seg(p[i - 1], p[i], s.color, s.width, p[i].p);
       }
     }
@@ -1407,7 +1418,8 @@
 
     // 문제 이미지 위 필기 캔버스(별도) — 펜/색/지우개는 아래 필기와 공유, 저장키만 분리("prob_").
     const probCanvas = $("#drawProb"), probWrap = $("#probWrap");
-    const dProb = (probCanvas && probWrap) ? new Drawer(probCanvas, probWrap, "prob_" + key) : null;
+    // 캔버스는 probWrap(=문제 pane 폭·높이 전체)을 덮고, 좌표 기준만 이미지(img)로 잡는다.
+    const dProb = (probCanvas && probWrap) ? new Drawer(probCanvas, probWrap, "prob_" + key, img) : null;
     currentProbDrawer = dProb;
     const drawers = dProb ? [d, dProb] : [d];
     let lastInk = d;                        // 마지막으로 그린 캔버스(undo 대상)
@@ -1450,7 +1462,12 @@
       pzStage.addEventListener("pointercancel", pzEnd);
     }
     const pzCloseBtn = $("#pzClose"); if (pzCloseBtn) pzCloseBtn.onclick = pzClose;
-    if (dProb) dProb.onTap = pzOpen;        // 문제를 손가락으로 탭 → 전체화면 확대
+    // 문제를 손가락으로 탭 → 전체화면 확대. 캔버스가 이미지 밖 여백까지 덮으므로, 이미지 안을 탭했을 때만 연다.
+    if (dProb) dProb.onTap = p => {
+      if (!img || !p) return;
+      const r = img.getBoundingClientRect();
+      if (p.x >= r.left && p.x <= r.right && p.y >= r.top && p.y <= r.bottom) pzOpen();
+    };
 
     // iOS 사파리: Apple Pencil(스타일러스)은 touch-action:none 만으론 스크롤이 안 막히는 기기가 있음.
     // 필기는 포인터 이벤트로 처리되므로, 스타일러스 터치(또는 집중 모드)일 때 네이티브 스크롤만 직접 차단한다.
@@ -1510,6 +1527,7 @@
       if (pp) { pp.style.top = topH + "px"; pp.style.height = probH + "px"; }
       if (bar) { bar.style.top = (topH + probH) + "px"; bar.style.height = SPLIT_BAR + "px"; }
       if (sc) { sc.style.top = (topH + probH + SPLIT_BAR) + "px"; sc.style.bottom = abH + "px"; }
+      if (dProb) dProb.resize();   // 문제 pane 높이가 바뀌면 여백 캔버스도 따라 커져야 함
     };
     const setFocus = on => {
       document.body.classList.toggle("focusmode", on);
@@ -1529,6 +1547,7 @@
         if (pp) { pp.style.top = ""; pp.style.height = ""; }
         if (bar) { bar.style.top = ""; bar.style.height = ""; }
         d.resize();
+        if (dProb) dProb.resize();
       }
     };
     currentLayoutFocus = layoutFocus;   // 전역 resize 리스너가 참조 (리스너 재등록 없이 최신 함수만 교체)
