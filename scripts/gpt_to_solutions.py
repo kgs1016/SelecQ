@@ -75,6 +75,20 @@ def to_katex(s):
     return s.strip()
 
 
+def md_table(lines):
+    """'| a | b |' 형태의 마크다운 표 → <table class="sol-table">."""
+    rows = [[c.strip() for c in ln.strip().strip("|").split("|")] for ln in lines]
+    rows = [r for r in rows
+            if not all(re.fullmatch(r":?-{2,}:?", c) for c in r if c)]  # 구분선 제거
+    if not rows:
+        return ""
+    out = ['<table class="sol-table">',
+           "<tr>" + "".join(f"<th>{c}</th>" for c in rows[0]) + "</tr>"]
+    out += ["<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in rows[1:]]
+    out.append("</table>")
+    return "\n    ".join(out)
+
+
 def plain_len(s):
     """수식·태그를 뺀 실제 글자 수(제목 승격 판단용)."""
     s = re.sub(r"\\\(.*?\\\)", "", s, flags=re.S)
@@ -91,17 +105,32 @@ def steps_html(body):
         if not it:
             continue
         conv = to_katex(it)
-        # $$ 블록은 그대로, 나머지 줄은 <p>로
-        chunks, buf = [], []
+        # $$ 블록은 그대로, 표는 <table>로, 나머지 줄은 <p>로
+        chunks, buf, tbl = [], [], []
+
+        def flush_p():
+            if buf:
+                chunks.append("<p>" + " ".join(buf).strip() + "</p>")
+                buf.clear()
+
+        def flush_t():
+            if tbl:
+                chunks.append(md_table(tbl))
+                tbl.clear()
+
         for seg in re.split(r"(\$\$.*?\$\$)", conv, flags=re.S):
             if seg.startswith("$$"):
-                if buf:
-                    chunks.append("<p>" + " ".join(buf).strip() + "</p>"); buf = []
-                chunks.append(seg.strip())
+                flush_p(); flush_t(); chunks.append(seg.strip())
             elif seg.strip():
-                buf.append(seg.strip().replace("\n", " "))
-        if buf:
-            chunks.append("<p>" + " ".join(buf).strip() + "</p>")
+                for ln in seg.split("\n"):
+                    s = ln.strip()
+                    if not s:
+                        continue
+                    if s.startswith("|") and s.endswith("|"):
+                        flush_p(); tbl.append(s)
+                    else:
+                        flush_t(); buf.append(s)
+        flush_p(); flush_t()
         if not chunks:
             continue
         num = f'<span class="sol-num">{i}</span>'

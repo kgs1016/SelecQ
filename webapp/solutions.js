@@ -3962,4 +3962,1479 @@ window.SOLUTIONS = {
   <div class="sol-final">답 &nbsp;\(\mathbf{48}\)</div>
 ` },
 
+"2022_mock09/common/q01": { answer: 1, html: String.raw`
+  <div class="sol-box">네제곱근을 지수로 고쳐 같은 밑의 거듭제곱끼리 계산한다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(\dfrac{1}{\sqrt[4]{3}}=3^{-\frac14}\)이므로</div>
+    $$
+   3^{-\frac14}\times 3^{-\frac74}=3^{-\frac14-\frac74}.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 따라서</div>
+    $$
+   3^{-2}=\frac19.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;①</div>
+` },
+
+"2022_mock09/common/q02": { answer: 5, html: String.raw`
+  <div class="sol-box">다항함수를 미분한 뒤 \(x=1\)을 대입한다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span></p>
+    $$
+   f'(x)=6x^2+4.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 따라서</div>
+    $$
+   f'(1)=6+4=10.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;⑤</div>
+` },
+
+"2022_mock09/common/q03": { answer: 5, html: String.raw`
+  <div class="sol-box">공비를 \(r\)라 두고 \(a_2a_4\)에서 \(r^4\)을 구한다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 등비수열의 공비를 \(r\)라 하면</div>
+    $$
+   a_2a_4=(a_1r)(a_1r^3)=a_1^2r^4=4r^4=36.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 따라서</div>
+    $$
+   r^4=9.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 그러므로</div>
+    $$
+   \frac{a_7}{a_3}=\frac{a_1r^6}{a_1r^2}=r^4=9.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;⑤</div>
+` },
+
+"2022_mock09/common/q04": { answer: 4, html: String.raw`
+  <div class="sol-box">경계점 \(x=-1\)에서 함숫값과 우극한을 같게 둔다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span></p>
+    $$
+   f(-1)=\lim_{x\to-1^-}f(x)=-2+a.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">2</span></p>
+    $$
+   \lim_{x\to-1^+}f(x)=1+5-a=6-a.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 연속이므로</div>
+    $$
+   -2+a=6-a.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 따라서</div>
+    $$
+   a=4.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;④</div>
+` },
+
+"2022_mock09/common/q05": { answer: 3, html: String.raw`
+  <div class="sol-box">도함수의 영점을 구해 극대·극소가 되는 \(x\)를 찾고 함숫값을 계산한다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span></p>
+    $$
+   f'(x)=6x^2+6x-12=6(x+2)(x-1).
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(f'(x)=0\)이 되는 점은 \(x=-2,1\)이므로</div>
+    $$
+   M=f(-2)=-16+12+24+1=21,
+   $$
+    $$
+   m=f(1)=2+3-12+1=-6.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 따라서</div>
+    $$
+   M+m=21-6=15.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
+
+"2022_mock09/common/q06": { answer: 1, html: String.raw`
+  <div class="sol-box">좌변을 통분하여 \(\sin^2\theta\)를 구한 뒤 제2사분면 조건으로 \(\cos\theta\)의 부호를 정한다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span></p>
+    $$
+   \frac{\sin\theta}{1-\sin\theta}-\frac{\sin\theta}{1+\sin\theta}
+   =\frac{2\sin^2\theta}{1-\sin^2\theta}=4.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 따라서</div>
+    $$
+   2\sin^2\theta=4-4\sin^2\theta,
+   \qquad \sin^2\theta=\frac23.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(\dfrac\pi2&lt;\theta&lt;\pi\)이므로</div>
+    $$
+   \sin\theta=\frac{\sqrt6}{3},\qquad \cos\theta&lt;0.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 그러므로</div>
+    $$
+   \cos\theta=-\sqrt{1-\frac23}=-\frac{\sqrt3}{3}.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;①</div>
+` },
+
+"2022_mock09/common/q07": { answer: 4, html: String.raw`
+  <div class="sol-box">각 항을 \(\dfrac1{a_k}-\dfrac1{a_{k+1}}\)로 바꾸어 망원합으로 정리한다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span></p>
+    $$
+   \sum_{k=1}^{n}\frac{a_{k+1}-a_k}{a_ka_{k+1}}
+   =\sum_{k=1}^{n}\left(\frac1{a_k}-\frac1{a_{k+1}}\right)
+   =\frac1{a_1}-\frac1{a_{n+1}}.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 주어진 조건에 의해</div>
+    $$
+   \frac1{a_1}-\frac1{a_{n+1}}=\frac1n,
+   $$
+    <p>즉</p>
+    $$
+   \frac1{a_{n+1}}=\frac1{a_1}-\frac1n.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(n=12\), \(a_1=-4\)를 대입하면</div>
+    $$
+   \frac1{a_{13}}=-\frac14-\frac1{12}=-\frac13.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 따라서</div>
+    $$
+   a_{13}=-3.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;④</div>
+` },
+
+"2022_mock09/common/q08": { answer: 2, html: String.raw`
+  <div class="sol-box">두 극한 조건에서 \(f(0),f(1)\)과 두 점에서의 미분계수를 읽고, 두 근을 갖는 삼차함수로 인수분해한다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span></p>
+    $$
+   \lim_{x\to0}\frac{f(x)}x=1
+   $$
+    <p>에서</p>
+    $$
+   f(0)=0,\qquad f'(0)=1.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">2</span></p>
+    $$
+   \lim_{x\to1}\frac{f(x)}{x-1}=1
+   $$
+    <p>에서</p>
+    $$
+   f(1)=0,\qquad f'(1)=1.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 삼차함수를</div>
+    $$
+   f(x)=x(x-1)(ax+b)
+   $$
+    <p>로 놓으면</p>
+    $$
+   f'(0)=-b=1,
+   \qquad
+   f'(1)=a+b=1.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 따라서</div>
+    $$
+   a=2,\qquad b=-1,
+   $$
+    <p>이므로</p>
+    $$
+   f(x)=x(x-1)(2x-1).
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">5</span></p>
+    $$
+   f(2)=2\times1\times3=6.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2022_mock09/common/q09": { answer: 3, html: String.raw`
+  <div class="sol-box">속도를 미분하여 \(k\)를 구하고, 해당 구간에서 속도의 부호를 확인한 뒤 절댓값 적분으로 이동거리를 구한다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 가속도를 \(a(t)\)라 하면</div>
+    $$
+   a(t)=v'(t)=-12t^2+24t.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">2</span></p>
+    $$
+   a(k)=-12k^2+24k=12
+   $$
+    <p>에서</p>
+    $$
+   k=1.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 따라서 \(t=3\)에서 \(t=4\)까지의 이동거리 \(l\)은</div>
+    $$
+   l=\int_3^4|-4t^3+12t^2|\,dt.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 이 구간에서 속도가 음수이므로</div>
+    $$
+   l=\int_3^4(4t^3-12t^2)\,dt
+   =\left[t^4-4t^3\right]_3^4.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">5</span></p>
+    $$
+   l=(256-256)-(81-108)=27.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
+
+"2022_mock09/common/q10": { answer: 3, html: String.raw`
+  <div class="sol-box">사인함수의 주기와 \(\sin(b\pi x)=1\)이 되는 두 점의 좌표를 이용하여 넓이 조건과 기울기 조건을 연립한다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(y=a\sin(b\pi x)\)의 주기는</div>
+    $$
+   \frac{2\pi}{b\pi}=\frac2b.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 직선 \(y=a\)와 만나는 두 점은</div>
+    $$
+   A\left(\frac1{2b},a\right),\qquad
+   B\left(\frac5{2b},a\right).
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 삼각형의 넀이가 \(5\)이므로</div>
+    $$
+   \frac12\times\frac4{2b}\times a=\frac ab=5.\tag{ㄱ}
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 직선 \(OA\), \(OB\)의 기울기는 각각</div>
+    $$
+   2ab,\qquad \frac{2ab}{5}.
+   $$
+    <p>따라서</p>
+    $$
+   2ab\times\frac{2ab}{5}=\frac54.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">5</span> (ㄱ)에서 \(a=5b\)이므로</div>
+    $$
+   \frac45(5b)^2b^2=\frac54,
+   \qquad b^4=\frac1{16}.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">6</span> \(b&gt;0\)이므로</div>
+    $$
+   b=\frac12,
+   \qquad a=\frac52.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">7</span> 따라서</div>
+    $$
+   a+b=3.
+   $$
+    <figure class="sol-fig"><img src="sol/2022_mock09_common_q10.png" alt="y=a sin(bπx)와 직선 y=a, 삼각형 OAB"><figcaption>\(y=a\)와 만나는 두 점은 \(A\left(\dfrac{1}{2b},a\right)\), \(B\left(\dfrac{5}{2b},a\right)\)</figcaption></figure>
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
+
+"2022_mock09/common/q11": { answer: 4, html: String.raw`
+  <div class="sol-box">주어진 항등식에 \(x=1\)을 대입하고, 양변을 미분하여 \(f(x)\)의 식을 구한다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 주어진 식을</div>
+    $$
+   xf(x)=2x^3+ax^2+3a+\int_1^x f(t)\,dt\tag{ㄱ}
+   $$
+    <p>라 하자.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> (ㄱ)에 \(x=1\)을 대입하면</div>
+    $$
+   f(1)=4a+2.\tag{ㄴ}
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> (ㄱ)의 양변을 \(x\)에 대하여 미분하면</div>
+    $$
+   f(x)+xf'(x)=6x^2+2ax+f(x),
+   $$
+    <p>따라서</p>
+    $$
+   f'(x)=6x+2a.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 적분하면</div>
+    $$
+   f(x)=3x^2+2ax+C
+   $$
+    <p>이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">5</span> \(x=1\)을 대입하여</div>
+    $$
+   f(1)=3+2a+C.
+   $$
+    <p>이를 (ㄴ)과 비교하면</p>
+    $$
+   C=2a-1.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">6</span> 따라서</div>
+    $$
+   f(x)=3x^2+2ax+2a-1.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">7</span></p>
+    $$
+   \int_0^1f(t)\,dt
+   =\int_0^1(3t^2+2at+2a-1)\,dt
+   =3a.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">8</span> \(f(1)=\displaystyle\int_0^1f(t)\,dt\)이므로</div>
+    $$
+   3+2a+2a-1=3a,
+   \qquad a=-2.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">9</span></p>
+    $$
+   f(3)=27+6a+2a-1=8a+26=10.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">10</span> 따라서</div>
+    $$
+   a+f(3)=-2+10=8.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;④</div>
+` },
+
+"2022_mock09/common/q12": { answer: 2, html: String.raw`
+  <div class="sol-box">사인법칙으로 \(BC\)와 \(BD\)를 구한 뒤, 삼각형 \(BCD\)에 코사인법칙을 적용한다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 사인법칙에 의해</div>
+    $$
+   2R=\frac{\overline{BC}}{\sin A}
+   =\frac{\overline{BD}}{\sin(\angle BCD)}.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 따라서</div>
+    $$
+   \overline{BC}=2\times2\sqrt7\times\sin\frac\pi3=2\sqrt{21},
+   $$
+    $$
+   \overline{BD}=2\times2\sqrt7\times\frac{2\sqrt7}{7}=8.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">3</span></p>
+    $$
+   \sin(\angle BCD)=\frac{2\sqrt7}{7}
+   $$
+    <p>이므로</p>
+    $$
+   \cos(\angle BCD)=\frac{\sqrt{21}}7
+   \qquad\left(\angle BCD&lt;\frac\pi2\right).
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> \(\overline{CD}=x\)라 하고 삼각형 \(BCD\)에 코사인법칙을 적용하면</div>
+    $$
+   8^2=x^2+(2\sqrt{21})^2
+   -2x\cdot2\sqrt{21}\cdot\frac{\sqrt{21}}7.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">5</span> 정리하면</div>
+    $$
+   x^2-12x+20=0,
+   $$
+    <p>따라서</p>
+    $$
+   x=2\quad\text{또는}\quad x=10.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">6</span> 두 근 중 어느 것인지 가린다</div>
+    <p>네 점 \(A,B,D,C\)는 한 원 위에 있고 사각형 \(ABDC\)가 이 원에 내접하므로 마주 보는 두 각의 합은 \(\pi\)이다. 따라서</p>
+    $$
+   \angle BDC=\pi-\angle BAC=\pi-\frac\pi3=\frac{2\pi}{3}
+   $$
+    <p>이므로 \(\cos(\angle BDC)=-\dfrac12\)이다. \(\triangle BCD\)에서 코사인법칙을 쓰면</p>
+    $$
+   (2\sqrt{21})^2=8^2+x^2-2\times8\times x\times\left(-\frac12\right),
+   $$
+    <p>즉 \(x^2+8x-20=0\)에서 \(x=2\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">7</span> 그러므로</div>
+    $$
+   \overline{BD}+\overline{CD}=8+2=10.
+   $$
+    <figure class="sol-fig"><img src="sol/2022_mock09_common_q12.png" alt="원에 내접한 삼각형 ABC와 호 BC 위의 점 D"><figcaption>사각형 \(ABDC\)가 원에 내접하므로 \(\angle BDC=\pi-\angle BAC\)</figcaption></figure>
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2022_mock09/common/q13": { answer: 2, html: String.raw`
+  <div class="sol-box">조건 (가)에서 가능한 \((m,d)\)를 모두 구한 뒤, 부분합의 최솟값이 조건 (나)를 만족하는지 확인한다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span></p>
+    $$
+   |a_m|=|a_{m+3}|
+   $$
+    <p>에서</p>
+    $$
+   a_{m+3}=\pm a_m.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">2</span> \(a_{m+3}=a_m\)이면 \(d=0\)이므로 조건 (나)를 만족시키지 못한다. 따라서</p>
+    $$
+   a_{m+3}=-a_m.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 등차수열의 일반항을 대입하면</div>
+    $$
+   -45+(m+2)d=45-(m-1)d,
+   $$
+    <p>따라서</p>
+    $$
+   (2m+1)d=90.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> \(m,d\)가 자연수일 때 가능한 순서쌍은</div>
+    $$
+   (m,d)=(1,30),(2,18),(4,10),(7,6),(22,2).
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">5</span> \(a_{m+3}=-a_m\)이므로</div>
+    $$
+   a_{m+1}&lt;0,
+   \qquad a_{m+2}&gt;0.
+   $$
+    <p>따라서 부분합은 \(n=m+1\)일 때 최소이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">6</span> 조건 (나)를 만족하려면</div>
+    $$
+   \sum_{k=1}^{m+1}a_k
+   =\frac{(m+1)(-90+md)}2&gt;-100
+   $$
+    <p>이어야 한다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">7</span> 가능한 순서쌍 중 이 부등식을 만족하는 것은</div>
+    $$
+   (1,30),(2,18)
+   $$
+    <p>뿐이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">8</span> 따라서 구하는 합은</div>
+    $$
+   30+18=48.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2022_mock09/common/q14": { answer: 5, html: String.raw`
+  <div class="sol-box">\(f'(x)\)를 먼저 결정한 뒤 각 보기에서 미분계수와 정적분을 직접 확인한다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 최고차항의 계수가 \(1\)이고 \(f'(0)=f'(2)=0\)이므로</div>
+    $$
+   f'(x)=3x(x-2).
+   $$
+    <p>따라서</p>
+    $$
+   f(x)=x^3-3x^2+C.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> ㄱ: \(p=1\)일 때 \(x&gt;0\)에서</div>
+    $$
+   g(x)=f(x+1)-f(1).
+   $$
+    <p>그러므로</p>
+    $$
+   g'(1)=f'(2)=0.
+   $$
+    <p>따라서 참이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> ㄴ:</div>
+    $$
+   \lim_{x\to0^-}g(x)=f(0)-f(0)=0,
+   $$
+    $$
+   \lim_{x\to0^+}g(x)=f(p)-f(p)=0,
+   $$
+    <p>이고 \(g(0)=0\)이므로 \(g(x)\)는 연속이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> \(x=0\)에서 미분가능하려면</div>
+    $$
+   f'(0)=f'(p).
+   $$
+    <p>따라서</p>
+    $$
+   p=0\quad\text{또는}\quad p=2.
+   $$
+    <p>양수인 \(p\)는 \(2\) 하나뿐이므로 참이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">5</span> ㄷ: 식을 정리하면</div>
+    $$
+   g(x)=
+   \begin{cases}
+   x^3-3x^2 & (x\le0),\\
+   x^3+(3p-3)x^2+(3p^2-6p)x & (x&gt;0).
+   \end{cases}
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">6</span> 따라서</div>
+    $$
+   \int_{-1}^{1}g(x)\,dx
+   =\int_{-1}^{0}(x^3-3x^2)\,dx
+   +\int_0^1\{x^3+(3p-3)x^2+(3p^2-6p)x\}\,dx.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">7</span> 계산하면</div>
+    $$
+   -\frac54+
+   \left\{\frac14+(p-1)+\left(\frac32p^2-3p\right)\right\}
+   =\frac32p^2-2p-2.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">8</span></p>
+    $$
+   \frac32p^2-2p-2
+   =\frac32\left(p+\frac23\right)(p-2).
+   $$
+    <p>따라서 \(p\ge2\)일 때 적분값은 \(0\) 이상이므로 참이다.</p>
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">9</span> ㄱ, ㄴ, ㄷ이 모두 옳다.</p>
+  </div>
+  <div class="sol-final">답 &nbsp;⑤</div>
+` },
+
+"2022_mock09/common/q15": { answer: 1, html: String.raw`
+  <div class="sol-box">점화식을 함수 \(a_{n+1}=f(a_n)\)로 보고 \(a_5+f(a_5)=0\)에서 \(a_5\)를 결정한 뒤, 그래프를 역추적한다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span></p>
+    $$
+   f(x)=
+   \begin{cases}
+   -2x-2 & \left(-1\le x&lt;-\dfrac12\right),\\
+   2x & \left(-\dfrac12\le x\le\dfrac12\right),\\
+   -2x+2 & \left(\dfrac12&lt;x\le1\right)
+   \end{cases}
+   $$
+    <p>라 하면</p>
+    $$
+   a_{n+1}=f(a_n).
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(a_5+a_6=0\)이므로</div>
+    $$
+   a_5+f(a_5)=0.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">3</span> \(a_5&gt;0\)이면 \(f(a_5)\ge0\), \(a_5&lt;0\)이면 \(f(a_5)\le0\)이므로 각각 합이 양수 또는 음수이다. 따라서</p>
+    $$
+   a_5=0.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> \(a_1&lt;0\)이면 모든 \(a_n\le0\)이 되어</div>
+    $$
+   \sum_{k=1}^{5}a_k\le0
+   $$
+    <p>이므로 모순이다. 따라서 \(a_1\ge0\)인 부분만 살핀다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">5</span> 그래프에서 역상을 차례로 구하면</div>
+    $$
+   a_{n+1}=0\Rightarrow a_n=0,1,
+   $$
+    $$
+   a_{n+1}=1\Rightarrow a_n=\frac12,
+   $$
+    $$
+   a_{n+1}=\frac12\Rightarrow a_n=\frac14,\frac34,
+   $$
+    $$
+   a_{n+1}=\frac14\Rightarrow a_n=\frac18,\frac78,
+   $$
+    $$
+   a_{n+1}=\frac34\Rightarrow a_n=\frac38,\frac58.
+   $$
+    <figure class="sol-fig"><img src="sol/2022_mock09_common_q15.png" alt="점화식이 나타내는 함수 y=f(x)의 그래프와 역상 추적"><figcaption>\(f(x)=1\)인 \(x\)는 \(\frac12\) 하나뿐이고, \(f(x)=\frac12\)인 \(x\)는 \(\frac14\), \(\frac34\)의 두 개</figcaption></figure>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">6</span> 가능한 수열의 앞 다섯 항은 다음과 같다.</div>
+    <table class="sol-table">
+    <tr><th>\(a_1\)</th><th>\(a_2\)</th><th>\(a_3\)</th><th>\(a_4\)</th><th>\(a_5\)</th></tr>
+    <tr><td>\(1\)</td><td>\(0\)</td><td>\(0\)</td><td>\(0\)</td><td>\(0\)</td></tr>
+    <tr><td>\(\frac12\)</td><td>\(1\)</td><td>\(0\)</td><td>\(0\)</td><td>\(0\)</td></tr>
+    <tr><td>\(\frac14\)</td><td>\(\frac12\)</td><td>\(1\)</td><td>\(0\)</td><td>\(0\)</td></tr>
+    <tr><td>\(\frac34\)</td><td>\(\frac12\)</td><td>\(1\)</td><td>\(0\)</td><td>\(0\)</td></tr>
+    <tr><td>\(\frac18\)</td><td>\(\frac14\)</td><td>\(\frac12\)</td><td>\(1\)</td><td>\(0\)</td></tr>
+    <tr><td>\(\frac78\)</td><td>\(\frac14\)</td><td>\(\frac12\)</td><td>\(1\)</td><td>\(0\)</td></tr>
+    <tr><td>\(\frac38\)</td><td>\(\frac34\)</td><td>\(\frac12\)</td><td>\(1\)</td><td>\(0\)</td></tr>
+    <tr><td>\(\frac58\)</td><td>\(\frac34\)</td><td>\(\frac12\)</td><td>\(1\)</td><td>\(0\)</td></tr>
+    </table>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">7</span> 따라서 가능한 \(a_1\)의 합은</div>
+    $$
+   1+\frac12+\frac14+\frac34+\frac18+\frac78+\frac38+\frac58
+   =\frac92.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;①</div>
+` },
+
+"2022_mock09/common/q16": { answer: 2, html: String.raw`
+  <div class="sol-box">로그의 계수와 차의 성질을 이용한다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span></p>
+    $$
+   \log_2 100-2\log_2 5
+   =\log_2 100-\log_2 5^2.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 따라서</div>
+    $$
+   \log_2\frac{100}{25}=\log_2 4=2.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;\(\mathbf{2}\)</div>
+` },
+
+"2022_mock09/common/q17": { answer: 8, html: String.raw`
+  <div class="sol-box">도함수를 부정적분하고 초기조건으로 적분상수를 정한다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span></p>
+    $$
+   f(x)=2x^4-4x^3+7x+C.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(f(0)=3\)이므로</div>
+    $$
+   C=3.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 따라서</div>
+    $$
+   f(1)=2-4+7+3=8.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;\(\mathbf{8}\)</div>
+` },
+
+"2022_mock09/common/q18": { answer: 9, html: String.raw`
+  <div class="sol-box">두 합의 식을 빼서 \(\sum b_k\)를 구한다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span> 두 식을 각각 (ㄱ), (ㄴ)이라 하면 (ㄱ)－(ㄴ)에서</p>
+    $$
+   \sum_{k=1}^{10}3b_k=42.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 따라서</div>
+    $$
+   \sum_{k=1}^{10}b_k=14.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 그러므로</div>
+    $$
+   \sum_{k=1}^{10}\left(b_k-\frac12\right)
+   =\sum_{k=1}^{10}b_k-10\times\frac12
+   =14-5=9.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;\(\mathbf{9}\)</div>
+` },
+
+"2022_mock09/common/q19": { answer: 11, html: String.raw`
+  <div class="sol-box">평균변화율을 계산하여 \(f'(a)\)와 같게 놓고 이차방정식의 두 근의 곱을 이용한다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 평균변화율은</div>
+    $$
+   \frac{f(4)-f(0)}{4-0}
+   =\frac{64-96+20}{4}.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">2</span></p>
+    $$
+   f'(a)=3a^2-12a+5
+   $$
+    <p>이므로</p>
+    $$
+   \frac{64-96+20}{4}=3a^2-12a+5.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 정리하면</div>
+    $$
+   3a^2-12a+8=0.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 두 근은 모두 \(0&lt;a&lt;4\)이고, 두 근의 곱은</div>
+    $$
+   \frac83.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">5</span> 따라서</div>
+    $$
+   p=3,\qquad q=8,
+   $$
+    <p>이므로</p>
+    $$
+   p+q=11.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;\(\mathbf{11}\)</div>
+` },
+
+"2022_mock09/common/q20": { answer: 21, html: String.raw`
+  <div class="sol-box">\(f(x)+x\)의 부호가 \(x\)의 부호와 같음을 보인 뒤, 방정식을 조각함수 \(g(x)=k\)의 교점 개수 문제로 바꾼다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span></p>
+    $$
+   f(x)+x
+   =\frac12x^3-\frac92x^2+11x
+   =\frac12x(x^2-9x+22).
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">2</span></p>
+    $$
+   x^2-9x+22
+   =\left(x-\frac92\right)^2+\frac74&gt;0
+   $$
+    <p>이므로 \(f(x)+x\)의 부호는 \(x\)의 부호와 같다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 따라서</div>
+    $$
+   |f(x)+x|=
+   \begin{cases}
+   f(x)+x & (x\ge0),\\
+   -f(x)-x & (x&lt;0).
+   \end{cases}
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 원래 방정식은</div>
+    $$
+   \begin{cases}
+   x^3-9x^2+15x=k & (x\ge0),\\
+   -7x=k & (x&lt;0)
+   \end{cases}
+   $$
+    <p>로 정리된다.</p>
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">5</span></p>
+    $$
+   g(x)=
+   \begin{cases}
+   x^3-9x^2+15x & (x\ge0),\\
+   -7x & (x&lt;0)
+   \end{cases}
+   $$
+    <p>라 두고 \(y=g(x)\)와 \(y=k\)의 교점 개수를 살핀다.</p>
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">6</span> \(x\ge0\)인 부분의 삼차함수는 \(x=1\)에서 극댓값 \(7\), \(x=5\)에서 극솟값 \(-25\)를 갖는다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">7</span> 서로 다른 교점이 \(4\)개가 되려면</div>
+    $$
+   0&lt;k&lt;7.
+   $$
+  </div>
+  <div class="sol-step">
+    <figure class="sol-fig"><img src="sol/2022_mock09_common_q20.png" alt="y=g(x)의 그래프와 수평선 y=k"><figcaption>\(0&lt;k&lt;7\)이면 \(x&lt;0\)에서 1개, \(x\ge0\)에서 3개로 모두 4개</figcaption></figure>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">8</span> 정수 \(k\)는</div>
+    $$
+   1,2,3,4,5,6
+   $$
+    <p>이므로 그 합은</p>
+    $$
+   \frac{6\times7}{2}=21.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;\(\mathbf{21}\)</div>
+` },
+
+"2022_mock09/prob_stat/q23": { answer: 3, html: String.raw`
+  <div class="sol-box">이항분포의 평균 \(E(X)=np\)를 적용한다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span></p>
+    $$
+   E(X)=60\times\frac14=15.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
+
+"2022_mock09/prob_stat/q24": { answer: 3, html: String.raw`
+  <div class="sol-box">가능한 순서쌍 \((a,b)\)을 세고, 그중 곱이 \(31\)보다 큰 경우를 나열한다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 모든 순서쌍의 개수는</div>
+    $$
+   4\times4=16.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(ab&gt;31\)인 순서쌍은</div>
+    $$
+   (5,8),(7,6),(7,8)
+   $$
+    <p>이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 따라서 확률은</div>
+    $$
+   \frac3{16}.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
+
+"2022_mock09/prob_stat/q25": { answer: 2, html: String.raw`
+  <div class="sol-box">일반항의 \(x\)의 지수를 정리하여 두 항에 해당하는 \(r\)을 각각 찾는다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 일반항은</div>
+    $$
+   \binom5r(x^2)^{5-r}\left(\frac ax\right)^r
+   =\binom5r a^r x^{10-3r}
+   \qquad(r=0,1,\ldots,5).
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(\dfrac1{x^2}\)의 항은</div>
+    $$
+   10-3r=-2
+   $$
+    <p>에서 \(r=4\)이므로 계수는</p>
+    $$
+   \binom54a^4=5a^4.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(x\)의 항은</div>
+    $$
+   10-3r=1
+   $$
+    <p>에서 \(r=3\)이므로 계수는</p>
+    $$
+   \binom53a^3=10a^3.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 두 계수가 같으므로</div>
+    $$
+   5a^4=10a^3.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">5</span> \(a&gt;0\)이므로</div>
+    $$
+   a=2.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2022_mock09/prob_stat/q26": { answer: 1, html: String.raw`
+  <div class="sol-box">주사위 눈이 \(5\) 이상인 사건과 흰 공 두 개가 나온 사건을 두고 조건부확률을 계산한다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span> 주사위 눈이 \(5\) 이상인 사건을 \(X\), 꺼낸 공이 모두 흰색인 사건을 \(Y\)라 하자.</p>
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">2</span></p>
+    $$
+   P(X\mid Y)=\frac{P(X\cap Y)}{P(Y)}
+   =\frac{P(X\cap Y)}{P(X\cap Y)+P(X^c\cap Y)}.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 각 확률을 대입하면</div>
+    $$
+   P(X\mid Y)
+   =\frac{\frac26\times\frac{\binom22}{\binom62}}
+   {\frac26\times\frac{\binom22}{\binom62}
+   +\frac46\times\frac{\binom32}{\binom62}}.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 따라서</div>
+    $$
+   P(X\mid Y)=\frac17.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;①</div>
+` },
+
+"2022_mock09/prob_stat/q27": { answer: 5, html: String.raw`
+  <div class="sol-box">\(P(\overline X\le215)\)에서 \(\sigma/\sqrt n\)을 구한 뒤, \(\overline Y\)의 표준편차를 계산하여 표준화한다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 확률변수 \(X\)의 표준편차를 \(\sigma\)라 하면</div>
+    $$
+   X\sim N(220,\sigma^2),
+   \qquad
+   \overline X\sim N\left(220,\frac{\sigma^2}{n}\right).
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 표준화하면</div>
+    $$
+   P(\overline X\le215)
+   =P\left(Z\le\frac{215-220}{\sigma/\sqrt n}\right)
+   =P\left(Z\le-\frac{5\sqrt n}{\sigma}\right)
+   =0.1587.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 표에서</div>
+    $$
+   P(Z\le-1)=0.5-0.3413=0.1587
+   $$
+    <p>이므로</p>
+    $$
+   -\frac{5\sqrt n}{\sigma}=-1,
+   \qquad
+   \frac{\sigma}{\sqrt n}=5.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> \(Y\)의 표준편차는</div>
+    $$
+   1.5\sigma=\frac32\sigma
+   $$
+    <p>이므로</p>
+    $$
+   Y\sim N\left(240,\frac94\sigma^2\right).
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">5</span> 표본의 크기가 \(9n\)이므로</div>
+    $$
+   \overline Y\sim N\left(240,\frac{\sigma^2}{4n}\right).
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">6</span> 따라서</div>
+    $$
+   P(\overline Y\ge235)
+   =P\left(Z\ge\frac{235-240}{\sigma/(2\sqrt n)}\right)
+   =P(Z\ge-2).
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">7</span> 표에서</div>
+    $$
+   P(Z\ge-2)=0.5+P(0\le Z\le2)
+   =0.5+0.4772=0.9772.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;⑤</div>
+` },
+
+"2022_mock09/prob_stat/q28": { answer: 4, html: String.raw`
+  <div class="sol-box">\(f(3)+f(4)\)가 가능한 경우를 정리하고, 각 \((f(3),f(4))\)에 대해 나머지 함수값의 경우의 수를 곱한다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 조건 (가)에서</div>
+    $$
+   f(3)+f(4)=5\quad\text{또는}\quad10.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 가능한 합은</div>
+    $$
+   1+4=2+3=3+2=4+1
+   $$
+    <p>또는</p>
+    $$
+   4+6=5+5=6+4.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">3</span> 조건 (나), (다)에 의해 \(f(3)\ge2\), \(f(4)\le5\)이므로 가능한 경우는</p>
+    $$
+   (f(3),f(4))=(2,3),(3,2),(4,1),(5,5),(6,4).
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> \((2,3)\)일 때</div>
+    $$
+   f(1),f(2)&lt;2,
+   \qquad
+   f(5),f(6)&gt;3
+   $$
+    <p>이므로 경우의 수는</p>
+    $$
+   1^2\times3^2=9.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">5</span> \((3,2)\)일 때</div>
+    $$
+   2^2\times4^2=64.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">6</span> \((4,1)\)일 때</div>
+    $$
+   3^2\times5^2=225.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">7</span> \((5,5)\)일 때</div>
+    $$
+   4^2\times1^2=16.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">8</span> \((6,4)\)일 때</div>
+    $$
+   5^2\times2^2=100.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">9</span> 따라서 전체 개수는</div>
+    $$
+   9+64+225+16+100=414.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;④</div>
+` },
+
+"2022_mock09/prob_stat/q29": { answer: 78, html: String.raw`
+  <div class="sol-box">두 분포가 대칭이므로 평균이 같음을 확인하고, \(E(Y^2)-E(X^2)\)만 계산한다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span></p>
+    $$
+   E(X)=1a+3b+5c+7b+9a=10a+10b+5c.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">2</span></p>
+    $$
+   E(Y)=1\left(a+\frac1{20}\right)+3b
+   +5\left(c-\frac1{10}\right)+7b
+   +9\left(a+\frac1{20}\right).
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 정리하면</div>
+    $$
+   E(Y)=10a+10b+5c+\frac1{20}-\frac{10}{20}+\frac9{20}
+   =E(X).
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">4</span></p>
+    $$
+   E(X^2)=1^2a+3^2b+5^2c+7^2b+9^2a
+   =82a+58b+25c.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">5</span></p>
+    $$
+   E(Y^2)
+   =1^2\left(a+\frac1{20}\right)+3^2b
+   +5^2\left(c-\frac1{10}\right)+7^2b
+   +9^2\left(a+\frac1{20}\right).
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">6</span> 정리하면</div>
+    $$
+   E(Y^2)=E(X^2)+\frac85.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">7</span> 평균이 같으므로</div>
+    $$
+   V(Y)=E(Y^2)-\{E(Y)\}^2
+   =V(X)+\frac85
+   =\frac{31}{5}+\frac85
+   =\frac{39}{5}.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">8</span> 따라서</div>
+    $$
+   10V(Y)=10\times\frac{39}{5}=78.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;\(\mathbf{78}\)</div>
+` },
+
+"2022_mock09/calculus/q23": { answer: 3, html: String.raw`
+  <div class="sol-box">분자와 분모를 \(3^n\)으로 나누어 \(\left(\dfrac23\right)^n\)의 극한을 이용한다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span></p>
+    $$
+   \lim_{n\to\infty}\frac{2\times3^{n+1}+5}{3^n+2^{n+1}}
+   =\lim_{n\to\infty}
+   \frac{6+\frac5{3^n}}{1+2\left(\frac23\right)^n}.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 따라서</div>
+    $$
+   \frac{6+0}{1+0}=6.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
+
+"2022_mock09/calculus/q24": { answer: 2, html: String.raw`
+  <div class="sol-box">첫 번째 식에서 \(\tan\alpha\)를 구한 뒤 탄젠트의 차 공식에 대입한다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span></p>
+    $$
+   2\cos\alpha=3\sin\alpha
+   $$
+    <p>에서</p>
+    $$
+   \tan\alpha=\frac{\sin\alpha}{\cos\alpha}=\frac23.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">2</span></p>
+    $$
+   \tan\beta=\tan\{(\alpha+\beta)-\alpha\}
+   $$
+    <p>이므로</p>
+    $$
+   \tan\beta
+   =\frac{\tan(\alpha+\beta)-\tan\alpha}
+   {1+\tan(\alpha+\beta)\tan\alpha}.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 값을 대입하면</div>
+    $$
+   \tan\beta
+   =\frac{1-\frac23}{1+1\times\frac23}
+   =\frac{3-2}{3+2}
+   =\frac15.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2022_mock09/calculus/q25": { answer: 4, html: String.raw`
+  <div class="sol-box">\(\dfrac{dy}{dx}=\dfrac{dy/dt}{dx/dt}\)를 이용한다.</div>
+  <div class="sol-step">
+    <p><span class="sol-num">1</span></p>
+    $$
+   \frac{dx}{dt}=e^t+4e^{-t},
+   \qquad
+   \frac{dy}{dt}=1.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 따라서</div>
+    $$
+   \frac{dy}{dx}
+   =\frac{dy/dt}{dx/dt}
+   =\frac1{e^t+4e^{-t}}.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(t=\ln2\)일 때</div>
+    $$
+   \frac{dy}{dx}
+   =\frac1{e^{\ln2}+4e^{-\ln2}}
+   =\frac1{2+4\times\frac12}
+   =\frac14.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;④</div>
+` },
+
+"2022_mock09/calculus/q26": { answer: 2, html: String.raw`
+  <div class="sol-box">\(x=t\)에서 정사각형 한 변의 길이가 함수값이므로 단면적은 함수값의 제곱이다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(x=t\)에서 단면의 넓이는</div>
+    $$
+   \left(\sqrt{\frac{3t+1}{t^2}}\right)^2
+   =\frac{3t+1}{t^2}
+   =\frac3t+\frac1{t^2}.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 따라서 부피는</div>
+    $$
+   \int_1^2\left(\frac3t+\frac1{t^2}\right)dt.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 계산하면</div>
+    $$
+   \left[3\ln|t|-\frac1t\right]_1^2
+   =\left(3\ln2-\frac12\right)-\left(0-1\right).
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 따라서</div>
+    $$
+   \frac12+3\ln2.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2022_mock09/calculus/q27": { answer: 3, html: String.raw`
+  <div class="sol-box">첫 그림의 색칠 넓이 \(S_1\)을 구하고, 다음 직사각형과의 닮음비로 넓이의 공비를 구해 등비급수의 합을 계산한다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 도형에서</div>
+    $$
+   \overline{C_1E_1}=\sqrt3,
+   \qquad
+   \overline{C_1F_1}=\frac{\sqrt3}{3}.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 따라서</div>
+    $$
+   \overline{E_1F_1}=\frac{2\sqrt3}{3},
+   \qquad
+   \overline{F_1H_1}=\frac23.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">3</span></p>
+    $$
+   \overline{G_1H_1}
+   =\frac{2\sqrt3}{3}-\frac23
+   =\frac23(\sqrt3-1).
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 두 삼각형의 넓이는</div>
+    $$
+   [\triangle G_1E_1H_1]
+   =\frac12\times\frac23(\sqrt3-1)\times\frac{2\sqrt3}{3}
+   =\frac{2\sqrt3(\sqrt3-1)}9,
+   $$
+    $$
+   [\triangle H_1F_1D_1]
+   =\frac12\times\frac23\times\frac{\sqrt3}{3}
+   =\frac{\sqrt3}{9}.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">5</span> 따라서</div>
+    $$
+   S_1=\frac{2\sqrt3(\sqrt3-1)+\sqrt3}{9}
+   =\frac{6-\sqrt3}{9}.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">6</span> \(\overline{AB_2}=a\)라 하면 \(\overline{B_2C_2}=2a\)이다. 점 \(E_1\)에서 \(\overline{B_2C_2}\)에 내린 수선의 발을 \(T\)라 하면</p>
+    $$
+   \overline{B_1B_2}=\overline{E_1T}=1-a,
+   $$
+    $$
+   \overline{C_2T}=1-a.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">7</span> 또한</div>
+    $$
+   \overline{B_1E_1}=\overline{B_2T}=2-\sqrt3.
+   $$
+    <p>따라서</p>
+    $$
+   2-\sqrt3+1-a=2a.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">8</span></p>
+    $$
+   a=\frac{3-\sqrt3}{3}=\frac{\sqrt3-1}{\sqrt3}.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">9</span> 두 직사각형의 닮음비가</div>
+    $$
+   \frac{\sqrt3-1}{\sqrt3}
+   $$
+    <p>이므로 넓이의 공비는</p>
+    $$
+   \left(\frac{\sqrt3-1}{\sqrt3}\right)^2
+   =\frac{4-2\sqrt3}{3}.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">10</span> 따라서</div>
+    $$
+   \lim_{n\to\infty}S_n
+   =\frac{\frac{6-\sqrt3}{9}}{1-\frac{4-2\sqrt3}{3}}.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">11</span> 정리하면</div>
+    $$
+   \frac{\frac13(6-\sqrt3)}{3-4+2\sqrt3}
+   =\frac{\frac{\sqrt3}{3}(2\sqrt3-1)}{2\sqrt3-1}
+   =\frac{\sqrt3}{3}.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
+
+"2022_mock09/calculus/q28": { answer: 1, html: String.raw`
+  <div class="sol-box">원 위의 점 \(A'=(0,2)\)를 두고 원주각과 직각삼각형을 이용하여 \(PR=f(\theta)\)를 삼각함수로 나타낸 뒤 치환적분한다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(A'(0,2)\)라 하자. \(A'B\)는 지름이므로</div>
+    $$
+   \angle A'PB=\frac\pi2.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 원주각의 성질에 의해</div>
+    $$
+   \angle PA'B=\angle PAB=\theta.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">3</span> \(Q\)에서 \(A'P\)에 내린 수선의 발을 \(H\)라 하면 사각형 \(QHPR\)는 직사각형이므로</p>
+    $$
+   PR=QH.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">4</span></p>
+    $$
+   \overline{A'Q}=2-2\cos\theta.
+   $$
+    <p>직각삼각형 \(A'QH\)에서</p>
+    $$
+   QH=(2-2\cos\theta)\sin\theta.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">5</span> 따라서</div>
+    $$
+   f(\theta)=(2-2\cos\theta)\sin\theta.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">6</span> 그러므로</div>
+    $$
+   \int_{\pi/6}^{\pi/3}f(\theta)\,d\theta
+   =\int_{\pi/6}^{\pi/3}(2-2\cos\theta)\sin\theta\,d\theta.
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">7</span> \(t=\cos\theta\)로 치환하면</div>
+    $$
+   =\int_{1/2}^{\sqrt3/2}(2-2t)\,dt.
+   $$
+  </div>
+  <div class="sol-step">
+    <p><span class="sol-num">8</span></p>
+    $$
+   =\left[2t-t^2\right]_{1/2}^{\sqrt3/2}
+   =\left(\sqrt3-\frac34\right)-\left(1-\frac14\right).
+   $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">9</span> 따라서</div>
+    $$
+   \sqrt3-\frac32
+   =\frac{2\sqrt3-3}{2}.
+   $$
+  </div>
+  <div class="sol-final">답 &nbsp;①</div>
+` },
+
 };
