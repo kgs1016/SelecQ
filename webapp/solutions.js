@@ -10132,4 +10132,309 @@ window.SOLUTIONS = {
   </div>
   <div class="sol-final">답 &nbsp;③</div>
 ` },
+
+"2024_mock09/common/q01": { answer: 5, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 지수법칙으로 지수를 더한다</div>
+    $$
+    3^{1-\sqrt5}\times3^{1+\sqrt5}=3^{(1-\sqrt5)+(1+\sqrt5)}=3^2=9.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;⑤</div>
+` },
+
+"2024_mock09/common/q02": { answer: 3, html: String.raw`
+  <div class="sol-box">\(f(1)=2-1=1\)이므로 주어진 식은 \(x=1\)에서의 미분계수의 정의 그대로이다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 미분계수로 본다</div>
+    $$
+    \lim_{x\to1}\frac{f(x)-1}{x-1}=\lim_{x\to1}\frac{f(x)-f(1)}{x-1}=f'(1).
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 미분해서 대입한다</div>
+    $$
+    f'(x)=4x-1,\qquad f'(1)=3.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
+
+"2024_mock09/common/q03": { answer: 2, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 사분면을 보고 \(\sin\theta\)의 부호를 정한다</div>
+    <p>\(\dfrac32\pi&lt;\theta&lt;2\pi\)이므로 \(\theta\)는 제4사분면의 각이고 \(\sin\theta&lt;0\)이다.</p>
+    $$
+    \sin\theta=-\sqrt{1-\cos^2\theta}=-\sqrt{1-\left(\frac{\sqrt6}{3}\right)^2}=-\sqrt{\frac13}=-\frac{\sqrt3}{3}.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 탄젠트를 구한다</div>
+    $$
+    \tan\theta=\frac{\sin\theta}{\cos\theta}
+    =\frac{-\frac{\sqrt3}{3}}{\frac{\sqrt6}{3}}
+    =-\frac{\sqrt3}{\sqrt6}=-\frac{1}{\sqrt2}=-\frac{\sqrt2}{2}.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2024_mock09/common/q04": { answer: 1, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 그래프에서 한쪽 극한을 각각 읽는다</div>
+    <p>\(x\)가 \(-2\)에 오른쪽에서 가까워질 때의 값과, \(1\)에 왼쪽에서 가까워질 때의 값을 읽으면</p>
+    $$
+    \lim_{x\to-2+}f(x)=-2,\qquad \lim_{x\to1-}f(x)=0.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 더한다</div>
+    $$
+    -2+0=-2.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;①</div>
+` },
+
+"2024_mock09/common/q05": { answer: 5, html: String.raw`
+  <div class="sol-box">첨자의 합이 같으면 곱이 같다는 성질을 쓰면 \(\dfrac{a_3a_8}{a_6}\)이 곧 \(a_5\)이다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(a_5\)를 구한다</div>
+    <p>첫째항을 \(a\), 공비를 \(r\)라 하면 모든 항이 양수이므로 \(a&gt;0,\ r&gt;0\)이다.</p>
+    $$
+    \frac{a_3a_8}{a_6}=\frac{ar^2\times ar^7}{ar^5}=ar^4=a_5=12.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 공비의 제곱을 구한다</div>
+    $$
+    a_5+a_7=36\ \Longrightarrow\ a_7=24,\qquad r^2=\frac{a_7}{a_5}=\frac{24}{12}=2.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(a_{11}\)을 구한다</div>
+    $$
+    \frac{a_{11}}{a_7}=r^4=(r^2)^2=4,\qquad a_{11}=24\times4=96.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;⑤</div>
+` },
+
+"2024_mock09/common/q06": { answer: 3, html: String.raw`
+  <div class="sol-box">극대·극소가 되는 두 \(x\)를 알므로 \(f'(x)\)를 인수분해된 꼴로 바로 쓸 수 있다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(f'\)를 두 가지로 표현해 비교한다</div>
+    <p>\(f'(x)=3x^2+2ax+b\)이고, \(f\)가 \(x=-1\)에서 극대, \(x=3\)에서 극소이므로 \(f'(-1)=f'(3)=0\)이다. 최고차항의 계수가 \(3\)이므로</p>
+    $$
+    3x^2+2ax+b=3(x+1)(x-3)=3x^2-6x-9.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 계수를 맞추고 극댓값을 구한다</div>
+    $$
+    a=-3,\qquad b=-9,\qquad f(x)=x^3-3x^2-9x+1,
+    $$
+    $$
+    f(-1)=-1-3+9+1=6.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
+
+"2024_mock09/common/q07": { answer: 4, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 통분한다</div>
+    $$
+    \frac1{3a}+\frac1{2b}=\frac{2b+3a}{6ab}=\frac{3a+2b}{6ab}.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 밑을 \(3\)으로 통일한다</div>
+    $$
+    3a+2b=\log_3 32=\log_3 2^5=5\log_3 2,
+    $$
+    $$
+    ab=\log_9 2=\log_{3^2}2=\frac12\log_3 2.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 대입한다</div>
+    $$
+    \frac{3a+2b}{6ab}=\frac{5\log_3 2}{6\times\frac12\log_3 2}=\frac{5\log_3 2}{3\log_3 2}=\frac53.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;④</div>
+` },
+
+"2024_mock09/common/q08": { answer: 4, html: String.raw`
+  <div class="sol-box">\(f(1)\)을 아직 모르는 <b>상수</b>로 두고 적분한 뒤, \(x=1\)을 대입해 그 값을 결정한다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 적분한다</div>
+    $$
+    f(x)=\int\{6x^2-2f(1)x\}\,dx=2x^3-f(1)x^2+C.
+    $$
+    <p>\(f(0)=4\)이므로 \(C=4\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(x=1\)을 대입해 \(f(1)\)을 구한다</div>
+    $$
+    f(1)=2-f(1)+4,\qquad 2f(1)=6,\qquad f(1)=3.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(f(2)\)를 구한다</div>
+    $$
+    f(x)=2x^3-3x^2+4,\qquad f(2)=16-12+4=8.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;④</div>
+` },
+
+"2024_mock09/common/q09": { answer: 3, html: String.raw`
+  <div class="sol-box">\(\sin\dfrac\pi7\)을 코사인으로 바꾸면 양변이 모두 코사인이 되어 그래프 하나로 비교할 수 있다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 우변을 코사인으로 바꾼다</div>
+    $$
+    \sin\frac\pi7=\cos\left(\frac\pi2-\frac\pi7\right)=\cos\frac{5}{14}\pi.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 두 교점의 \(x\)좌표를 구한다</div>
+    <p>\(0\le x\le2\pi\)에서 곡선 \(y=\cos x\)와 직선 \(y=\cos\dfrac{5}{14}\pi\)가 만나는 두 점의 \(x\)좌표를 \(x_1&lt;x_2\)라 하면, 그래프가 \(x=\pi\)에 대하여 대칭이므로</p>
+    $$
+    x_1=\frac{5}{14}\pi,\qquad \frac{x_1+x_2}{2}=\pi\ \Longrightarrow\ x_2=2\pi-\frac{5}{14}\pi=\frac{23}{14}\pi.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 부등식의 해를 읽는다</div>
+    <p>\(\cos x\)가 두 교점 사이에서 그 값보다 작거나 같으므로</p>
+    $$
+    \frac{5}{14}\pi\le x\le\frac{23}{14}\pi,\qquad
+    \beta-\alpha=\frac{23}{14}\pi-\frac{5}{14}\pi=\frac97\pi.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
+
+"2024_mock09/common/q10": { answer: 3, html: String.raw`
+  <div class="sol-box">삼차함수의 그래프가 점 \((2,3)\)을 지나고 그 점에서의 접선이 \(y=3\)과 만나는 모양이므로, \(f(x)-3\)이 \((x-2)^2\)을 인수로 갖는다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(f\)의 꼴을 정한다</div>
+    <p>곡선 위의 점 \((2,3)\)에서의 접선이 점 \((1,3)\)을 지나므로 \(f(x)-3\)은 \((x-2)^2\)을 인수로 갖는다. 최고차항의 계수가 \(1\)이므로</p>
+    $$
+    f(x)=(x-a)(x-2)^2+3\qquad(a\text{는 상수}).
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \((-2,f(-2))\)에서의 접선을 세운다</div>
+    $$
+    f'(x)=(x-2)^2+2(x-a)(x-2),
+    $$
+    <p>이므로 그 접선은 \(y-f(-2)=f'(-2)(x+2)\)이다. 이 접선이 점 \((1,3)\)을 지나므로</p>
+    $$
+    3-f(-2)=3f'(-2).
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(a\)를 구한다</div>
+    <p>\(f(-2)=16(-2-a)+3\), \(f'(-2)=16-8(-2-a)\)이므로</p>
+    $$
+    3-\{16(-2-a)+3\}=3\{16-8(-2-a)\},
+    $$
+    $$
+    32+16a=96+24a,\qquad 8a=-64,\qquad a=-8.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> \(f(0)\)을 구한다</div>
+    $$
+    f(x)=(x+8)(x-2)^2+3,\qquad f(0)=8\times4+3=35.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
+
+"2024_mock09/common/q11": { answer: 5, html: String.raw`
+  <div class="sol-box">거리는 위치의 차이이므로 두 점의 위치를 각각 적분으로 구한 뒤, 움직인 거리는 속도에 절댓값을 씌워 적분한다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 두 점의 위치를 구한다</div>
+    $$
+    s_1(t)=1+\int_0^t(3u^2+4u-7)\,du=t^3+2t^2-7t+1,
+    $$
+    $$
+    s_2(t)=8+\int_0^t(2u+4)\,du=t^2+4t+8.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 거리가 \(4\)가 되는 시각을 구한다</div>
+    $$
+    |s_1(t)-s_2(t)|=|t^3+t^2-11t-7|=4
+    $$
+    <p>이므로 \(t^3+t^2-11t-11=0\) 또는 \(t^3+t^2-11t-3=0\)이다.</p>
+    $$
+    (t+1)(t^2-11)=0\ \Longrightarrow\ t=\sqrt{11},\qquad
+    (t-3)(t^2+4t+1)=0\ \Longrightarrow\ t=3.
+    $$
+    <p>\(3&lt;\sqrt{11}\)이므로 처음으로 거리가 \(4\)가 되는 시각은 \(t=3\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 속도의 부호를 본다</div>
+    $$
+    v_1(t)=3t^2+4t-7=(3t+7)(t-1)
+    $$
+    <p>이므로 \(0\le t&lt;1\)에서 \(v_1(t)&lt;0\), \(t\ge1\)에서 \(v_1(t)\ge0\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 움직인 거리를 구한다</div>
+    $$
+    \int_0^3|v_1(t)|\,dt=-\Big[t^3+2t^2-7t\Big]_0^1+\Big[t^3+2t^2-7t\Big]_1^3
+    =-(-4)+\{24-(-4)\}=4+28=32.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;⑤</div>
+` },
+
+"2024_mock09/common/q12": { answer: 1, html: String.raw`
+  <div class="sol-box">\(a_1\)의 홀짝만으로는 \(a_2,a_3,a_4\)가 정해지지 않는다. \(a_1\)을 \(4\)로 나눈 나머지로 나누면 네 항까지 한 번에 따라간다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(a_1=4k\)</div>
+    <p>\(a_2=2k,\ a_3=k\)이다. \(k\)가 홀수이면 \(a_4=k+1\)이므로</p>
+    $$
+    a_2+a_4=2k+(k+1)=3k+1=40\ \Longrightarrow\ k=13,\qquad a_1=52.
+    $$
+    <p>\(k\)가 짝수이면 \(a_4=\dfrac k2\)이므로</p>
+    $$
+    2k+\frac k2=\frac52k=40\ \Longrightarrow\ k=16,\qquad a_1=64.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(a_1=4k-1\) (홀수)</div>
+    <p>\(a_2=4k,\ a_3=2k,\ a_4=k\)이므로</p>
+    $$
+    4k+k=5k=40\ \Longrightarrow\ k=8,\qquad a_1=31.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(a_1=4k-2\) (짝수)</div>
+    <p>\(a_2=2k-1,\ a_3=2k,\ a_4=k\)이므로</p>
+    $$
+    (2k-1)+k=3k-1=40\ \Longrightarrow\ k=\frac{41}{3},
+    $$
+    <p>이는 자연수가 아니므로 조건을 만족시키지 않는다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> \(a_1=4k-3\) (홀수)</div>
+    <p>\(a_2=4k-2,\ a_3=2k-1,\ a_4=2k\)이므로</p>
+    $$
+    (4k-2)+2k=6k-2=40\ \Longrightarrow\ k=7,\qquad a_1=25.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">5</span> 합을 구한다</div>
+    $$
+    52+64+31+25=172.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;①</div>
+` },
 };
