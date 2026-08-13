@@ -19,9 +19,23 @@ import fitz
 ROOT = Path(__file__).resolve().parent.parent
 SECTION = [(r"확률과\s*통계", "prob_stat"), (r"미적분", "calculus"), (r"기하", "geometry")]
 
-# 해설 문항 머리: "8. 출제의도 : …" 처럼 번호 뒤에 해설 표제어가 오는 것만.
-# (정답표는 "01. ④  02. ⑤" 꼴이라 표제어가 없어 걸러진다)
-HEAD = re.compile(r"^\s*(\d{1,2})\s*[.)]\s*(?=출제|해설|풀이|\[정답\]|【)", re.M)
+# 해설 문항 머리는 출판사마다 다르다.
+#   EBS   "8. 출제의도 : …"   번호 뒤에 해설 표제어가 온다.
+#         (정답표는 "01. ④  02. ⑤" 꼴이라 표제어가 없어 걸러진다)
+#   이투스 "8." + U+0001 + 단원명   번호와 마침표 뒤에 제어문자가 온다.
+#   종로   "16" + 아이콘 글리프     '정답풀이' 아이콘이 뒤따른다. 아이콘은
+#         판본마다 사설 영역 평면이 다르고, cmap이 깨져 '빾' 같은 엉뚱한
+#         한글로 나오기도 해서 세 경우를 다 받아준다.
+# 어느 쪽이든 수식은 폰트 미매핑으로 깨져도 이 머리글만은 살아 있다.
+ICON = "-\U000F0000-\U000FFFFD빾"
+HEAD = re.compile(
+    r"^\s*(\d{1,2})(?:"
+    r"\s*[.)]\s*(?=출제|해설|풀이|\[정답\]|【)"       # EBS 꼴
+    r"|\."                                      # 이투스 꼴
+    rf"|\s*[{ICON}]"                                  # 종로 꼴
+    r")",
+    re.M,
+)
 
 
 def index(pdf):
@@ -34,8 +48,13 @@ def index(pdf):
             if re.search(pat, text):
                 cur = name
                 break
-        for m in HEAD.finditer(text):
-            n = int(m.group(1))
+        heads = [int(m.group(1)) for m in HEAD.finditer(text)]
+        # 표 페이지 거르기. 해설 본문 한 쪽에는 문항이 많아야 8개이고 같은
+        # 번호가 두 번 나오지 않는다. 반면 정답표·정답률표·고난도 요약 쪽은
+        # 문항 수가 많거나 선택과목별로 같은 번호(29, 30 …)가 반복된다.
+        if len(heads) > 12 or len(heads) != len(set(heads)):
+            continue
+        for n in heads:
             if 1 <= n <= 22:
                 res.setdefault("common", {}).setdefault(n, pno)
             elif 23 <= n <= 30:
