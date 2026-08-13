@@ -10437,4 +10437,528 @@ window.SOLUTIONS = {
   </div>
   <div class="sol-final">답 &nbsp;①</div>
 ` },
+
+"2024_mock09/common/q14": { answer: 2, html: String.raw`
+  <div class="sol-box">\(x\le-8\)에서는 증가하는 지수함수, \(x&gt;-8\)에서는 감소하는 지수함수다. 각 조각이 <b>어떤 값들을 훑는지</b>를 구간으로 적어 놓고 정수를 세면 된다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 두 조각이 훑는 값의 범위를 적는다</div>
+    <p>\(x\le-8\)에서 \(2^{x+a}+b\)는 증가하고 \(x\to-\infty\)일 때 \(b\)에 한없이 가까워지므로, 이 조각의 값은</p>
+    $$
+    \left(b,\ 2^{a-8}+b\right]
+    $$
+    <p>를 훑는다. \(x&gt;-8\)에서 \(-3^{x-3}+8\)은 감소하고 \(x\to-8+\)일 때 \(8\)보다 조금 작은 값에서 시작하므로, \(x\le k\)까지 보면 이 조각의 값은</p>
+    $$
+    \left[-3^{k-3}+8,\ 8\right)
+    $$
+    <p>을 훑는다. (\(-3^{-11}+8&lt;8\)이므로 \(8\)은 들어가지 않는다.)</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 오른쪽 조각이 정수를 얻는 시점을 본다</div>
+    <p>\(-3^{k-3}+8=7\)에서 \(k=3\), \(=6\)에서 \(k=3+\log_3 2\), \(=5\)에서 \(k=4\)이다. 즉 오른쪽 조각이 주는 정수는</p>
+    $$
+    k&lt;3:\ \text{없음},\qquad 3\le k&lt;3+\log_3 2:\ 7,\qquad 3+\log_3 2\le k&lt;4:\ 6,\ 7.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 왼쪽 조각이 주는 정수를 확정한다</div>
+    <p>정수의 개수가 \(2\)인 범위가 \(3\le k&lt;4\) <b>전체</b>여야 한다. 그런데 \(k\)가 \(3+\log_3 2\)를 넘는 순간 오른쪽 조각에 \(6\)이 새로 들어오므로, 개수가 늘지 않으려면 왼쪽 조각이 이미 \(6\)을 가지고 있어야 한다.</p>
+    <p>또 \(k&lt;3\)일 때는 개수가 \(2\)가 아니어야 하므로 왼쪽 조각이 주는 정수는 \(6\) 하나뿐이다. 따라서 구간 \(\left(b,\ 2^{a-8}+b\right]\)에 들어가는 정수가 \(6\)뿐이어야 하므로</p>
+    $$
+    b=5,\qquad 6\le 2^{a-8}+5&lt;7.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> \(a\)를 구한다</div>
+    $$
+    1\le2^{a-8}&lt;2,\qquad 0\le a-8&lt;1,\qquad 8\le a&lt;9.
+    $$
+    <p>\(a\)가 자연수이므로 \(a=8\)이고</p>
+    $$
+    a+b=8+5=13.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2024_mock09/common/q15": { answer: 4, html: String.raw`
+  <div class="sol-box">\(g\)가 \(x=3\)에서 불연속이라는 것이 \(f(3)=0\)을 주고, 극한값이 존재한다는 것이 \(f(6)=0\)을 준다. 삼차함수의 세 근 중 둘이 이렇게 정해진다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(f(3)=0\)을 얻는다</div>
+    <p>\(f\)는 연속함수이므로 \(f(x)\ne0\)인 곳에서 \(g\)는 연속이다. \(g\)가 \(x=3\)에서 연속이 아니려면</p>
+    $$
+    f(3)=0,\qquad g(3)=3.
+    $$
+    <p>주어진 조건에서 \(\displaystyle\lim_{x\to3}g(x)=g(3)-1=2\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(f(6)=0\)을 얻는다</div>
+    <p>\(x\to3\)일 때 분모 \(f(x)\to f(3)=0\)인데 극한값이 존재하므로 분자도 \(0\)으로 가야 한다.</p>
+    $$
+    f(6)\{f(3)+1\}=0\ \Longrightarrow\ f(6)=0.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 남은 근을 구한다</div>
+    <p>최고차항의 계수가 \(1\)이므로 \(f(x)=(x-3)(x-6)(x+k)\)로 놓을 수 있다. \(f(x+3)=x(x-3)(x+3+k)\)이므로</p>
+    $$
+    2=\lim_{x\to3}\frac{x(x-3)(x+3+k)\{f(x)+1\}}{(x-3)(x-6)(x+k)}
+    =\frac{3(6+k)\times1}{(-3)(3+k)}=-\frac{6+k}{3+k},
+    $$
+    $$
+    -(6+k)=2(3+k),\qquad 3k=-12,\qquad k=-4.
+    $$
+    <p>따라서 \(f(x)=(x-3)(x-6)(x-4)\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> \(g(5)\)를 구한다</div>
+    $$
+    f(5)=2\times(-1)\times1=-2\ne0,\qquad f(8)=5\times2\times4=40,
+    $$
+    $$
+    g(5)=\frac{f(8)\{f(5)+1\}}{f(5)}=\frac{40\times(-1)}{-2}=20.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;④</div>
+` },
+
+"2024_mock09/common/q16": { answer: 6, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 밑을 \(4\)로 맞춘다</div>
+    <p>진수 조건에서 \(x&gt;1\)이다. \(\log_2(x-1)=\log_4(x-1)^2\)이므로 주어진 식은</p>
+    $$
+    \log_4(x-1)^2=\log_4(13+2x).
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 진수를 비교해 푼다</div>
+    $$
+    (x-1)^2=13+2x,\qquad x^2-4x-12=0,\qquad (x-6)(x+2)=0.
+    $$
+    <p>\(x&gt;1\)이므로 \(x=6\)이다.</p>
+  </div>
+  <div class="sol-final">답 &nbsp;\(\mathbf{6}\)</div>
+` },
+
+"2024_mock09/common/q17": { answer: 24, html: String.raw`
+  <div class="sol-box">구하려는 식을 주어진 두 합의 <b>차</b>로 만들면 \(b_k\)를 따로 구할 필요가 없다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 식을 변형한다</div>
+    $$
+    \sum_{k=1}^{10}(a_k-b_k)=\sum_{k=1}^{10}\{(2a_k-b_k)-a_k\}
+    =\sum_{k=1}^{10}(2a_k-b_k)-\sum_{k=1}^{10}a_k.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 값을 대입한다</div>
+    $$
+    34-10=24.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;\(\mathbf{24}\)</div>
+` },
+
+"2024_mock09/common/q18": { answer: 5, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 곱의 미분법으로 \(f'\)를 구한다</div>
+    $$
+    f'(x)=2x(x^2+ax+3)+(x^2+1)(2x+a).
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(x=1\)을 대입해 \(a\)를 구한다</div>
+    $$
+    f'(1)=2(1+a+3)+2(2+a)=4a+12=32,\qquad a=5.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;\(\mathbf{5}\)</div>
+` },
+
+"2024_mock09/common/q19": { answer: 4, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 교점의 \(x\)좌표를 구한다</div>
+    $$
+    3x^3-7x^2=-x^2,\qquad 3x^3-6x^2=0,\qquad 3x^2(x-2)=0,
+    $$
+    <p>이므로 \(x=0\) 또는 \(x=2\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 넓이를 정적분으로 구한다</div>
+    <p>\(0&lt;x&lt;2\)에서 \(-x^2-(3x^3-7x^2)=-3x^3+6x^2=3x^2(2-x)&gt;0\)이므로 \(y=-x^2\)이 위에 있다.</p>
+    $$
+    \int_0^2(-3x^3+6x^2)\,dx=\left[-\frac34x^4+2x^3\right]_0^2=-12+16=4.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;\(\mathbf{4}\)</div>
+` },
+
+"2024_mock09/common/q20": { answer: 98, html: String.raw`
+  <div class="sol-box">두 외접원의 반지름을 각각 \(\overline{\mathrm{BD}}\)로 나타낸 뒤, 코사인법칙으로 \(\overline{\mathrm{BD}}^{\,2}\)을 구해 곱에 대입하는 흐름이다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(R_1\)을 구한다</div>
+    <p>삼각형 \(\mathrm{BCD}\)에서 사인법칙에 의하여</p>
+    $$
+    \frac{\overline{\mathrm{BD}}}{\sin\frac34\pi}=2R_1,\qquad
+    \frac{\overline{\mathrm{BD}}}{\frac{1}{\sqrt2}}=2R_1,\qquad
+    R_1=\frac{\sqrt2}{2}\times\overline{\mathrm{BD}}.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(R_2\)를 구한다 <span class="sol-no">(가)</span></div>
+    <p>삼각형 \(\mathrm{ABD}\)에서 사인법칙에 의하여</p>
+    $$
+    \frac{\overline{\mathrm{BD}}}{\sin\frac23\pi}=2R_2,\qquad
+    \frac{\overline{\mathrm{BD}}}{\frac{\sqrt3}{2}}=2R_2,\qquad
+    R_2=\frac{\sqrt3}{3}\times\overline{\mathrm{BD}},
+    $$
+    <p>즉 \(p=\dfrac{\sqrt3}{3}\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(\overline{\mathrm{BD}}^{\,2}\)을 구한다 <span class="sol-no">(나)</span></div>
+    <p>삼각형 \(\mathrm{ABD}\)에서 코사인법칙에 의하여</p>
+    $$
+    \overline{\mathrm{BD}}^{\,2}=2^2+1^2-2\times2\times1\times\cos\frac23\pi=2^2+1^2-(-2)=7,
+    $$
+    <p>즉 \(q=-2\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 두 반지름의 곱을 구한다 <span class="sol-no">(다)</span></div>
+    $$
+    R_1\times R_2=\left(\frac{\sqrt2}{2}\times\overline{\mathrm{BD}}\right)\left(\frac{\sqrt3}{3}\times\overline{\mathrm{BD}}\right)
+    =\frac{\sqrt6}{6}\times\overline{\mathrm{BD}}^{\,2}=\frac{7\sqrt6}{6},
+    $$
+    <p>즉 \(r=\dfrac{7\sqrt6}{6}\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">5</span> 답을 계산한다</div>
+    $$
+    p\times q\times r=\frac{\sqrt3}{3}\times(-2)\times\frac{7\sqrt6}{6}=-\frac{7\sqrt2}{3},
+    $$
+    $$
+    9\times(p\times q\times r)^2=9\times\frac{98}{9}=98.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;\(\mathbf{98}\)</div>
+` },
+
+"2024_mock09/prob_stat/q23": { answer: 1, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 이항분포의 평균을 쓴다</div>
+    <p>확률변수 \(X\)가 이항분포 \(\mathrm B\!\left(30,\ \dfrac15\right)\)을 따르므로</p>
+    $$
+    \mathrm E(X)=30\times\frac15=6.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;①</div>
+` },
+
+"2024_mock09/prob_stat/q24": { answer: 3, html: String.raw`
+  <div class="sol-box">최단 거리로 가는 경로의 수는 오른쪽·위쪽 이동을 나열하는 <b>같은 것이 있는 순열</b>의 수이다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(\mathrm A\to\mathrm P\)를 센다</div>
+    <p>오른쪽으로 \(3\)번, 위쪽으로 \(1\)번 가야 하므로</p>
+    $$
+    \frac{4!}{3!\times1!}=4.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(\mathrm P\to\mathrm B\)를 센다</div>
+    <p>오른쪽으로 \(1\)번, 위쪽으로 \(1\)번 가야 하므로</p>
+    $$
+    \frac{2!}{1!\times1!}=2.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 곱한다</div>
+    $$
+    4\times2=8.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
+
+"2024_mock09/prob_stat/q25": { answer: 3, html: String.raw`
+  <div class="sol-box">"\(A\)와 \(B^{C}\)가 배반"은 곧 \(A\subset B\)라는 뜻이다. 이걸 알아채면 나머지는 뺄셈이다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 포함 관계를 읽는다</div>
+    <p>\(A\cap B^{C}=\varnothing\)이므로 \(A\)의 원소는 모두 \(B\)에 들어간다. 즉 \(A\subset B\)이고</p>
+    $$
+    \mathrm P(A\cap B)=\mathrm P(A)=\frac15.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(\mathrm P(B)\)를 구한다</div>
+    $$
+    \mathrm P(A)+\mathrm P(B)=\frac7{10}\ \Longrightarrow\ \mathrm P(B)=\frac7{10}-\frac15=\frac12.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 답을 구한다</div>
+    <p>\(A\subset B\)이므로 \(B\)에서 \(A\)를 빼면 \(A^{C}\cap B\)이다.</p>
+    $$
+    \mathrm P(A^{C}\cap B)=\mathrm P(B)-\mathrm P(A)=\frac12-\frac15=\frac3{10}.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
+
+"2024_mock09/prob_stat/q26": { answer: 2, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 표준화한다</div>
+    <p>시험 점수를 \(X\)라 하면 \(X\)는 정규분포 \(\mathrm N(68,\ 10^2)\)을 따르므로 \(Z=\dfrac{X-68}{10}\)은 표준정규분포 \(\mathrm N(0,1)\)을 따른다.</p>
+    $$
+    \mathrm P(55\le X\le78)=\mathrm P\!\left(\frac{55-68}{10}\le Z\le\frac{78-68}{10}\right)=\mathrm P(-1.3\le Z\le1).
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(Z=0\)에서 나눠 표를 쓴다</div>
+    <p>표준정규분포는 \(Z=0\)에 대하여 대칭이므로 \(\mathrm P(-1.3\le Z\le0)=\mathrm P(0\le Z\le1.3)\)이다.</p>
+    $$
+    \mathrm P(0\le Z\le1.3)+\mathrm P(0\le Z\le1)=0.4032+0.3413=0.7445.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2024_mock09/prob_stat/q27": { answer: 4, html: String.raw`
+  <div class="sol-box">\(f(2)=2\)가 이미 인수 \(2\)를 하나 주므로, 조건 (나)는 결국 <b>\(f(1),f(3),f(4)\) 중 적어도 하나가 짝수</b>라는 뜻이다. "적어도"이므로 여사건으로 센다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 전체 경우의 수를 구한다</div>
+    <p>\(X\)에서 \(Y\)로의 일대일함수의 개수는</p>
+    $$
+    {}_7\mathrm P_4=7\times6\times5\times4=840.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 조건 (나)를 다시 읽는다</div>
+    <p>\(f(2)=2\)이므로 \(f(1)f(2)f(3)f(4)=2\times f(1)f(3)f(4)\)이다. 이것이 \(4\)의 배수이려면 \(f(1)f(3)f(4)\)가 짝수, 즉 세 값 중 적어도 하나가 짝수여야 한다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 여사건으로 센다</div>
+    <p>\(f(2)=2\)인 함수의 개수는 남은 \(6\)개 값에서 \(3\)개를 뽑아 배열하는</p>
+    $$
+    6\times5\times4=120.
+    $$
+    <p>이 중 \(f(1),f(3),f(4)\)가 모두 홀수인 것은 \(1,3,5,7\)의 \(4\)개에서 \(3\)개를 뽑아 배열하는</p>
+    $$
+    4\times3\times2=24.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 확률을 구한다</div>
+    $$
+    \frac{120-24}{840}=\frac{96}{840}=\frac4{35}.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;④</div>
+` },
+
+"2024_mock09/prob_stat/q28": { answer: 5, html: String.raw`
+  <div class="sol-box">한 번의 시행에서 기록되는 차 \(X\)의 분포를 먼저 구해 놓으면, 표본평균이 \(2\)라는 조건은 \(X_1+X_2=4\)로 바뀐다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 각 주머니에서 차가 나올 확률</div>
+    <p>주머니 \(\mathrm A\)에서는 \({}_3\mathrm C_2=3\)가지 중 차가 \(1\)인 것이 \(2\)가지, \(2\)인 것이 \(1\)가지이다. 주머니 \(\mathrm B\)에서는 \({}_4\mathrm C_2=6\)가지 중 차가 \(1\)인 것이 \(3\)가지, \(2\)인 것이 \(2\)가지, \(3\)인 것이 \(1\)가지이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(X\)의 분포를 구한다</div>
+    <p>주사위에서 \(3\)의 배수가 나올 확률이 \(\dfrac13\), 아닐 확률이 \(\dfrac23\)이므로</p>
+    $$
+    \mathrm P(X=2)=\frac13\times\frac13+\frac23\times\frac26=\frac19+\frac29=\frac13,
+    $$
+    $$
+    \mathrm P(X=3)=\frac23\times\frac16=\frac19,
+    $$
+    $$
+    \mathrm P(X=1)=1-\frac13-\frac19=\frac59.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 표본평균 조건을 바꾼다</div>
+    <p>크기가 \(2\)인 표본의 평균이 \(2\)라는 것은 \(X_1+X_2=4\)라는 뜻이므로, 가능한 순서쌍은 \((1,3),\ (3,1),\ (2,2)\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 확률을 더한다</div>
+    <p>두 시행은 독립이므로</p>
+    $$
+    2\times\frac59\times\frac19+\left(\frac13\right)^2=\frac{10}{81}+\frac9{81}=\frac{19}{81}.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;⑤</div>
+` },
+
+"2024_mock09/calculus/q23": { answer: 4, html: String.raw`
+  <div class="sol-box">\(\lim\limits_{x\to0}\dfrac{e^{x}-1}{x}=1\)을 쓸 수 있게 분자와 분모를 각각 지수에 맞춰 나눈다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 꼴을 맞춘다</div>
+    $$
+    \frac{e^{7x}-1}{e^{2x}-1}=\frac{e^{7x}-1}{7x}\times\frac{2x}{e^{2x}-1}\times\frac72.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 극한값을 구한다</div>
+    $$
+    \lim_{x\to0}\frac{e^{7x}-1}{e^{2x}-1}=\frac72\times1\times1=\frac72.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;④</div>
+` },
+
+"2024_mock09/calculus/q24": { answer: 2, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(t\)로 각각 미분한다</div>
+    $$
+    \frac{dx}{dt}=1-2\sin2t,\qquad \frac{dy}{dt}=2\sin t\cos t.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 매개변수로 나타낸 함수의 미분법을 쓴다</div>
+    $$
+    \frac{dy}{dx}=\frac{2\sin t\cos t}{1-2\sin2t}\qquad(1-2\sin2t\ne0).
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(t=\dfrac\pi4\)를 대입한다</div>
+    $$
+    \frac{2\times\frac{\sqrt2}{2}\times\frac{\sqrt2}{2}}{1-2\sin\frac\pi2}=\frac{1}{1-2}=-1.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2024_mock09/calculus/q25": { answer: 2, html: String.raw`
+  <div class="sol-box">피적분함수가 \(f'(x)f(x)\) 꼴임을 알아채면 \(\dfrac12\{f(x)\}^2\)이 원시함수가 된다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(f'\)를 확인한다</div>
+    <p>\(f(x)=x+\ln x\)이므로 \(f'(x)=1+\dfrac1x\)이다. 따라서</p>
+    $$
+    \int_1^{e}\left(1+\frac1x\right)f(x)\,dx=\int_1^{e}f'(x)f(x)\,dx.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 원시함수를 찾아 계산한다</div>
+    $$
+    \int_1^{e}f'(x)f(x)\,dx=\left[\frac12\{f(x)\}^2\right]_1^{e}
+    =\frac12\{f(e)\}^2-\frac12\{f(1)\}^2.
+    $$
+    <p>\(f(e)=e+1\), \(f(1)=1\)이므로</p>
+    $$
+    \frac12(e+1)^2-\frac12=\frac{e^2+2e}{2}=\frac{e^2}{2}+e.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2024_mock09/calculus/q26": { answer: 5, html: String.raw`
+  <div class="sol-box">두 급수의 합이 주어졌으므로, 앞의 급수를 먼저 \(d\)로 나타내면 뒤의 등비급수 합도 \(d\)로 표현된다. 등비급수 쪽을 따로 구해 두 식을 맞추면 \(d\)가 나온다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 앞의 급수를 \(d\)로 나타낸다</div>
+    <p>공차를 \(d\ (d&gt;0)\)라 하면 \(a_{n+1}-a_n=d\)이므로</p>
+    $$
+    \frac{1}{a_na_{n+1}}=\frac1d\left(\frac1{a_n}-\frac1{a_{n+1}}\right),
+    $$
+    $$
+    \sum_{k=1}^{n}\frac{1}{a_ka_{k+1}}=\frac1d\left(\frac1{a_1}-\frac1{a_{n+1}}\right).
+    $$
+    <p>\(a_1=1\)이고 \(d&gt;0\)이라 \(a_{n+1}\to\infty\)이므로</p>
+    $$
+    \sum_{n=1}^{\infty}\frac{1}{a_na_{n+1}}=\frac1d(1-0)=\frac1d.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 등비급수의 합을 \(d\)로 나타낸다</div>
+    <p>주어진 급수의 합이 \(2\)이므로 급수의 성질에 의하여</p>
+    $$
+    \sum_{n=1}^{\infty}b_n=2-\frac1d.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 공비를 구해 다시 표현한다</div>
+    <p>\(\sum b_n\)이 수렴하므로 공비 \(r\)는 \(-1&lt;r&lt;1\)이다. \(a_2b_2=(1+d)r=1\)에서 \(r=\dfrac{1}{1+d}\)이고, \(b_1=1\)이므로</p>
+    $$
+    \sum_{n=1}^{\infty}b_n=\frac{1}{1-\frac{1}{1+d}}=\frac{1+d}{d}.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 두 식을 맞춘다</div>
+    $$
+    2-\frac1d=\frac{1+d}{d},\qquad 2d-1=1+d,\qquad d=2,
+    $$
+    $$
+    \sum_{n=1}^{\infty}b_n=2-\frac12=\frac32.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;⑤</div>
+` },
+
+"2024_mock09/calculus/q27": { answer: 1, html: String.raw`
+  <div class="sol-box">\(1+\left(\dfrac{dy}{dx}\right)^2\)이 완전제곱이 되는 것이 이 문제의 장치다. 근호가 깔끔하게 벗겨진다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(x&lt;0\)에서 근호를 벗긴다</div>
+    $$
+    \frac{dy}{dx}=-\frac{e^{x}-e^{-x}}{2}
+    \ \Longrightarrow\
+    1+\left(\frac{dy}{dx}\right)^2=1+\left(\frac{e^{x}-e^{-x}}{2}\right)^2=\left(\frac{e^{x}+e^{-x}}{2}\right)^2.
+    $$
+    <p>\(e^{x}+e^{-x}&gt;0\)이므로</p>
+    $$
+    \sqrt{1+\left(\frac{dy}{dx}\right)^2}=\frac{e^{x}+e^{-x}}{2}.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(x\ge0\)에서는 상수함수이다</div>
+    <p>\(y=0\)이므로 \(\dfrac{dy}{dx}=0\)이고 \(\sqrt{1+0}=1\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 두 구간으로 나눠 적분한다</div>
+    $$
+    \int_{-\ln4}^{0}\frac{e^{x}+e^{-x}}{2}\,dx
+    =\left[\frac{e^{x}-e^{-x}}{2}\right]_{-\ln4}^{0}
+    =0-\frac{\frac14-4}{2}=\frac{15}{8},
+    $$
+    $$
+    \int_0^1 1\,dx=1.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 더한다</div>
+    $$
+    \frac{15}{8}+1=\frac{23}{8}.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;①</div>
+` },
+
+"2024_mock09/calculus/q29": { answer: 18, html: String.raw`
+  <div class="sol-box">\(\dfrac{3^n+a^{n+1}}{3^{n+1}+a^n}\) 꼴의 극한은 <b>밑이 큰 쪽으로 나누는 것</b>이 전부다. 어느 쪽이 큰지에 따라 답이 달라지므로 대소로 경우를 나눈다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 첫째 식에서 \(a&gt;3\)임을 밝힌다</div>
+    <p>ⅰ) \(1&lt;a&lt;3\)이면 \(\left(\dfrac a3\right)^n\to0\)이므로</p>
+    $$
+    \lim_{n\to\infty}\frac{3^n+a^{n+1}}{3^{n+1}+a^n}
+    =\lim_{n\to\infty}\frac{1+a\left(\frac a3\right)^n}{3+\left(\frac a3\right)^n}=\frac13,
+    $$
+    <p>이 값이 \(a\)와 같아야 하는데 \(a=\dfrac13&lt;1\)이 되어 모순이다.</p>
+    <p>ⅱ) \(a=3\)이면 그 값이 \(1\)이 되어 \(a=1\)이므로 역시 모순이다.</p>
+    <p>ⅲ) \(a&gt;3\)이면 \(\left(\dfrac3a\right)^n\to0\)이므로</p>
+    $$
+    \lim_{n\to\infty}\frac{\left(\frac3a\right)^n+a}{3\left(\frac3a\right)^n+1}=a
+    $$
+    <p>가 되어 등식이 성립한다. 따라서 \(a&gt;3\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 둘째 식을 \(a,b\)의 대소로 나눈다</div>
+    <p>ⅰ) \(3&lt;a&lt;b\)이면 같은 방법으로 극한값이 \(b\)이다. 그런데 \(a&gt;3\)에서 \(\dfrac9a&lt;3&lt;b\)이므로 \(b\ne\dfrac9a\)이다.</p>
+    <p>ⅱ) \(3&lt;b&lt;a\)이면 극한값이 \(\dfrac1a\)인데 \(\dfrac1a\ne\dfrac9a\)이다.</p>
+    <p>ⅲ) \(a=b\)이면</p>
+    $$
+    \lim_{n\to\infty}\frac{a^n+a^{n+1}}{a^{n+1}+a^n}=1=\frac9a,\qquad a=9.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 답을 구한다</div>
+    $$
+    a=b=9,\qquad a+b=18.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;\(\mathbf{18}\)</div>
+` },
 };
