@@ -48,9 +48,18 @@ RULES = {
     "geo": CALC_ONLY,
 }
 
+# ── §3 표기 ────────────────────────────────────────────────────
+# 아래는 수식 안에 있어도 위반이므로 html 전체를 검사한다.
+# (STYLE은 서술문만 보기 때문에 \gcd(...) 같은 수식 안 표기를 놓쳤었다.)
+NOTATION = [
+    (r"\\?\bgcd\s*(?:\(|\{)|\\?\blcm\s*(?:\(|\{)",
+     "gcd/lcm 표기 → '최대공약수'·'서로소' 등 한국식으로", "E"),
+    (r"\\operatorname\s*\{", "operatorname → 한국식 서술로", "W"),
+    (r"\\text\{\s*[A-Za-z][A-Za-z ]{3,}\}", "수식 안 영어 문장", "E"),
+]
+
 # ── §3 문체 ────────────────────────────────────────────────────
 STYLE = [
-    (r"\bgcd\s*\(|\blcm\s*\(", "gcd/lcm 표기 → '서로소' 등 한국식으로", "E"),
     (r"우리는|살펴보면|주목하자|임에 주목", "AI 말투", "E"),
     (r"\bNote that\b|\bLet\s+[A-Za-z]|\bWe\s+(?:have|get|can)\b", "영어 말투", "E"),
     (r"약\s*\d+\.\d|≈|근삿값으로|대입해\s*보면\s*대략", "근사·노가다", "W"),
@@ -98,7 +107,13 @@ def check(key, answer, html, meta):
         if m:
             out.append((sev, "범위", f"{why}  «{m.group(0)[:24]}»"))
 
-    # 3) 문체
+    # 3) 표기 — 수식 안까지 본다
+    for pat, why, sev in NOTATION:
+        m = re.search(pat, html)
+        if m:
+            out.append((sev, "표기", f"{why}  «{m.group(0)[:24]}»"))
+
+    # 4) 문체 — 서술문만 본다
     for pat, why, sev in STYLE:
         m = re.search(pat, prose)
         if m:

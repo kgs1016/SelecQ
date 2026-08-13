@@ -25,9 +25,9 @@ window.SOLUTIONS = {
        \(g(\cdots)=2\)를 만들 수 없다. 따라서 서로 다른 두 극점 \(\alpha&lt;\beta\)를 가지며,
        \(d=\beta-\alpha\)라 하면</p>
     <ul>
-      <li>\(d>2\) : 길이 2인 창에 둘 다 못 들어와 \(g\le 1\) &rarr; <span class="sol-no">(나) 위배</span></li>
-      <li>\(d<2\) : \(t=\beta-2\)에서 \(g\)가 \(1\to2\)로 점프하여
-          \(\displaystyle\lim_{t\to a^+}g(t)+\lim_{t\to a^-}g(t)=3>2\) &rarr;
+      <li>\(d&gt;2\) : 길이 2인 창에 둘 다 못 들어와 \(g\le 1\) &rarr; <span class="sol-no">(나) 위배</span></li>
+      <li>\(d&lt;2\) : \(t=\beta-2\)에서 \(g\)가 \(1\to2\)로 점프하여
+          \(\displaystyle\lim_{t\to a^+}g(t)+\lim_{t\to a^-}g(t)=3&gt;2\) &rarr;
           <span class="sol-no">(가) 위배</span></li>
       <li>\(\therefore\ d=2\)</li>
     </ul>
@@ -150,14 +150,14 @@ window.SOLUTIONS = {
   <div class="sol-step">
     <div class="sol-h"><span class="sol-num">4</span> \(f(x)\) 세우기</div>
     <p>접선 \(y=x+3\)은 \(f\)와 \(x=1\)(접점)·\(x=-3\)에서 만나므로</p>
-    $$f(x)-(x+3)=a(x-1)^2(x+3)\quad(a<0)\ \Rightarrow\ f(x)=(x+3)\{a(x-1)^2+1\}$$
+    $$f(x)-(x+3)=a(x-1)^2(x+3)\quad(a&lt;0)\ \Rightarrow\ f(x)=(x+3)\{a(x-1)^2+1\}$$
   </div>
   <div class="sol-step">
     <div class="sol-h"><span class="sol-num">5</span> (가) 서로 다른 실근 2개 &rArr; \(a\) 결정</div>
     <p>\(f(x)=0 \Rightarrow x=-3\) 또는 \((x-1)^2=-\dfrac1a\). 실근이 2개가 되려면 이 근이 \(-3\)과 겹쳐야 하므로</p>
     $$1-\sqrt{-\tfrac1a}=-3\ \Rightarrow\ \sqrt{-\tfrac1a}=4\ \Rightarrow\ a=-\tfrac1{16}$$
     $$\therefore\ f(x)=-\tfrac1{16}(x+3)^2(x-5)$$
-    <p>검토: 계수 \(-\tfrac1{16}<0\) ✓, \(\ f'(0)=\tfrac{21}{16}>1\) ✓, 근은 \(-3\)(중근)·\(5\).</p>
+    <p>검토: 계수 \(-\tfrac1{16}&lt;0\) ✓, \(\ f'(0)=\tfrac{21}{16}&gt;1\) ✓, 근은 \(-3\)(중근)·\(5\).</p>
   </div>
   <figure class="sol-fig"><img src="sol/2022_mock06_common_q22.png" alt="f(x)와 두 평행선">
     <figcaption>\(y=f(x)\)와 두 평행선 — \(y=x+3\)은 접하여 2개, \(y=x-5\)는 1개 → 교점 3개</figcaption></figure>
@@ -208,27 +208,27 @@ window.SOLUTIONS = {
     <figcaption>\(y=\sin\frac{\pi x}{2}\)(파랑) · \(y=\cos\frac{\pi x}{2}\)(초록)와 \(y=t\)의 교점</figcaption></figure>
 
   <div class="sol-step">
-    <div class="sol-h"><span class="sol-num">2</span> ㄱ. \(-1\le t<0\)에서 \(\alpha+\beta=5\) &nbsp;<span class="sol-ok">참</span></div>
+    <div class="sol-h"><span class="sol-num">2</span> ㄱ. \(-1\le t&lt;0\)에서 \(\alpha+\beta=5\) &nbsp;<span class="sol-ok">참</span></div>
     <p>\(y=\cos\dfrac{\pi x}{2}\)는 \(x=2\)에 대칭 → \(\cos\dfrac{\pi x}{2}=t\)의 두 근은 \(2-p,\ 2+p\).
-       \(y=\sin\dfrac{\pi x}{2}\)는 \(x=3\)에 대칭 → \(\sin\dfrac{\pi x}{2}=t\,(t<0)\)의 두 근은 \(3-q,\ 3+q\).</p>
-    <p>\(t<0\)이면 최소 \(\alpha=2-p\), 최대 \(\beta=3+q\). 대입하면 \(\cos\dfrac{\pi p}{2}=-t=\cos\dfrac{\pi q}{2}\)이므로 \(p=q\).</p>
+       \(y=\sin\dfrac{\pi x}{2}\)는 \(x=3\)에 대칭 → \(\sin\dfrac{\pi x}{2}=t\,(t&lt;0)\)의 두 근은 \(3-q,\ 3+q\).</p>
+    <p>\(t&lt;0\)이면 최소 \(\alpha=2-p\), 최대 \(\beta=3+q\). 대입하면 \(\cos\dfrac{\pi p}{2}=-t=\cos\dfrac{\pi q}{2}\)이므로 \(p=q\).</p>
     $$\therefore\ \alpha+\beta=(2-p)+(3+q)=5$$
   </div>
 
   <div class="sol-step">
     <div class="sol-h"><span class="sol-num">3</span> ㄴ. \(\beta-\alpha=\beta(0)-\alpha(0)\)인 \(t\)는 \(0\le t\le\dfrac{\sqrt2}{2}\) &nbsp;<span class="sol-ok">참</span></div>
     <p>\(t=0\)이면 근이 \(0,1,2,3\)이라 \(\beta(0)-\alpha(0)=3\).</p>
-    <p>\(0&lt;t<1\)에서 \((0,1)\) 안의 근을 \(\sin\dfrac{\pi x_1}{2}=t\), \(\cos\dfrac{\pi x_2}{2}=t\)로 두면,
+    <p>\(0&lt;t&lt;1\)에서 \((0,1)\) 안의 근을 \(\sin\dfrac{\pi x_1}{2}=t\), \(\cos\dfrac{\pi x_2}{2}=t\)로 두면,
        \(\cos\dfrac{\pi x_2}{2}=\sin\dfrac{\pi(1-x_2)}{2}\)이고 \((0,1)\)에서 \(\sin\)이 일대일이므로 \(x_1=1-x_2\), 즉 \(x_1+x_2=1\).</p>
     <p>최대 근은 \(\beta=4-x_2\). \(0&lt;t\le\dfrac{\sqrt2}{2}\)이면 최소 근이 \(\alpha=x_1\)이므로</p>
     $$\beta-\alpha=(4-x_2)-x_1=4-(x_1+x_2)=3$$
-    <p>\(\dfrac{\sqrt2}{2}&lt;t&lt;1\)이면 \(\alpha=x_2\)라 \(\beta-\alpha=4-2x_2&gt;3\), \(t<0\)이면 \(\beta-\alpha<3\).
+    <p>\(\dfrac{\sqrt2}{2}&lt;t&lt;1\)이면 \(\alpha=x_2\)라 \(\beta-\alpha=4-2x_2&gt;3\), \(t&lt;0\)이면 \(\beta-\alpha&lt;3\).
        따라서 \(\beta-\alpha=3\)인 범위는 \(0\le t\le\dfrac{\sqrt2}{2}\).</p>
   </div>
 
   <div class="sol-step">
     <div class="sol-h"><span class="sol-num">4</span> ㄷ. \(t_2-t_1=\dfrac12\)이면 \(t_1t_2=\dfrac13\)? &nbsp;<span class="sol-no">거짓</span></div>
-    <p>\(0&lt;t<1\)에서 \(\alpha(t)\)는 \(t=\dfrac{\sqrt2}{2}\)에서 최대인 <b>텐트 모양</b>(그 전엔 \(\sin\)쪽, 그 후엔 \(\cos\)쪽 근이 최소).
+    <p>\(0&lt;t&lt;1\)에서 \(\alpha(t)\)는 \(t=\dfrac{\sqrt2}{2}\)에서 최대인 <b>텐트 모양</b>(그 전엔 \(\sin\)쪽, 그 후엔 \(\cos\)쪽 근이 최소).
        그래서 \(\alpha(t_1)=\alpha(t_2)\,(t_1&lt;t_2)\)이면 \(t_1\)은 \(\sin\)쪽, \(t_2\)는 \(\cos\)쪽:</p>
     $$\sin\dfrac{\pi\alpha}{2}=t_1,\quad \cos\dfrac{\pi\alpha}{2}=t_2\ \Rightarrow\ t_1^{\,2}+t_2^{\,2}=1$$
     <p>\(t_2-t_1=\dfrac12\)이면 \(\,1-2t_1t_2=(t_2-t_1)^2=\dfrac14\,\)이므로 \(\ t_1t_2=\dfrac{3}{8}\neq\dfrac13\).</p>
@@ -8857,7 +8857,7 @@ window.SOLUTIONS = {
     nc_i=12e_i\quad(\text{모든 }i)
     $$
     <p>이어야 하므로, 조건은 <b>\(n\)이 모든 \(12e_i\)의 약수</b>인 것과 같다. (\(n\)이 짝수면 \(x&lt;0\)도 되지만 존재 여부는 달라지지 않는다.)</p>
-    <p>따라서 \(g=\gcd(e_1,e_2,\dots)\)라 하면 \(n\)은 \(12g\)의 약수이고, \(n\ge2\)이므로</p>
+    <p>따라서 지수 \(e_1,\ e_2,\ \dots\)의 최대공약수를 \(g\)라 하면 \(n\)은 \(12g\)의 약수이고, \(n\ge2\)이므로</p>
     $$
     f(m)=(12g\text{의 약수의 개수})-1.
     $$
