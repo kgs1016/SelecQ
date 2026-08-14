@@ -10,6 +10,27 @@
   const qByKey = new Map(Q.map(q => [q.key, q]));
   const getQ = k => qByKey.get(k);
 
+  // KaTeX는 index.html에서 defer로 붙어 있어 이 파일보다 늦게 실행된다.
+  // 그 전에 해설을 열면 수식이 원본 TeX($$…$$) 그대로 보이므로, 로드될 때까지 기다린다.
+  // 스크립트 태그의 load 이벤트를 잡지 않고 폴링하는 이유: KaTeX가 어떤 경로로 들어오든
+  // (defer·동적 삽입·이미 로드됨) 똑같이 동작하기 때문.
+  var katexReady = null;
+  function ensureKatex() {
+    if (window.renderMathInElement) return Promise.resolve(true);
+    if (katexReady) return katexReady;
+    katexReady = new Promise(resolve => {
+      const t0 = Date.now();
+      (function tick() {
+        if (window.renderMathInElement) return resolve(true);
+        // CDN 차단·오프라인 — 무한 대기 금지. 실패한 약속은 버려서 다음에 다시 기다리게 한다
+        // (캐시해 두면 네트워크가 돌아와도 계속 false를 돌려준다).
+        if (Date.now() - t0 > 8000) { katexReady = null; return resolve(false); }
+        setTimeout(tick, 60);
+      })();
+    });
+    return katexReady;
+  }
+
   // ---------- 저장소 ----------
   // 저장소가 손상되거나 구버전 구조여도 첫 화면이 죽지 않도록, 모든 로드는 safeParse + 형태 검증을 거친다
   const safeParse = (raw, fallback) => { try { const v = raw ? JSON.parse(raw) : null; return v == null ? fallback : v; } catch (e) { return fallback; } };
@@ -1035,20 +1056,29 @@
 
     // 자체 해설 패널 — 열 때 KaTeX 로 수식 렌더 (한 번만)
     if (hasSol) {
-      const openSol = () => {
-        const sb = $("#solBody");
-        if (sb && !sb.dataset.filled) {
+      // 패널을 먼저 열고 KaTeX를 기다린다. filled는 렌더에 성공했을 때만 찍는다 —
+      // 예전엔 무조건 찍어서, KaTeX보다 먼저 연 사람은 다시 열어도 계속 원본 TeX를 봤다.
+      let solBusy = false;
+      const openSol = async () => {
+        const panel = $("#solPanel"), sb = $("#solBody");
+        if (!panel || !sb) return;
+        panel.hidden = false;
+        if (sb.dataset.filled || solBusy) return;
+        solBusy = true;
+        try {
           sb.innerHTML = SOLUTIONS[q.key].html;
-          if (window.renderMathInElement) {
-            renderMathInElement(sb, {
-              delimiters: [{ left: "$$", right: "$$", display: true },
-                           { left: "\\(", right: "\\)", display: false }],
-              throwOnError: false
-            });
+          if (!await ensureKatex()) {
+            sb.insertAdjacentHTML("afterbegin",
+              `<p class="solwarn">수식 표시 도구를 불러오지 못했어요. 네트워크를 확인하고 해설을 다시 열어 주세요.</p>`);
+            return;   // filled를 안 찍으므로 다음에 열 때 다시 시도한다
           }
+          renderMathInElement(sb, {
+            delimiters: [{ left: "$$", right: "$$", display: true },
+                         { left: "\\(", right: "\\)", display: false }],
+            throwOnError: false
+          });
           sb.dataset.filled = "1";
-        }
-        $("#solPanel").hidden = false;
+        } finally { solBusy = false; }
       };
       const bs = $("#btnSol"); if (bs) bs.onclick = openSol;
       const bst = $("#btnSolTool"); if (bst) bst.onclick = openSol;

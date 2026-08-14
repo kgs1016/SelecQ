@@ -39,6 +39,8 @@ a { color: inherit; text-decoration: none; }
 .account .consent { font-size: 12px; margin-top: 14px; }
 /* 로그인 잠금 화면(오답·기록) — 계정 화면과 같은 폭·간격을 그대로 쓴다 */
 .lockcarry { background: var(--accent-soft); font-size: 14px; line-height: 1.6; border-radius: 10px; padding: 12px 14px; margin: 14px 0 0; }
+/* KaTeX를 못 불러왔을 때 해설 맨 위에 붙는 안내 (수식이 원본 표기로 보이는 이유를 알린다) */
+.solwarn { background: #fef3c7; color: #92400e; font-size: 13px; line-height: 1.6; border-radius: 8px; padding: 10px 12px; margin: 0 0 12px; }
 .account .consent a { text-decoration: underline; }
 /* 개인정보처리방침 */
 .privacy h3 { font-size: 15px; font-weight: 700; margin: 20px 0 6px; }
