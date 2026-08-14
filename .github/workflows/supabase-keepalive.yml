@@ -1,0 +1,53 @@
+# Supabase 무료 플랜 자동 일시정지 방지
+#
+# 무료 플랜은 7일간 활동이 없으면 프로젝트를 자동으로 멈춘다. SelecQ는 비로그인
+# 방문자가 Supabase에 요청을 전혀 보내지 않는 구조라(app.js의 initAuth는 로컬
+# 토큰만 읽음), 로그인 사용자가 실제로 쓰지 않으면 방문자가 아무리 많아도
+# 활동량이 0으로 잡힌다. 그래서 하루 한 번 가벼운 DB 조회를 보내 깨워 둔다.
+#
+# 멈추면 로그인·클라우드 동기화만 끊기고 비로그인 사용(localStorage)은 그대로
+# 동작한다. 다만 이미 로그인한 사용자는 동기화 에러를 보게 된다.
+#
+# 참고: Supabase가 "충분한 활동"의 기준을 공개하지 않아, 하루 1회 조회로 항상
+# 충분하다는 보장은 없다. 그래도 일시정지 메일이 계속 오면 주기를 늘리거나
+# Pro 업그레이드를 검토할 것.
+
+name: Supabase keepalive
+
+on:
+  schedule:
+    # 매일 03:17 UTC (= 12:17 KST). 정시를 피해 GitHub 스케줄러 혼잡을 덜 탄다.
+    - cron: "17 3 * * *"
+  workflow_dispatch:   # Actions 탭에서 수동 실행 가능
+
+# 동시 실행 방지 — 스케줄이 밀려 겹쳐도 한 번만 돈다
+concurrency:
+  group: supabase-keepalive
+  cancel-in-progress: false
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Supabase DB 조회로 활동 기록
+        env:
+          # 브라우저에 공개되는 publishable(anon) 키 — webapp/config.js 에 이미 커밋돼 있는 값과 동일.
+          # service_role 키는 절대 여기 넣지 말 것.
+          SB_URL: https://kvaeusnnjmucpucskudk.supabase.co
+          SB_KEY: sb_publishable_jy6231plFB8Td0k7tdOu8w_QgirvnOA
+        run: |
+          set -euo pipefail
+          # RLS 때문에 결과는 빈 배열이지만, 요청은 PostgREST를 거쳐 Postgres까지 도달한다.
+          code=$(curl -s -o /tmp/resp.txt -w "%{http_code}" \
+            --retry 3 --retry-delay 10 --max-time 30 \
+            -H "apikey: $SB_KEY" \
+            -H "Authorization: Bearer $SB_KEY" \
+            "$SB_URL/rest/v1/user_drawings?select=qkey&limit=1")
+          echo "HTTP $code"
+          if [ "$code" != "200" ]; then
+            echo "::error::Supabase 응답이 200이 아닙니다 (HTTP $code). 프로젝트가 이미 일시정지됐는지 대시보드에서 확인하세요."
+            head -c 500 /tmp/resp.txt || true
+            exit 1
+          fi
+          echo "keepalive OK"
