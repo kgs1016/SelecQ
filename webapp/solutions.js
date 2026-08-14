@@ -1276,8 +1276,8 @@ window.SOLUTIONS = {
 "2024_mock06/common/q22": { answer: 380, html: String.raw`
   <div class="sol-step">
     <div class="sol-h"><span class="sol-num">1</span> 조건을 \(f'\)의 부호변화로 바꾸기</div>
-    <p>평균값정리에 의해 두 평균변화율은 각각 \(f'(c_1),\ f'(c_2)\)와 같다.
-       곱이 음수 \(\iff\) 구간 안에서 \(f'\)의 <b>부호가 바뀐다</b>.</p>
+    <p>구간 \(\left(k,\ k+\dfrac32\right)\)에서 \(f'\)의 부호가 일정하면 \(f\)는 그 구간에서 증가하기만 하거나 감소하기만 하므로, 어느 두 점을 잡아도 평균변화율의 부호가 같다. 곱이 음수가 될 수 없다.</p>
+    <p>거꾸로 \(f'\)의 부호가 바뀌면 증가하는 부분과 감소하는 부분이 함께 있으므로, 각각에서 점을 골라 부호가 반대인 두 평균변화율을 만들 수 있다. 즉 곱이 음수 \(\iff\) 구간 안에서 \(f'\)의 <b>부호가 바뀐다</b>.</p>
     <p>\(f'(x)=3x^2-4ax=x\left(3x-4a\right)\)의 두 근은 \(0\)과 \(\dfrac{4a}{3}\) (모두 단순근).</p>
     <div class="sol-box">조건을 만족하는 \(k\) \(\iff\) 구간 \(\left(k,\ k+\dfrac32\right)\)이 \(0\) 또는 \(\dfrac{4a}{3}\)를 포함</div>
   </div>
@@ -6990,17 +6990,18 @@ window.SOLUTIONS = {
 ` },
 
 "2023_mock06/common/q08": { answer: 3, html: String.raw`
+  <div class="sol-box">\(f'(x)\ge5\)는 \(f(x)-5x\)의 도함수가 \(0\) 이상이라는 뜻이다. 그 함수가 증가한다는 사실 하나면 끝난다.</div>
   <div class="sol-step">
-    <div class="sol-h"><span class="sol-num">1</span> 평균값 정리를 적용한다</div>
-    <p>\(f(x)\)는 닫힌구간 \([1,5]\)에서 연속이고 열린구간 \((1,5)\)에서 미분가능하므로</p>
+    <div class="sol-h"><span class="sol-num">1</span> \(f(x)-5x\)를 본다</div>
+    <p>\(h(x)=f(x)-5x\)라 하면 조건 (나)에서</p>
     $$
-    \frac{f(5)-f(1)}{5-1}=f'(c)
+    h'(x)=f'(x)-5\ge0
     $$
-    <p>인 \(c\)가 \(1\)과 \(5\) 사이에 존재한다.</p>
+    <p>이므로 \(h\)는 감소하는 구간이 없다. 따라서 \(h(5)\ge h(1)\)이다.</p>
   </div>
   <div class="sol-step">
-    <div class="sol-h"><span class="sol-num">2</span> 조건 (나)를 대입한다</div>
-    <p>\(f'(c)\ge5\)이므로 \(f(5)-f(1)\ge5\times4=20\)이고, \(f(1)=3\)이므로</p>
+    <div class="sol-h"><span class="sol-num">2</span> 정리한다</div>
+    <p>\(f(5)-25\ge f(1)-5\)이고 \(f(1)=3\)이므로</p>
     $$
     f(5)\ge23.
     $$
@@ -11455,11 +11456,16 @@ window.SOLUTIONS = {
   </div>
   <div class="sol-step">
     <div class="sol-h"><span class="sol-num">3</span> \(t&gt;6\)에서 조건을 따진다</div>
-    <p>\(t&gt;6\)이면 창은 \([t-1,\ t+1]\subset(5,\infty)\)이다. 여기서 \(5&lt;x&lt;6\) 부분의 \(f\)는 \(5\)보다 작고(감소해서 \(0\)까지 내려간다), \(x\ge6\) 부분의 \(f=a\log_4(x-5)\)는 증가하므로</p>
+    <p>\(t&gt;6\)이면 창은 \([t-1,\ t+1]\subset(5,\infty)\)이다. 창이 \(x=6\)을 걸치는지에 따라 둘로 나뉜다.</p>
+    <p>ⅰ) \(6&lt;t&lt;7\)이면 \(t-1\in(5,6)\)이다. \(5&lt;x&lt;6\)에서 \(f\)는 \(f(5)=5\)부터 \(f(6)=0\)까지 감소하므로 \(f(t-1)&lt;5\)이고, \(x\ge6\)에서는 \(f=a\log_4(x-5)\)가 증가하므로 창의 오른쪽 끝이 그쪽 최댓값이다.</p>
     $$
     g(t)=\max\Big(f(t-1),\ a\log_4(t-4)\Big),\qquad f(t-1)&lt;5.
     $$
-    <p>따라서 \(g(t)\ge5\)이려면 \(a\log_4(t-4)\ge5\)이어야 한다. 이 값은 \(t\)에 대하여 증가하므로 \(t\to6+\)일 때가 가장 작고, 그 극한이</p>
+    <p>ⅱ) \(t\ge7\)이면 창 전체가 \([6,\infty)\)에 들어가고 그곳에서 \(f\)는 증가하므로 최댓값은 역시 오른쪽 끝이다.</p>
+    $$
+    g(t)=a\log_4(t-4).
+    $$
+    <p>두 경우 모두 \(g(t)\ge5\)는 \(a\log_4(t-4)\ge5\)와 같다. 이 값은 \(t\)에 대하여 증가하므로 \(t\to6+\)일 때가 가장 작고, 그 극한이</p>
     $$
     a\log_4 2=\frac a2
     $$

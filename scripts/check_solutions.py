@@ -48,6 +48,13 @@ RULES = {
     "geo": CALC_ONLY,
 }
 
+# 어느 과목에도 없는 것 — RULES는 과목별이라 미적분을 못 거른다. 이건 전 과목 검사.
+# 평균값 정리·롤의 정리는 2015 개정에서 삭제되어 수학Ⅱ에도 미적분에도 없다.
+# (2026-08-14 검수에서 2건 발견됨: 2023_mock06/common/q08, 2024_mock06/common/q22)
+OUT_OF_CURRICULUM = [
+    (r"평균값\s*정리|롤의\s*정리", "평균값·롤의 정리 (2015 개정에서 삭제)", "E"),
+]
+
 # ── §3 표기 ────────────────────────────────────────────────────
 # 아래는 수식 안에 있어도 위반이므로 html 전체를 검사한다.
 # (STYLE은 서술문만 보기 때문에 \gcd(...) 같은 수식 안 표기를 놓쳤었다.)
@@ -103,6 +110,12 @@ def check(key, answer, html, meta):
 
     # 2) 금지기법
     for pat, why, sev in RULES.get(unit_pre, []):
+        m = re.search(pat, html)
+        if m:
+            out.append((sev, "범위", f"{why}  «{m.group(0)[:24]}»"))
+
+    # 2-b) 교육과정 밖 — 과목 불문
+    for pat, why, sev in OUT_OF_CURRICULUM:
         m = re.search(pat, html)
         if m:
             out.append((sev, "범위", f"{why}  «{m.group(0)[:24]}»"))
