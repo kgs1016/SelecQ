@@ -838,7 +838,6 @@
           <a class="big pill outline" href="/custom">나만의 모의고사 만들기</a>
           <a class="big pill outline" href="/exam">회차별 실전</a>
         </div>
-        <p class="herofree">가입 없이 바로 풀 수 있어요. 로그인은 기록을 다른 기기에서 이어 볼 때만 필요해요.</p>
         <div class="heromock">
           <div class="mockbar">
             <span class="mdot"></span><span class="mdot"></span><span class="mdot"></span>
@@ -2026,7 +2025,7 @@
       el.innerHTML = `<section class="account">
         <h2>로그인 / 가입</h2>
         <p class="muted"><b>따로 가입할 게 없어요.</b> 아래 버튼을 누르면 처음 오신 분은 그 자리에서 가입까지 끝납니다. 새로 만들 아이디도, 외울 비밀번호도 없어요.</p>
-        <p class="muted">로그인하면 기록·오답·필기가 <b>모든 기기에서 이어집니다.</b> 로그인하지 않아도 이 기기에서는 지금처럼 그대로 사용할 수 있어요.</p>
+        <p class="muted"><b>오답 노트와 학습 기록은 로그인해야 열립니다.</b> 반복해서 틀리는 유형과 약한 단원은 기록이 계정에 쌓여야 추적할 수 있기 때문이에요. 필기와 풀이 기록도 모든 기기에서 이어집니다.</p>
         <div class="acc-actions">
           <button class="loginbtn kakao" id="btnKakao">카카오로 시작하기</button>
           <button class="loginbtn google" id="btnGoogle">구글로 시작하기</button>

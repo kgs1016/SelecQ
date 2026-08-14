@@ -117,8 +117,6 @@ a.pill { display: inline-flex; align-items: center; }
 .herocta .pill { border: 1px solid transparent; }
 .pill.outline { background: #fff; color: var(--ink); border: 1px solid var(--line); font-weight: 600; cursor: pointer; }
 .pill.outline:hover { border-color: var(--accent); color: var(--accent); }
-/* 가입 강제가 없다는 사실을 CTA 바로 밑에서 알린다 — 검색으로 들어온 사람이 벽을 걱정하지 않도록 */
-.herofree { font-size: 13px; color: var(--sub); margin: 14px 0 0; line-height: 1.6; }
 /* 좁은 화면: 버튼 3개가 제각각 너비로 쌓이면 지저분하다. 같은 폭으로 세로 정렬 */
 @media (max-width: 560px) {
   .herocta { flex-direction: column; align-items: stretch; }
