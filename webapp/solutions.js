@@ -14211,4 +14211,710 @@ window.SOLUTIONS = {
   </div>
   <div class="sol-final">답 &nbsp;①</div>
 ` },
+
+"2026_mock06/common/q01": { answer: 2, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 밑을 \(2\)로 통일한다</div>
+    $$
+    4^{\frac14}\times2^{\frac12}=\left(2^{2}\right)^{\frac14}\times2^{\frac12}=2^{\frac12}\times2^{\frac12}.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 지수를 더한다</div>
+    $$
+    2^{\frac12+\frac12}=2^{1}=2.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2026_mock06/common/q02": { answer: 1, html: String.raw`
+  <div class="sol-box">이 극한은 미분계수의 정의 그대로이므로 \(f'(1)\)이다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 극한을 미분계수로 바꾼다</div>
+    $$
+    \lim_{h\to0}\frac{f(1+h)-f(1)}{h}=f'(1).
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 대입한다</div>
+    <p>\(f'(x)=2x-1\)이므로</p>
+    $$
+    f'(1)=2-1=1.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;①</div>
+` },
+
+"2026_mock06/common/q03": { answer: 3, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 합의 기호를 나눈다</div>
+    $$
+    \sum_{k=1}^{7}(2a_k+1)=2\sum_{k=1}^{7}a_k+\sum_{k=1}^{7}1.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 대입한다</div>
+    <p>뒤쪽은 \(1\)을 \(7\)번 더한 것이므로</p>
+    $$
+    2\times8+7=23.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
+
+"2026_mock06/common/q04": { answer: 3, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 이어붙인 점에서만 따진다</div>
+    <p>두 조각은 각각 실수 전체에서 연속이므로, \(x=3\)에서 연속이면 \(f\)는 실수 전체에서 연속이다.</p>
+    $$
+    \lim_{x\to3-}\left(-x^2+a\right)=-9+a,\qquad \lim_{x\to3+}(5x-a)=15-a=f(3).
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(a\)를 구한다</div>
+    $$
+    -9+a=15-a,\qquad 2a=24,\qquad a=12.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
+
+"2026_mock06/common/q05": { answer: 2, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 부정적분을 구한다</div>
+    $$
+    \int_0^{2}\left(6x^2-2x+1\right)dx=\Big[2x^3-x^2+x\Big]_0^{2}.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 대입한다</div>
+    $$
+    16-4+2=14.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2026_mock06/common/q06": { answer: 4, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 최댓값에서 \(a\)를 구한다</div>
+    <p>\(a&gt;0\)이므로 최댓값은 \(a+1\)이고, 이것이 \(8\)이므로 \(a=7\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 주기에서 \(b\)를 구한다</div>
+    <p>\(b&gt;0\)이므로 주기는 \(\dfrac{2\pi}{b}\)이고, 이것이 \(\pi\)이므로</p>
+    $$
+    \frac{2\pi}{b}=\pi,\qquad b=2.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 더한다</div>
+    $$
+    a+b=7+2=9.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;④</div>
+` },
+
+"2026_mock06/common/q07": { answer: 5, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 곱의 미분법을 쓴다</div>
+    <p>\(g(x)=5x^2+xf(x)\)이므로</p>
+    $$
+    g'(x)=10x+f(x)+xf'(x).
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(x=3\)을 대입한다</div>
+    $$
+    g'(3)=30+f(3)+3f'(3)=30+2+3\times1=35.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;⑤</div>
+` },
+
+"2026_mock06/common/q08": { answer: 5, html: String.raw`
+  <div class="sol-box">\(2\cos\theta=\sin\theta\)의 양변을 제곱하면 \(\sin^2\theta=1-\cos^2\theta\)로 바꿔 \(\cos\theta\)만 남길 수 있다. 부호는 \(\sin\theta&gt;0\)에서 결정된다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 부호를 먼저 정한다</div>
+    <p>\(\sin(\pi-\theta)=\sin\theta&gt;0\)이고, \(2\cos\theta=\sin\theta&gt;0\)이므로 \(\cos\theta&gt;0\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 제곱하여 \(\cos\theta\)만 남긴다</div>
+    $$
+    4\cos^2\theta=\sin^2\theta=1-\cos^2\theta,\qquad 5\cos^2\theta=1,\qquad \cos^2\theta=\frac15.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 부호를 붙인다</div>
+    $$
+    \cos\theta=\frac{\sqrt5}{5}.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;⑤</div>
+` },
+
+"2026_mock06/common/q09": { answer: 2, html: String.raw`
+  <div class="sol-box">\((x+1)f(x)=xf(x)+f(x)\)로 쪼개면 양변의 \(\displaystyle\int_{-3}^{3}f(x)\,dx\)가 서로 지워져 \(\displaystyle\int_{-3}^{3}xf(x)\,dx=36\)만 남는다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 조건을 간단히 한다</div>
+    $$
+    \int_{-3}^{3}(x+1)f(x)\,dx=\int_{-3}^{3}xf(x)\,dx+\int_{-3}^{3}f(x)\,dx
+    $$
+    <p>이므로 주어진 등식에서</p>
+    $$
+    \int_{-3}^{3}xf(x)\,dx=36.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 우함수·기함수를 이용해 계산한다</div>
+    <p>\(f(x)=x^2+ax\)이므로 \(xf(x)=x^3+ax^2\)이고, \(x^3\)은 기함수라 대칭구간에서 \(0\)이다.</p>
+    $$
+    \int_{-3}^{3}\left(x^3+ax^2\right)dx=2\int_0^{3}ax^2\,dx=2\left[\frac a3x^3\right]_0^{3}=18a.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(a\)를 구한다</div>
+    $$
+    18a=36,\qquad a=2.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2026_mock06/common/q10": { answer: 1, html: String.raw`
+  <div class="sol-box">두 곡선은 \(y\)축에 대하여 서로 대칭이므로, 정삼각형의 꼭짓점 \(\mathrm A\)는 \(y\)축 위에 있고 밑변은 \(x\)축 위에 놓인다. 그러면 \(\tan\dfrac\pi3\) 하나로 조건이 정리된다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 세 꼭짓점을 구한다</div>
+    <p>\(\log_a(x+3)=\log_a(-x+3)\)에서 \(x=0\)이므로 \(\mathrm A\left(0,\ \log_a3\right)\)이다. 또 \(\log_a(x+3)=0\)에서 \(x+3=1\), 즉 \(\mathrm B(-2,\ 0)\)이고, \(\log_a(-x+3)=0\)에서 \(\mathrm C(2,\ 0)\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 정삼각형 조건을 쓴다</div>
+    <p>원점을 \(\mathrm O\)라 하면 \(\overline{\mathrm{OB}}=2\)이고, 직각삼각형 \(\mathrm{AOB}\)에서 \(\angle\mathrm{ABO}=\dfrac\pi3\)이므로</p>
+    $$
+    \tan\frac\pi3=\frac{\overline{\mathrm{OA}}}{\overline{\mathrm{OB}}},\qquad \sqrt3=\frac{\log_a3}{2},\qquad \log_a3=2\sqrt3.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(a\)를 구한다</div>
+    $$
+    a^{2\sqrt3}=3,\qquad a=3^{\frac1{2\sqrt3}}=3^{\frac{\sqrt3}{6}}.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;①</div>
+` },
+
+"2026_mock06/common/q11": { answer: 5, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> ㄱ을 확인한다</div>
+    $$
+    x(1)=1^3-1^2-1+1=0.
+    $$
+    <p>위치가 \(1\)이 아니라 \(0\)이므로 ㄱ은 거짓이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> ㄴ을 확인한다</div>
+    $$
+    v=\frac{dx}{dt}=3t^2-2t-1,\qquad v(1)=3-2-1=0.
+    $$
+    <p>따라서 ㄴ은 참이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> ㄷ을 확인한다</div>
+    <p>\(v=3t^2-2t-1=(3t+1)(t-1)\)이므로 \(t=1\)의 좌우에서 부호가 음에서 양으로 바뀐다. 즉 출발한 후 운동 방향이 바뀌는 시각은 \(t=1\)이고, 그때의 가속도는</p>
+    $$
+    a=\frac{dv}{dt}=6t-2,\qquad a(1)=4.
+    $$
+    <p>따라서 ㄷ도 참이다.</p>
+  </div>
+  <div class="sol-final">답 &nbsp;⑤</div>
+` },
+
+"2026_mock06/common/q12": { answer: 2, html: String.raw`
+  <div class="sol-box">조건 (나)가 매 단계 두 갈래이므로 \(a_1\to a_2\to a_3\)에서 네 갈래가 나온다. 조건 (가) \(a_3=a_1\)이 그중 어느 것이 가능한지를 걸러 준다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 네 갈래로 나눈다</div>
+    <p>조건 (나)에서 \(a_{n+1}=a_n-3\) 또는 \(a_{n+1}=2a_n\)이다. \(a_1\to a_2\), \(a_2\to a_3\)의 선택을 조합하면 네 경우가 나오고, 각각에 조건 (가) \(a_3=a_1\)을 적용한다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 각 경우를 확인한다</div>
+    <p>ⅰ) 두 번 다 \(-3\)이면 \(a_3=a_1-6\)이라 \(a_3=a_1\)이 될 수 없다.</p>
+    <p>ⅱ) \(a_2=2a_1\), \(a_3=a_2-3\)이면 \(a_3=2a_1-3=2a_3-3\)에서 \(a_3=3\)이다.</p>
+    <p>ⅲ) \(a_2=a_1-3\), \(a_3=2a_2\)이면 \(a_3=2a_1-6=2a_3-6\)에서 \(a_3=6\)이다.</p>
+    <p>ⅳ) 두 번 다 \(2\)배이면 \(a_3=4a_1=4a_3\)에서 \(a_3=0\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(a_4\)의 최댓값을 구한다</div>
+    <p>\(a_4\)는 \(a_3-3\) 또는 \(2a_3\)이므로 가능한 값은</p>
+    $$
+    a_3=3\ \Rightarrow\ 0,\ 6,\qquad a_3=6\ \Rightarrow\ 3,\ 12,\qquad a_3=0\ \Rightarrow\ -3,\ 0.
+    $$
+    <p>따라서 최댓값은 \(12\)이다.</p>
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2026_mock06/common/q13": { answer: 4, html: String.raw`
+  <div class="sol-box">세 영역은 곡선과 직선의 위아래가 뒤바뀌면서 번갈아 나온다. 그래서 \((A)+(C)=(B)\)는 부호를 붙여 한 번에 적분했을 때 \(0\)이 된다는 뜻이다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 조건을 하나의 정적분으로 옮긴다</div>
+    <p>\(A\), \(C\)에서는 곡선이 직선보다 위에, \(B\)에서는 아래에 있으므로</p>
+    $$
+    \int_0^{k}\left\{\left(3x^2-7x+2\right)-\left(\frac13x-\frac23\right)\right\}dx=0.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 정리해서 적분한다</div>
+    $$
+    \int_0^{k}\left(3x^2-\frac{22}{3}x+\frac83\right)dx=\left[x^3-\frac{11}{3}x^2+\frac83x\right]_0^{k}=0,
+    $$
+    $$
+    k^3-\frac{11}{3}k^2+\frac83k=0.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(k\)를 구한다</div>
+    $$
+    3k^3-11k^2+8k=k(k-1)(3k-8)=0.
+    $$
+    <p>\(k&gt;2\)이므로 \(k=\dfrac83\)이다.</p>
+  </div>
+  <div class="sol-final">답 &nbsp;④</div>
+` },
+
+"2026_mock06/common/q14": { answer: 2, html: String.raw`
+  <div class="sol-box">\(\mathrm P\)가 중점, \(\mathrm Q\)가 \(5:1\) 내분점이므로 \(\overline{\mathrm{PQ}}\)는 \(\overline{\mathrm{BC}}\)의 \(\dfrac13\)이다. 삼각형 \(\mathrm{APQ}\)의 사인법칙이 이 길이를 주면 나머지는 코사인법칙 두 번으로 풀린다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 사인법칙으로 \(\overline{\mathrm{PQ}}\)를 구한다</div>
+    <p>삼각형 \(\mathrm{APQ}\)에서 \(\dfrac{\overline{\mathrm{PQ}}}{\sin(\angle\mathrm{QAP})}=\dfrac{\overline{\mathrm{AQ}}}{\sin(\angle\mathrm{APQ})}\)이고 \(\sin(\angle\mathrm{QAP}):\sin(\angle\mathrm{APQ})=\sqrt2:3\)이므로</p>
+    $$
+    \overline{\mathrm{PQ}}=\frac{\sqrt2}{3}\times3\sqrt2=2.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(\overline{\mathrm{BC}}\)를 구한다</div>
+    <p>\(\overline{\mathrm{BP}}=\dfrac12\overline{\mathrm{BC}}\), \(\overline{\mathrm{QC}}=\dfrac16\overline{\mathrm{BC}}\)이므로</p>
+    $$
+    \overline{\mathrm{BC}}=\frac12\overline{\mathrm{BC}}+2+\frac16\overline{\mathrm{BC}},\qquad \frac13\overline{\mathrm{BC}}=2,\qquad \overline{\mathrm{BC}}=6.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 삼각형 \(\mathrm{ABQ}\)에서 \(\cos B\)를 구한다</div>
+    <p>\(\overline{\mathrm{BQ}}=\dfrac56\times6=5\), \(\overline{\mathrm{AB}}=2\sqrt7\), \(\overline{\mathrm{AQ}}=3\sqrt2\)이므로</p>
+    $$
+    \cos(\angle\mathrm{ABQ})=\frac{28+25-18}{2\times2\sqrt7\times5}=\frac{35}{20\sqrt7}=\frac{\sqrt7}{4}.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 삼각형 \(\mathrm{ABC}\)에서 \(\overline{\mathrm{AC}}\)를 구한다</div>
+    <p>\(\angle\mathrm{ABQ}\)와 \(\angle\mathrm{ABC}\)는 같은 각이므로</p>
+    $$
+    \overline{\mathrm{AC}}^{\,2}=28+36-2\times2\sqrt7\times6\times\frac{\sqrt7}{4}=64-42=22,\qquad \overline{\mathrm{AC}}=\sqrt{22}.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">5</span> 외접원의 넓이를 구한다</div>
+    $$
+    \sin(\angle\mathrm{ABC})=\sqrt{1-\frac7{16}}=\frac34,\qquad
+    R=\frac{\overline{\mathrm{AC}}}{2\sin(\angle\mathrm{ABC})}=\frac{\sqrt{22}}{\frac32}=\frac{2\sqrt{22}}{3},
+    $$
+    $$
+    \pi R^2=\pi\times\frac{4\times22}{9}=\frac{88}{9}\pi.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2026_mock06/common/q16": { answer: 2, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 진수 조건을 적는다</div>
+    $$
+    x+1&gt;0,\qquad x-1&gt;0\ \Longrightarrow\ x&gt;1.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 밑을 \(5\)로 맞춘다</div>
+    <p>\(\log_{25}9=\log_{5^2}3^2=\log_53\)이므로 주어진 식은</p>
+    $$
+    \log_5(x+1)(x-1)=\log_53,\qquad x^2-1=3.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 해를 고른다</div>
+    <p>\(x^2=4\)이고 \(x&gt;1\)이므로 \(x=2\)이다.</p>
+  </div>
+  <div class="sol-final">답 &nbsp;\(\mathbf{2}\)</div>
+` },
+
+"2026_mock06/common/q17": { answer: 6, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 적분해서 \(f\)를 구한다</div>
+    $$
+    f(x)=\int\left(3x^2+4x\right)dx=x^3+2x^2+C.
+    $$
+    <p>\(f(0)=3\)이므로 \(C=3\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 대입한다</div>
+    $$
+    f(1)=1+2+3=6.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;\(\mathbf{6}\)</div>
+` },
+
+"2026_mock06/common/q18": { answer: 133, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 합을 나눈다</div>
+    $$
+    \sum_{k=1}^{6}\left(k^2+2k\right)=\sum_{k=1}^{6}k^2+2\sum_{k=1}^{6}k.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 공식을 대입한다</div>
+    $$
+    \frac{6\times7\times13}{6}+2\times\frac{6\times7}{2}=91+42=133.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;\(\mathbf{133}\)</div>
+` },
+
+"2026_mock06/common/q19": { answer: 8, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 극값을 갖는 \(x\)를 구한다</div>
+    $$
+    f'(x)=9x^2-18x=9x(x-2)=0,\qquad x=0\ \text{또는}\ x=2.
+    $$
+    <p>\(f'\)의 부호가 \(x=0\)에서 양에서 음으로, \(x=2\)에서 음에서 양으로 바뀌므로 \(x=0\)에서 극대, \(x=2\)에서 극소이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 극댓값 조건에서 \(a\)를 구한다</div>
+    <p>\(f(0)=a\)이므로 \(a=20\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 극솟값을 구한다</div>
+    $$
+    f(2)=3\times8-9\times4+20=24-36+20=8.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;\(\mathbf{8}\)</div>
+` },
+
+"2026_mock06/common/q20": { answer: 85, html: String.raw`
+  <div class="sol-box">\(f(f(x))=f(x)\)는 \(f(x)\)가 방정식 \(f(t)=t\)의 해라는 뜻이다. 그 해가 \(0\)과 \(3\)이므로, 구할 것은 \(f(x)=0\) 또는 \(f(x)=3\)의 해가 된다. 그다음은 주기 \(4\)를 타고 등차수열 세 개로 갈라진다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 방정식을 바꿔 놓는다</div>
+    <p>\(0\le x&lt;4\)에서 \(f(x)=x\)는 \(-x^2+4x=x\), 즉 \(-x(x-3)=0\)이므로 해가 \(0\), \(3\)이다. 따라서 \(f(f(x))=f(x)\)는</p>
+    $$
+    f(x)\times\{f(x)-3\}=0
+    $$
+    <p>과 같은 방정식이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 한 주기 안의 해를 구한다</div>
+    <p>\(0\le x&lt;4\)에서 \(f(x)=0\)이면 \(-x(x-4)=0\)에서 \(x=0\)이고, \(f(x)=3\)이면 \(-x^2+4x=3\), 즉 \((x-1)(x-3)=0\)에서 \(x=1\) 또는 \(x=3\)이다. 즉 한 주기 안의 해는 \(0\), \(1\), \(3\)이므로</p>
+    $$
+    a_1=0,\qquad a_2=1,\qquad a_3=3.
+    $$
+    <p>따라서 \(p=1\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 세 등차수열로 나눈다</div>
+    <p>\(f(x+4)=f(x)\)이므로 해도 \(4\)마다 되풀이된다. 세 수열 \(\{a_{3n-2}\}\), \(\{a_{3n-1}\}\), \(\{a_{3n}\}\)은 첫째항이 각각 \(0\), \(1\), \(3\)이고 공차가 모두 \(4\)인 등차수열이다. 따라서 \(q=4\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 세 항을 구해 더한다</div>
+    $$
+    a_{20}=a_{3\times7-1}=1+6\times4=25,\qquad
+    a_{21}=a_{3\times7}=3+6\times4=27,
+    $$
+    $$
+    a_{22}=a_{3\times8-2}=0+7\times4=28,\qquad
+    a_{20}+a_{21}+a_{22}=80.
+    $$
+    <p>따라서 \(r=80\)이고</p>
+    $$
+    p+q+r=1+4+80=85.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;\(\mathbf{85}\)</div>
+` },
+
+"2026_mock06/prob_stat/q23": { answer: 3, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 같은 것이 있는 순열의 수를 쓴다</div>
+    <p>여섯 문자 \(a,a,a,a,b,c\) 중 \(a\)가 \(4\)개이므로</p>
+    $$
+    \frac{6!}{4!}=6\times5=30.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
+
+"2026_mock06/prob_stat/q24": { answer: 4, html: String.raw`
+  <div class="sol-box">배반이므로 \(\mathrm P(A\cup B)=\mathrm P(A)+\mathrm P(B)\)인데 이 값이 \(1\)이므로, 두 사건은 서로 여사건 관계가 된다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(\mathrm P(A)\)를 구한다</div>
+    <p>\(\mathrm P(A^{C})=2\mathrm P(A)\)에서 \(1-\mathrm P(A)=2\mathrm P(A)\)이므로</p>
+    $$
+    \mathrm P(A)=\frac13.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(\mathrm P(B)\)를 구한다</div>
+    <p>배반사건이므로 \(\mathrm P(A\cap B)=0\)이고 \(\mathrm P(A\cup B)=\mathrm P(A)+\mathrm P(B)=1\)이므로</p>
+    $$
+    \mathrm P(B)=1-\frac13=\frac23.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;④</div>
+` },
+
+"2026_mock06/prob_stat/q25": { answer: 3, html: String.raw`
+  <div class="sol-box">\((x+1)\)을 곱한다는 것은 \(x\)를 곱한 것과 그대로 둔 것을 더한다는 뜻이므로, \(x^3\)의 계수는 \((2x-1)^5\)의 \(x^2\)의 계수와 \(x^3\)의 계수를 더한 값이다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 문제를 두 계수의 합으로 바꾼다</div>
+    $$
+    (2x-1)^5(x+1)=(2x-1)^5\times x+(2x-1)^5.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 일반항을 쓴다</div>
+    $$
+    {}_5\mathrm C_r(2x)^{5-r}(-1)^{r}={}_5\mathrm C_r2^{\,5-r}(-1)^{r}x^{\,5-r}.
+    $$
+    <p>\(x^2\)항은 \(r=3\), \(x^3\)항은 \(r=2\)일 때이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 두 계수를 더한다</div>
+    $$
+    {}_5\mathrm C_3\times2^{2}\times(-1)^3+{}_5\mathrm C_2\times2^{3}\times(-1)^2=-40+80=40.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
+
+"2026_mock06/prob_stat/q26": { answer: 5, html: String.raw`
+  <div class="sol-box">"곱이 짝수"의 여사건은 "곱이 홀수", 즉 양 끝이 둘 다 홀수인 경우뿐이라 세기가 훨씬 쉽다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 여사건을 센다</div>
+    <p>양 끝에 놓인 두 수의 곱이 홀수이려면 홀수 \(1,3,5,7\)이 적힌 \(4\)장 중 \(2\)장을 골라 양 끝에 놓고, 나머지 \(5\)장을 가운데에 나열해야 한다.</p>
+    $$
+    \mathrm P(A^{C})=\frac{{}_4\mathrm P_2\times5!}{7!}=\frac{4\times3}{7\times6}=\frac27.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 여사건의 확률을 뺀다</div>
+    $$
+    \mathrm P(A)=1-\frac27=\frac57.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;⑤</div>
+` },
+
+"2026_mock06/prob_stat/q27": { answer: 1, html: String.raw`
+  <div class="sol-box">여학생을 적어도 몇 명 뽑느냐가 아니라, 남학생 수로 경우를 나누면 두 가지뿐이다. 뽑은 뒤 원탁에 앉히는 경우의 수는 어느 경우든 \((5-1)!\)로 같다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 뽑는 경우의 수를 센다</div>
+    <p>남학생 \(4\)명, 여학생 \(1\)명을 뽑는 경우는</p>
+    $$
+    {}_5\mathrm C_4\times{}_3\mathrm C_1=5\times3=15,
+    $$
+    <p>남학생 \(5\)명을 뽑는 경우는 \({}_5\mathrm C_5=1\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 원탁에 앉히는 경우의 수를 곱한다</div>
+    <p>뽑힌 \(5\)명을 원 모양의 탁자에 앉히는 경우의 수는 \((5-1)!=24\)이므로</p>
+    $$
+    (15+1)\times24=384.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;①</div>
+` },
+
+"2026_mock06/prob_stat/q28": { answer: 5, html: String.raw`
+  <div class="sol-box">\(\mathrm B\)에 들어가는 공은 \(3\)의 배수일 때 \(2\)개, 아닐 때 \(1\)개이므로 홀짝은 <b>\(3\)의 배수가 아닌 눈이 나온 횟수</b>만으로 정해진다. 그러면 사건이 세 경우로 좁혀진다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 두 사건을 정한다</div>
+    <p>\(3\)의 배수가 아닌 눈이 나온 횟수를 \(n\), \(3\)의 배수인 눈이 나온 횟수를 \(m\)이라 하면 \(m+n=5\)이고, 각 확률은 \(\dfrac23\), \(\dfrac13\)이다. 상자 \(\mathrm B\)의 공의 개수는 \(2m+n=10-n\)이므로, 이것이 홀수이려면 \(n\)이 홀수여야 한다.</p>
+    $$
+    n=1,\ 3,\ 5.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(\mathrm P(X)\)를 구한다</div>
+    $$
+    \mathrm P(X)={}_5\mathrm C_1\left(\frac23\right)^{1}\left(\frac13\right)^{4}+{}_5\mathrm C_3\left(\frac23\right)^{3}\left(\frac13\right)^{2}+{}_5\mathrm C_5\left(\frac23\right)^{5}
+    $$
+    $$
+    =\frac{10+80+32}{3^5}=\frac{122}{243}.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(\mathrm A\)와 \(\mathrm C\)의 합을 따진다</div>
+    <p>\(\mathrm A\)에는 항상 \(1\)개씩 들어가므로 \(5\)개이고, \(\mathrm C\)에는 \(3\)의 배수가 아닐 때만 \(1\)개씩 들어가므로 \(n\)개이다. 합은 \(5+n\)이므로 \(8\) 이상이려면 \(n\ge3\)이고, \(n\)이 홀수이므로 \(n=3\) 또는 \(n=5\)이다.</p>
+    $$
+    \mathrm P(X\cap Y)={}_5\mathrm C_3\left(\frac23\right)^{3}\left(\frac13\right)^{2}+{}_5\mathrm C_5\left(\frac23\right)^{5}=\frac{80+32}{243}=\frac{112}{243}.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 조건부확률을 구한다</div>
+    $$
+    \mathrm P(Y\,|\,X)=\frac{112}{122}=\frac{56}{61}.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;⑤</div>
+` },
+
+"2026_mock06/calculus/q23": { answer: 1, html: String.raw`
+  <div class="sol-box">밑이 큰 \(3^{n}\)이 분모를 지배하므로 분자·분모를 \(3^{n}\)으로 나눈다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(3^{n}\)으로 나눈다</div>
+    $$
+    \frac{4\times3^{\,n+1}}{2^{n}+3^{n}}=\frac{4\times3}{\left(\dfrac23\right)^{n}+1}.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 극한값을 구한다</div>
+    <p>\(\left(\dfrac23\right)^{n}\to0\)이므로</p>
+    $$
+    \frac{12}{0+1}=12.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;①</div>
+` },
+
+"2026_mock06/calculus/q24": { answer: 2, html: String.raw`
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 음함수의 미분법을 쓴다</div>
+    <p>\(3x+y+\cos(xy)=2\)의 양변을 \(x\)에 대하여 미분하면</p>
+    $$
+    3+\frac{dy}{dx}-\sin(xy)\times\left(y+x\frac{dy}{dx}\right)=0.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(\dfrac{dy}{dx}\)에 대해 푼다</div>
+    $$
+    \{1-x\sin(xy)\}\frac{dy}{dx}=y\sin(xy)-3,\qquad
+    \frac{dy}{dx}=\frac{y\sin(xy)-3}{1-x\sin(xy)}.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 접선을 구한다</div>
+    <p>\(x=0\), \(y=1\)을 넣으면 \(\sin0=0\)이므로 기울기는 \(\dfrac{0-3}{1-0}=-3\)이고, 접선은 \(y=-3x+1\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> \(x\)절편을 구한다</div>
+    $$
+    -3x+1=0,\qquad x=\frac13.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2026_mock06/calculus/q25": { answer: 4, html: String.raw`
+  <div class="sol-box">급수가 수렴하면 일반항이 \(0\)으로 간다 — 이것이 \(a\)를 준다. \(a\)를 넣으면 두 분수가 부분분수 꼴로 정리되어 소거된다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 일반항의 극한으로 \(a\)를 구한다</div>
+    $$
+    \lim_{n\to\infty}\left(\frac{a-3n}{n}+\frac{an+6}{n+a}\right)
+    =\lim_{n\to\infty}\left(\frac an-3+\frac{a+\frac6n}{1+\frac an}\right)=-3+a=0,
+    $$
+    <p>따라서 \(a=3\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 일반항을 부분분수로 정리한다</div>
+    $$
+    \frac{3-3n}{n}+\frac{3n+6}{n+3}
+    =\left(\frac3n-3\right)+\left(3-\frac3{n+3}\right)
+    =3\left(\frac1n-\frac1{n+3}\right).
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> 소거하여 합을 구한다</div>
+    <p>제\(n\)항까지 더하면 앞의 세 항만 남고 뒤쪽 세 항은 \(0\)으로 가므로</p>
+    $$
+    \sum_{n=1}^{\infty}\left(\frac1n-\frac1{n+3}\right)=1+\frac12+\frac13=\frac{11}{6},
+    $$
+    $$
+    S=3\times\frac{11}{6}=\frac{11}{2}.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 답을 구한다</div>
+    $$
+    a+S=3+\frac{11}{2}=\frac{17}{2}.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;④</div>
+` },
+
+"2026_mock06/calculus/q26": { answer: 2, html: String.raw`
+  <div class="sol-box">역함수의 미분법 \(g'(a)=\dfrac1{f'(g(a))}\)에서 \(f'(g(a))=8\)이 바로 나온다. 남은 일은 \(g(a)=b\)로 놓고 \(b\)를 찾는 것뿐이다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> \(f'(g(a))\)를 읽는다</div>
+    $$
+    g'(a)=\frac1{f'(g(a))}=\frac18\ \Longrightarrow\ f'(g(a))=8.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> \(b=g(a)\)를 구한다</div>
+    <p>\(f'(x)=3e^{3x}-6e^{2x}+4e^{x}\)이므로 \(e^{b}=t\ (t&gt;0)\)로 놓으면</p>
+    $$
+    3t^3-6t^2+4t-8=0,\qquad (t-2)\left(3t^2+4\right)=0.
+    $$
+    <p>\(3t^2+4&gt;0\)이므로 \(t=2\), 즉 \(b=\ln2\)이다.</p>
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(a\)를 구한다</div>
+    <p>\(g(a)=b\)는 \(a=f(b)\)와 같으므로</p>
+    $$
+    a=f(\ln2)=2^3-3\times2^2+4\times2=8-12+8=4.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 더한다</div>
+    $$
+    a+f'(g(a))=4+8=12.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;②</div>
+` },
+
+"2026_mock06/calculus/q27": { answer: 3, html: String.raw`
+  <div class="sol-box">중심 \(\mathrm O\)에서 네 점 \(\mathrm A\), \(\mathrm P\), \(\mathrm Q\), \(\mathrm B\)까지의 거리가 모두 반지름 \(1\)이다. 사각형을 세 개의 이등변삼각형으로 쪼개면 넓이가 \(\theta\)의 삼각함수로 바로 나온다.</div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">1</span> 세 중심각을 구한다</div>
+    <p>\(\overline{\mathrm{AB}}\)의 중점을 \(\mathrm O\)라 하면 반지름이 \(1\)이다. 삼각형 \(\mathrm{OPA}\)는 \(\overline{\mathrm{OP}}=\overline{\mathrm{OA}}=1\)인 이등변삼각형이고 밑각이 \(\theta\)이므로 \(\angle\mathrm{AOP}=\pi-2\theta\)이다. \(\overline{\mathrm{PQ}}\parallel\overline{\mathrm{AB}}\)이므로 대칭에 의하여 \(\angle\mathrm{BOQ}=\pi-2\theta\)이고, 따라서</p>
+    $$
+    \angle\mathrm{POQ}=\pi-2(\pi-2\theta)=4\theta-\pi.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">2</span> 넓이를 \(\theta\)로 나타낸다</div>
+    <p>세 이등변삼각형의 넓이를 더하면</p>
+    $$
+    f(\theta)=2\times\frac12\sin(\pi-2\theta)+\frac12\sin(4\theta-\pi)=\sin2\theta-\frac12\sin4\theta.
+    $$
+    $$
+    f'(\theta)=2\cos2\theta-2\cos4\theta.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">3</span> \(a\)에서의 삼각비를 구한다</div>
+    <p>\(\overline{\mathrm{AB}}\)가 지름이므로 \(\angle\mathrm{APB}=\dfrac\pi2\)이고, \(\overline{\mathrm{AP}}:\overline{\mathrm{BP}}=1:3\)에서 \(\tan a=3\), 즉 \(\cos a=\dfrac1{\sqrt{10}}\)이다.</p>
+    $$
+    \cos2a=2\cos^2a-1=\frac15-1=-\frac45,\qquad
+    \cos4a=2\cos^22a-1=\frac{32}{25}-1=\frac7{25}.
+    $$
+  </div>
+  <div class="sol-step">
+    <div class="sol-h"><span class="sol-num">4</span> 대입한다</div>
+    $$
+    f'(a)=2\times\left(-\frac45\right)-2\times\frac7{25}=-\frac{40}{25}-\frac{14}{25}=-\frac{54}{25}.
+    $$
+  </div>
+  <div class="sol-final">답 &nbsp;③</div>
+` },
 };
