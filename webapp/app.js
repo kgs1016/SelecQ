@@ -1941,13 +1941,14 @@
       $("#btnSignout").onclick = signOut;
     } else {
       el.innerHTML = `<section class="account">
-        <h2>로그인</h2>
+        <h2>로그인 / 가입</h2>
+        <p class="muted"><b>따로 가입할 게 없어요.</b> 아래 버튼을 누르면 처음 오신 분은 그 자리에서 가입까지 끝납니다. 새로 만들 아이디도, 외울 비밀번호도 없어요.</p>
         <p class="muted">로그인하면 기록·오답·필기가 <b>모든 기기에서 이어집니다.</b> 로그인하지 않아도 이 기기에서는 지금처럼 그대로 사용할 수 있어요.</p>
         <div class="acc-actions">
-          <button class="loginbtn kakao" id="btnKakao">카카오로 로그인</button>
-          <button class="loginbtn google" id="btnGoogle">구글로 로그인</button>
+          <button class="loginbtn kakao" id="btnKakao">카카오로 시작하기</button>
+          <button class="loginbtn google" id="btnGoogle">구글로 시작하기</button>
         </div>
-        <p class="muted consent">로그인하면 <a href="/privacy">개인정보처리방침</a>에 동의하고, 만 14세 이상임을 확인한 것으로 봅니다.</p>
+        <p class="muted consent">계속하면 <a href="/privacy">개인정보처리방침</a>에 동의하고, 만 14세 이상임을 확인한 것으로 봅니다.</p>
       </section>`;
       $("#btnKakao").onclick = () => signIn("kakao");
       $("#btnGoogle").onclick = () => signIn("google");
