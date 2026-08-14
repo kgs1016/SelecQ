@@ -800,19 +800,24 @@
   function viewHome() {
     setNav("");  // 메인(로고)에는 활성 탭 표시 없음
     useFilterCtx("browse");
+    // 문항·해설 수는 세서 쓴다 — 숫자를 본문에 박아두면 데이터가 늘 때 조용히 거짓말이 된다
+    const nSol = window.SOLUTIONS ? Object.keys(SOLUTIONS).length : 0;
     $("#view").innerHTML = `
       ${examBannerHTML()}
       <section class="hero">
         <h1>원하는 단원·유형·난이도만 골라<br>나만의 평가원 기출 세트를 만들어 보세요</h1>
         <ul class="benefits">
+          <li><span class="bi">✓</span> 평가원 기출 ${Q.length}문항${nSol ? ` · 단계별 해설 ${nSol}개` : ""}</li>
           <li><span class="bi">✓</span> 단원·유형·난이도별 문제 선택</li>
           <li><span class="bi">✓</span> 원하는 문항만 모의고사 구성</li>
           <li><span class="bi">✓</span> 오답·풀이 기록 자동 관리</li>
         </ul>
         <div class="herocta">
-          <a class="big pill" href="/custom">나만의 모의고사 만들기 →</a>
-          <a class="big pill outline" href="/exam">회차별 실전 →</a>
+          <a class="big pill" href="/find">문제 풀어보기 →</a>
+          <a class="big pill outline" href="/custom">나만의 모의고사 만들기</a>
+          <a class="big pill outline" href="/exam">회차별 실전</a>
         </div>
+        <p class="herofree">가입 없이 바로 풀 수 있어요. 로그인은 기록을 다른 기기에서 이어 볼 때만 필요해요.</p>
         <div class="heromock">
           <div class="mockbar">
             <span class="mdot"></span><span class="mdot"></span><span class="mdot"></span>

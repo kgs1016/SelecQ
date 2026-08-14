@@ -109,8 +109,17 @@ button.ghost { background: #fff; border: 1px solid var(--line); border-radius: 1
 .herocta { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 .pill { border-radius: 99px; padding: 13px 28px; font-size: 15px; }
 a.pill { display: inline-flex; align-items: center; }
+/* 채움 버튼도 테두리 폭을 차지하게 해 outline 버튼과 높이를 맞춘다 (38px vs 40px 어긋남) */
+.herocta .pill { border: 1px solid transparent; }
 .pill.outline { background: #fff; color: var(--ink); border: 1px solid var(--line); font-weight: 600; cursor: pointer; }
 .pill.outline:hover { border-color: var(--accent); color: var(--accent); }
+/* 가입 강제가 없다는 사실을 CTA 바로 밑에서 알린다 — 검색으로 들어온 사람이 벽을 걱정하지 않도록 */
+.herofree { font-size: 13px; color: var(--sub); margin: 14px 0 0; line-height: 1.6; }
+/* 좁은 화면: 버튼 3개가 제각각 너비로 쌓이면 지저분하다. 같은 폭으로 세로 정렬 */
+@media (max-width: 560px) {
+  .herocta { flex-direction: column; align-items: stretch; }
+  .herocta .pill { justify-content: center; }
+}
 
 /* 과목 바로가기 카드 */
 .subjectcards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 8px 0 26px; }
