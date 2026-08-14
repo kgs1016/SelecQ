@@ -2152,11 +2152,14 @@
     if (error) { setSyncStatus("err"); return; }
 
     const meta = getSyncMeta();
-    const localHasData = Object.keys(records).length > 0 || basket.length > 0 || !!examSession;
+    // 필기도 반드시 센다. 예전엔 빠져 있어서 "필기만 있는 기기"는 아래 계정 확인창이
+    // 전혀 뜨지 않았고, 앞사람 필기가 조용히 새 계정으로 올라갔다.
+    const localHasData = Object.keys(records).length > 0 || basket.length > 0
+      || !!examSession || getIdx().length > 0;
 
     if (!row) {
       // 계정에 아직 데이터 없음 → 이 기기 데이터를 계정으로 (익명 데이터 입양)
-      if (localHasData && !confirm("이 기기의 풀이 기록을 방금 로그인한 계정에 올릴까요?")) return;
+      if (localHasData && !confirm("이 기기의 풀이 기록·필기를 방금 로그인한 계정에 올릴까요?")) return;
       pushState();
       return;
     }
@@ -2164,11 +2167,15 @@
     const cloud = row.data || {};
     // 다른 계정이 쓰던 기기: 섞임 방지를 위해 명시적으로 선택받는다
     if (meta.userId && meta.userId !== uid && localHasData) {
-      if (confirm("이 기기의 기존 기록은 다른 계정에서 쓰던 것이에요.\n\n확인 = 이 계정의 클라우드 기록으로 교체 (기기의 기존 기록은 지워짐)\n취소 = 기기의 기록을 이 계정에 합치기")) {
+      if (confirm("이 기기의 기존 기록·필기는 다른 계정에서 쓰던 것이에요.\n\n확인 = 이 계정의 클라우드 기록으로 교체 (기기의 기존 기록·필기는 지워짐)\n취소 = 기기의 기록·필기를 이 계정에 합치기")) {
         for (const k in records) delete records[k];
         localStorage.removeItem("ks_exam"); localStorage.removeItem("ks_basket");
         getIdx().forEach(k => localStorage.removeItem("ksw_" + k)); setIdx([]);   // 필기도 전 계정 것이므로 정리
         setSyncMeta({ drawTs: {}, pendingDraws: {} });
+        // 메모리에 남은 대기 목록까지 비운다. setSyncMeta는 저장소만 지우므로,
+        // 이걸 안 지우면 이전 계정의 문항 키로 pushDrawings가 돌아
+        // 새 계정의 같은 문항 필기 행을 지운다(로컬이 비어 삭제로 분류되므로).
+        clearPendingDraws();
         mergeRecords(cloud[LS_REC]); applyCloudState(cloud);
         localStorage.setItem(LS_REC, JSON.stringify(records));
         setSyncMeta({ userId: uid, stateUpdatedAt: row.updated_at, pendingState: false, lastSyncAt: new Date().toISOString() });
@@ -2215,6 +2222,13 @@
   // 변경된 문항만 upsert한다. 타임스탬프는 ks_sync.drawTs[qkey](ms 숫자)로 관리.
   var drawPushTimer = null;
   var pendingDraws = {};   // { qkey: true } — 아직 클라우드에 안 올라간 변경분
+
+  // 메모리 대기 목록 비우기 + 예약된 push 취소. 계정이 바뀌는 지점(교체 선택·로그아웃)에서
+  // 반드시 불러야 한다 — 남아 있으면 이전 계정의 문항 키가 새 계정 행에 그대로 작용한다.
+  function clearPendingDraws() {
+    for (const k in pendingDraws) delete pendingDraws[k];
+    clearTimeout(drawPushTimer); drawPushTimer = null;
+  }
 
   function markDrawDirty(qkey) {
     if (!sb || !session) return;   // 비로그인: 동기화 없음 (로컬 저장은 이미 끝난 상태)
@@ -2299,7 +2313,11 @@
   function stopSync() {
     syncUserId = null;
     clearTimeout(pushTimer); pushTimer = null;
-    clearTimeout(drawPushTimer); drawPushTimer = null;
+    // 메모리 대기 목록도 비운다. 로그아웃 후 다른 계정으로 로그인하면
+    // 이전 계정의 대기분이 새 계정으로 올라갔다.
+    // (저장소 meta.pendingDraws는 남겨 둔다 — 같은 계정으로 다시 로그인하면 이어서 올려야 하고,
+    //  다른 계정이면 위 '교체' 확인창에서 정리된다.)
+    clearPendingDraws();
     // 로컬 데이터는 그대로 둔다 (비로그인으로 계속 사용 가능)
   }
 
