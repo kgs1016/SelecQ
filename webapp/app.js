@@ -1874,7 +1874,8 @@
       const nm = userName(session.user);
       el.innerHTML = `<a class="authbtn in ${onAcc ? "active" : ""}" href="/account" title="${esc(nm)}"><span class="syncdot" id="syncDot"></span>${esc(shorten(nm))}</a>`;
     } else {
-      el.innerHTML = `<a class="authbtn ${onAcc ? "active" : ""}" href="/account">로그인</a>`;
+      // 비로그인일 때만 cta — 처음 들어온 사람이 로그인 입구를 놓치지 않도록 파란 채움 버튼
+      el.innerHTML = `<a class="authbtn cta ${onAcc ? "active" : ""}" href="/account">로그인</a>`;
     }
   }
 
