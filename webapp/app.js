@@ -1874,8 +1874,10 @@
       const nm = userName(session.user);
       el.innerHTML = `<a class="authbtn in ${onAcc ? "active" : ""}" href="/account" title="${esc(nm)}"><span class="syncdot" id="syncDot"></span>${esc(shorten(nm))}</a>`;
     } else {
-      // 비로그인일 때만 cta — 처음 들어온 사람이 로그인 입구를 놓치지 않도록 파란 채움 버튼
-      el.innerHTML = `<a class="authbtn cta ${onAcc ? "active" : ""}" href="/account">로그인</a>`;
+      // 비로그인일 때만 cta — 처음 들어온 사람이 로그인 입구를 놓치지 않도록 파란 채움 버튼.
+      // '가입'을 함께 적는 이유: 소셜 로그인은 첫 로그인이 곧 가입이라 별도 가입 버튼이 없다.
+      // '로그인'만 있으면 계정 없는 사람이 자기 얘기가 아니라고 여기고 지나친다.
+      el.innerHTML = `<a class="authbtn cta ${onAcc ? "active" : ""}" href="/account">로그인 / 가입</a>`;
     }
   }
 
