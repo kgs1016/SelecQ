@@ -1646,6 +1646,11 @@
   // ---------- 오답 목록 ----------
   function viewWrong() {
     setNav("wrong");
+    if (needsLogin()) {
+      renderLocked("오답은 계정에 쌓입니다",
+        "반복해서 틀리는 유형과 약한 단원을 계속 추적하려면 기록이 <b>브라우저가 아니라 계정</b>에 있어야 해요. 기기를 바꾸거나 브라우저를 지워도 남습니다.");
+      return;
+    }
     const wrong = Q.filter(q => recOf(q)?.r === "bad" && !recOf(q).dismissed)
       .sort((a, b) => recOf(b).ts - recOf(a).ts);
     currentList = wrong;
@@ -1695,6 +1700,11 @@
   // ---------- 기록 ----------
   function viewStats() {
     setNav("stats");
+    if (needsLogin()) {
+      renderLocked("학습 기록은 계정에 쌓입니다",
+        "푼 문항 수·정답률·취약 유형은 기록이 오래 쌓일수록 정확해져요. <b>계정</b>에 저장해야 기기를 바꿔도 이어집니다.");
+      return;
+    }
     let selectMode = false;
     const selected = new Set();
 
@@ -1866,6 +1876,32 @@
   // let이면 TDZ ReferenceError로 IIFE 전체가 죽는다. var는 hoisting되어 undefined로 안전.
   var sb = null;         // supabase 클라이언트 (설정+로드 성공 시)
   var session = null;    // 현재 세션 (비로그인이면 null)
+  var AFTER_LOGIN = "ks_after_login";   // 잠금 화면에서 로그인했을 때 돌아갈 경로
+
+  // 오답·기록은 계정에 쌓여야 성립하는 기능이라 로그인을 요구한다.
+  // 단, Supabase 미설정이면 로그인 자체가 불가능하므로 잠그지 않는다 — 잠그면 영영 못 연다.
+  // (위 var와 같은 이유로 const 화살표가 아니라 함수 선언 — route()가 이 줄보다 먼저 실행된다)
+  function needsLogin() { return !!window.SB_CONFIGURED && !session; }
+
+  // 잠금 화면. 문 앞에서 "왜 계정이 필요한지"를 밝히고, 로컬에 이미 쌓인 기록 수를 보여 준다
+  // (로그인하면 그 기록이 그대로 계정으로 병합되므로, 잃는 게 아니라 지키는 행동임을 알린다).
+  function renderLocked(title, lead) {
+    const n = Object.keys(records).filter(k => QKEYS.has(k)).length;
+    $("#view").innerHTML = `<section class="account locked">
+      <h2>${esc(title)}</h2>
+      <p class="muted">${lead}</p>
+      ${n ? `<p class="lockcarry">이 브라우저에 <b>${n}문항</b>의 풀이 기록이 있어요. 로그인하면 그대로 계정으로 옮겨집니다.</p>` : ""}
+      <div class="acc-actions">
+        <button class="loginbtn kakao" id="btnKakao">카카오로 시작하기</button>
+        <button class="loginbtn google" id="btnGoogle">구글로 시작하기</button>
+      </div>
+      <p class="muted consent">계속하면 <a href="/privacy">개인정보처리방침</a>에 동의하고, 만 14세 이상임을 확인한 것으로 봅니다.</p>
+      <p class="muted consent">기출 문제와 해설은 <a href="/find">로그인 없이</a> 그대로 이용할 수 있어요.</p>
+    </section>`;
+    const back = location.pathname;
+    $("#btnKakao").onclick = () => signIn("kakao", back);
+    $("#btnGoogle").onclick = () => signIn("google", back);
+  }
 
   function userName(u) { return (u && ((u.user_metadata && (u.user_metadata.name || u.user_metadata.full_name)) || u.email)) || "내 계정"; }
   function shorten(s) { s = String(s || ""); return s.length > 12 ? s.slice(0, 11) + "…" : s; }
@@ -1901,9 +1937,17 @@
       sb.auth.onAuthStateChange((evt, s) => {
         session = s || null;
         renderAuthUI();
-        if (location.pathname === "/account") viewAccount();
         if (evt === "SIGNED_OUT") stopSync();
         else if (session) startSync();   // SIGNED_IN / INITIAL_SESSION / TOKEN_REFRESHED
+        // 잠금 화면에서 시작한 로그인이면 그 화면으로 돌아간다
+        let back = null;
+        if (session) { try { back = sessionStorage.getItem(AFTER_LOGIN); sessionStorage.removeItem(AFTER_LOGIN); } catch (e) { } }
+        if (back && back !== location.pathname) { navigate(back); return; }
+        // 로그인 상태가 바뀌면 잠금 화면 ↔ 실제 화면을 다시 그린다.
+        // 풀이 화면(/q/…)은 일부러 제외 — 다시 그리면 진행 중인 필기·답안이 날아간다.
+        // TOKEN_REFRESHED는 주기적으로 오므로 화면을 건드리지 않는다.
+        const p = location.pathname;
+        if (evt !== "TOKEN_REFRESHED" && (p === "/account" || p === "/wrong" || p === "/stats")) route();
       });
     } catch (e) {
       console.warn("[SelecQ] Supabase 초기화 실패(네트워크/설정 확인)", e);
@@ -1911,8 +1955,12 @@
     }
   }
 
-  async function signIn(provider) {
+  async function signIn(provider, returnTo) {
     if (!sb) return;
+    // 잠금 화면에서 로그인한 경우 원래 보던 화면으로 돌려보낸다. OAuth 콜백 주소는
+    // Supabase 대시보드에 등록된 /account 하나뿐이라 redirectTo는 건드리지 않고,
+    // 돌아갈 경로만 sessionStorage에 맡겨 뒀다가 로그인 성공 시 꺼내 쓴다.
+    try { if (returnTo) sessionStorage.setItem(AFTER_LOGIN, returnTo); } catch (e) { }
     // 주의: Supabase가 카카오에 account_email을 항상 요청함 → 카카오 콘솔에서
     // 이메일 동의항목이 켜져 있어야 함(비즈 앱 전용). 꺼지면 KOE205.
     const { error } = await sb.auth.signInWithOAuth({ provider, options: { redirectTo: location.origin + "/account" } });
