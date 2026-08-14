@@ -10,6 +10,9 @@ data/questions/
 # === Claude / 로컬 설정 ===
 .claude/
 
+# === wrangler 로컬 개발 상태(캐시) ===
+.wrangler/
+
 # === 로컬 유틸 / 임시 파일 ===
 scratchpad_save.py
 sync_review.bat

@@ -1,11 +1,16 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "selecq",
+  "main": "worker/index.js",
   "compatibility_date": "2026-07-23",
   "observability": { "enabled": true },
   "assets": {
     "directory": "webapp",
-    "not_found_handling": "single-page-application"
+    // "none": 자산이 없으면 자산 서버가 폴백하지 않고 Worker로 넘긴다.
+    // Worker가 자산 요청(확장자 있음)은 404로, 클린 URL은 index.html로 가른다.
+    // (예전 "single-page-application" 은 없는 이미지까지 200 + index.html 로 돌려줬다)
+    "not_found_handling": "none",
+    "binding": "ASSETS"
   },
   "compatibility_flags": ["nodejs_compat"]
 }
