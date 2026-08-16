@@ -937,7 +937,7 @@
         <button class="tbtn" id="tClear">🗑 전체</button>
         <button class="tbtn" id="tFinger">✋ 손가락 OFF</button>
         <button class="tbtn" id="tFocus">⛶ 집중</button>
-        ${hasSol ? `<button class="tbtn soltbtn" id="btnSolTool">📖 해설</button>` : ""}
+        ${hasSol ? `<button class="tbtn soltbtn" id="btnSolTool">${needsLogin() ? "🔒" : "📖"} 해설</button>` : ""}
       </div>
 
       <div class="probpane" id="probPane">
@@ -961,7 +961,7 @@
 
       <div class="srcline">출처: 한국교육과정평가원 ${q.examLabel} 수학영역 ${q.qno}번 · 문제 저작권은 KICE에 있습니다.</div>
       ${inExam ? "" : (hasSol
-        ? `<button class="big solbtn ours" id="btnSol">📖 해설 보기</button>`
+        ? `<button class="big solbtn ours" id="btnSol">${needsLogin() ? "🔒" : "📖"} 해설 보기</button>`
         : `<a class="big solbtn" id="btnSol" href="https://www.google.com/search?q=${encodeURIComponent(q.examLabel + " 수학 " + q.qno + "번 해설")}" target="_blank" rel="noopener">🔍 이 문제 해설 검색 ↗</a>`)}
       <div class="answer-bar examab">
         ${inExam
@@ -1062,6 +1062,23 @@
         const panel = $("#solPanel"), sb = $("#solBody");
         if (!panel || !sb) return;
         panel.hidden = false;
+        // 해설은 SelecQ가 직접 쓴 자산이자 유료화 대상이라 계정 뒤에 둔다.
+        // 버튼 자체는 비로그인에게도 보여 준다 — 있는 줄 알아야 로그인할 이유가 생긴다.
+        if (needsLogin()) {
+          sb.innerHTML = `<div class="sollock">
+            <p class="slhead">해설은 로그인하면 열립니다</p>
+            <p class="sldesc">SelecQ가 직접 쓴 단계별 해설이에요. 어떤 생각으로 접근하는지부터 풀이 과정까지 문항마다 정리돼 있습니다.</p>
+            <div class="acc-actions">
+              <button class="loginbtn kakao" id="solKakao">카카오로 시작하기</button>
+              <button class="loginbtn google" id="solGoogle">구글로 시작하기</button>
+            </div>
+            <p class="slfoot">계속하면 <a href="/privacy">개인정보처리방침</a>에 동의하고, 만 14세 이상임을 확인한 것으로 봅니다.</p>
+          </div>`;
+          const back = location.pathname;
+          $("#solKakao").onclick = () => signIn("kakao", back);
+          $("#solGoogle").onclick = () => signIn("google", back);
+          return;   // filled를 안 찍으므로 로그인 뒤 열면 진짜 해설로 채워진다
+        }
         if (sb.dataset.filled || solBusy) return;
         solBusy = true;
         try {
@@ -1925,7 +1942,7 @@
         <button class="loginbtn google" id="btnGoogle">구글로 시작하기</button>
       </div>
       <p class="muted consent">계속하면 <a href="/privacy">개인정보처리방침</a>에 동의하고, 만 14세 이상임을 확인한 것으로 봅니다.</p>
-      <p class="muted consent">기출 문제와 해설은 <a href="/find">로그인 없이</a> 그대로 이용할 수 있어요.</p>
+      <p class="muted consent"><a href="/find">기출 문제 풀이</a>는 로그인 없이 계속 열려 있어요.</p>
     </section>`;
     const back = location.pathname;
     $("#btnKakao").onclick = () => signIn("kakao", back);
