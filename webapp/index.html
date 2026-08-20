@@ -92,6 +92,29 @@
   <p>풀이 기록은 브라우저에 저장되며, 로그인하면 계정에 동기화됩니다. · <a href="/privacy">개인정보처리방침</a> · <a href="mailto:1212ntnt@naver.com?subject=[SelecQ] 문의">문의</a></p>
 </footer>
 
+<!-- 서비스워커: 홈 화면 추가(아이패드)·설치(안드로이드)·오프라인 풀이를 위해 등록.
+     실패해도 앱은 그대로 동작하므로 조용히 넘어간다. -->
+<script>
+(function () {
+  if (!("serviceWorker" in navigator)) return;
+  addEventListener("load", function () {
+    navigator.serviceWorker.register("/sw.js").then(function (reg) {
+      // 설치형 PWA는 앱을 며칠씩 열어두는 경우가 있어, 돌아올 때마다 새 버전을 확인한다.
+      document.addEventListener("visibilitychange", function () {
+        if (!document.hidden) reg.update();
+      });
+      // 새 워커가 대기 중이면 즉시 넘긴다 — 다음 새로고침부터 새 버전이 적용된다.
+      reg.addEventListener("updatefound", function () {
+        var nw = reg.installing;
+        if (!nw) return;
+        nw.addEventListener("statechange", function () {
+          if (nw.state === "installed" && navigator.serviceWorker.controller) nw.postMessage("skip-waiting");
+        });
+      });
+    }).catch(function () { /* 등록 실패는 무시 */ });
+  });
+})();
+</script>
 <script src="config.js?v=20260723b"></script>
 <script src="data.js?v=20260721b"></script>
 <script src="solutions.js?v=20260814c"></script>
