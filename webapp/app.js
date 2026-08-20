@@ -1179,6 +1179,12 @@
       examQEnter = { key: q.key, t: Date.now() };  // 이 문항 진입 시각 기록
       const tick = () => {
         const clk = $("#etClock");
+        // 제출이 끝났으면 시계를 세운다. 계속 흐르면 아직 채점 중인 것처럼 보인다.
+        if (examSession.submittedAt) {
+          if (clk) { clk.textContent = "제출 완료"; clk.classList.remove("over"); }
+          const eqDone = $("#etQ"); if (eqDone) eqDone.textContent = "";
+          return;
+        }
         // 일시정지 중이면 pausedAt 시점으로 시계를 얼린다 (재개 시 기준 시각을 밀어 보정)
         const nowRef = examSession.pausedAt || Date.now();
         if (clk) {
@@ -1202,7 +1208,8 @@
       };
       tick();
       if (examInterval) clearInterval(examInterval);
-      examInterval = setInterval(tick, 1000);
+      // 제출된 세션은 애초에 시계를 돌리지 않는다 — 결과를 보는 내내 뒤에서 1초마다 다시 그린다.
+      if (!examSession.submittedAt) examInterval = setInterval(tick, 1000);
 
       const showResult = () => {
         flushQTime();  // 현재 문항 체류 시간 확정
@@ -1222,6 +1229,9 @@
           }
           saveRec();
         }
+        // 채점이 끝났으니 시계를 멈추고 한 번 더 그려 "제출 완료"로 바꾼다.
+        if (examInterval) { clearInterval(examInterval); examInterval = null; }
+        tick();
         const { score, correct, answered, total } = examScore();
         const used = examSession.usedMs || 0;   // 제출 시점에 확정된 값 (재조회해도 변하지 않음)
         const times = examSession.times || {};
@@ -1239,7 +1249,7 @@
             const qq = getQ(k); if (!qq) return "";   // 사라진 문항은 결과 행에서 건너뜀 (examScore와 동일 처리)
             const my = examSession.answers[k];
             const okk = my === qq.answer;
-            return `<div class="prow">
+            return `<div class="prow" data-k="${esc(k)}" title="이 문항 다시 보기">
               <span class="pno">${qq.qno}번</span>
               <span class="pmeta">${my == null ? "미제출" : "내 답 " + esc(isMC(qq) ? CIRCLED[my] : my)}</span>
               <span class="ptime">${times[k] ? fmtClock(times[k]) : "-"}</span>
@@ -1248,6 +1258,16 @@
           <button class="big" id="erHome">홈으로</button>`;
         $("#examResult").hidden = false;
         $("#erHome").onclick = () => { clearExam(); navigate("/"); };
+        // 결과 줄은 예전부터 눌리는 모양(cursor:pointer + hover)이었는데 아무 동작이 없었다.
+        // 틀린 문항을 눌러 그 문제로 바로 돌아가게 한다. 제출된 세션이라 답안은 잠긴 채 열리고,
+        // 해설도 그 자리에서 볼 수 있다.
+        const resRows = $("#erBody").querySelector(".resultrows");
+        if (resRows) resRows.onclick = e => {
+          const row = e.target.closest("[data-k]");
+          if (!row) return;
+          $("#examResult").hidden = true;
+          navigate("/q/" + encodeURIComponent(row.dataset.k));
+        };
       };
       const finish = () => {
         if (examSession.submittedAt) { showResult(); return; }   // 이미 제출됨 → 확정된 결과만 다시 표시
@@ -1559,8 +1579,22 @@
       const ta = (d.fingerMode || document.body.classList.contains("focusmode")) ? "none" : "pan-y";
       drawers.forEach(dr => { dr.canvas.style.touchAction = ta; });
     };
+    // 손가락 필기 설정이 문항을 넘길 때마다 꺼졌다. 문항마다 Drawer 를 새로 만드는데
+    // fingerMode 기본값이 false 라서다. 집중 모드·분할 비율처럼 기기에 기억시킨다.
+    const FINGER_KEY = "ks_finger";
     const fb = $("#tFinger");
-    fb.onclick = () => { const on = !d.fingerMode; drawers.forEach(dr => { dr.fingerMode = on; }); fb.textContent = on ? "✋ 손가락 ON" : "✋ 손가락 OFF"; fb.classList.toggle("on", on); syncTouchAction(); };
+    const applyFinger = on => {
+      drawers.forEach(dr => { dr.fingerMode = on; });
+      fb.textContent = on ? "✋ 손가락 ON" : "✋ 손가락 OFF";
+      fb.classList.toggle("on", on);
+      syncTouchAction();
+    };
+    fb.onclick = () => {
+      const on = !d.fingerMode;
+      try { localStorage.setItem(FINGER_KEY, on ? "1" : "0"); } catch (err) { }
+      applyFinger(on);
+    };
+    applyFinger(localStorage.getItem(FINGER_KEY) === "1");
     const markUserSet = () => { const wsp = $("#workspace"); if (wsp) wsp.dataset.userSet = "1"; };
     $("#tMore").onclick = () => { markUserSet(); d.addSpace(500); };
     $("#tLess").onclick = () => { markUserSet(); d.addSpace(-500); };
