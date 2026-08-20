@@ -828,7 +828,7 @@
       <section class="hero">
         <h1>원하는 단원·유형·난이도만 골라<br>나만의 평가원 기출 세트를 만들어 보세요</h1>
         <ul class="benefits">
-          <li><span class="bi">✓</span> 평가원 기출 ${Q.length}문항${nSol ? ` · 단계별 해설 ${nSol}개` : ""}</li>
+          <li><span class="bi">✓</span> 평가원 기출 ${Q.length}문항${nSol ? ` · 단계별 해설 ${nSol}개${needsLogin() ? `<span class="lockhint">로그인 후 열람</span>` : ""}` : ""}</li>
           <li><span class="bi">✓</span> 단원·유형·난이도별 문제 선택</li>
           <li><span class="bi">✓</span> 원하는 문항만 모의고사 구성</li>
           <li><span class="bi">✓</span> 오답·풀이 기록 자동 관리</li>
@@ -1929,6 +1929,14 @@
   // (위 var와 같은 이유로 const 화살표가 아니라 함수 선언 — route()가 이 줄보다 먼저 실행된다)
   function needsLogin() { return !!window.SB_CONFIGURED && !session; }
 
+  // 잠긴 메뉴(오답·기록)에 자물쇠를 붙인다. 눌러봐야 벽인 걸 아는 상태를 없앤다.
+  // 링크는 그대로 살려 둔다 — 그 잠금 화면이 로그인을 권하는 자리이기 때문.
+  function markLockedNav() {
+    const locked = needsLogin();
+    document.querySelectorAll('[data-nav="wrong"], [data-nav="stats"]')
+      .forEach(a => a.classList.toggle("navlock", locked));
+  }
+
   // 잠금 화면. 문 앞에서 "왜 계정이 필요한지"를 밝히고, 로컬에 이미 쌓인 기록 수를 보여 준다
   // (로그인하면 그 기록이 그대로 계정으로 병합되므로, 잃는 게 아니라 지키는 행동임을 알린다).
   function renderLocked(title, lead) {
@@ -1953,6 +1961,7 @@
   function shorten(s) { s = String(s || ""); return s.length > 12 ? s.slice(0, 11) + "…" : s; }
 
   function renderAuthUI() {
+    markLockedNav();
     const el = document.getElementById("authslot");
     if (!el) return;
     if (!window.SB_CONFIGURED) { el.innerHTML = ""; return; }   // 미설정: 헤더에 아무것도 안 띄움

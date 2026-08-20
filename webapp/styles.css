@@ -37,6 +37,11 @@ a { color: inherit; text-decoration: none; }
 .loginbtn.google { background: #fff; color: #1f1f1f; border: 1px solid var(--line); }
 .linklike { background: none; border: none; padding: 0; font: inherit; color: var(--accent); text-decoration: underline; cursor: pointer; }
 .account .consent { font-size: 12px; margin-top: 14px; }
+/* 잠긴 메뉴(오답·기록) 표시 — 누르기 전에 벽인 걸 알 수 있게 */
+.topbar nav a.navlock::after { content: "🔒"; font-size: 9px; margin-left: 3px; vertical-align: 2px; }
+/* 히어로 혜택 줄: 해설이 로그인 뒤에 있다는 것을 광고와 같은 줄에서 알린다 */
+.benefits .lockhint { font-size: 12px; font-weight: 700; color: var(--accent); background: var(--accent-soft);
+  border-radius: 99px; padding: 2px 9px; margin-left: 7px; white-space: nowrap; }
 /* 로그인 잠금 화면(오답·기록) — 계정 화면과 같은 폭·간격을 그대로 쓴다 */
 .lockcarry { background: var(--accent-soft); font-size: 14px; line-height: 1.6; border-radius: 10px; padding: 12px 14px; margin: 14px 0 0; }
 /* 해설 잠금 (비로그인) — 해설 패널 안에 로그인 유도를 그린다 */
