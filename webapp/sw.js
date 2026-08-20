@@ -23,7 +23,7 @@
  * index.html 을 배포하면 사용자를 되돌릴 수 있다. sw.js 자체도 max-age=0 으로 나간다.
  */
 
-const VERSION = "20260820a";
+const VERSION = "20260820b";   // 아이콘 교체 — 기존 설치 사용자의 셸 캐시를 갈아엎어야 새 아이콘이 반영됨
 const SHELL = "selecq-shell-" + VERSION;     // 오프라인 진입점(index.html)
 const STATIC = "selecq-static-" + VERSION;   // ?v= 버전 고정 자산 + CDN
 const IMAGES = "selecq-img-" + VERSION;      // 문제·해설 이미지
