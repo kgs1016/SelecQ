@@ -41,6 +41,10 @@
   let records = safeParse(localStorage.getItem(LS_REC), {});
   if (!isObj(records)) records = {};
   for (const k in records) if (!isObj(records[k])) delete records[k];   // 항목 단위 손상은 해당 기록만 버림
+  // 삭제 표시는 다른 기기에 삭제를 알리려고 남기는 것이라 영원히 쌓이면 안 된다. 다만 너무 일찍
+  // 치우면 오래 안 켠 기기가 그 기록을 되살리므로, 충분히 지난 것만 정리한다.
+  const TOMB_TTL = 90 * 24 * 3600 * 1000;
+  for (const k in records) if (records[k].deleted && Date.now() - (records[k].ts || 0) > TOMB_TTL) delete records[k];
   const saveRec = () => { localStorage.setItem(LS_REC, JSON.stringify(records)); schedulePush(); };
 
   // 필기 좌표 포맷 v2(0~1 비율) 전환 — 구버전(절대 픽셀) 필기는 새 렌더러와 호환되지 않아 일회성 정리.
@@ -93,7 +97,9 @@
   const isMC = q => (q.subject === "common" ? q.qno <= 15 : q.qno <= 28);
   const CIRCLED = ["", "①", "②", "③", "④", "⑤"];
   const fmtAns = q => isMC(q) ? CIRCLED[q.answer] : String(q.answer);
-  const recOf = q => records[q.key];
+  // 삭제 표시(툼스톤)가 붙은 기록은 없는 것으로 본다. 키를 진짜로 지우지 않는 이유는
+  // mergeRecords가 합집합이라, 그냥 지우면 다른 기기가 그 기록을 그대로 되살리기 때문이다.
+  const recOf = q => { const r = records[q.key]; return r && !r.deleted ? r : undefined; };
 
   function applyFilter() {
     return Q.filter(q => {
@@ -1620,11 +1626,20 @@
         layoutFocus(); d.resize();
         e.preventDefault();
       };
-      const stop = () => { dragging = false; document.removeEventListener("pointermove", onMove); document.removeEventListener("pointerup", stop); };
+      // pointercancel 까지 받아야 한다. 전화 수신이나 시스템 제스처로 포인터가 취소되면
+      // pointerup 이 오지 않아, 이걸 안 걸면 dragging 이 켜진 채 굳고 document 의 pointermove 가
+      // 남아 이후 모든 손·마우스 움직임이 분할 비율을 바꾼다.
+      const stop = () => {
+        dragging = false;
+        document.removeEventListener("pointermove", onMove);
+        document.removeEventListener("pointerup", stop);
+        document.removeEventListener("pointercancel", stop);
+      };
       splitBar.addEventListener("pointerdown", e => {
         dragging = true;
         document.addEventListener("pointermove", onMove, { passive: false });
         document.addEventListener("pointerup", stop);
+        document.addEventListener("pointercancel", stop);
         e.preventDefault();
       });
     }
@@ -1657,7 +1672,9 @@
   }
 
   // ---------- 백업 / 복원 (필기·오답·기록 전체를 파일로) ----------
-  const isAppKey = k => k && (k.startsWith("ks_") || k.startsWith("ksw_"));
+  // ks_sync 는 "어디까지 동기화했는가"를 적어 둔 시계다. 이걸 백업에 담아 복원하면 시계가
+  // 과거로 돌아가고, 다음 동기화가 복원한 내용을 옛것으로 보고 조용히 덮어쓴다. 백업에서 뺀다.
+  const isAppKey = k => k && (k.startsWith("ks_") || k.startsWith("ksw_")) && k !== "ks_sync";
   function exportBackup() {
     const data = {};
     for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (isAppKey(k)) data[k] = localStorage.getItem(k); }
@@ -1683,6 +1700,9 @@
       toRemove.forEach(k => localStorage.removeItem(k));
       // 문자열이 아닌 값은 저장 시 "[object Object]" 등으로 변질돼 로드 오류를 만들므로 걸러낸다
       for (const k in data) if (isAppKey(k) && typeof data[k] === "string") localStorage.setItem(k, data[k]);
+      // 복원한 내용을 클라우드로도 올려야 다른 기기에 반영된다. 동기화 시계는 위에서 손대지
+      // 않았으므로(isAppKey 제외) 그대로 두고, 올릴 것이 있다는 표시만 남긴다.
+      setSyncMeta({ pendingState: true });
       alert("복원했어요. 새로고침합니다.");
       location.reload();
     };
@@ -1735,7 +1755,10 @@
       if (wd) wd.onclick = () => {
         if (!selected.size) return;
         if (!confirm(`선택한 ${selected.size}개를 오답 목록에서 뺄까요?\n풀이 기록·통계는 그대로 유지됩니다.`)) return;
-        selected.forEach(k => { if (records[k]) records[k].dismissed = true; });   // 기록은 두고 목록에서만 숨김
+        // ts도 함께 올린다. 안 올리면 다른 기기의 같은 기록과 ts가 같아, ts 비교 병합에서
+        // 이 변경이 최신으로 인정받지 못하고 제외가 전파되지 않는다.
+        const dnow = Date.now();
+        selected.forEach(k => { if (records[k]) { records[k].dismissed = true; records[k].ts = dnow; } });   // 기록은 두고 목록에서만 숨김
         saveRec();
         viewWrong();   // 목록 재계산 후 다시 렌더
       };
@@ -1756,7 +1779,7 @@
 
     const render = () => {
       // 데이터 갱신으로 사라진 문항 key가 기록에 남아도 통계가 왜곡되지 않게, 현재 존재하는 문항만 집계
-      const keys = Object.keys(records).filter(k => QKEYS.has(k));
+      const keys = Object.keys(records).filter(k => QKEYS.has(k) && !records[k].deleted);
       const solved = keys.length;
       const ok = keys.filter(k => records[k].r === "ok").length;
       const byType = {};
@@ -1827,7 +1850,9 @@
       if (sd) sd.onclick = () => {
         if (!selected.size) return;
         if (!confirm(`선택한 ${selected.size}개의 풀이 기록을 삭제할까요?\n통계에서도 제거되며 되돌릴 수 없습니다.`)) return;
-        selected.forEach(k => { delete records[k]; });
+        // 키를 지우는 대신 삭제 표시를 남긴다 — 그냥 지우면 합집합 병합이 다른 기기에서 되살린다.
+        const delnow = Date.now();
+        selected.forEach(k => { records[k] = { deleted: true, ts: delnow }; });
         saveRec();
         selectMode = false; selected.clear(); render();
       };
@@ -1836,7 +1861,9 @@
       if (fi) fi.onchange = () => { if (fi.files && fi.files[0]) importBackup(fi.files[0]); };
       $("#btnClear").onclick = () => {
         if (confirm("풀이 기록을 모두 삭제할까요? 되돌릴 수 없습니다.")) {
-          records = {}; saveRec(); render();
+          const allnow = Date.now();
+          Object.keys(records).forEach(k => { records[k] = { deleted: true, ts: allnow }; });
+          saveRec(); render();
         }
       };
     };
@@ -1940,7 +1967,7 @@
   // 잠금 화면. 문 앞에서 "왜 계정이 필요한지"를 밝히고, 로컬에 이미 쌓인 기록 수를 보여 준다
   // (로그인하면 그 기록이 그대로 계정으로 병합되므로, 잃는 게 아니라 지키는 행동임을 알린다).
   function renderLocked(title, lead) {
-    const n = Object.keys(records).filter(k => QKEYS.has(k)).length;
+    const n = Object.keys(records).filter(k => QKEYS.has(k) && !records[k].deleted).length;
     $("#view").innerHTML = `<section class="account locked">
       <h2>${esc(title)}</h2>
       <p class="muted">${lead}</p>
@@ -2179,7 +2206,7 @@
     const meta = getSyncMeta();
     // 필기도 반드시 센다. 예전엔 빠져 있어서 "필기만 있는 기기"는 아래 계정 확인창이
     // 전혀 뜨지 않았고, 앞사람 필기가 조용히 새 계정으로 올라갔다.
-    const localHasData = Object.keys(records).length > 0 || basket.length > 0
+    const localHasData = Object.keys(records).some(k => !records[k].deleted) || basket.length > 0
       || !!examSession || getIdx().length > 0;
 
     if (!row) {
