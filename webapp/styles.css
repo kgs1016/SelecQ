@@ -271,7 +271,11 @@ a.pill { display: inline-flex; align-items: center; }
 .solpanel { max-width: 760px; }
 .soltag { font-size: 11px; font-weight: 700; color: #2563eb; background: #eff6ff;
   border: 1px solid #bfdbfe; padding: 2px 8px; border-radius: 999px; }
-.solbody { overflow: auto; padding: 18px 20px; color: #1e293b; line-height: 1.75;
+.solbody { overflow-y: auto; overflow-x: hidden; padding: 18px 20px; color: #1e293b; line-height: 1.75;
+  -webkit-overflow-scrolling: touch; }
+/* 넘치는 건 디스플레이 수식뿐이다(인라인·표는 접힌다). 본문 전체를 가로로 끌면 설명 문장이
+   화면 밖으로 나가 읽을 수 없으므로, 본문은 고정하고 수식 블록만 따로 밀게 한다. */
+.solbody .katex-display { overflow-x: auto; overflow-y: hidden; padding-bottom: 6px;
   -webkit-overflow-scrolling: touch; }
 .solfoot { padding: 8px 16px; border-top: 1px solid var(--line); font-size: 11px; color: #94a3b8; }
 .sol-step { margin: 4px 0 20px; }
