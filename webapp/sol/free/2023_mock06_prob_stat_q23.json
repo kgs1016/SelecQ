@@ -1,0 +1,1 @@
+{"answer": 2, "html": "\n  <div class=\"sol-step\">\n    <div class=\"sol-h\"><span class=\"sol-num\">1</span> 같은 것이 있는 순열</div>\n    <p>\\(a\\)가 \\(3\\)개, \\(b\\)와 \\(c\\)가 각각 \\(1\\)개이므로</p>\n    $$\n    \\frac{5!}{3!}=\\frac{120}{6}=20.\n    $$\n  </div>\n  <div class=\"sol-final\">답 &nbsp;②</div>\n"}

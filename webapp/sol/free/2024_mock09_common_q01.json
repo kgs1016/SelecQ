@@ -1,0 +1,1 @@
+{"answer": 5, "html": "\n  <div class=\"sol-step\">\n    <div class=\"sol-h\"><span class=\"sol-num\">1</span> 지수법칙으로 지수를 더한다</div>\n    $$\n    3^{1-\\sqrt5}\\times3^{1+\\sqrt5}=3^{(1-\\sqrt5)+(1+\\sqrt5)}=3^2=9.\n    $$\n  </div>\n  <div class=\"sol-final\">답 &nbsp;⑤</div>\n"}

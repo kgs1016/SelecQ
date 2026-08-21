@@ -1,0 +1,1 @@
+{"answer": 1, "html": "\n  <div class=\"sol-step\">\n    <div class=\"sol-h\"><span class=\"sol-num\">1</span> \\(24\\)를 소인수분해해 지수로 고친다</div>\n    $$\n    \\sqrt[3]{24}\\times3^{\\frac23}=(2^3\\times3)^{\\frac13}\\times3^{\\frac23}\n    =2\\times3^{\\frac13+\\frac23}=2\\times3=6.\n    $$\n  </div>\n  <div class=\"sol-final\">답 &nbsp;①</div>\n"}

@@ -1,0 +1,1 @@
+{"answer": 1, "html": "\n  <div class=\"sol-step\">\n    <div class=\"sol-h\"><span class=\"sol-num\">1</span> 주어진 극한은 미분계수의 정의이다</div>\n    <p>\\(\\displaystyle\\lim_{x\\to2}\\dfrac{f(x)-f(2)}{x-2}=f'(2)\\)이고 \\(f'(x)=4x\\)이므로</p>\n    $$\n    f'(2)=4\\times2=8.\n    $$\n  </div>\n  <div class=\"sol-final\">답 &nbsp;①</div>\n"}

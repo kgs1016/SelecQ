@@ -1,0 +1,1 @@
+{"answer": 4, "html": "\n  <div class=\"sol-step\">\n    <div class=\"sol-h\"><span class=\"sol-num\">1</span> 지수법칙 — 밑이 같으면 지수끼리 더한다</div>\n    $$2^{\\sqrt3}\\times 2^{\\,2-\\sqrt3}=2^{\\sqrt3+(2-\\sqrt3)}=2^{2}=4$$\n  </div>\n  <div class=\"sol-final\">답 &nbsp;④ &nbsp;\\(4\\)</div>\n"}

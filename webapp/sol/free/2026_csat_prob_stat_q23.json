@@ -1,0 +1,1 @@
+{"answer": 3, "html": "\n  <div class=\"sol-step\">\n    <div class=\"sol-h\"><span class=\"sol-num\">1</span> 중복순열의 수를 쓴다</div>\n    <p>네 문자에서 중복을 허락하여 \\(3\\)개를 택해 일렬로 나열하므로</p>\n    $$\n    {}_4\\Pi_3=4^3=64.\n    $$\n  </div>\n  <div class=\"sol-final\">답 &nbsp;③</div>\n"}

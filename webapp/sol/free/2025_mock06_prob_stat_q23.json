@@ -1,0 +1,1 @@
+{"answer": 3, "html": "\n  <div class=\"sol-step\">\n    <div class=\"sol-h\"><span class=\"sol-num\">1</span> 같은 것이 있는 순열의 수를 쓴다</div>\n    <p>\\(1\\)이 \\(2\\)개이므로</p>\n    $$\n    \\frac{4!}{2!}=12.\n    $$\n  </div>\n  <div class=\"sol-final\">답 &nbsp;③</div>\n"}

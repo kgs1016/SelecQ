@@ -1,0 +1,1 @@
+{"answer": 4, "html": "\n  <div class=\"sol-step\">\n    <div class=\"sol-h\"><span class=\"sol-num\">1</span> 밑을 \\(5\\)로 통일한다</div>\n    $$\n    \\left(\\frac{5}{\\sqrt[3]{25}}\\right)^{\\frac32}=\\left(\\frac{5}{5^{\\frac23}}\\right)^{\\frac32}\n    =\\left(5^{\\frac13}\\right)^{\\frac32}=5^{\\frac12}=\\sqrt5.\n    $$\n  </div>\n  <div class=\"sol-final\">답 &nbsp;④</div>\n"}

@@ -1,0 +1,1 @@
+{"answer": 5, "html": "\n  <div class=\"sol-step\">\n    <div class=\"sol-h\"><span class=\"sol-num\">1</span> 밑을 \\(2\\)로 통일한다</div>\n    $$\n    \\left(\\frac{4}{2^{\\sqrt2}}\\right)^{2+\\sqrt2}\n    =\\left(2^{2-\\sqrt2}\\right)^{2+\\sqrt2}\n    =2^{(2-\\sqrt2)(2+\\sqrt2)}=2^{4-2}=4.\n    $$\n  </div>\n  <div class=\"sol-final\">답 &nbsp;⑤</div>\n"}

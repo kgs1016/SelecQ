@@ -1,0 +1,1 @@
+{"answer": 3, "html": "\n  <div class=\"sol-box\">이항분포의 평균 \\(E(X)=np\\)를 적용한다.</div>\n  <div class=\"sol-step\">\n    <p><span class=\"sol-num\">1</span></p>\n    $$\n   E(X)=60\\times\\frac14=15.\n   $$\n  </div>\n  <div class=\"sol-final\">답 &nbsp;③</div>\n"}

@@ -1,0 +1,1 @@
+{"answer": 1, "html": "\n  <div class=\"sol-step\">\n    <div class=\"sol-h\"><span class=\"sol-num\">1</span> 이항분포의 평균을 쓴다</div>\n    <p>확률변수 \\(X\\)가 이항분포 \\(\\mathrm B\\!\\left(30,\\ \\dfrac15\\right)\\)을 따르므로</p>\n    $$\n    \\mathrm E(X)=30\\times\\frac15=6.\n    $$\n  </div>\n  <div class=\"sol-final\">답 &nbsp;①</div>\n"}

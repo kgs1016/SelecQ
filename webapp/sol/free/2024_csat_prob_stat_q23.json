@@ -1,0 +1,1 @@
+{"answer": 3, "html": "\n  <div class=\"sol-step\">\n    <div class=\"sol-h\"><span class=\"sol-num\">1</span> 같은 것이 있는 순열의 수를 쓴다</div>\n    <p>\\(x\\)가 \\(2\\)개, \\(y\\)가 \\(2\\)개, \\(z\\)가 \\(1\\)개이므로</p>\n    $$\n    \\frac{5!}{2!\\times2!}=\\frac{120}{4}=30.\n    $$\n  </div>\n  <div class=\"sol-final\">답 &nbsp;③</div>\n"}

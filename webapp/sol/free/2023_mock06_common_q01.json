@@ -1,0 +1,1 @@
+{"answer": 1, "html": "\n  <div class=\"sol-step\">\n    <div class=\"sol-h\"><span class=\"sol-num\">1</span> 밑을 \\(2\\)로 통일한다</div>\n    <p>\\((-\\sqrt2)^4=(\\sqrt2)^4=2^2\\)이고 \\(8^{-\\frac23}=(2^3)^{-\\frac23}=2^{-2}\\)이므로</p>\n    $$\n    (-\\sqrt2)^4\\times8^{-\\frac23}=2^{2}\\times2^{-2}=2^{0}=1.\n    $$\n  </div>\n  <div class=\"sol-final\">답 &nbsp;①</div>\n"}

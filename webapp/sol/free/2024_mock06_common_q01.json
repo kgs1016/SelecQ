@@ -1,0 +1,1 @@
+{"answer": 5, "html": "\n  <div class=\"sol-step\">\n    <div class=\"sol-h\"><span class=\"sol-num\">1</span> 거듭제곱근을 지수로 고친다</div>\n    $$\n    \\sqrt[3]{27}\\times4^{-\\frac12}=(3^3)^{\\frac13}\\times(2^2)^{-\\frac12}\n    =3\\times2^{-1}=\\frac32.\n    $$\n  </div>\n  <div class=\"sol-final\">답 &nbsp;⑤</div>\n"}

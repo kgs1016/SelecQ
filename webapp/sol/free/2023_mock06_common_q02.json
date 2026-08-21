@@ -1,0 +1,1 @@
+{"answer": 2, "html": "\n  <div class=\"sol-step\">\n    <div class=\"sol-h\"><span class=\"sol-num\">1</span> 주어진 극한은 미분계수의 정의이다</div>\n    <p>\\(\\displaystyle\\lim_{h\\to0}\\dfrac{f(2+h)-f(2)}{h}=f'(2)\\)이고 \\(f'(x)=3x^2\\)이므로</p>\n    $$\n    f'(2)=3\\times2^2=12.\n    $$\n  </div>\n  <div class=\"sol-final\">답 &nbsp;②</div>\n"}

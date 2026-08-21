@@ -1,0 +1,1 @@
+{"answer": 8, "html": "\n  <div class=\"sol-step\">\n    <div class=\"sol-h\"><span class=\"sol-num\">1</span> 차례로 대입한다</div>\n    <p>\\(a_1=1\\)이고 \\(a_{n+1}=na_n+2\\)이므로</p>\n    $$\n    a_2=1\\times1+2=3,\\qquad a_3=2\\times3+2=8.\n    $$\n  </div>\n  <div class=\"sol-final\">답 &nbsp;\\(\\mathbf{8}\\)</div>\n"}
