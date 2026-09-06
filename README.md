@@ -27,7 +27,7 @@
 |------|-----------|
 | 프론트엔드 | **바닐라 JS SPA** (프레임워크·빌드 스텝 없음) — `index.html` + `app.js` + `styles.css` + `data.js` |
 | 라우팅 | History API 클린 URL (`/find`, `/custom`, `/q/…`) |
-| 데이터 | 정적 `data.js`(문항 메타데이터 736건) + `q/` 크롭 이미지 |
+| 데이터 | 정적 `data.js`(문항 메타데이터 782건) + `q/` 크롭 이미지 |
 | 인증·동기화 | **Supabase**(Postgres + Auth + RLS) — 카카오·구글 OAuth |
 | 배포 | **Cloudflare Workers**(정적 자산) + Git 연동 CI 빌드, 도메인 `selecq.com` |
 | 폰트 | Pretendard (jsDelivr CDN) |
@@ -48,7 +48,7 @@ Problem_Select/
 │  ├─ data.js               # window.APP_DATA — 문항 메타데이터 (생성물)
 │  ├─ config.js             # Supabase URL + anon(공개) 키
 │  ├─ manifest.json         # PWA
-│  ├─ q/                    # 문항 크롭 이미지 736장
+│  ├─ q/                    # 문항 크롭 이미지 782장
 │  ├─ robots.txt · sitemap.xml · og-image.png · icon-*.png
 ├─ scripts/                 # 데이터 파이프라인 (Python)
 ├─ data/
@@ -99,7 +99,7 @@ Problem_Select/
 | `build_webapp_data.py` | 위 메타를 합쳐 **`webapp/data.js` 생성** |
 | `check_crops.py` | 크롭 검증 |
 
-> 문항 태깅은 자동 분류 후 **사람 검수**를 거칩니다(정답률 기반 med 등급 자동정확도가 낮아 필수). 최종 736문항 = human_confirmed + ai_confirmed + auto_high.
+> 문항 태깅은 자동 분류 후 **사람 검수**를 거칩니다(정답률 기반 med 등급 자동정확도가 낮아 필수). 최종 782문항 = human_confirmed + ai_confirmed + auto_high.
 
 ---
 

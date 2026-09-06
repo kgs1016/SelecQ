@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-r"""webapp/sitemap.xml 생성 — 정적 라우트 + 문항 736개 + 문항 이미지.
+r"""webapp/sitemap.xml 생성 — 정적 라우트 + 전체 문항 + 문항 이미지.
 
 사용법:
     python scripts/build_sitemap.py

@@ -16926,5 +16926,1063 @@
   "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=7004ebc34b2cae2f21bfa9a7e1f5860d",
   "fetched_at": "2026-07-19T18:43:20+09:00",
   "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 1,
+  "image": "data/questions/2027_mock09/common_q01.png",
+  "segments": [
+   [
+    0,
+    0,
+    259.94488525390625,
+    625.244873046875
+   ]
+  ],
+  "points_marker": 2,
+  "answer": 4,
+  "points": 2,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:17:58+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 2,
+  "image": "data/questions/2027_mock09/common_q02.png",
+  "segments": [
+   [
+    0,
+    0,
+    605.244873046875,
+    1079.0
+   ]
+  ],
+  "points_marker": 2,
+  "answer": 3,
+  "points": 2,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:17:58+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 3,
+  "image": "data/questions/2027_mock09/common_q03.png",
+  "segments": [
+   [
+    0,
+    1,
+    203.544921875,
+    625.6049194335938
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 2,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:17:58+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 4,
+  "image": "data/questions/2027_mock09/common_q04.png",
+  "segments": [
+   [
+    0,
+    1,
+    605.6049194335938,
+    1079.0
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 2,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:17:58+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 5,
+  "image": "data/questions/2027_mock09/common_q05.png",
+  "segments": [
+   [
+    1,
+    0,
+    138.9849853515625,
+    603.3449096679688
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 1,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:17:58+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 6,
+  "image": "data/questions/2027_mock09/common_q06.png",
+  "segments": [
+   [
+    1,
+    0,
+    583.3449096679688,
+    1079.0
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 5,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:17:58+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 7,
+  "image": "data/questions/2027_mock09/common_q07.png",
+  "segments": [
+   [
+    1,
+    1,
+    139.044921875,
+    1079.0
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 2,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:17:59+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 8,
+  "image": "data/questions/2027_mock09/common_q08.png",
+  "segments": [
+   [
+    2,
+    0,
+    132.68487548828125,
+    614.5648803710938
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 3,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:17:59+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 9,
+  "image": "data/questions/2027_mock09/common_q09.png",
+  "segments": [
+   [
+    2,
+    0,
+    594.5648803710938,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 1,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:17:59+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 10,
+  "image": "data/questions/2027_mock09/common_q10.png",
+  "segments": [
+   [
+    2,
+    1,
+    132.68487548828125,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 3,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:17:59+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 11,
+  "image": "data/questions/2027_mock09/common_q11.png",
+  "segments": [
+   [
+    3,
+    0,
+    138.68487548828125,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 3,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:17:59+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 12,
+  "image": "data/questions/2027_mock09/common_q12.png",
+  "segments": [
+   [
+    3,
+    1,
+    138.3848876953125,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 4,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:00+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 13,
+  "image": "data/questions/2027_mock09/common_q13.png",
+  "segments": [
+   [
+    4,
+    0,
+    132.68487548828125,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 5,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:00+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 14,
+  "image": "data/questions/2027_mock09/common_q14.png",
+  "segments": [
+   [
+    4,
+    1,
+    132.68487548828125,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 5,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:00+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 15,
+  "image": "data/questions/2027_mock09/common_q15.png",
+  "segments": [
+   [
+    5,
+    0,
+    132.68487548828125,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 4,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:00+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 16,
+  "image": "data/questions/2027_mock09/common_q16.png",
+  "segments": [
+   [
+    5,
+    1,
+    177.7449951171875,
+    625.7249145507812
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 6,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:01+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 17,
+  "image": "data/questions/2027_mock09/common_q17.png",
+  "segments": [
+   [
+    5,
+    1,
+    605.7249145507812,
+    1079.0
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 11,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:01+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 18,
+  "image": "data/questions/2027_mock09/common_q18.png",
+  "segments": [
+   [
+    6,
+    0,
+    132.68487548828125,
+    610.784912109375
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 38,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:01+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 19,
+  "image": "data/questions/2027_mock09/common_q19.png",
+  "segments": [
+   [
+    6,
+    0,
+    590.784912109375,
+    1079.0
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 15,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:01+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 20,
+  "image": "data/questions/2027_mock09/common_q20.png",
+  "segments": [
+   [
+    6,
+    1,
+    132.68487548828125,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 17,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:01+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 21,
+  "image": "data/questions/2027_mock09/common_q21.png",
+  "segments": [
+   [
+    7,
+    0,
+    132.68487548828125,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 12,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:02+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "common",
+  "question_no": 22,
+  "image": "data/questions/2027_mock09/common_q22.png",
+  "segments": [
+   [
+    7,
+    1,
+    132.68487548828125,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 97,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:02+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "prob_stat",
+  "question_no": 23,
+  "image": "data/questions/2027_mock09/prob_stat_q23.png",
+  "segments": [
+   [
+    8,
+    0,
+    248.60491943359375,
+    1079.0
+   ]
+  ],
+  "points_marker": 2,
+  "answer": 1,
+  "points": 2,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:02+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "prob_stat",
+  "question_no": 24,
+  "image": "data/questions/2027_mock09/prob_stat_q24.png",
+  "segments": [
+   [
+    8,
+    1,
+    203.544921875,
+    1079.0
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 4,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:02+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "prob_stat",
+  "question_no": 25,
+  "image": "data/questions/2027_mock09/prob_stat_q25.png",
+  "segments": [
+   [
+    9,
+    0,
+    140.544921875,
+    1079.0
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 5,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:02+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "prob_stat",
+  "question_no": 26,
+  "image": "data/questions/2027_mock09/prob_stat_q26.png",
+  "segments": [
+   [
+    9,
+    1,
+    140.6649169921875,
+    1079.0
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 2,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:03+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "prob_stat",
+  "question_no": 27,
+  "image": "data/questions/2027_mock09/prob_stat_q27.png",
+  "segments": [
+   [
+    10,
+    0,
+    133.044921875,
+    1079.0
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 3,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:03+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "prob_stat",
+  "question_no": 28,
+  "image": "data/questions/2027_mock09/prob_stat_q28.png",
+  "segments": [
+   [
+    10,
+    1,
+    132.68487548828125,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 5,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:03+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "prob_stat",
+  "question_no": 29,
+  "image": "data/questions/2027_mock09/prob_stat_q29.png",
+  "segments": [
+   [
+    11,
+    0,
+    177.7449951171875,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 190,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:03+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "prob_stat",
+  "question_no": 30,
+  "image": "data/questions/2027_mock09/prob_stat_q30.png",
+  "segments": [
+   [
+    11,
+    1,
+    132.68487548828125,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 170,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:04+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "calculus",
+  "question_no": 23,
+  "image": "data/questions/2027_mock09/calculus_q23.png",
+  "segments": [
+   [
+    12,
+    0,
+    254.6649169921875,
+    1079.0
+   ]
+  ],
+  "points_marker": 2,
+  "answer": 4,
+  "points": 2,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:04+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "calculus",
+  "question_no": 24,
+  "image": "data/questions/2027_mock09/calculus_q24.png",
+  "segments": [
+   [
+    12,
+    1,
+    209.84490966796875,
+    1079.0
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 1,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:04+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "calculus",
+  "question_no": 25,
+  "image": "data/questions/2027_mock09/calculus_q25.png",
+  "segments": [
+   [
+    13,
+    0,
+    138.68487548828125,
+    1079.0
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 3,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:04+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "calculus",
+  "question_no": 26,
+  "image": "data/questions/2027_mock09/calculus_q26.png",
+  "segments": [
+   [
+    13,
+    1,
+    138.5048828125,
+    1079.0
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 2,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:05+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "calculus",
+  "question_no": 27,
+  "image": "data/questions/2027_mock09/calculus_q27.png",
+  "segments": [
+   [
+    14,
+    0,
+    133.044921875,
+    1079.0
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 5,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:05+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "calculus",
+  "question_no": 28,
+  "image": "data/questions/2027_mock09/calculus_q28.png",
+  "segments": [
+   [
+    14,
+    1,
+    132.68487548828125,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 4,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:05+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "calculus",
+  "question_no": 29,
+  "image": "data/questions/2027_mock09/calculus_q29.png",
+  "segments": [
+   [
+    15,
+    0,
+    177.7449951171875,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 81,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:05+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "calculus",
+  "question_no": 30,
+  "image": "data/questions/2027_mock09/calculus_q30.png",
+  "segments": [
+   [
+    15,
+    1,
+    142.8848876953125,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 49,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:05+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "geometry",
+  "question_no": 23,
+  "image": "data/questions/2027_mock09/geometry_q23.png",
+  "segments": [
+   [
+    16,
+    0,
+    249.32501220703125,
+    1079.0
+   ]
+  ],
+  "points_marker": 2,
+  "answer": 1,
+  "points": 2,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:06+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "geometry",
+  "question_no": 24,
+  "image": "data/questions/2027_mock09/geometry_q24.png",
+  "segments": [
+   [
+    16,
+    1,
+    203.544921875,
+    1079.0
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 2,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:06+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "geometry",
+  "question_no": 25,
+  "image": "data/questions/2027_mock09/geometry_q25.png",
+  "segments": [
+   [
+    17,
+    0,
+    132.68487548828125,
+    1079.0
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 4,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:06+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "geometry",
+  "question_no": 26,
+  "image": "data/questions/2027_mock09/geometry_q26.png",
+  "segments": [
+   [
+    17,
+    1,
+    132.68487548828125,
+    1079.0
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 5,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:06+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "geometry",
+  "question_no": 27,
+  "image": "data/questions/2027_mock09/geometry_q27.png",
+  "segments": [
+   [
+    18,
+    0,
+    133.044921875,
+    1079.0
+   ]
+  ],
+  "points_marker": 3,
+  "answer": 3,
+  "points": 3,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:07+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "geometry",
+  "question_no": 28,
+  "image": "data/questions/2027_mock09/geometry_q28.png",
+  "segments": [
+   [
+    18,
+    1,
+    132.68487548828125,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 2,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:07+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "geometry",
+  "question_no": 29,
+  "image": "data/questions/2027_mock09/geometry_q29.png",
+  "segments": [
+   [
+    19,
+    0,
+    177.7449951171875,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 60,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:07+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
+ },
+ {
+  "exam_id": "2027_mock09",
+  "academic_year": 2027,
+  "exam_type": "mock09",
+  "subject": "geometry",
+  "question_no": 30,
+  "image": "data/questions/2027_mock09/geometry_q30.png",
+  "segments": [
+   [
+    19,
+    1,
+    132.68487548828125,
+    1079.0
+   ]
+  ],
+  "points_marker": 4,
+  "answer": 457,
+  "points": 4,
+  "source_name": "kice",
+  "source_url": "https://www.suneung.re.kr/boardCnts/fileDown.do?fileSeq=380e084955fddafc34860091b653685f",
+  "fetched_at": "2026-09-06T17:18:07+09:00",
+  "rights_status": "KICE 문제지에서 내부 처리(유형 태깅)용으로 분해. 재배포 금지."
  }
 ]

@@ -10330,5 +10330,640 @@
   "evidence": [],
   "method": "keyword_rules_v1",
   "needs_review": true
+ },
+ {
+  "key": "2027_mock09/common/q01",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 1,
+  "type": "su1_explog_calc",
+  "unit": "su1_explog",
+  "confidence": "med",
+  "evidence": [
+   "slot_prior"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/common/q02",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 2,
+  "type": "su2_limit_calc",
+  "unit": "su2_limit",
+  "confidence": "med",
+  "evidence": [
+   "\\blim\\b"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/common/q03",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 3,
+  "type": "su1_seq_arith_geo",
+  "unit": "su1_seq",
+  "confidence": "high",
+  "evidence": [
+   "등차수열"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/common/q04",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 4,
+  "type": "su2_continuity",
+  "unit": "su2_limit",
+  "confidence": "high",
+  "evidence": [
+   "연속"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/common/q05",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 5,
+  "type": null,
+  "unit": null,
+  "confidence": "low",
+  "evidence": [],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/common/q06",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 6,
+  "type": "su1_trig_basic",
+  "unit": "su1_trig",
+  "confidence": "high",
+  "evidence": [
+   "\\bsin\\b|\\bcos\\b|\\btan\\b",
+   "주기"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/common/q07",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 7,
+  "type": "su2_diff_graph",
+  "unit": "su2_diff",
+  "confidence": "high",
+  "evidence": [
+   "극댓값|극솟값|극대|극소"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/common/q08",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 8,
+  "type": "su1_seq_arith_geo",
+  "unit": "su1_seq",
+  "confidence": "med",
+  "evidence": [
+   "등비수열"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/common/q09",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 9,
+  "type": "su2_diff_motion",
+  "unit": "su2_diff",
+  "confidence": "high",
+  "evidence": [
+   "속도",
+   "가속도"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/common/q10",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 10,
+  "type": null,
+  "unit": null,
+  "confidence": "low",
+  "evidence": [],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/common/q11",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 11,
+  "type": null,
+  "unit": null,
+  "confidence": "low",
+  "evidence": [],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/common/q12",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 12,
+  "type": "su1_trig_apply",
+  "unit": "su1_trig",
+  "confidence": "high",
+  "evidence": [
+   "삼각형.*외접원|외접원.*삼각형",
+   "삼각형 ABC"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/common/q13",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 13,
+  "type": null,
+  "unit": null,
+  "confidence": "low",
+  "evidence": [],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/common/q14",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 14,
+  "type": null,
+  "unit": null,
+  "confidence": "low",
+  "evidence": [],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/common/q15",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 15,
+  "type": "su2_limit_calc",
+  "unit": "su2_limit",
+  "confidence": "med",
+  "evidence": [
+   "\\blim\\b"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/common/q16",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 16,
+  "type": "su1_explog_calc",
+  "unit": "su1_explog",
+  "confidence": "med",
+  "evidence": [
+   "\\blog\\b"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/common/q17",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 17,
+  "type": "su2_diff_basic",
+  "unit": "su2_diff",
+  "confidence": "med",
+  "evidence": [
+   "′"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/common/q18",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 18,
+  "type": "su1_seq_induction",
+  "unit": "su1_seq",
+  "confidence": "med",
+  "evidence": [
+   "모든 자연수.*만족시"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/common/q19",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 19,
+  "type": null,
+  "unit": null,
+  "confidence": "low",
+  "evidence": [],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/common/q20",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 20,
+  "type": "su1_trig_basic",
+  "unit": "su1_trig",
+  "confidence": "med",
+  "evidence": [
+   "\\bsin\\b|\\bcos\\b|\\btan\\b"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/common/q21",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 21,
+  "type": "su2_diff_eq",
+  "unit": "su2_diff",
+  "confidence": "high",
+  "evidence": [
+   "(방정식|부등식).{0,20}(실근|근의 개수|성립)",
+   "실근의 개수"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/common/q22",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 22,
+  "type": "su1_explog_calc",
+  "unit": "su1_explog",
+  "confidence": "low",
+  "evidence": [
+   "\\blog\\b"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/prob_stat/q23",
+  "exam_id": "2027_mock09",
+  "subject": "prob_stat",
+  "question_no": 23,
+  "type": "ps_perm",
+  "unit": "ps_comb",
+  "confidence": "high",
+  "evidence": [
+   "일렬로",
+   "나열"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/prob_stat/q24",
+  "exam_id": "2027_mock09",
+  "subject": "prob_stat",
+  "question_no": 24,
+  "type": "ps_prob_cond",
+  "unit": "ps_prob",
+  "confidence": "med",
+  "evidence": [
+   "사건"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/prob_stat/q25",
+  "exam_id": "2027_mock09",
+  "subject": "prob_stat",
+  "question_no": 25,
+  "type": "ps_binomial",
+  "unit": "ps_comb",
+  "confidence": "high",
+  "evidence": [
+   "전개식",
+   "계수"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/prob_stat/q26",
+  "exam_id": "2027_mock09",
+  "subject": "prob_stat",
+  "question_no": 26,
+  "type": "ps_prob_basic",
+  "unit": "ps_prob",
+  "confidence": "med",
+  "evidence": [
+   "확률",
+   "주사위|동전"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/prob_stat/q27",
+  "exam_id": "2027_mock09",
+  "subject": "prob_stat",
+  "question_no": 27,
+  "type": "ps_dist_normal",
+  "unit": "ps_stat",
+  "confidence": "high",
+  "evidence": [
+   "정규분포",
+   "표준정규분포"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/prob_stat/q28",
+  "exam_id": "2027_mock09",
+  "subject": "prob_stat",
+  "question_no": 28,
+  "type": "ps_prob_cond",
+  "unit": "ps_prob",
+  "confidence": "med",
+  "evidence": [
+   "[을일] 때.{0,40}확률"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/prob_stat/q29",
+  "exam_id": "2027_mock09",
+  "subject": "prob_stat",
+  "question_no": 29,
+  "type": null,
+  "unit": null,
+  "confidence": "low",
+  "evidence": [],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/prob_stat/q30",
+  "exam_id": "2027_mock09",
+  "subject": "prob_stat",
+  "question_no": 30,
+  "type": "ps_prob_basic",
+  "unit": "ps_prob",
+  "confidence": "high",
+  "evidence": [
+   "확률",
+   "임의로",
+   "꺼내"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/calculus/q23",
+  "exam_id": "2027_mock09",
+  "subject": "calculus",
+  "question_no": 23,
+  "type": "calc_diff_func",
+  "unit": "calc_diff",
+  "confidence": "med",
+  "evidence": [
+   "\\bln\\b"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/calculus/q24",
+  "exam_id": "2027_mock09",
+  "subject": "calculus",
+  "question_no": 24,
+  "type": null,
+  "unit": null,
+  "confidence": "low",
+  "evidence": [],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/calculus/q25",
+  "exam_id": "2027_mock09",
+  "subject": "calculus",
+  "question_no": 25,
+  "type": null,
+  "unit": null,
+  "confidence": "low",
+  "evidence": [],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/calculus/q26",
+  "exam_id": "2027_mock09",
+  "subject": "calculus",
+  "question_no": 26,
+  "type": "calc_int_apply",
+  "unit": "calc_int",
+  "confidence": "high",
+  "evidence": [
+   "둘러싸인",
+   "넓이"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/calculus/q27",
+  "exam_id": "2027_mock09",
+  "subject": "calculus",
+  "question_no": 27,
+  "type": "calc_diff_func",
+  "unit": "calc_diff",
+  "confidence": "med",
+  "evidence": [
+   "\\bln\\b"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/calculus/q28",
+  "exam_id": "2027_mock09",
+  "subject": "calculus",
+  "question_no": 28,
+  "type": "calc_int_apply",
+  "unit": "calc_int",
+  "confidence": "high",
+  "evidence": [
+   "둘러싸인",
+   "넓이"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/calculus/q29",
+  "exam_id": "2027_mock09",
+  "subject": "calculus",
+  "question_no": 29,
+  "type": "calc_series",
+  "unit": "calc_limit",
+  "confidence": "high",
+  "evidence": [
+   "급수"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/calculus/q30",
+  "exam_id": "2027_mock09",
+  "subject": "calculus",
+  "question_no": 30,
+  "type": "calc_diff_rules",
+  "unit": "calc_diff",
+  "confidence": "med",
+  "evidence": [
+   "역함수"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/geometry/q23",
+  "exam_id": "2027_mock09",
+  "subject": "geometry",
+  "question_no": 23,
+  "type": "geo_vector_op",
+  "unit": "geo_vector",
+  "confidence": "med",
+  "evidence": [
+   "벡터"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/geometry/q24",
+  "exam_id": "2027_mock09",
+  "subject": "geometry",
+  "question_no": 24,
+  "type": "geo_space_coord",
+  "unit": "geo_space",
+  "confidence": "high",
+  "evidence": [
+   "좌표공간"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/geometry/q25",
+  "exam_id": "2027_mock09",
+  "subject": "geometry",
+  "question_no": 25,
+  "type": "geo_ellipse",
+  "unit": "geo_conic",
+  "confidence": "high",
+  "evidence": [
+   "타원"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/geometry/q26",
+  "exam_id": "2027_mock09",
+  "subject": "geometry",
+  "question_no": 26,
+  "type": null,
+  "unit": null,
+  "confidence": "low",
+  "evidence": [],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/geometry/q27",
+  "exam_id": "2027_mock09",
+  "subject": "geometry",
+  "question_no": 27,
+  "type": "geo_parabola",
+  "unit": "geo_conic",
+  "confidence": "high",
+  "evidence": [
+   "포물선"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/geometry/q28",
+  "exam_id": "2027_mock09",
+  "subject": "geometry",
+  "question_no": 28,
+  "type": "geo_space_figure",
+  "unit": "geo_space",
+  "confidence": "high",
+  "evidence": [
+   "정사영",
+   "직선.{0,10}평면"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": false
+ },
+ {
+  "key": "2027_mock09/geometry/q29",
+  "exam_id": "2027_mock09",
+  "subject": "geometry",
+  "question_no": 29,
+  "type": "geo_ellipse",
+  "unit": "geo_conic",
+  "confidence": "low",
+  "evidence": [
+   "타원"
+  ],
+  "method": "keyword_rules_v1",
+  "needs_review": true
+ },
+ {
+  "key": "2027_mock09/geometry/q30",
+  "exam_id": "2027_mock09",
+  "subject": "geometry",
+  "question_no": 30,
+  "type": null,
+  "unit": null,
+  "confidence": "low",
+  "evidence": [],
+  "method": "keyword_rules_v1",
+  "needs_review": true
  }
 ]

@@ -7848,5 +7848,465 @@
   "method": "ai_image",
   "review_status": "confirmed",
   "ai_note": "BA·BC=CB·CD 등 내적 조건과 DX·BC 최대·최소"
+ },
+ {
+  "key": "2027_mock09/common/q01",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 1,
+  "type": "su1_explog_calc",
+  "unit": "su1_explog",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/common/q02",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 2,
+  "type": "su2_diff_basic",
+  "unit": "su2_diff",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/common/q03",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 3,
+  "type": "su1_seq_arith_geo",
+  "unit": "su1_seq",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/common/q04",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 4,
+  "type": "su2_continuity",
+  "unit": "su2_limit",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/common/q05",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 5,
+  "type": "su2_int_basic",
+  "unit": "su2_int",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/common/q06",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 6,
+  "type": "su1_trig_basic",
+  "unit": "su1_trig",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/common/q07",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 7,
+  "type": "su2_diff_graph",
+  "unit": "su2_diff",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/common/q08",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 8,
+  "type": "su1_seq_arith_geo",
+  "unit": "su1_seq",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/common/q09",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 9,
+  "type": "su2_diff_motion",
+  "unit": "su2_diff",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/common/q10",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 10,
+  "type": "su1_explog_func",
+  "unit": "su1_explog",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/common/q11",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 11,
+  "type": "su2_int_basic",
+  "unit": "su2_int",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/common/q12",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 12,
+  "type": "su1_trig_apply",
+  "unit": "su1_trig",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/common/q13",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 13,
+  "type": "su2_int_basic",
+  "unit": "su2_int",
+  "method": "ai_image",
+  "review_status": "needs_review"
+ },
+ {
+  "key": "2027_mock09/common/q14",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 14,
+  "type": "su1_seq_sum",
+  "unit": "su1_seq",
+  "method": "ai_image",
+  "review_status": "needs_review"
+ },
+ {
+  "key": "2027_mock09/common/q15",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 15,
+  "type": "su2_limit_calc",
+  "unit": "su2_limit",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/common/q16",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 16,
+  "type": "su1_explog_func",
+  "unit": "su1_explog",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/common/q17",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 17,
+  "type": "su2_int_basic",
+  "unit": "su2_int",
+  "method": "ai_image",
+  "review_status": "needs_review"
+ },
+ {
+  "key": "2027_mock09/common/q18",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 18,
+  "type": "su1_seq_induction",
+  "unit": "su1_seq",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/common/q19",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 19,
+  "type": "su2_diff_tangent",
+  "unit": "su2_diff",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/common/q20",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 20,
+  "type": "su1_trig_basic",
+  "unit": "su1_trig",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/common/q21",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 21,
+  "type": "su2_diff_basic",
+  "unit": "su2_diff",
+  "method": "ai_image",
+  "review_status": "needs_review"
+ },
+ {
+  "key": "2027_mock09/common/q22",
+  "exam_id": "2027_mock09",
+  "subject": "common",
+  "question_no": 22,
+  "type": "su1_explog_func",
+  "unit": "su1_explog",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/prob_stat/q23",
+  "exam_id": "2027_mock09",
+  "subject": "prob_stat",
+  "question_no": 23,
+  "type": "ps_perm",
+  "unit": "ps_comb",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/prob_stat/q24",
+  "exam_id": "2027_mock09",
+  "subject": "prob_stat",
+  "question_no": 24,
+  "type": "ps_prob_cond",
+  "unit": "ps_prob",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/prob_stat/q25",
+  "exam_id": "2027_mock09",
+  "subject": "prob_stat",
+  "question_no": 25,
+  "type": "ps_binomial",
+  "unit": "ps_comb",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/prob_stat/q26",
+  "exam_id": "2027_mock09",
+  "subject": "prob_stat",
+  "question_no": 26,
+  "type": "ps_prob_basic",
+  "unit": "ps_prob",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/prob_stat/q27",
+  "exam_id": "2027_mock09",
+  "subject": "prob_stat",
+  "question_no": 27,
+  "type": "ps_dist_normal",
+  "unit": "ps_stat",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/prob_stat/q28",
+  "exam_id": "2027_mock09",
+  "subject": "prob_stat",
+  "question_no": 28,
+  "type": "ps_prob_cond",
+  "unit": "ps_prob",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/prob_stat/q29",
+  "exam_id": "2027_mock09",
+  "subject": "prob_stat",
+  "question_no": 29,
+  "type": "ps_combination",
+  "unit": "ps_comb",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/prob_stat/q30",
+  "exam_id": "2027_mock09",
+  "subject": "prob_stat",
+  "question_no": 30,
+  "type": "ps_estimation",
+  "unit": "ps_stat",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/calculus/q23",
+  "exam_id": "2027_mock09",
+  "subject": "calculus",
+  "question_no": 23,
+  "type": "calc_diff_func",
+  "unit": "calc_diff",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/calculus/q24",
+  "exam_id": "2027_mock09",
+  "subject": "calculus",
+  "question_no": 24,
+  "type": "calc_int_rules",
+  "unit": "calc_int",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/calculus/q25",
+  "exam_id": "2027_mock09",
+  "subject": "calculus",
+  "question_no": 25,
+  "type": "calc_seq_limit",
+  "unit": "calc_limit",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/calculus/q26",
+  "exam_id": "2027_mock09",
+  "subject": "calculus",
+  "question_no": 26,
+  "type": "calc_int_apply",
+  "unit": "calc_int",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/calculus/q27",
+  "exam_id": "2027_mock09",
+  "subject": "calculus",
+  "question_no": 27,
+  "type": "calc_diff_rules",
+  "unit": "calc_diff",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/calculus/q28",
+  "exam_id": "2027_mock09",
+  "subject": "calculus",
+  "question_no": 28,
+  "type": "calc_diff_rules",
+  "unit": "calc_diff",
+  "method": "ai_image",
+  "review_status": "needs_review"
+ },
+ {
+  "key": "2027_mock09/calculus/q29",
+  "exam_id": "2027_mock09",
+  "subject": "calculus",
+  "question_no": 29,
+  "type": "calc_series",
+  "unit": "calc_limit",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/calculus/q30",
+  "exam_id": "2027_mock09",
+  "subject": "calculus",
+  "question_no": 30,
+  "type": "calc_int_rules",
+  "unit": "calc_int",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/geometry/q23",
+  "exam_id": "2027_mock09",
+  "subject": "geometry",
+  "question_no": 23,
+  "type": "geo_vector_op",
+  "unit": "geo_vector",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/geometry/q24",
+  "exam_id": "2027_mock09",
+  "subject": "geometry",
+  "question_no": 24,
+  "type": "geo_space_coord",
+  "unit": "geo_space",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/geometry/q25",
+  "exam_id": "2027_mock09",
+  "subject": "geometry",
+  "question_no": 25,
+  "type": "geo_ellipse",
+  "unit": "geo_conic",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/geometry/q26",
+  "exam_id": "2027_mock09",
+  "subject": "geometry",
+  "question_no": 26,
+  "type": "geo_space_figure",
+  "unit": "geo_space",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/geometry/q27",
+  "exam_id": "2027_mock09",
+  "subject": "geometry",
+  "question_no": 27,
+  "type": "geo_parabola",
+  "unit": "geo_conic",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/geometry/q28",
+  "exam_id": "2027_mock09",
+  "subject": "geometry",
+  "question_no": 28,
+  "type": "geo_space_figure",
+  "unit": "geo_space",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/geometry/q29",
+  "exam_id": "2027_mock09",
+  "subject": "geometry",
+  "question_no": 29,
+  "type": "geo_hyperbola",
+  "unit": "geo_conic",
+  "method": "ai_image",
+  "review_status": "confirmed"
+ },
+ {
+  "key": "2027_mock09/geometry/q30",
+  "exam_id": "2027_mock09",
+  "subject": "geometry",
+  "question_no": 30,
+  "type": "geo_vector_dot",
+  "unit": "geo_vector",
+  "method": "ai_image",
+  "review_status": "confirmed"
  }
 ]
